@@ -35,7 +35,7 @@
 
             var random_color;
 
-            let type = prompt("1:) Set view: 'conic' or 'linear':");
+            let type = prompt("1:) To choose gradient between conic & linear, Type: \n -> 'c' for conic \n -> 'l' for linear");
             let set_time = parseInt(prompt("2:) Set time interval in 'milliseconds':"));
             let n = parseInt(prompt("3:) Set number of random colors:"));
             alert("𝘙𝘢𝘯𝘥𝘰𝘮 𝘋𝘪𝘴𝘤𝘰 𝘓𝘪𝘨𝘩𝘵 𝘚𝘪𝘮𝘶𝘭𝘢𝘵𝘰𝘳 (𝘸𝘪𝘵𝘩 💖 𝘣𝘺 '𝘬𝘶𝘮𝘢𝘳 𝘴𝘢𝘯𝘶')");
@@ -61,25 +61,24 @@
 
                 setInterval(() => {
                     document.body.style.backgroundColor = `${getRandomColor()}`
-                    // document.body.style.background = `${type}-gradient(red, ${number(n)} red)`;
                 }, `${set_time}`);
             }
 
             else {
 
-                if (type == "conic") {
+                if (type == "c" || type == "C") {
 
                     setInterval(() => {
                         // document.body.style.backgroundColor = `${getRandomColor()}`
-                        document.body.style.background = `${type}-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
+                        document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
                     }, `${set_time}`);
 
                 }
-                else if (type == "linear") {
+                else if (type == "l" || type == "L") {
 
                     setInterval(() => {
                         // document.body.style.backgroundColor = `${getRandomColor()}`
-                        document.body.style.background = `${type}-gradient(${number(n - 1)} ${random_color})`;
+                        document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
                     }, `${set_time}`);
 
                 }
