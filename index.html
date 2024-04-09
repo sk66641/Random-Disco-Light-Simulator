@@ -1,73 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instagram Reels Clone</title>
-    <link rel="stylesheet" href="ram_mandir.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="app__videos">
-      <div class="video">
-        <!-- header starts -->
-        <div class="videoHeader">
-          <span class="material-icons"> arrow_back </span>
-          <h3>Instagram</h3>
-          <span class="material-icons"> camera_alt </span>
-        </div>
-        <!-- header ends -->
 
-        <video class="video__player" src="333989698_289234827473224_1742922997274061103_n.mp4"></video>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Disco Light</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-        <!-- footer starts -->
-        <div class="videoFooter">
-          <div class="videoFooter__text">
-            <img class="user__avatar" src="https://c.ndtvimg.com/2023-12/na2ncado_ram-mandir-3d_625x300_27_December_23.jpg" alt="" />
-            <h3>Kumar Sanu<button>Follow</button></h3>
-          </div>
+    .contain {
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
 
-          <div class="videoFooter__ticker">
-            <span class="material-icons"> music_note </span>
-            <marquee>Song Name</marquee>
-          </div>
+<body>
+    <div class="contain">
+        <script>
 
-          <div class="videoFooter__actions">
-            <div class="videoFooter__actionsLeft">
-              <span class="material-icons"> favorite </span>
-              <span class="material-icons"> mode_comment </span>
-              <span class="material-icons"> send </span>
-              <span class="material-icons"> more_horiz </span>
-            </div>
-            <div class="videoFooter__actionsRight">
-              <div class="videoFooter__stat">
-                <span class="material-icons"> favorite </span>
-                <p>12</p>
-              </div>
-              <div class="videoFooter__stat">
-                <span class="material-icons"> mode_comment </span>
-                <p>20</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- footer ends -->
-      </div>
+            function getRandomColor() {
+
+                // range of Math.random(): [0,1)
+                // Generating random nubmers for [a, b]: parseInt(a + Math.random()*(b+1-a))
+                let val1 = parseInt(0 + Math.random() * (255 + 1 - 0));
+                let val2 = parseInt(0 + Math.random() * (255 + 1 - 0));
+                let val3 = parseInt(0 + Math.random() * (255 + 1 - 0));
+                return `rgb(${val1}, ${val2}, ${val3})`;
+
+            }
+
+            var random_color;
+
+            alert("𝘙𝘢𝘯𝘥𝘰𝘮 𝘋𝘪𝘴𝘤𝘰 𝘓𝘪𝘨𝘩𝘵 (𝘸𝘪𝘵𝘩 💖 𝘣𝘺 '𝘬𝘶𝘮𝘢𝘳 𝘴𝘢𝘯𝘶')");
+            let type = prompt("1.) Select view: 'conic' or 'linear':");
+            let set_time = parseInt(prompt("2.) Set time interval in 'milliseconds':"));
+            let n = parseInt(prompt("3.) Select number of random colors:"));
+
+            function number(n) {
+
+                var ch = `${getRandomColor()}, `;
 
 
-    <script>
-      const videos = document.querySelectorAll('video');
+                while (n >= 2) {
+                    ch += `${getRandomColor()}, `;
+                    n = n - 1;
+                }
 
-      for (const video of videos) {
-        video.addEventListener('click', function () {
-          if (video.paused) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        });
-      }
-    </script>
-  </body>
+                return ch;
+            }
+
+            setInterval(() => {
+                random_color = `${getRandomColor()}`;
+            }, `${set_time}`);
+
+            if (n == 1) {
+
+                setInterval(() => {
+                    document.body.style.backgroundColor = `${getRandomColor()}`
+                    // document.body.style.background = `${type}-gradient(red, ${number(n)} red)`;
+                }, `${set_time}`);
+            }
+
+            else {
+
+                if (type == "conic") {
+
+                    setInterval(() => {
+                        // document.body.style.backgroundColor = `${getRandomColor()}`
+                        document.body.style.background = `${type}-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
+                    }, `${set_time}`);
+
+                }
+                else if (type == "linear") {
+
+                    setInterval(() => {
+                        // document.body.style.backgroundColor = `${getRandomColor()}`
+                        document.body.style.background = `${type}-gradient(${number(n - 1)} ${random_color})`;
+                    }, `${set_time}`);
+
+                }
+            }
+
+        </script>
+    </div>
+
+</body>
+
 </html>
