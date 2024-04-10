@@ -11,7 +11,7 @@ function getRandomColor() {
 
 var random_color = `${getRandomColor()}`;
 
-do {
+/* do {
 
     var type = prompt("1:) To choose gradient between conic & linear, Type: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
 
@@ -25,61 +25,26 @@ do {
 do {
 
     var set_time = Number(prompt("2:) Set time interval in 'milliseconds':"));
-    var set_time_condition;
 
-    if (isNaN(set_time)) {
-
+    if (isNaN(set_time) || set_time < 0) {
         alert("Please enter a valid time interval");
-        set_time_condition = true;
-
-    }
-    else {
-
-        if (set_time < 0) {
-            alert("Please enter a valid time interval");
-            set_time_condition = true;
-        }
-        else if (set_time > 0) {
-            set_time_condition = false;
-        }
     }
 
-
-} while (set_time_condition);
+} while (isNaN(set_time) || set_time < 0);
 
 do {
 
     var n = Number(prompt("3:) Enter number of random colors:"));
-    var n_condition;
 
-    if (isNaN(n)) {
-
+    if (isNaN(n) || n < 1 || Number.isInteger(n) == false) {
         alert("Please enter a positive integer greater than or equal to '1'");
-        n_condition = true;
-
-    }
-    else {
-
-        if (n < 1) {
-
-            alert("Please enter a positive integer greater than or equal to '1'");
-            n_condition = true;
-
-        }
-        else if (n >= 1) {
-
-            if (Number.isInteger(n)) {
-                n_condition = false;
-            }
-            else {
-                alert("Please enter a positive integer greater than or equal to '1'");
-                n_condition = true;
-            }
-        }
     }
 
-} while (n_condition);
+} while (isNaN(n) || n < 1 || Number.isInteger(n) == false); */
 
+let type = prompt("1:) To choose gradient between conic & linear, Enter: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
+let set_time = parseInt(prompt("2:) Set time interval in 'milliseconds', greater than or equal to 0:"));
+let n = parseInt(prompt("3:) Enter number of random colors:\n(Enter a positive integer greater than or equal to 1)"));
 alert("𝘙𝘢𝘯𝘥𝘰𝘮 𝘋𝘪𝘴𝘤𝘰 𝘓𝘪𝘨𝘩𝘵 𝘚𝘪𝘮𝘶𝘭𝘢𝘵𝘰𝘳 (𝘸𝘪𝘵𝘩 💖 𝘣𝘺 '𝘬𝘶𝘮𝘢𝘳 𝘴𝘢𝘯𝘶')");
 
 function number(n) {
