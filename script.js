@@ -9,7 +9,7 @@ function getRandomColor() {
 
 }
 
-var random_color = `${getRandomColor()}`;
+let random_color = `${getRandomColor()}`;
 
 /* do {
 
@@ -24,13 +24,13 @@ var random_color = `${getRandomColor()}`;
 
 do {
 
-    var set_time = Number(prompt("2:) Set time interval in 'milliseconds':"));
+    var set_time = Number(prompt("2:) Set the time interval (in 'milliseconds') with which the color changes randomly:\n(Negative interval or no input will be treated as 0 interval)"));
 
-    if (isNaN(set_time) || set_time < 0) {
+    if (isNaN(set_time)) {
         alert("Please enter a valid time interval");
     }
 
-} while (isNaN(set_time) || set_time < 0);
+} while (isNaN(set_time));
 
 do {
 
@@ -43,7 +43,7 @@ do {
 } while (isNaN(n) || n < 1 || Number.isInteger(n) == false); */
 
 let type = prompt("1:) To choose gradient between conic & linear, Enter: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
-let set_time = Number(prompt("2:) Set time interval in 'milliseconds':\n(Negative interval will be treated as 0 interval)"));
+let set_time = Number(prompt("2:) Set the time interval (in 'milliseconds') with which the color changes randomly:\n(Negative interval or no input will be treated as 0 interval)"));
 let n = Number(prompt("3:) Enter number of random colors:\n(Enter a positive integer greater than or equal to 1)"));
 // alert("𝘙𝘢𝘯𝘥𝘰𝘮 𝘋𝘪𝘴𝘤𝘰 𝘓𝘪𝘨𝘩𝘵 𝘚𝘪𝘮𝘶𝘭𝘢𝘵𝘰𝘳 (𝘸𝘪𝘵𝘩 💖 𝘣𝘺 '𝘬𝘶𝘮𝘢𝘳 𝘴𝘢𝘯𝘶')");
 
@@ -77,7 +77,6 @@ if (n == 1) {
 
 else if (n > 1) {
 
-
     if (type == "c" || type == "C") {
 
         document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
@@ -97,4 +96,3 @@ else if (n > 1) {
 
     }
 }
-
