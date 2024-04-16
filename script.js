@@ -13,14 +13,14 @@ let random_color = `${getRandomColor()}`;
 
 /* do {
 
-    var type = prompt("1:) To choose gradient between conic & linear, Type: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
+    var view = prompt("1:) To choose gradient between conic & linear, view: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
 
-    if (type != 'c' && type != 'l' && type != 'C' && type != 'L') {
+    if (view != 'c' && view != 'l' && view != 'C' && view != 'L') {
         alert("Please enter 'c' or 'C' for conic or 'l' or 'L' for linear");
 
     }
 
-} while (type != 'c' && type != 'l' && type != 'C' && type != 'L');
+} while (view != 'c' && view != 'l' && view != 'C' && view != 'L');
 
 do {
 
@@ -42,9 +42,9 @@ do {
 
 } while (isNaN(n) || n < 1 || Number.isInteger(n) == false); */
 
-let type = prompt("1:) To choose gradient between conic & linear, Enter: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
+let n = Number(prompt("1:) Enter the number of random colors:"));
 let set_time = Number(prompt("2:) Set the time interval (in 'milliseconds') with which the color changes randomly:\n(Negative interval or no input will be treated as 0 interval)"));
-let n = Number(prompt("3:) Enter number of random colors:\n(Enter a positive integer greater than or equal to 1)"));
+let view = prompt("3:) To choose gradient between conic & linear, Enter: \n -> 'c' or 'C' for conic \n -> 'l' or 'L' for linear");
 // alert("𝘙𝘢𝘯𝘥𝘰𝘮 𝘋𝘪𝘴𝘤𝘰 𝘓𝘪𝘨𝘩𝘵 𝘚𝘪𝘮𝘶𝘭𝘢𝘵𝘰𝘳 (𝘸𝘪𝘵𝘩 💖 𝘣𝘺 '𝘬𝘶𝘮𝘢𝘳 𝘴𝘢𝘯𝘶')");
 
 function number(n) {
@@ -77,7 +77,7 @@ if (n == 1) {
 
 else if (n > 1) {
 
-    if (type == "c" || type == "C") {
+    if (view == "c" || view == "C" || view == "conic" || view == "Conic") {
 
         document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
         setInterval(() => {
@@ -86,7 +86,7 @@ else if (n > 1) {
         }, `${set_time}`);
 
     }
-    else if (type == "l" || type == "L") {
+    else if (view == "l" || view == "L" || view == "linear" || view == "Linear") {
 
         document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
         setInterval(() => {

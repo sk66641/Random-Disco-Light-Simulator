@@ -1,9 +1,39 @@
-This simulator takes three input: <br>
+# Random Disco Light Simulator
 
-#inputs:<br>
-1:) What type of gradient you want to choose (conic or linear)?<br>
-2:) By how much time interval (in milliseconds) you want to change the colors?<br>
-3:) How many random colors you want to be shown?
+## This simulator takes three inputs:
 
-#output:<br>
+### Inputs:
+
+1. How many random colors you want to be shown?
+2. By how much time interval (in milliseconds) you want to change the colors randomly?<br>
+3. What type of gradient you want to choose (conic or linear)?<br>
+
+### Output:
+
 On the basis of these three inputs, it simulates conic or linear view for given number of random colors and time interval.
+
+### Try these inputs:
+<table>
+        <tr>
+            <td>1:)</td>
+            <td>1000</td>
+            <td>2</td>
+            <td>1000</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>2:)</td>
+            <td>1</td>
+            <td>500</td>
+            <td>1</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>3:)</td>
+            <td>conic</td>
+            <td>linear</td>
+            <td>linear</td>
+            <td>conic</td>
+</table>
+
+### Have a fun! 😄
