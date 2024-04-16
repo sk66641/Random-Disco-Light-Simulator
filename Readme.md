@@ -8,11 +8,11 @@
 2:) By how much time interval (in milliseconds) you want to change the colors randomly?<br>
 3:) What type of gradient you want to choose (conic or linear)?
 
-### Output:
+## Output:
 
 On the basis of these three inputs, it simulates conic or linear view for given number of random colors and time interval.
 
-### Try these inputs:
+## Try these inputs:
 
 <table>
         <tr>
