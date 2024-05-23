@@ -9,7 +9,43 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="box">
+            <h1>Random Disco Light Simulator</h1>
+            <div>
+                <label>1. Number of Colors:</label>
+                <input type="number" id="color" placeholder="Enter">
+            </div>
+            <div>
+                <label>2. Time interval (<em>'in milliseconds'</em>), <br>with which the color changes
+                    randomly:</label><br>
+                <input type="number" id="time" placeholder="Enter">
+                <br><strong>[Negative interval or no input will be treated as 0 interval]</strong>
+            </div>
+            <div>
+                <label>3. View:</label>
+                <select id="view">
+                    <option style="background-color: lightslategray; color: white;" value="select">Select</option>
+                    <option value="conic">Conic</option>
+                    <option value="linear">Linear</option>
 
+                </select>
+            </div>
+            <div class="button">
+                <button id="submit" onclick="run()">Submit</button>
+                <button id="reset" onclick="window.location.reload()">Reset</button>
+            </div>
+            <div id="error"></div>
+        </div>
+        <!-- <div class="connect">
+            <a href="https://www.linkedin.com/in/sanu-kumar-2a9492283/" target="_blank"> <img class="img1" height="50px"
+                    width="50px" src="linkedin.png" alt="linkedin">
+            </a>
+            <a href="https://github.com//sk66641" target="_blank"> <img class="img2" style="border-radius: 5px;"
+                    height="50px" width="50px" src="github.jpeg" alt="github">
+            </a>
+        </div> -->
+    </div>
     <script src="script.js"></script>
 
 </body>
