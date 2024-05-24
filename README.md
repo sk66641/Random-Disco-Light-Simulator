@@ -6,7 +6,7 @@
 
 1. How many random colors you want to be shown?
 2. With how much time interval (in milliseconds) you want to change the colors randomly?
-3. What type of view you want to choose (conic or linear)?
+3. What type of view you want to choose (conic, linear or radial)?
 
 ## Output:
 
@@ -21,6 +21,13 @@ On the basis of these three inputs, it simulates conic or linear view for given 
                 <li>1000</li>
                 <li>1</li>
                 <li>conic</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>1000</li>
+                <li>1</li>
+                <li>radial</li>
             </ul>
         </td>
         <td>

@@ -10,16 +10,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: grey;
 }
 
 h1 {
     color: indigo;
+    color: dar;
     text-align: center;
     text-decoration: underline;
 }
 
 .box {
-    background-color: yellow;
+    background: linear-gradient(magenta, darkorchid);
     border-radius: 20px;
     padding: 0px 10px 10px 10px;
     box-shadow: 0px 0px 20px 10px black;

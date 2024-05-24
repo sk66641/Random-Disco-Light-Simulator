@@ -23,25 +23,25 @@ function run() {
 
     if (n < 0) {
         document.getElementById("error").innerText = "Please enter a positive integer in 'Number of Colors'!"
-        document.getElementById("error").style.color = "red"
+        document.getElementById("error").style.color = "darkred"
     }
 
     else if (Number.isInteger(n) == false || n == "") {
         if (n == "") {
 
             document.getElementById("error").innerText = "Please enter 'Number of Colors'!"
-            document.getElementById("error").style.color = "red"
+            document.getElementById("error").style.color = "darkred"
         }
         else if (Number.isInteger(n) == false) {
             document.getElementById("error").innerText = "Please enter a positive integer in 'Number of Colors'!"
-            document.getElementById("error").style.color = "red"
+            document.getElementById("error").style.color = "darkred"
         }
 
     }
 
     else if (view == "select") {
         document.getElementById("error").innerText = "Please select 'View'!"
-        document.getElementById("error").style.color = "red"
+        document.getElementById("error").style.color = "darkred"
     }
 
     else {
