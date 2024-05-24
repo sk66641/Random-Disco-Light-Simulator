@@ -80,7 +80,7 @@ function run() {
 
     else if (n > 1) {
 
-        if (view == "c" || view == "C" || view == "conic" || view == "Conic") {
+        if (view == "conic") {
 
             document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
             setInterval(() => {
@@ -88,11 +88,19 @@ function run() {
             }, `${set_time}`);
 
         }
-        else if (view == "l" || view == "L" || view == "linear" || view == "Linear") {
+        else if (view == "linear") {
 
             document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
             setInterval(() => {
                 document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
+            }, `${set_time}`);
+
+        }
+        else if (view == "radial") {
+
+            document.body.style.background = `radial-gradient(${number(n - 1)} ${random_color})`;
+            setInterval(() => {
+                document.body.style.background = `radial-gradient(${number(n - 1)} ${random_color})`;
             }, `${set_time}`);
 
         }
