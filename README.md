@@ -5,8 +5,8 @@
 ### Inputs:
 
 1. How many random colors you want to be shown?
-2. By how much time interval (in milliseconds) you want to change the colors randomly?
-3. What type of gradient you want to choose (conic or linear)?
+2. With how much time interval (in milliseconds) you want to change the colors randomly?
+3. What type of view you want to choose (conic or linear)?
 
 ## Output:
 
