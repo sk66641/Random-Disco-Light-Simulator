@@ -13,20 +13,16 @@ function run() {
 
     let random_color = `${getRandomColor()}`;
 
-    var color = document.getElementById("color")
-    var time = document.getElementById("time")
-    var _view = document.getElementById("view")
+    let n = document.getElementById("color").value
+    let set_time = document.getElementById("time").value
+    let view = document.getElementById("view").value
 
-    var n = Number(color.value)
-    var set_time = time.value
-    var view = _view.value
-
-    if (n < 0) {
+    if (Number(n) < 0) {
         document.getElementById("error").innerText = "Please enter a positive integer in 'Number of Colors'!"
         document.getElementById("error").style.color = "red"
     }
 
-    else if (Number.isInteger(n) == false || n == "") {
+    else if (Number.isInteger(Number(n)) == false || n == "") {
         if (n == "") {
 
             document.getElementById("error").innerText = "Please enter 'Number of Colors'!"
@@ -46,8 +42,11 @@ function run() {
 
     else {
         document.body.children[0].style.display = 'none';
+
         alert("Double click on the screen to reload!")
+
         document.body.style.cursor = "pointer";
+
         document.body.addEventListener("dblclick", () => {
             let cnf1 = confirm("Are you sure you want to reload?");
             if (cnf1) {
@@ -57,7 +56,7 @@ function run() {
     }
 
     function number(n) {
-        var ch = `${getRandomColor()}, `;
+        let ch = `${getRandomColor()}, `;
         if (n == parseInt(n)) {
             while (n >= 2) {
                 ch += `${getRandomColor()}, `;
@@ -71,7 +70,7 @@ function run() {
         random_color = `${getRandomColor()}`;
     }, `${set_time}`);
 
-    if (n == 1) {
+    if (n == 1 && view != "select") {
         document.body.style.backgroundColor = `${getRandomColor()}`
         setInterval(() => {
             document.body.style.backgroundColor = `${getRandomColor()}`
