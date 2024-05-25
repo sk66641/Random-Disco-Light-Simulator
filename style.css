@@ -20,10 +20,10 @@ h1 {
 }
 
 .box {
-    background: linear-gradient(magenta, darkorchid);
+    background: linear-gradient(magenta, gold);
     border-radius: 20px;
     padding: 0px 10px 10px 10px;
-    box-shadow: 0px 0px 20px 10px black;
+    box-shadow: 0px 0px 15px 10px black;
 }
 
 #view {
@@ -89,15 +89,18 @@ img {
     cursor: pointer;
     box-shadow: 0px 0px 5px 5px black;
     border-radius: 5px;
+    margin-top: 5px;
+    height: 50px;
+    width: 50px;
 }
 
 img:hover {
     transform: scale(1.1);
 }
 
-@media only screen and (max-width: 1065px) {
+@media only screen and (max-width: 1048px) {
     * {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .button {
@@ -105,20 +108,21 @@ img:hover {
         margin-bottom: 12px;
     }
 
-    .img1 {
-        width: 45px;
-        height: 45px;
-    }
-
-    .img2 {
+    img {
         width: 45px;
         height: 45px;
     }
 }
 
-@media only screen and (max-width: 815px) {
+@media only screen and (max-width: 924px) {
     * {
-        font-size: 20px;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    * {
+        font-size: 25px;
     }
 
     .button {
@@ -126,20 +130,27 @@ img:hover {
         margin-bottom: 8px;
     }
 
-    .img1 {
+    img {
         width: 35px;
         height: 35px;
+        box-shadow: 0px 0px 3px 3px black;
     }
 
-    .img2 {
-        width: 35px;
-        height: 35px;
+    .box {
+        padding: 0px 5px 5px 5px;
+        box-shadow: 0px 0px 10px 5px black;
     }
 }
 
-@media only screen and (max-width: 564px) {
+@media only screen and (max-width: 676px) {
     * {
-        font-size: 10px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 552px) {
+    * {
+        font-size: 15px;
     }
 
     .button {
@@ -147,13 +158,15 @@ img:hover {
         margin-bottom: 4px;
     }
 
-    .img1 {
+    img {
         width: 25px;
         height: 25px;
-    }
 
-    .img2 {
-        width: 20px;
-        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 428px) {
+    * {
+        font-size: 10px;
     }
 }
