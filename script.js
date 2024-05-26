@@ -15,6 +15,7 @@ function run() {
 
     let n = document.getElementById("color").value
     let set_time = document.getElementById("time").value
+    let unit = document.getElementById("unit").value
     let view = document.getElementById("view").value
 
     if (Number(n) < 0) {
@@ -35,15 +36,20 @@ function run() {
 
     }
 
+    else if (unit == "unit") {
+        document.getElementById("error").innerText = "Please select 'Unit'!"
+        document.getElementById("error").style.color = "red"
+    }
+    
     else if (view == "select") {
         document.getElementById("error").innerText = "Please select 'View'!"
         document.getElementById("error").style.color = "red"
     }
 
     else {
-        document.body.children[0].style.display = 'none';
-
         alert("Double click on the screen to reload!")
+
+        document.body.children[0].style.display = 'none';
 
         document.body.style.cursor = "pointer";
 
@@ -55,53 +61,60 @@ function run() {
         })
     }
 
-    function number(n) {
-        let ch = `${getRandomColor()}, `;
-        if (n == parseInt(n)) {
-            while (n >= 2) {
-                ch += `${getRandomColor()}, `;
-                n = n - 1;
+    if (unit != "unit") {
+
+        if (unit == "seconds") {
+            set_time *= 1000;
+        }
+
+        function number(n) {
+            let ch = `${getRandomColor()}, `;
+            if (n == parseInt(n)) {
+                while (n >= 2) {
+                    ch += `${getRandomColor()}, `;
+                    n = n - 1;
+                }
+                return ch;
             }
-            return ch;
         }
-    }
 
-    setInterval(() => {
-        random_color = `${getRandomColor()}`;
-    }, `${set_time}`);
-
-    if (n == 1 && view != "select") {
-        document.body.style.backgroundColor = `${getRandomColor()}`
         setInterval(() => {
-            document.body.style.backgroundColor = `${getRandomColor()}`
+            random_color = `${getRandomColor()}`;
         }, `${set_time}`);
-    }
 
-    else if (n > 1) {
-
-        if (view == "conic") {
-
-            document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
+        if (n == 1 && view != "select") {
+            document.body.style.backgroundColor = `${getRandomColor()}`
             setInterval(() => {
+                document.body.style.backgroundColor = `${getRandomColor()}`
+            }, `${set_time}`);
+        }
+
+        else if (n > 1) {
+
+            if (view == "conic") {
+
                 document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
-            }, `${set_time}`);
+                setInterval(() => {
+                    document.body.style.background = `conic-gradient(${random_color}, ${number(n - 1)} ${random_color})`;
+                }, `${set_time}`);
 
-        }
-        else if (view == "linear") {
+            }
+            else if (view == "linear") {
 
-            document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
-            setInterval(() => {
                 document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
-            }, `${set_time}`);
+                setInterval(() => {
+                    document.body.style.background = `linear-gradient(${number(n - 1)} ${random_color})`;
+                }, `${set_time}`);
 
-        }
-        else if (view == "radial") {
+            }
+            else if (view == "radial") {
 
-            document.body.style.background = `radial-gradient(${number(n - 1)} ${random_color})`;
-            setInterval(() => {
                 document.body.style.background = `radial-gradient(${number(n - 1)} ${random_color})`;
-            }, `${set_time}`);
+                setInterval(() => {
+                    document.body.style.background = `radial-gradient(${number(n - 1)} ${random_color})`;
+                }, `${set_time}`);
 
+            }
         }
     }
 

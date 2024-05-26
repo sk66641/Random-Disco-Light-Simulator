@@ -19,35 +19,28 @@ On the basis of these three inputs, it simulates conic or linear view for given 
         <td>
             <ul>
                 <li>1000</li>
-                <li>1</li>
+                <li>1 milliseconds</li>
                 <li>conic</li>
             </ul>
         </td>
         <td>
             <ul>
                 <li>1000</li>
-                <li>1</li>
+                <li>1 milliseconds</li>
                 <li>radial</li>
             </ul>
         </td>
         <td>
             <ul>
                 <li>2</li>
-                <li>500</li>
+                <li>500 milliseconds</li>
                 <li>linear</li>
             </ul>
         </td>
         <td>
             <ul>
-                <li>7</li>
-                <li>500</li>
-                <li>conic</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
                 <li>1000</li>
-                <li>1</li>
+                <li>1 milliseconds</li>
                 <li>linear</li>
             </ul>
         </td>
