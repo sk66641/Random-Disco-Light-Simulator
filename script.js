@@ -19,30 +19,30 @@ function run() {
     let view = document.getElementById("view").value
 
     if (Number(n) < 0) {
-        document.getElementById("error").innerText = "Please enter a positive integer in 'Number of Colors'!"
+        document.getElementById("error").innerHTML = "<strong>Please enter a positive integer in 'Number of Colors'!</strong>"
         document.getElementById("error").style.color = "red"
     }
 
     else if (Number.isInteger(Number(n)) == false || n == "") {
         if (n == "") {
 
-            document.getElementById("error").innerText = "Please enter 'Number of Colors'!"
+            document.getElementById("error").innerHTML = "<strong>Please enter 'Number of Colors'!</strong>"
             document.getElementById("error").style.color = "red"
         }
         else if (Number.isInteger(n) == false) {
-            document.getElementById("error").innerText = "Please enter a positive integer in 'Number of Colors'!"
+            document.getElementById("error").innerHTML = "<strong>Please enter a positive integer in 'Number of Colors'!</strong>"
             document.getElementById("error").style.color = "red"
         }
 
     }
 
     else if (unit == "unit") {
-        document.getElementById("error").innerText = "Please select 'Unit'!"
+        document.getElementById("error").innerHTML = "<strong>Please select 'Unit'!</strong>"
         document.getElementById("error").style.color = "red"
     }
-    
+
     else if (view == "select") {
-        document.getElementById("error").innerText = "Please select 'View'!"
+        document.getElementById("error").innerHTML = "<strong>Please select 'View'!</strong>"
         document.getElementById("error").style.color = "red"
     }
 
