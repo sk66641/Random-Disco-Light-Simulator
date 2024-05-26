@@ -1,4 +1,4 @@
-document.body.addEventListener("click", () => {
+document.getElementById("screen").addEventListener("click", () => {
     if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
         document.exitFullscreen();
         document.getElementById("screen").innerHTML = "Enable Fullscreen";
