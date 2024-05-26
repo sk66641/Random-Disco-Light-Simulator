@@ -1,15 +1,3 @@
-document.getElementById("screen").addEventListener("click", () => {
-    if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-        document.exitFullscreen();
-        document.getElementById("screen").innerHTML = "Enable Fullscreen";
-    }
-    else {
-
-        document.documentElement.requestFullscreen();
-        document.getElementById("screen").innerHTML = "Exit Fullscreen";
-    }
-})
-
 function run() {
 
     function getRandomColor() {
