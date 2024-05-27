@@ -15,18 +15,17 @@
             <h1>Random Disco Light Simulator</h1>
             <div>
                 <label for="color">1. Number of Colors:</label>
-                <input type="number" id="color" placeholder="Enter">
+                <input type="number" id="color" placeholder="Enter" min="0">
             </div>
             <div>
                 <label for="time">2. Time interval <em>(with which the color changes
                         randomly)</em>:</label><br>
-                <input type="number" id="time" placeholder="Enter">
+                <input type="number" id="time" placeholder="Enter" min="0">
                 <select id="unit">
                     <option style="background-color: lightslategray; color: white;" value="unit">Unit</option>
                     <option value="milliseconds">milliseconds</option>
                     <option value="seconds">seconds</option>
                 </select>
-                <br><strong>[Negative interval or no input will be treated as 0 interval]</strong>
             </div>
             <div>
                 <label for="view">3. View:</label>
