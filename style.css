@@ -195,7 +195,7 @@ img:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(37, 5, 240);
+    background: rgb(113, 230, 245);
     padding: 20px;
     border: 1px solid black;
     z-index: 1000;
