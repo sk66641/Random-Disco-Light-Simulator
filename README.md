@@ -58,7 +58,7 @@ On the basis of these three inputs, it simulates conic or linear view for given 
 <table>
 	<tr>
 		<td>
-			<a href="https://github.com/piug-07/Random-Disco-Light-Simulator/graphs/contributors">
+			<a href="https://github.com/sk66641/Random-Disco-Light-Simulator/graphs/contributors">
 			  <img src="https://contrib.rocks/image?repo=sk66641/Random-Disco-Light-Simulator" />
 </a>
 		</td>
