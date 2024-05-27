@@ -48,6 +48,23 @@ On the basis of these three inputs, it simulates conic or linear view for given 
 
 </table>
 
+## Screenshot of the website 
+![image](https://github.com/aditya-bhaumik/Random-Disco-Light-Simulator/assets/92214013/7fc4e8bd-48d5-4a7e-963e-d971118b9fe1)
+
+
+## Our Contributors  !! ✨
+### Thanks to these wonderful people: ✨
+
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/piug-07/Random-Disco-Light-Simulator/graphs/contributors">
+			  <img src="https://contrib.rocks/image?repo=sk66641/Random-Disco-Light-Simulator" />
+</a>
+		</td>
+	</tr>
+</table>
+
 ### Have a fun! 😄
 
 ## 🔗 Link:
