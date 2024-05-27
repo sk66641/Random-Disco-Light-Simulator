@@ -37,19 +37,27 @@
                     <option value="radial">Radial</option>
                 </select>
             </div>
+            <div>
+                <label for="countdown">4. Countdown Timer (in seconds):</label>
+                <input type="number" id="countdown" aria-label="Countdown Timer" placeholder="Enter time in seconds">
+            </div>
             <div class="button">
-                <button id="submit" onclick="run()">Submit</button>
+                <button id="submit">Submit</button>
                 <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank">
                     <img src="github.jpeg" alt="github">
                 </a>
-                <button id="reset" onclick="window.location.reload()">Reset</button>
+                <button id="reset">Reset</button>
             </div>
             <div id="error"></div>
         </div>
     </div>
+    <div id="timerDisplay" aria-label="Timer Display" style="display: none;"></div>
+    <div id="message" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid black; z-index: 1000;">
+        The timer has ended. The page will reload.
+    </div>
 
     <script src="script.js"></script>
-
+    
 </body>
 
 </html>

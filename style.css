@@ -176,3 +176,29 @@ img:hover {
         font-size: 10px;
     }
 }
+
+#timerDisplay {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(37, 5, 240);
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 1000;
+    font-size: 18px;
+    text-align: center;
+}
