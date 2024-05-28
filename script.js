@@ -1,4 +1,19 @@
 function run() {
+    let brightness = document.getElementById("brightness").value;
+    let saturation = document.getElementById("saturation").value;
+    let speed = document.getElementById("speed").value;
+
+    // Apply brightness and saturation to disco lights
+    let discoLights = document.querySelectorAll(".disco-light");
+    discoLights.forEach(light => {
+        light.style.filter = `brightness(${brightness}%) saturate(${saturation}%)`;
+    });
+
+    // Apply speed of change to animation duration
+    let animationDuration = 3000 / speed; // Adjust this value based on user input
+    document.styleSheets[0].insertRule(`@keyframes fadeInOut { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }`);
+    document.styleSheets[0].deleteRule(2); // Update the existing fadeInOut animation rule with the new duration
+
 
     function getRandomColor() {
 

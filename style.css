@@ -176,3 +176,32 @@ img:hover {
         font-size: 10px;
     }
 }
+/* Additional CSS for Customization Options */
+input[type="range"] {
+    width: 60%;
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    appearance: none;
+    background: linear-gradient(to right, #f6f6f6, #f6f6f6); /* Gray background */
+    border-radius: 10px;
+    height: 5px;
+    outline: none;
+    margin-top: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4CAF50; /* Green thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50; /* Green thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
