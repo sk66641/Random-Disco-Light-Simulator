@@ -43,7 +43,7 @@ This code of conduct applies to all community spaces and when individuals are re
 
 ## Reporting Issues
 
-If you encounter unacceptable behavior, report it to the community leaders at [this link](https://www.linkedin.com/in/sanu-kumar-2a9492283/). All complaints will be reviewed and investigated promptly and fairly, and the privacy of reporters will be respected.
+If you encounter unacceptable behavior, report it to the community leaders at sanukumar66641@gmail.com. All complaints will be reviewed and investigated promptly and fairly, and the privacy of reporters will be respected.
 
 ![Line](https://github.com/Avdhesh-Varshney/WebMasterLog/assets/114330097/4b78510f-a941-45f8-a9d5-80ed0705e847)
 

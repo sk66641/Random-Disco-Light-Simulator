@@ -5,12 +5,17 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: url('https://media.istockphoto.com/id/523382283/vector/simple-stars-space-stock-vector-background.jpg?s=612x612&w=0&k=20&c=PE-1LqWTOaxMuu_0TkUohHQWAF8TVxFSm-lfyCWdbO4=');
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .background {
@@ -31,20 +36,19 @@ body {
 
 .shape:first-child {
   background: linear-gradient(#1845ad, #23a2f6);
-  left: -170px;
-  top: -70px;
+  left: -240px;
+  top: -100px;
 }
 
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
-  right: -170px;
-  bottom: -70px;
+  right: -240px;
+  bottom: -100px;
 }
 
 h1 {
   font-size: 34px;
   text-align: center;
-  text-decoration: underline;
 }
 
 .box {
@@ -55,32 +59,30 @@ h1 {
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   color: #ffffff;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 label {
-  margin-top: 30px;
   font-size: 22px;
   font-weight: 500;
 }
 
 input {
-  width: 60%;
-  height: 40px;
   background-color: rgba(255, 255, 255, 0.07);
   outline: none;
   border: none;
-  padding: 0px 10px;
-  position: relative;
-  top: 3px;
   color: #fff;
   font-size: 24px;
-  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 ::placeholder {
   color: #d3d1d1;
-  position: absolute;
-  top: 7px;
+  font-size: 20px;
 }
 
 input:focus {
@@ -92,20 +94,22 @@ i {
   font-size: 24px;
 }
 
+strong {
+  font-size: 24px;
+  color: skyblue;
+}
+
 #view,
 #unit {
   text-align: center;
   border-radius: 10px;
-  width: 34%;
-  height: 40px;
   background-color: rgba(255, 255, 255, 0.07);
   outline: none;
   border: none;
-  padding: 0px 10px;
-  position: relative;
-  top: 5px;
+  padding: 5px 10px;
   color: #e5e5e5;
   font-size: 24px;
+  width: auto;
 }
 
 select option {
@@ -153,6 +157,7 @@ select option {
 }
 
 button {
+  border:none;
   font-size: 20px;
   padding: 10px 20px;
   color: #fff;
@@ -183,89 +188,43 @@ button {
   font-weight: 700;
 }
 
-img {
-  cursor: pointer;
-  box-shadow: 0px 0px 5px 5px black;
-  border-radius: 5px;
-  margin-top: 5px;
-  height: 50px;
-  width: 50px;
+a {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  transition: 0.2s all;
 }
 
-img:hover {
+a:hover {
   transform: scale(1.1);
 }
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 915px) {
   * {
-    font-size: 35px;
+    font-size: 18px !important;
   }
 
-  .button {
-    margin-top: 30px;
-    margin-bottom: 12px;
+  h1 {
+    margin-bottom: 5px;
+    font-size: 24px !important;
   }
 
-  img {
-    width: 45px;
-    height: 45px;
-  }
-}
-
-@media only screen and (max-width: 924px) {
-  * {
-    font-size: 30px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  * {
-    font-size: 25px;
+  input, #unit {
+    margin-top: 10px;
   }
 
-  .button {
-    margin-top: 20px;
-    margin-bottom: 8px;
-  }
-
-  img {
-    width: 35px;
-    height: 35px;
-    box-shadow: 0px 0px 3px 3px black;
+  #time, #unit {
+    width: 45%;
   }
 
   .box {
-    padding: 0px 5px 5px 5px;
-    box-shadow: 0px 0px 10px 5px black;
-  }
-}
-
-@media only screen and (max-width: 676px) {
-  * {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (max-width: 552px) {
-  * {
-    font-size: 15px;
+    padding: 10px 15px;
+    margin: 5px;
   }
 
-  .button {
-    margin-top: 10px;
-    margin-bottom: 4px;
+  .background {
+    display: none;
   }
-
-  img {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-@media only screen and (max-width: 428px) {
-    * {
-        font-size: 10px;
-    }
 }
 
 #timerDisplay {
