@@ -93,7 +93,7 @@ i {
 }
 
 #view,
-#unit {
+#unit, #sound{
   text-align: center;
   border-radius: 10px;
   width: 34%;

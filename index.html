@@ -50,6 +50,22 @@
             <option value="radial">Radial</option>
           </select>
         </div>
+        <!-- ----------------------changes--------------------------------------------- -->
+        <div>
+          <label for="sound">4. Sound Effect:</label>
+          <select
+            id="sound"
+           value="select"
+          >
+            <option value="none">None</option>
+            <option value="disco">disco</option>
+            <option value="fairies">fairies</option>
+            <option value="funky1">funky1</option>
+            <option value="funky2">funky2</option>
+            <option value="upbeatdisco">upbeatdisco</option>
+          </select>
+        </div>
+
         <div class="button">
           <button id="submit" onclick="run()">Submit</button>
           <a
@@ -63,7 +79,12 @@
         <div id="error"></div>
       </div>
     </div>
-
+    <!-- ----------------------changes--------------------------------------------- -->
+    <audio id="disco" src="disco.mp3"></audio>
+    <audio id="fairies" src="fairies.mp3"></audio>
+    <audio id="funky1" src="funkydisco.mp3"></audio>
+    <audio id="funky2" src="funkydisco2.mp3"></audio>
+    <audio id="upbeatdisco" src="upbeatdisco.mp3"></audio>
     <script src="script.js"></script>
   </body>
 </html>

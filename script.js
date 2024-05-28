@@ -17,6 +17,7 @@ function run() {
     let set_time = document.getElementById("time").value
     let unit = document.getElementById("unit").value
     let view = document.getElementById("view").value
+    let soundEffect = document.getElementById("sound").value;
 
     if (Number(n) < 0) {
         document.getElementById("error").innerHTML = "<strong>Please enter a positive integer in 'Number of Colors'!</strong>"
@@ -47,8 +48,13 @@ function run() {
     }
 
     else {
+        if (soundEffect !== "none") {
+            const audio = document.getElementById(soundEffect);
+            audio.loop = true; // Loop the audio
+            audio.play();
+        }
         alert("Double click on the screen to reload!")
-
+       
         document.body.children[0].style.display = 'none';
 
         document.body.style.cursor = "pointer";
@@ -60,7 +66,7 @@ function run() {
             }
         })
     }
-
+  
     if (unit != "unit") {
 
         if (unit == "seconds") {
