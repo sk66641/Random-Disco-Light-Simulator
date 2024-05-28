@@ -115,3 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen()
+                .then(() => {
+                    fullscreenBtn.textContent = 'Exit Fullscreen';
+                })
+                .catch(err => {
+                    console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+                });
+        } else {
+            document.exitFullscreen()
+                .then(() => {
+                    fullscreenBtn.textContent = 'Fullscreen';
+                })
+                .catch(err => {
+                    console.error(`Error attempting to disable fullscreen mode: ${err.message} (${err.name})`);
+                });
+        }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+            fullscreenBtn.textContent = 'Fullscreen';
+        }
+    });
+});
