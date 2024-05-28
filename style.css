@@ -36,14 +36,14 @@ body {
 
 .shape:first-child {
   background: linear-gradient(#1845ad, #23a2f6);
-  left: -170px;
-  top: -70px;
+  left: -240px;
+  top: -100px;
 }
 
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
-  right: -170px;
-  bottom: -70px;
+  right: -240px;
+  bottom: -100px;
 }
 
 h1 {
@@ -199,7 +199,7 @@ a:hover {
   transform: scale(1.1);
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 915px) {
   * {
     font-size: 18px !important;
   }
