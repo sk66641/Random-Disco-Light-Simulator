@@ -3,6 +3,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.getElementById('reset');
     const timerDisplay = document.getElementById('timerDisplay');
     let timerInterval;
+    const fullscreenButton = document.getElementById('fullscreenButton');
+
+let isFullscreen = false;
+
+fullscreenButton.addEventListener('click', () => {
+  if (!isFullscreen) {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    }
+    
+    fullscreenButton.textContent = 'Exit Fullscreen';
+    isFullscreen = true;
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+    
+    fullscreenButton.textContent = 'Fullscreen';
+    isFullscreen = false;
+  }
+});
+
+// Update button text when exiting fullscreen using keyboard shortcuts
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    fullscreenButton.textContent = 'Fullscreen';
+    isFullscreen = false;
+  }
+});
 
     submitButton.addEventListener('click', run);
     resetButton.addEventListener('click', () => {

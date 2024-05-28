@@ -13,6 +13,12 @@ body {
   background: url('https://media.istockphoto.com/id/523382283/vector/simple-stars-space-stock-vector-background.jpg?s=612x612&w=0&k=20&c=PE-1LqWTOaxMuu_0TkUohHQWAF8TVxFSm-lfyCWdbO4=');
 }
 
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
 .background {
   width: 430px;
   height: 520px;
