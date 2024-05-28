@@ -1,174 +1,265 @@
 * {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://media.istockphoto.com/id/523382283/vector/simple-stars-space-stock-vector-background.jpg?s=612x612&w=0&k=20&c=PE-1LqWTOaxMuu_0TkUohHQWAF8TVxFSm-lfyCWdbO4=');
+}
+
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6);
+  left: -170px;
+  top: -70px;
+}
+
+.shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  right: -170px;
+  bottom: -70px;
 }
 
 h1 {
-    color: indigo;
-    color: dar;
-    text-align: center;
-    text-decoration: underline;
+  font-size: 34px;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .box {
-    background: linear-gradient(magenta, gold);
-    border-radius: 20px;
-    padding: 0px 10px 10px 10px;
-    box-shadow: 0px 0px 15px 10px black;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 20px;
+  padding: 10px 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: #ffffff;
+}
+
+label {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+input {
+  width: 60%;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.07);
+  outline: none;
+  border: none;
+  padding: 0px 10px;
+  position: relative;
+  top: 3px;
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+  color: #d3d1d1;
+  position: absolute;
+  top: 7px;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+i {
+  font-size: 24px;
 }
 
 #view,
 #unit {
-    text-align: center;
-    border-radius: 10px;
+  text-align: center;
+  border-radius: 10px;
+  width: 34%;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.07);
+  outline: none;
+  border: none;
+  padding: 0px 10px;
+  position: relative;
+  top: 5px;
+  color: #e5e5e5;
+  font-size: 24px;
 }
 
-#time {
-    border-radius: 10px;
+select option {
+  color: #e5e5e5;
+  font-size: 24px;
+  background-color: #333;
+  border: none;
+  outline: none;
 }
 
+#time,
 #color {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 #submit {
-    background-color: green;
-    cursor: pointer;
-    border-radius: 10px;
+  background-color: green;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s all;
 }
 
 #submit:hover {
-    background-color: darkgreen;
+  background-color: darkgreen;
 }
 
 #reset {
-    border-radius: 10px;
-    background-color: red;
-    cursor: pointer;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+  transition: 0.2s all;
 }
 
 #reset:hover {
-    background-color: darkred;
-
+  background-color: rgb(169, 2, 2);
 }
 
 .button {
-    margin-top: 40px;
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #fff;
 }
 
 .screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#error strong {
+  font-size: 22px;
 }
 
 .connect {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    font-weight: 700;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  font-weight: 700;
 }
 
 img {
-    cursor: pointer;
-    box-shadow: 0px 0px 5px 5px black;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 50px;
-    width: 50px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 5px black;
+  border-radius: 5px;
+  margin-top: 5px;
+  height: 50px;
+  width: 50px;
 }
 
 img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 1048px) {
-    * {
-        font-size: 35px;
-    }
+  * {
+    font-size: 35px;
+  }
 
-    .button {
-        margin-top: 30px;
-        margin-bottom: 12px;
-    }
+  .button {
+    margin-top: 30px;
+    margin-bottom: 12px;
+  }
 
-    img {
-        width: 45px;
-        height: 45px;
-    }
+  img {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 @media only screen and (max-width: 924px) {
-    * {
-        font-size: 30px;
-    }
+  * {
+    font-size: 30px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    * {
-        font-size: 25px;
-    }
+  * {
+    font-size: 25px;
+  }
 
-    .button {
-        margin-top: 20px;
-        margin-bottom: 8px;
-    }
+  .button {
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
 
-    img {
-        width: 35px;
-        height: 35px;
-        box-shadow: 0px 0px 3px 3px black;
-    }
+  img {
+    width: 35px;
+    height: 35px;
+    box-shadow: 0px 0px 3px 3px black;
+  }
 
-    .box {
-        padding: 0px 5px 5px 5px;
-        box-shadow: 0px 0px 10px 5px black;
-    }
+  .box {
+    padding: 0px 5px 5px 5px;
+    box-shadow: 0px 0px 10px 5px black;
+  }
 }
 
 @media only screen and (max-width: 676px) {
-    * {
-        font-size: 20px;
-    }
+  * {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 552px) {
-    * {
-        font-size: 15px;
-    }
+  * {
+    font-size: 15px;
+  }
 
-    .button {
-        margin-top: 10px;
-        margin-bottom: 4px;
-    }
+  .button {
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
 
-    img {
-        width: 25px;
-        height: 25px;
-
-    }
+  img {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 @media only screen and (max-width: 428px) {

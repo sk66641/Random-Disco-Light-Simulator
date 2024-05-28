@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Random Disco Light Simulator</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="box">
-            <h1>Random Disco Light Simulator</h1>
-            <div>
-                <label for="color">1. Number of Colors:</label>
-                <input type="number" id="color" placeholder="Enter">
-            </div>
-            <div>
-                <label for="time">2. Time interval <em>(with which the color changes
-                        randomly)</em>:</label><br>
-                <input type="number" id="time" placeholder="Enter">
-                <select id="unit">
-                    <option style="background-color: lightslategray; color: white;" value="unit">Unit</option>
-                    <option value="milliseconds">milliseconds</option>
-                    <option value="seconds">seconds</option>
-                </select>
-                <br><strong>[Negative interval or no input will be treated as 0 interval]</strong>
-            </div>
-            <div>
-                <label for="view">3. View:</label>
-                <select id="view">
-                    <option style="background-color: lightslategray; color: white;" value="select">Select</option>
-                    <option value="conic">Conic</option>
-                    <option value="linear">Linear</option>
-                    <option value="radial">Radial</option>
-                </select>
+        <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+      <div class="box">
+        <h1>Random Disco Light Simulator</h1>
+        <div>
+          <label for="color">1. Number of Colors:</label>
+          <input type="number" id="color" placeholder="Enter" />
+        </div>
+        <div>
+          <label for="time"
+            >2. Time interval
+            <i>(with which the color changes randomly)</i>:</label
+          ><br />
+          <input type="number" id="time" placeholder="Enter" />
+          <select id="unit">
+            <option value="unit">Unit</option>
+            <option value="milliseconds">milliseconds</option>
+            <option value="seconds">seconds</option>
+          </select>
+          <br /><strong style="font-size: 22px; color: rgb(47, 47, 251)"
+            >[Negative interval or no input will be treated as 0
+            interval]</strong
+          >
+        </div>
+        <div>
+          <label for="view">3. View:</label>
+          <select id="view">
+            <option
+              style="background-color: lightslategray; color: white"
+              value="select"
+            >
+              Select
+            </option>
+            <option value="conic">Conic</option>
+            <option value="linear">Linear</option>
+            <option value="radial">Radial</option>
+          </select>
             </div>
             <div>
                 <label for="countdown">4. Countdown Timer (in seconds):</label>
@@ -57,7 +70,5 @@
     </div>
 
     <script src="script.js"></script>
-    
-</body>
-
+    </body>
 </html>
