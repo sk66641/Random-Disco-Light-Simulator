@@ -28,7 +28,7 @@ Welcome to the Random Disco Light Simulator! This document will guide you throug
 Based on these inputs, the simulator displays the selected view with the specified behavior.
 
 ### Example Inputs:
-![alt text](image.png)
+![alt text](assets/images/learn/image.png)
 
 ## Installation 🛠️
 
@@ -37,7 +37,7 @@ Fork the `Random-Disco-Light-Simulator` repository to your own GitHub account. T
 
 Follow these instructions to fork a repository: [GitHub Forking Guide](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
 
-![Top-right in the github Repository](image-1.png)
+![Top-right in the github Repository](assets/images/learn/image-1.png)
 
 ### Step 2: Clone the Repository
 After forking the repository, clone it to your local machine. You can do this using SSH or HTTPS.
@@ -50,7 +50,7 @@ git clone git@github.com:sk66641/Random-Disco-Light-Simulator.git
 ```bash
 git clone https://github.com/sk66641/Random-Disco-Light-Simulator.git
 ```
-![Cloning a repository](image-2.png)
+![Cloning a repository](assets/images/learn/image-2.png)
 
 ### Step 3: Navigate to the Project Directory
 Change into the project directory using the cd command:
@@ -102,7 +102,7 @@ Refer to the following articles:
 4. **Add a screenshot** to help in the review process.
 5. **Submit the PR** with necessary information in the PR template.
 
-![alt text](image-3.png)
+![alt text](assets/images/learn/image-3.png)
 
 ## Community Guidelines 📋
 1. **Be respectful and considerate** towards others.

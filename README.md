@@ -54,7 +54,7 @@ On the basis of these inputs, it simulates the selected view.
 </table>
 
 ## Screenshot of the website 
-![image](webpage_ss.png)
+![image](assets/images/readme/webpage_ss.png)
 
 
 ## Our Contributors  !! ✨
