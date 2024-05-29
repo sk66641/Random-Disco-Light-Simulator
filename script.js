@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let view = document.getElementById("view").value;
         let soundEffect = document.getElementById("sound").value;
 
-        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && soundEffect !=="none") {
+        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
             // Clear error message if everything is correct
             document.getElementById("error").innerHTML = "";
 
