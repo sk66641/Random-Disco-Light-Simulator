@@ -2,6 +2,17 @@
   font-size: 40px;
 }
 
+.logo img{
+  height: 90px;
+  width: 90px;
+}
+
+.logo{
+ position: absolute;
+ top: 10px;
+ left: 10px
+}
+
 body {
   margin: 0;
   padding: 0;
