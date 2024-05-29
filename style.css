@@ -252,3 +252,54 @@ a:hover {
     font-size: 18px;
     text-align: center;
 }
+
+
+/* Navbar styles */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.navbar-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 10px #fff;
+	
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+.text{
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 10px #fff;
+
+}
+
+/* Add some padding to the body content to avoid overlap with the fixed navbar */
+body {
+  padding-top: 60px;
+}
