@@ -49,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let set_time = document.getElementById("time").value;
         let unit = document.getElementById("unit").value;
         let view = document.getElementById("view").value;
+        let soundEffect = document.getElementById("sound").value;
 
-        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
+        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && soundEffect !=="none") {
             // Clear error message if everything is correct
             document.getElementById("error").innerHTML = "";
 
@@ -59,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Start the countdown timer
             startCountdown(countdownValue);
+
+            // Start the sound effect
+            const audio = document.getElementById(soundEffect);
+            audio.loop = true; // Loop the audio
+            audio.play();
         } else {
             // Display error message if any input is missing or invalid
             document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
