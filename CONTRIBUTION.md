@@ -137,4 +137,3 @@ We expect all contributors to adhere to the following community guidelines:
 
 
 ## **Happy Contributing 🔥** 
-Footer
