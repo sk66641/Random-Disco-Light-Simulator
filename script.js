@@ -67,8 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
             audio.play();
         } else {
             // Display error message if any input is missing or invalid
-            document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
+            // document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
             document.getElementById("error").style.color = "red";
+            if(((Number(n)<0 || !Number.isInteger(Number(n))|| n==="") && countdownValue <=0) || ((Number(n)<0 || !Number.isInteger(Number(n))|| n==="") && (unit === "unit")) || (Number(n)<0 || !Number.isInteger(Number(n))|| n==="")&&view === "select" || countdownValue <=0 &&unit === "unit" ||view === "select" && countdownValue <=0 ||view === "select" &&unit === "unit" ||
+            (Number(n)<0 || !Number.isInteger(Number(n))|| n==="") && countdownValue <=0 && view === "select" || (Number(n)<0 || !Number.isInteger(Number(n))|| n==="") && countdownValue <=0 && unit === "unit" || (Number(n)<0 || !Number.isInteger(Number(n))|| n==="") && countdownValue <=0 && view === "select" && unit === "unit"){
+                document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
+            }
+            else if(Number(n)<0 || !Number.isInteger(Number(n))|| n===""){
+                document.getElementById("error").innerHTML = "<strong>The Number of Colours must be a positive integer.</strong>"; 
+            }else if(countdownValue <=0){
+                document.getElementById("error").innerHTML = "<strong>The CountDown Timer must be a positive value greater than zero.</strong>"; 
+            }else if(unit === "unit"){
+                document.getElementById("error").innerHTML = "<strong>The Unit field must be selected.</strong>"; 
+            }else if(view === "select"){
+                document.getElementById("error").innerHTML = "<strong>The View field must be selected.</strong>"; 
+            }
             return;
         }
     }
