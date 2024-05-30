@@ -108,7 +108,7 @@ strong {
 }
 
 #view,
-#unit, #sound{
+#unit,#sound{
   text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.07);
@@ -119,6 +119,7 @@ strong {
   font-size: 24px;
   width: auto;
 }
+
 
 select option {
   color: #e5e5e5;
