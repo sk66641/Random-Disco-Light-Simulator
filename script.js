@@ -151,3 +151,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+window.onload = function() {
+    var modal = document.getElementById("warningModal");
+    var closeModal = document.getElementById("closeModal");
+    var proceedButton = document.getElementById("proceed");
+  
+
+    modal.style.display = "block";
+  
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    proceedButton.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+  
