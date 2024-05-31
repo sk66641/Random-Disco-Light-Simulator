@@ -157,7 +157,7 @@ select option {
 }
 
 .button {
-  margin-top: 40px;
+  margin-top: 5px;
   margin-bottom: 16px;
   display: flex;
   justify-content: center;
@@ -366,6 +366,9 @@ footer{
 
 #randomize {
   background-color: #007bff;
+  width: auto; /* Adjust the width as needed */
+  margin: 20px auto; /* Adjust margin as needed */
+  display: block;
   color: #ffffff;
   border: none;
   border-radius: 5px;
