@@ -349,6 +349,20 @@ footer{
   font-weight: 400;
   margin: 0px 5px;
 }
+@media (max-width: 700px){
+  .footerNav ul{
+      flex-direction: column;
+  } 
+  .footerNav ul li{
+      width:100%;
+      text-align: center;
+      margin: 10px;
+  }
+  .socialIcons a{
+    padding: 8px;
+    margin: 4px;
+}
+}
 
 #musicDropdown {
   text-align: center;
@@ -372,17 +386,3 @@ footer{
   outline: none;
 }
 
-@media (max-width: 700px){
-  .footerNav ul{
-      flex-direction: column;
-  } 
-  .footerNav ul li{
-      width:100%;
-      text-align: center;
-      margin: 10px;
-  }
-  .socialIcons a{
-    padding: 8px;
-    margin: 4px;
-}
-}
