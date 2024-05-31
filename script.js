@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
@@ -54,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
             // Clear error message if everything is correct
             document.getElementById("error").innerHTML = "";
-
-            // Start the simulation
+            // Hide the main container
+        document.querySelector(".container").style.display = "none";
             startSimulation(n, set_time, unit, view);
 
             // Start the countdown timer
@@ -152,3 +154,131 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+ window.onload = function() {
+    // Warning modal logic
+    var modal = document.getElementById("warningModal");
+    var closeModal = document.getElementById("closeModal");
+    var proceedButton = document.getElementById("proceed");
+  
+
+    modal.style.display = "block";
+  
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    proceedButton.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    // Text animation logic
+    var words = ["Light Simulator", "Beat Spectrum"];
+    var index = 0;
+    var direction = "left";
+    var interval = 100;
+  
+    function animateText() {
+      var word = words[index]; 
+      var len = word.length;
+      var i = direction === "left" ? 0 : len;
+     var timer = setInterval(function () {
+        $("#changing").text(word.substring(0, i)); 
+        if (direction === "left") {
+          i++;
+          if (i > len) {
+            clearInterval(timer); 
+            direction = "right"; 
+            animateText(); 
+          }
+        } else {
+          i--;
+          if (i === 0) {
+            clearInterval(timer);
+            index = (index + 1) % words.length; 
+            direction = "left"; 
+            animateText(); 
+          }
+        }
+      }, interval);
+    }
+    animateText();
+    
+    // Snowflakes animation logic
+    
+ const snowflakesContainer = document.querySelector(".snowflakes");
+ const numberOfSnowflakes = 300;
+
+ for (let i = 0; i < numberOfSnowflakes; i++) {
+   const snowflake = document.createElement("div");
+   snowflake.classList.add("snowflake");
+   snowflake.style.left = `${Math.random() * 100}%`;
+   snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
+   snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+   snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+   snowflakesContainer.appendChild(snowflake);
+ }
+
+};
+
+
+function showAboutPopup() {
+    document.getElementById("aboutPopup").style.display = "block";
+}
+
+function closeAboutPopup() {
+    document.getElementById("aboutPopup").style.display = "none";
+}
+
+function showFeaturesPopup() {
+    document.getElementById('featuresPopup').style.display = 'block';
+  }
+  
+ 
+  function closeFeaturesPopup() {
+    document.getElementById('featuresPopup').style.display = 'none';
+  }
+  
+document.addEventListener('DOMContentLoaded', () => {
+    const randomizeButton = document.getElementById('randomize');
+
+    randomizeButton.addEventListener('click', () => {
+        // Randomize number of colors
+        const colorInput = document.getElementById('color');
+        const randomNumColors = Math.floor(Math.random() * 10) + 1; // Generates a random number between 1 and 10
+        colorInput.value = randomNumColors;
+
+        // Randomize time interval
+        const timeInput = document.getElementById('time');
+        const randomTimeInterval = Math.floor(Math.random() * 5000) + 1000; // Generates a random number between 1000 and 6000 (milliseconds)
+        timeInput.value = randomTimeInterval;
+
+        // Randomize unit
+        const unitSelect = document.getElementById('unit');
+        const randomUnitIndex = Math.random() < 0.5 ? 1 : 2; // Randomly selects milliseconds or seconds
+        unitSelect.selectedIndex = randomUnitIndex;
+
+        // Randomize view
+        const viewSelect = document.getElementById('view');
+        const randomViewIndex = Math.floor(Math.random() * (viewSelect.options.length - 1)) + 1; // Excludes the first "Select" option
+        viewSelect.selectedIndex = randomViewIndex;
+
+        // Randomize sound effect
+        const soundSelect = document.getElementById('sound');
+        const randomSoundIndex = Math.floor(Math.random() * soundSelect.options.length);
+        soundSelect.selectedIndex = randomSoundIndex;
+
+        // Randomize countdown timer
+        const countdownInput = document.getElementById('countdown');
+        const randomCountdown = Math.floor(Math.random() * 300) + 30; // Generates a random number between 30 and 330 (seconds)
+        countdownInput.value = randomCountdown;
+    });
+});
+
