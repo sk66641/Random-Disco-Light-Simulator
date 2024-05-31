@@ -1,0 +1,86 @@
+@import url( 
+'https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+  
+body { 
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    flex-direction: column; 
+    height: 100vh; 
+    background-color: #bde5d2; 
+    font-family: 'Poppins', sans-serif; 
+  
+} 
+  
+.textup { 
+    text-align: center; 
+    color: rgb(11, 118, 11); 
+    font-weight: 700; 
+} 
+  
+i { 
+    margin-right: 3px; 
+} 
+  
+.form-box { 
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(36, 67, 40, 0.8); 
+    padding: 15px; 
+    border-radius: 8px; 
+    width: 500px; 
+} 
+  
+form { 
+    max-width: 400px; 
+    margin: 0 auto; 
+} 
+  
+.radio-group { 
+    display: flex; 
+    margin-bottom: 16px; 
+} 
+  
+input[type="radio"] { 
+    margin-right: 8px; 
+} 
+  
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 17px; 
+    color: green; 
+    font-weight: 600; 
+} 
+  
+input, 
+textarea { 
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 12px; 
+    box-sizing: border-box; 
+    border-radius: 10px; 
+  
+} 
+  
+button { 
+    background-color: #368b44; 
+    color: #fff; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-size: 15px; 
+    transition: .2s linear; 
+} 
+  
+button:hover { 
+    background-color: #0a6808; 
+    border: none; 
+    transform: translateY(-10px); 
+} 
+  
+h1 { 
+    color: green; 
+}
