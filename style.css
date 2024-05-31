@@ -1,5 +1,5 @@
 * {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 body {
@@ -362,4 +362,13 @@ footer{
     padding: 8px;
     margin: 4px;
 }
+}
+
+#color1,#color2
+{
+position: relative;
+bottom: -0.2em;
+height: 1.8rem;
+padding: 0px;
+background: none;
 }

@@ -18,13 +18,22 @@
 			</div>
 			<div class="box">
 				<h1>Random Disco Light Simulator</h1>
+        <div>
+          <label for="color1">1. First Color:</label>
+          <input type="color" id="color1" />
+      </div>
+      <div>
+          <label for="color2">2. Second Color:</label>
+          <input type="color" id="color2" />
+      </div>
+
 				<div>
-					<label for="color">1. Number of Colors:</label>
+					<label for="color">3. Number of Colors:</label>
 					<input type="number" id="color" placeholder="Enter" />
 				</div>
 				<div>
           <label for="time"
-          >2. Time interval
+          >4. Time interval
           <i>(with which the color changes randomly)</i>:</label
 					><br />
 					<input type="number" id="time" placeholder="Enter" />
@@ -38,7 +47,7 @@
         >[Negative interval or no input will be treated as 0 interval]</strong
 				>
 				<div>
-          <label for="view">3. View:</label>
+          <label for="view">5. View:</label>
 					<select id="view">
             <option
             style="background-color: lightslategray; color: white"
@@ -52,7 +61,7 @@
         </select>
       </div>
       <div>
-        <label for="countdown">4. Countdown Timer (in seconds):</label>
+        <label for="countdown">6. Countdown Timer (in seconds):</label>
         <input
         type="number"
         id="countdown"
@@ -61,7 +70,7 @@
         />
       </div>
       <div >
-        <label for="sound">4. Sound Effect:</label>
+        <label for="sound">7. Sound Effect:</label>
         <select
           id="sound"
          value="select"

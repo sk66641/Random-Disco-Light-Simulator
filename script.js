@@ -2,13 +2,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
     const timerDisplay = document.getElementById('timerDisplay');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
     let timerInterval;
 
-    submitButton.addEventListener('click', run);
-    resetButton.addEventListener('click', () => {
-        window.location.reload();
-        clearInterval(timerInterval);
-    });
+    if (submitButton && resetButton && timerDisplay && fullscreenBtn) {
+        submitButton.addEventListener('click', run);
+        resetButton.addEventListener('click', () => {
+            clearInterval(timerInterval);
+            window.location.reload();
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen()
+                    .then(() => {
+                        fullscreenBtn.textContent = 'Exit Fullscreen';
+                    })
+                    .catch(err => {
+                        console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+                    });
+            } else {
+                document.exitFullscreen()
+                    .then(() => {
+                        fullscreenBtn.textContent = 'Fullscreen';
+                    })
+                    .catch(err => {
+                        console.error(`Error attempting to disable fullscreen mode: ${err.message} (${err.name})`);
+                    });
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.textContent = 'Fullscreen';
+            }
+        });
+    }
 
     function startCountdown(duration) {
         let timer = duration;
@@ -33,57 +62,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function stopSimulation() {
-        // Display a message to the user
         const messageDiv = document.getElementById('message');
-        messageDiv.style.display = 'block';
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+        }
     
-        // Wait for a few seconds before reloading the page
         setTimeout(() => {
             window.location.reload();
-        }, 3000); // Change this value to adjust the delay
+        }, 3000);
     }
-    
+
     function run() {
-        let countdownValue = document.getElementById('countdown').value;
-        let n = document.getElementById("color").value;
-        let set_time = document.getElementById("time").value;
-        let unit = document.getElementById("unit").value;
-        let view = document.getElementById("view").value;
-        let soundEffect = document.getElementById("sound").value;
+        const countdownValue = document.getElementById('countdown').value;
+        const n = document.getElementById('color').value;
+        const set_time = document.getElementById('time').value;
+        const unit = document.getElementById('unit').value;
+        const view = document.getElementById('view').value;
+        const soundEffect = document.getElementById('sound').value;
+        const color1 = document.getElementById('color1').value;
+        const color2 = document.getElementById('color2').value;
+        const errorElement = document.getElementById('error');
 
-        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
-            // Clear error message if everything is correct
-            document.getElementById("error").innerHTML = "";
-
-            // Start the simulation
+        if (validateForm(countdownValue, n, set_time, unit, view, soundEffect, color1, color2)) {
+            errorElement.innerHTML = "";
             startSimulation(n, set_time, unit, view);
-
-            // Start the countdown timer
             startCountdown(countdownValue);
 
-            // Start the sound effect
             const audio = document.getElementById(soundEffect);
-            audio.loop = true; // Loop the audio
-            audio.play();
+            if (audio) {
+                audio.loop = true;
+                audio.play();
+            }
         } else {
-            // Display error message if any input is missing or invalid
-            document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
-            document.getElementById("error").style.color = "red";
-            return;
+            errorElement.innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
+            errorElement.style.color = "red";
         }
     }
 
+    function validateForm(countdownValue, n, set_time, unit, view, soundEffect, color1, color2) {
+        if (!countdownValue || countdownValue <= 0) return false;
+        if (Number(n) < 0 || !Number.isInteger(Number(n)) || n === "") return false;
+        if (set_time === "" || isNaN(set_time)) return false;
+        if (unit === "unit") return false;
+        if (view === "select") return false;
+        if (!isValidHex(color1) || !isValidHex(color2)) return false;
+        if (soundEffect === "select") return false;
+        return true;
+    }
+
+    function isValidHex(color) {
+        return /^#[0-9A-F]{6}$/i.test(color);
+    }
+
     function startSimulation(n, set_time, unit, view) {
-        // Move simulation code here
         alert("Double click on the screen to reload!");
+        const color1 = document.getElementById('color1').value;
+        const color2 = document.getElementById('color2').value;
+        const rgbColor1 = hexToRgb(color1);
+        const rgbColor2 = hexToRgb(color2);
 
         document.body.children[0].style.display = 'none';
         document.body.children[1].style.display = 'none';
         document.body.style.cursor = "pointer";
 
-        document.body.addEventListener("dblclick", () => {
-            let cnf1 = confirm("Are you sure you want to reload?");
-            if (cnf1) {
+        document.body.addEventListener('dblclick', () => {
+            if (confirm("Are you sure you want to reload?")) {
                 window.location.reload();
             }
         });
@@ -92,63 +135,41 @@ document.addEventListener('DOMContentLoaded', () => {
             set_time *= 1000;
         }
 
-        function getRandomColor() {
-            let val1 = parseInt(0 + Math.random() * 256);
-            let val2 = parseInt(0 + Math.random() * 256);
-            let val3 = parseInt(0 + Math.random() * 256);
-            return `rgb(${val1}, ${val2}, ${val3})`;
+        function getRandomColorBetween(color1, color2) {
+            const randomR = Math.floor(Math.random() * (color2.r - color1.r + 1)) + color1.r;
+            const randomG = Math.floor(Math.random() * (color2.g - color1.g + 1)) + color1.g;
+            const randomB = Math.floor(Math.random() * (color2.b - color1.b + 1)) + color1.b;
+            return `rgb(${randomR}, ${randomG}, ${randomB})`;
         }
 
-        function numberColors(num) {
-            let colors = `${getRandomColor()}`;
+        function numberColorsBetween(color1, color2, num) {
+            let colors = `${getRandomColorBetween(color1, color2)}`;
             while (num > 1) {
-                colors += `, ${getRandomColor()}`;
+                colors += `, ${getRandomColorBetween(color1, color2)}`;
                 num--;
             }
             return colors;
         }
 
         if (n == 1) {
-            document.body.style.backgroundColor = getRandomColor();
+            document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             setInterval(() => {
-                document.body.style.backgroundColor = getRandomColor();
+                document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             }, set_time);
         } else {
             let gradientType = view === "conic" ? "conic-gradient" : view === "linear" ? "linear-gradient" : "radial-gradient";
-            document.body.style.background = `${gradientType}(${numberColors(n - 1)}, ${getRandomColor()})`;
+            document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
             setInterval(() => {
-                document.body.style.background = `${gradientType}(${numberColors(n - 1)}, ${getRandomColor()})`;
+                document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
             }, set_time);
         }
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-    fullscreenBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen()
-                .then(() => {
-                    fullscreenBtn.textContent = 'Exit Fullscreen';
-                })
-                .catch(err => {
-                    console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
-                });
-        } else {
-            document.exitFullscreen()
-                .then(() => {
-                    fullscreenBtn.textContent = 'Fullscreen';
-                })
-                .catch(err => {
-                    console.error(`Error attempting to disable fullscreen mode: ${err.message} (${err.name})`);
-                });
-        }
-    });
-
-    document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement) {
-            fullscreenBtn.textContent = 'Fullscreen';
-        }
-    });
+    function hexToRgb(hex) {
+        let bigint = parseInt(hex.slice(1), 16);
+        let r = (bigint >> 16) & 255;
+        let g = (bigint >> 8) & 255;
+        let b = bigint & 255;
+        return { r, g, b };
+    }
 });
