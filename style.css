@@ -1,9 +1,6 @@
-
-
 * {
   font-size: 40px;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -15,19 +12,15 @@ body {
   background-color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
-
 #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
-
 ::-webkit-scrollbar {
   display: none;
 }
-
 .background {
   width: 430px;
   height: 520px;
@@ -36,31 +29,26 @@ body {
   left: 50%;
   top: 50%;
 }
-
 .background .shape {
   height: 200px;
   width: 200px;
   position: absolute;
   border-radius: 50%;
 }
-
 .shape:first-child {
   background: linear-gradient(#1845ad, #23a2f6);
   left: -240px;
   top: -100px;
 }
-
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
   right: -240px;
   bottom: -100px;
 }
-
 h1 {
   font-size: 34px;
   text-align: center;
 }
-
 .box {
   background: rgba(255, 255, 255, 0.13);
   border-radius: 20px;
@@ -74,12 +62,10 @@ h1 {
   flex-direction: column;
   gap: 10px;
 }
-
 label {
   font-size: 22px;
   font-weight: 500;
 }
-
 input {
   background-color: rgba(255, 255, 255, 0.07);
   outline: none;
@@ -89,26 +75,21 @@ input {
   padding: 5px 10px;
   border-radius: 10px;
 }
-
 ::placeholder {
   color: #d3d1d1;
   font-size: 20px;
 }
-
 input:focus {
   outline: none;
   border: none;
 }
-
 i {
   font-size: 24px;
 }
-
 strong {
   font-size: 24px;
   color: skyblue;
 }
-
 #view,
 #unit,#sound{
   text-align: center;
@@ -121,8 +102,6 @@ strong {
   font-size: 24px;
   width: auto;
 }
-
-
 select option {
   color: #e5e5e5;
   font-size: 24px;
@@ -130,66 +109,55 @@ select option {
   border: none;
   outline: none;
 }
-
 #time,
 #color {
   border-radius: 10px;
 }
-
 #submit {
   background-color: green;
   cursor: pointer;
   border-radius: 10px;
   transition: 0.2s all;
 }
-
 #submit:hover {
   background-color: darkgreen;
 }
-
 #reset {
   border-radius: 10px;
   background-color: red;
   cursor: pointer;
   transition: 0.2s all;
 }
-
 #reset:hover {
   background-color: rgb(169, 2, 2);
 }
-
 .button {
-  margin-top: 5px;
+  margin-top: 40px;
   margin-bottom: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
-
 button {
   border:none;
   font-size: 20px;
   padding: 10px 20px;
   color: #fff;
 }
-
 .screen {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 #error {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 #error strong {
   font-size: 22px;
 }
-
 .connect {
   margin-top: 50px;
   display: flex;
@@ -198,46 +166,37 @@ button {
   gap: 50px;
   font-weight: 700;
 }
-
 a {
   display: inline-block;
   width: 45px;
   height: 45px;
   transition: 0.2s all;
 }
-
 a:hover {
   transform: scale(1.1);
 }
-
 @media only screen and (max-width: 915px) {
   * {
     font-size: 18px !important;
   }
-
   h1 {
     margin-bottom: 5px;
     font-size: 24px !important;
   }
-
   input, #unit {
     margin-top: 10px;
   }
-
   #time, #unit {
     width: 45%;
   }
-
   .box {
     padding: 10px 15px;
     margin: 5px;
   }
-
   .background {
     display: none;
   }
 }
-
 #timerDisplay {
     position: fixed;
     top: 10px;
@@ -249,7 +208,6 @@ a:hover {
     padding: 10px;
     border-radius: 5px;
 }
-
 #message {
     display: none;
     position: fixed;
@@ -263,7 +221,6 @@ a:hover {
     font-size: 18px;
     text-align: center;
 }
-
 #fullscreenBtn {
     position: fixed;
     top: 20px;
@@ -277,7 +234,6 @@ a:hover {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 #fullscreenBtn:hover {
     background: linear-gradient(to right, #ff512f, #f09819)
 }
@@ -288,7 +244,6 @@ footer{
   
   width: 100%;
   height: vw;
-
 }
 .socialIcons{
   display: flex;
@@ -330,7 +285,6 @@ footer{
   font-size: 1.3em;
   opacity: 0.7;
   transition: 0.5s;
-
 }
 .footerNav ul li a:hover{
   opacity: 1;
@@ -365,7 +319,6 @@ footer{
     margin: 4px;
 }
 }
-
 #musicDropdown {
   text-align: center;
   border-radius: 10px;
@@ -379,7 +332,6 @@ footer{
   top: 90px; /* Adjust the position as needed */
   left: 10px;
 }
-
 #musicDropdown select {
   color: #e5e5e5;
   font-size: 24px;
@@ -390,277 +342,5 @@ footer{
 
 #musicDropdown:hover {
     background: linear-gradient(to right, #ff512f, #f09819);
-
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
 }
 
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
-  text-align: center;
-  animation: slide-down 0.3s ease-out; 
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-}
-
-h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
-  color: #333;
-}
-
-p {
-  font-size: 16px;
-  margin-bottom: 24px;
-  color: #555;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-
-@media (max-width: 600px) {
-  .modal-content {
-    width: 95%; 
-  }
-}
-
-.snowflakes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1; 
-}
-
-.snowflake {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background-color: #fff;
-  animation: snowfall linear infinite;
-  animation-duration: 10s;
-  animation-fill-mode: both;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translateY(-10px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-
-body, ul {
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  /* background-color: #333;  */
-  padding-top: 2px; 
-  padding-bottom: 30px;
-  height: 30px;
-  padding-left: 10px;
-}
-
-
-.header-content {
-  width:100%;
-  margin: 0 ;
- 
-}
-
-
-nav ul {
-  list-style-type: none;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 40px; 
-}
-
-nav ul li:last-child {
-  margin-right: 0 auto; 
-}
-
-nav ul li a {
-  color: #fff; 
-  text-decoration: none;
-  font-size: 20px;
-}
-
-nav ul li a:hover {
-  color: #ff7f50; 
-}
-
-
-
-.popup {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
-}
-
-.popup-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
-  text-align: center;
-  animation: slide-down 0.3s ease-out; 
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-}
-/* 
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-  background-color: #fefefe;
-margin-top: 20px;
-margin-left: 400px;
-  padding: 20px;
-  border:1px solid #888;
-  border-radius: 10px; 
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  position: relative; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 10px; 
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1; 
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-
-} */
-#randomize {
-  background-color: #007bff;
-  width: auto; /* Adjust the width as needed */
-  margin: 20px auto; /* Adjust margin as needed */
-  display: block;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#randomize:hover {
-  background-color: #0056b3;
-}
