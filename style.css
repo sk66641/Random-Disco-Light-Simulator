@@ -385,4 +385,6 @@ footer{
   border: none;
   outline: none;
 }
-
+#musicDropdown:hover {
+  background: linear-gradient(#23a2f6, #1845ad); /* Change to the desired hover gradient */
+}
