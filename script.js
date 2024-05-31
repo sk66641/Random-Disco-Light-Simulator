@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Double click on the screen to reload!");
 
         document.body.children[0].style.display = 'none';
+        document.body.children[1].style.display = 'none';
         document.body.style.cursor = "pointer";
 
         document.body.addEventListener("dblclick", () => {
