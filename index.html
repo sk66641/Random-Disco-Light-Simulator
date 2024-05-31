@@ -20,7 +20,7 @@
 				<h1>Random Disco Light Simulator</h1>
 				<div>
 					<label for="color">1. Number of Colors:</label>
-					<input type="number" min="1" oninput="validity.valid||(value='');" id="color" placeholder="Enter" />
+					<input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter" /> <!--prevents user from entering value less than 1-->
 				</div>
 				<div>
           <label for="time"
@@ -55,7 +55,7 @@
         <label for="countdown">4. Countdown Timer (in seconds):</label>
         <input
         type="number"
-        min="1"
+        min="0"
         oninput="validity.valid||(value='');"
         id="countdown"
         aria-label="Countdown Timer"
