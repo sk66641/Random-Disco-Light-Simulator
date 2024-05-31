@@ -20,14 +20,14 @@
 				<h1>Random Disco Light Simulator</h1>
 				<div>
 					<label for="color">1. Number of Colors:</label>
-					<input type="number" min="1" id="color" placeholder="Enter" />
+					<input type="number" min="1" oninput="validity.valid||(value='');" id="color" placeholder="Enter" />
 				</div>
 				<div>
           <label for="time"
           >2. Time interval
           <i>(with which the color changes randomly)</i>:</label
 					><br />
-					<input type="number" min="0" id="time" placeholder="Enter" />
+					<input type="number" min="0" oninput="validity.valid||(value='');" id="time" placeholder="Enter" />
 					<select id="unit">
             <option value="unit">Unit</option>
 						<option value="milliseconds">milliseconds</option>
@@ -56,6 +56,7 @@
         <input
         type="number"
         min="1"
+        oninput="validity.valid||(value='');"
         id="countdown"
         aria-label="Countdown Timer"
         placeholder="Enter time in seconds"
