@@ -363,3 +363,18 @@ footer{
     margin: 4px;
 }
 }
+
+#randomize {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#randomize:hover {
+  background-color: #0056b3;
+}
