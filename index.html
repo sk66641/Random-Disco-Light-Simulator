@@ -7,9 +7,12 @@
 		<title>Random Disco Light Simulator</title>
 		<link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body>
+    <div class="snowflakes">
+      <!-- Generate snowflakes dynamically with JavaScript -->
+    </div>
     <div id="particles-js"></div>
 		<div class="container">
 			<div class="background">
@@ -17,7 +20,39 @@
 				<div class="shape"></div>
 			</div>
 			<div class="box">
-				<h1>Random Disco Light Simulator</h1>
+        <h1
+        id="changingHeading"
+        style="
+          font-family: Arial, sans-serif;
+          font-size: 39px;
+          color: #ffffff;
+        "
+      >
+        Random Disco
+        <span
+          id="changing"
+          style="
+            font-family: Arial, sans-serif;
+            font-size: 39px;
+            font-weight: bold;
+            color: #ff7f50;
+          "
+          >Light Simulator</span
+        >
+      </h1>
+      <header>
+        <div class="header-content">
+          <nav>
+            <ul>
+              <li><a href="#about" onclick="showAboutPopup()">About</a></li>
+              <li>
+                <a href="#features" onclick="showFeaturesPopup()">Features</a>
+              </li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 				<div>
 					<label for="color">1. Number of Colors:</label>
 					<input type="number" id="color" placeholder="Enter" />
@@ -78,6 +113,7 @@
           <option value="snare">Snare</option>
         </select>
       </div>
+      <button id="randomize">Randomize</button>
 				<div class="button">
 					<button id="submit">Submit</button>
 					<a
@@ -116,11 +152,96 @@
   <audio id="snare" src="assets/audios/Snare.mp3"></audio>
   <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
   <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
+  <div>
+    <select id="musicDropdown" style="display: none;">
+        <option value="select" disabled selected>Change Music</option>
+        <option value="none">None</option>
+        <option value="disco">Disco</option>
+        <option value="fairies">Fairies</option>
+        <option value="funky1">Funky 1</option>
+        <option value="funky2">Funky 2</option>
+        <option value="omniscent">Omniscient</option>
+        <option value="vintage">Vintage</option>
+        <option value="whistle">Whistle</option>
+        <option value="snare">Snare</option>
+    </select>
+</div>
 		<div id="message">The timer has ended. The page will reload.</div>
     <button id="fullscreenBtn">Fullscreen</button>
     <button id="toggleTheme">Light Mode</button>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
 		<script src="script.js"></script>
+    <div id="warningModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Warning: Sensitivity to Flashing Lights</h2>
+        <p>
+          This site contains flashing lights that may cause discomfort or
+          trigger seizures for people with photosensitive epilepsy. Viewer
+          discretion is advised.
+        </p>
+        <button id="proceed">Proceed</button>
+      </div>
+    </div>
+    <div id="aboutPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closeAboutPopup()">&times;</span>
+        <h2>About</h2>
+        <p>
+          The Random Disco Light Simulator is a fun and interactive project that
+          brings the excitement of a disco dance floor to your screen whether
+          you're a developer, a party enthusiast, or just curious.
+        </p>
+        <p>
+          Inputs:
+          - How many random colors you want to be shown?
+          <br />
+          - With how much time interval (in milliseconds) you want to change the
+          colors randomly?
+          <br />
+          - What type of view you want to choose (conic, linear, or radial)?
+          <br />
+          - Countdown timer (in seconds)
+          <br />
+          - Sound Effect
+        </p>
+        <p>
+          Output:
+          On the basis of these inputs, it simulates the selected view.
+        </p>
+        <p>Try these inputs and have fun! 😄</p>
+        <p>1000 1 milliseconds conic 60</p>
+        <p>1000 1 milliseconds radial 60</p>
+        <p>1000 1 milliseconds linear 60</p>
+      </div>
+    </div>
+    <div id="featuresPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closeFeaturesPopup()">&times;</span>
+        <h2>Features</h2>
+        <h1>Conic Mode</h1>
+        <p>
+          Imagine a spotlight sweeping across the room, creating vibrant cones
+          of light. The colors change dynamically as the spotlight moves, adding
+          an electrifying effect.
+        </p>
+        <h1>Radial Mode</h1>
+        <p>
+          Picture a pulsating ring of light expanding and contracting. The
+          radial pattern syncs perfectly with the beat, making you feel the
+          rhythm.
+        </p>
+        <h1>Linear Mode</h1>
+        <p>
+          Visualize colorful streaks of light moving in straight lines. These
+          streaks crisscross, intersect, and dance across the floor,
+          transforming your space into a dynamic disco.
+        </p>
+      </div>
+    </div>
+	</body>
+</html>
+    </div>
 	</body>
 </html>
