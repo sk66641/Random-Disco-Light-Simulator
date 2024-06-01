@@ -152,3 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+const toggleTheme = document.getElementById('toggleTheme');
+toggleTheme.addEventListener('click', () => {
+    if( document.body.classList.contains('dark') ) {
+        document.body.classList.remove('dark');
+        toggleTheme.textContent = 'Dark Mode';
+    } else {
+        document.body.classList.add('dark');
+        toggleTheme.textContent = 'Light Mode';
+    }
+});

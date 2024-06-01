@@ -1,3 +1,56 @@
+:root {
+  --background-color: white;
+  --text-color: black;
+  --box-bg-color: rgba(0, 0, 0, 0.13);
+  --box-border-color: rgba(0, 0, 0, 0.1);
+  --box-shadow-color: rgba(0, 0, 0, 0.6);
+  --input-bg-color: rgba(0, 0, 0, 0.07);
+  --placeholder-color: #4c4c4c;
+  --option-bg-color: #eee;
+  --option-color: #000;
+  --button-color: white;
+  --button-bg-color: green;
+  --button-hover-bg-color: darkgreen;
+  --reset-bg-color: red;
+  --reset-hover-bg-color: rgb(169, 2, 2);
+  --footer-bg-color: rgb(230, 230, 230);
+  --footer-bottom-bg-color: #ddd;
+  --footer-text-color: black;
+  --social-icon-bg-color: #eee;
+  --social-icon-color: black;
+  --social-icon-hover-bg-color: #ccc;
+  --social-icon-hover-color: white;
+  --footer-nav-link-color: black;
+  --footer-nav-link-hover-opacity: 0.7;
+}
+
+.dark {
+  --background-color: black;
+  --text-color: white;
+  --box-bg-color: rgba(255, 255, 255, 0.13);
+  --box-border-color: rgba(255, 255, 255, 0.1);
+  --box-shadow-color: rgba(8, 7, 16, 0.6);
+  --input-bg-color: rgba(255, 255, 255, 0.07);
+  --placeholder-color: #d3d1d1;
+  --option-bg-color: #333;
+  --option-color: #e5e5e5;
+  --button-color: white;
+  --button-bg-color: green;
+  --button-hover-bg-color: darkgreen;
+  --reset-bg-color: red;
+  --reset-hover-bg-color: rgb(169, 2, 2);
+  --footer-bg-color: rgb(45, 45, 52);
+  --footer-bottom-bg-color: #111;
+  --footer-text-color: white;
+  --social-icon-bg-color: rgb(45, 45, 52);
+  --social-icon-color: rgb(45, 45, 52);
+  --social-icon-hover-bg-color: #111;
+  --social-icon-hover-color: white;
+  --footer-nav-link-color: white;
+  --footer-nav-link-hover-opacity: 1;
+}
+
+
 * {
   font-size: 40px;
 }
@@ -10,10 +63,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 
 #particles-js {
   position: absolute;
@@ -60,13 +113,12 @@ h1 {
 }
 
 .box {
-  background: rgba(255, 255, 255, 0.13);
+  background: var(--box-bg-color);
   border-radius: 20px;
   padding: 10px 25px;
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  color: #ffffff;
+  border: 2px solid var(--box-border-color);
+  box-shadow: 0 0 40px var(--box-shadow-color);
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -79,17 +131,17 @@ label {
 }
 
 input {
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: var(--input-bg-color);
   outline: none;
   border: none;
-  color: #fff;
+  color: var(--text-color);
   font-size: 24px;
   padding: 5px 10px;
   border-radius: 10px;
 }
 
 ::placeholder {
-  color: #d3d1d1;
+  color: var(--placeholder-color);
   font-size: 20px;
 }
 
@@ -104,27 +156,26 @@ i {
 
 strong {
   font-size: 24px;
-  color: skyblue;
+  color: rgb(102, 195, 232);
 }
 
 #view,
 #unit,#sound{
   text-align: center;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: var(--input-bg-color);
   outline: none;
   border: none;
   padding: 5px 10px;
-  color: #e5e5e5;
+  color: var(--text-color);
   font-size: 24px;
   width: auto;
 }
 
-
 select option {
-  color: #e5e5e5;
+  color: var(--option-color);
   font-size: 24px;
-  background-color: #333;
+  background-color: var(--option-bg-color);
   border: none;
   outline: none;
 }
@@ -135,25 +186,30 @@ select option {
 }
 
 #submit {
-  background-color: green;
+  background-color: var(--button-bg-color);
   cursor: pointer;
   border-radius: 10px;
   transition: 0.2s all;
 }
 
 #submit:hover {
-  background-color: darkgreen;
+  background-color: var(--button-hover-bg-color);
 }
 
 #reset {
   border-radius: 10px;
-  background-color: red;
+  background-color: var(--reset-bg-color);
   cursor: pointer;
   transition: 0.2s all;
 }
 
+svg {
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 #reset:hover {
-  background-color: rgb(169, 2, 2);
+  background-color: var(--reset-hover-bg-color);
 }
 
 .button {
@@ -169,7 +225,7 @@ button {
   border:none;
   font-size: 20px;
   padding: 10px 20px;
-  color: #fff;
+  color: var(--button-color);
 }
 
 .screen {
@@ -260,9 +316,10 @@ a:hover {
     z-index: 1000;
     font-size: 18px;
     text-align: center;
+    color: black;
 }
 
-#fullscreenBtn {
+#fullscreenBtn, #toggleTheme {
     position: fixed;
     top: 20px;
     left: 20px;
@@ -271,13 +328,17 @@ a:hover {
     cursor: pointer;
     border: none;
     background: linear-gradient(#1845ad, #23a2f6);
-    color: white;
+    color: var(--button-color);
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#fullscreenBtn:hover {
-    background: linear-gradient(to right, #ff512f, #f09819)
+#toggleTheme {
+  top:70px;
+}
+
+#fullscreenBtn:hover, #toggleTheme:hover {
+    background: linear-gradient(to right, #ff512f, #f09819);
 }
 footer{
   background-color: rgb(45, 45, 52);
@@ -301,7 +362,7 @@ footer{
 }
 .socialIcons a i{
   font-size: 1em;
-  color: rgb(45, 45, 52);
+  color: var(--social-icon-color);
   opacity: 0,9;
 }
 /* Hover affect on social media icon */
