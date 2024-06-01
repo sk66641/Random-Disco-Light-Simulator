@@ -154,6 +154,32 @@
   <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
 		<div id="message">The timer has ended. The page will reload.</div>
     <button id="fullscreenBtn">Fullscreen</button>
+    <button id="CommentBtn"><i class="fas fa-comment"></i></button>  <!-- Comment form -->
+
+<!-- Modal background -->
+<div id="modalBackground">
+  <!-- Comment form -->
+  <div id="commentForm">
+      <form>
+          <label for="userComment">Your Comment:</label>
+          <textarea id="userComment" name="comment" rows="4" cols="40" placeholder="Write your comment here..."></textarea>
+          <button type="submit">Submit</button>
+      </form>
+  </div>
+</div>
+
+<script>
+    document.getElementById("CommentBtn").addEventListener("click", function() {
+        document.getElementById("modalBackground").style.display = "flex";
+    });
+
+    // Close the form when clicking outside of it (optional)
+    document.getElementById("modalBackground").addEventListener("click", function(event) {
+        if (event.target === this) {
+            this.style.display = "none";
+        }
+    });
+</script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
 		<script src="script.js"></script>
