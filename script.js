@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         timerInterval = setInterval(() => {
             let minutes = Math.floor(timer / 60);
-            let seconds = timer % 60;
+            let seconds = Math.floor(timer % 60);
 
             timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
 
