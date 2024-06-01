@@ -1,5 +1,3 @@
-
-
 * {
   font-size: 40px;
 }
@@ -11,11 +9,11 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 
 #particles-js {
   position: absolute;
@@ -53,7 +51,7 @@ body {
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
   right: -240px;
-  bottom: -100px;
+  bottom: -60px;
 }
 
 h1 {
@@ -113,7 +111,8 @@ strong {
 }
 
 #view,
-#unit,#sound{
+#unit,
+#sound {
   text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.07);
@@ -124,7 +123,6 @@ strong {
   font-size: 24px;
   width: auto;
 }
-
 
 select option {
   color: #e5e5e5;
@@ -171,7 +169,7 @@ select option {
 }
 
 button {
-  border:none;
+  border: none;
   font-size: 20px;
   padding: 10px 20px;
   color: #fff;
@@ -223,11 +221,13 @@ a:hover {
     font-size: 24px !important;
   }
 
-  input, #unit {
+  input,
+  #unit {
     margin-top: 10px;
   }
 
-  #time, #unit {
+  #time,
+  #unit {
     width: 45%;
   }
 
@@ -242,156 +242,222 @@ a:hover {
 }
 
 #timerDisplay {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 #message {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgb(113, 230, 245);
-    padding: 20px;
-    border: 1px solid black;
-    z-index: 1000;
-    font-size: 18px;
-    text-align: center;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(113, 230, 245);
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 1000;
+  font-size: 18px;
+  text-align: center;
 }
 
 #fullscreenBtn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background: linear-gradient(#1845ad, #23a2f6);
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #fullscreenBtn:hover {
-    background: linear-gradient(to right, #ff512f, #f09819)
+  background: linear-gradient(to right, #ff512f, #f09819)
 }
-footer{
-  background-color: rgb(45, 45, 52);
-}
-.footerContainer{
-  
-  width: 100%;
-  height: vw;
 
+footer {
+  background-color: white;
 }
-.socialIcons{
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.socialIcons {
   display: flex;
   justify-content: center;
 }
-.socialIcons a{
+
+.socialIcons a {
   text-decoration: none;
-  padding:  10px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   margin: 2vw;
   border-radius: 50%;
 }
-.socialIcons a i{
+
+.socialIcons a i {
   font-size: 1em;
-  color: rgb(45, 45, 52);
-  opacity: 0,9;
+  color: white;
+  opacity: 0, 9;
 }
+
 /* Hover affect on social media icon */
-.socialIcons a:hover{
-  background-color: #03dac6;
+
+.socialIcons a:hover {
+  background-color: #111;
+
   transition: 0.5s;
 }
-.socialIcons a:hover i{
+
+.socialIcons a:hover i {
   color: white;
   transition: 0.5s;
 }
-.footerNav{
+
+.footerNav {
   margin: 30px 0;
 }
-.footerNav ul{
+
+.footerNav ul {
   display: flex;
   justify-content: center;
   list-style-type: none;
 }
-.footerNav ul li a{
-  color:white;
+
+.footerNav ul li a {
+  color: white;
   margin: 20px;
   text-decoration: none;
   font-size: 1.3em;
   opacity: 0.7;
   transition: 0.5s;
-
 }
-.footerNav ul li a:hover{
+
+.footerNav ul li a:hover {
   opacity: 1;
 }
-.footerBottom{
+
+.footerBottom {
   background-color: #111;
   height: 5vw;
   text-align: center;
 }
-.footerBottom p{
+
+.footerBottom p {
   color: white;
-  
 }
-.designer{
+
+.designer {
   opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
   margin: 0px 5px;
 }
-@media (max-width: 700px){
-  .footerNav ul{
-      flex-direction: column;
-  } 
-  .footerNav ul li{
-      width:100%;
-      text-align: center;
-      margin: 10px;
+
+@media (max-width: 700px) {
+  .footerNav ul {
+    flex-direction: column;
   }
-  .socialIcons a{
+
+  .footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .socialIcons a {
     padding: 8px;
     margin: 4px;
+  }
 }
+
+#facebook:hover {
+  background-color: rgb(24, 119, 242);
+  transition: 0.5s;
+}
+
+#instagram:hover {
+  background-color: rgb(214, 41, 176);
+  transition: 0.5s;
+}
+
+#twitter:hover {
+  background-color: rgb(29 161 242);
+  transition: 0.5s;
+}
+
+#google-plus:hover {
+  background-color: #dd4b39;
+  transition: 0.5s;
+}
+
+#youtube:hover {
+  background-color: #FF0000;
+  transition: 0.5s;
+}
+
+.nameWeb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  color: white;
+}
+
+.nameWeb span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  color: white;
+  height: 50px;
 }
 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  animation: slide-down 0.3s ease-out; 
+  animation: slide-down 0.3s ease-out;
 }
 
 @keyframes slide-down {
@@ -446,10 +512,9 @@ button:hover {
   background-color: #0056b3;
 }
 
-
 @media (max-width: 600px) {
   .modal-content {
-    width: 95%; 
+    width: 95%;
   }
 }
 
@@ -460,7 +525,7 @@ button:hover {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .snowflake {
@@ -486,27 +551,23 @@ button:hover {
   }
 }
 
-
-body, ul {
+body,
+ul {
   margin: 0;
   padding: 0;
 }
 
 header {
-  /* background-color: #333;  */
-  padding-top: 2px; 
+  padding-top: 2px;
   padding-bottom: 30px;
   height: 30px;
   padding-left: 10px;
 }
 
-
 .header-content {
-  width:100%;
-  margin: 0 ;
- 
+  width: 100%;
+  margin: 0;
 }
-
 
 nav ul {
   list-style-type: none;
@@ -518,44 +579,42 @@ nav ul li {
 }
 
 nav ul li:last-child {
-  margin-right: 0 auto; 
+  margin-right: 0 auto;
 }
 
 nav ul li a {
-  color: #fff; 
+  color: #fff;
   text-decoration: none;
   font-size: 20px;
 }
 
 nav ul li a:hover {
-  color: #ff7f50; 
+  color: #ff7f50;
 }
 
-
-
 .popup {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .popup-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  animation: slide-down 0.3s ease-out; 
+  animation: slide-down 0.3s ease-out;
 }
 
 @keyframes slide-down {
@@ -584,8 +643,8 @@ nav ul li a:hover {
 }
 #randomize {
   background-color: #007bff;
-  width: auto; /* Adjust the width as needed */
-  margin: 20px auto; /* Adjust margin as needed */
+  width: auto;
+  margin: 20px auto;
   display: block;
   color: #ffffff;
   border: none;
@@ -598,6 +657,7 @@ nav ul li a:hover {
 
 #randomize:hover {
   background-color: #0056b3;
+
 }
 /* comment */
 #CommentBtn {
@@ -676,6 +736,8 @@ nav ul li a:hover {
 #commentForm button[type="submit"]:hover {
   background-color: #218838;
 }
+
+
 
 
 #musicDropdown {
