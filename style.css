@@ -60,6 +60,9 @@ h1 {
 }
 
 .box {
+  max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
+  overflow: auto; /* Added scroll because content overflows */
   background: rgba(255, 255, 255, 0.13);
   border-radius: 20px;
   padding: 10px 25px;
@@ -71,7 +74,6 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 180px;
 }
 
 label {
@@ -654,4 +656,33 @@ nav ul li a:hover {
 
 #randomize:hover {
   background-color: #0056b3;
+
 }
+
+
+
+#musicDropdown {
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(#1845ad, #23a2f6);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #e5e5e5;
+  font-size: 24px;
+  position: fixed;
+  top: 90px; /* Adjust the position as needed */
+  left: 10px;
+}
+
+#musicDropdown select {
+  color: #e5e5e5;
+  font-size: 24px;
+  background-color: #5fd9f4;
+  border: none;
+  outline: none;
+}
+#musicDropdown:hover {
+    background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
+}
+

@@ -120,7 +120,23 @@
   <audio id="snare" src="assets/audios/Snare.mp3"></audio>
   <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
   <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
-<div id="message">The timer has ended. The page will reload.</div>
+
+  <div>
+    <select id="musicDropdown" style="display: none;">
+        <option value="select" disabled selected>Change Music</option>
+        <option value="none">None</option>
+        <option value="disco">Disco</option>
+        <option value="fairies">Fairies</option>
+        <option value="funky1">Funky 1</option>
+        <option value="funky2">Funky 2</option>
+        <option value="omniscent">Omniscient</option>
+        <option value="vintage">Vintage</option>
+        <option value="whistle">Whistle</option>
+        <option value="snare">Snare</option>
+    </select>
+</div>
+		<div id="message">The timer has ended. The page will reload.</div>
+
     <button id="fullscreenBtn">Fullscreen</button>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
@@ -199,3 +215,4 @@
 </body>
 
 </html>
+
