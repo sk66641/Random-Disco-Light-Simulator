@@ -642,3 +642,28 @@ margin-left: 400px;
 #randomize:hover {
   background-color: #0056b3;
 }
+
+#musicDropdown {
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(#1845ad, #23a2f6);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #e5e5e5;
+  font-size: 24px;
+  position: fixed;
+  top: 90px; /* Adjust the position as needed */
+  left: 10px;
+}
+
+#musicDropdown select {
+  color: #e5e5e5;
+  font-size: 24px;
+  background-color: #5fd9f4;
+  border: none;
+  outline: none;
+}
+#musicDropdown:hover {
+    background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
+}
