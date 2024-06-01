@@ -311,7 +311,7 @@ footer{
 }
 /* Hover affect on social media icon */
 .socialIcons a:hover{
-  background-color: #111;
+  background-color: #03dac6;
   transition: 0.5s;
 }
 .socialIcons a:hover i{
