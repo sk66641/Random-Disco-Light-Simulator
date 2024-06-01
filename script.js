@@ -313,7 +313,18 @@ function showFeaturesPopup() {
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
 }
-
+function darkMode() {
+    let element = document.body;
+    
+    element.className = "dark-mode";
+ 
+}
+function lightMode() {
+    let element = document.body;
+    
+    element.className = "light-mode";
+    
+}
 document.getElementById('submit').addEventListener('click', function() {
     document.getElementById('musicDropdown').style.display = 'block';
 

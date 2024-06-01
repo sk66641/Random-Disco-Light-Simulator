@@ -514,7 +514,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin-right: 40px; 
+  margin-right: 60px; 
 }
 
 nav ul li:last-child {
@@ -582,49 +582,6 @@ nav ul li a:hover {
 .close:focus {
   color: #000;
 }
-/* 
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-  background-color: #fefefe;
-margin-top: 20px;
-margin-left: 400px;
-  padding: 20px;
-  border:1px solid #888;
-  border-radius: 10px; 
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  position: relative; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 10px; 
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1; 
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-
-} */
 #randomize {
   background-color: #007bff;
   width: auto; /* Adjust the width as needed */
@@ -745,3 +702,155 @@ margin-left: 400px;
 #musicDropdown:hover {
     background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
 }
+.dark-mode {
+  background-color: black;
+  color: white;
+
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.light-mode input {
+  background-color: rgba(255, 255, 255, 0.07);
+  outline: none;
+  border:1px black solid;
+  color: #0a0606;
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.light-mode .box {
+max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
+  overflow: auto; /* Added scroll because content overflows */
+  background: rgba(0, 0, 0, 0.13);
+  border-radius: 20px;
+  padding: 10px 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(28, 22, 22, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: #0f0c0c;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.light-mode ::placeholder {
+  color: #120c0c;
+  font-size: 20px;
+}
+.light-mode #view,.light-mode #unit, .light-mode #sound{
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(16, 10, 10, 0.07);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #080505;
+  font-size: 24px;
+  width: auto;
+}
+.light-mode option {
+  color: #0f0b0b;
+  font-size: 24px;
+  background-color: #fff8f8;
+  border: none;
+  outline: none;
+}
+
+.light-mode.socialIcons a:hover{
+  background-color: #f4efef;
+  transition: 0.5s;
+}
+.light-mode.socialIcons a:hover i{
+  color: rgb(7, 6, 6);
+  transition: 0.5s;
+}
+
+ .light-mode .snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; 
+}
+
+.light-mode .snowflake {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #1e1818;
+  animation: snowfall linear infinite;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.light-mode ul li a {
+  color: #130a0a; 
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.light-mode .popup {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(239, 234, 234, 0.8); 
+  backdrop-filter: blur(5px); 
+}
+
+.light-mode .popup-content {
+  background-color: #120e0e;
+  /* color: rgb(254, 254, 254); */
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  width: 90%; 
+  max-width: 500px; 
+  text-align: center;
+  animation: slide-down 0.3s ease-out; 
+}
+.light-mode .popup-content p,.light-mode .popup-content h2,.light-mode .popup-content h1{
+color: #9ba2a8;
+}
+.light-mode .close {
+  color: #fef5f5;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.light-mode .close:hover,
+.light-mode .close:focus {
+  color: #fff7f7;
+}
+.box h1{
+  font-family: Arial, sans-serif;
+  font-size: 39px;
+  color: #ffffff;
+}
+.box span{
+  font-family: Arial, sans-serif;
+  font-size: 39px;
+  font-weight: bold;
+  color: #ff7f50;
+}
+.light-mode .box h1{
+  color: black;
+}
+
