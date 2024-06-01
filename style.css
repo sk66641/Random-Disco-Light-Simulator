@@ -15,7 +15,6 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
 #particles-js {
   position: absolute;
   width: 100%;
@@ -61,6 +60,9 @@ h1 {
 }
 
 .box {
+  max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
+  overflow: auto; /* Added scroll because content overflows */
   background: rgba(255, 255, 255, 0.13);
   border-radius: 20px;
   padding: 10px 25px;
@@ -122,7 +124,6 @@ strong {
   width: auto;
 }
 
-
 select option {
   color: #e5e5e5;
   font-size: 24px;
@@ -159,7 +160,7 @@ select option {
 }
 
 .button {
-  margin-top: 40px;
+  margin-top: 5px;
   margin-bottom: 16px;
   display: flex;
   justify-content: center;
@@ -289,12 +290,10 @@ footer {
 }
 
 .footerContainer {
-  
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-
 }
 
 .socialIcons {
@@ -320,8 +319,10 @@ footer {
 }
 
 /* Hover affect on social media icon */
+
 .socialIcons a:hover {
   background-color: #111;
+
   transition: 0.5s;
 }
 
@@ -347,7 +348,6 @@ footer {
   font-size: 1.3em;
   opacity: 0.7;
   transition: 0.5s;
-
 }
 
 .footerNav ul li a:hover {
@@ -362,7 +362,6 @@ footer {
 
 .footerBottom p {
   color: white;
-
 }
 
 .designer {
@@ -414,21 +413,355 @@ footer {
   background-color: #FF0000;
   transition: 0.5s;
 }
-.nameWeb{
+
+.nameWeb {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 300px;
   color: white;
 }
-.nameWeb span{
+
+.nameWeb span {
   font-size: 20px;
   font-weight: bold;
 }
-.copyright{
+
+.copyright {
   display: flex;
   justify-content: center;
   font-size: large;
   color: white;
   height: 50px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #555;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+  }
+}
+
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.snowflake {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  animation: snowfall linear infinite;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding-top: 2px;
+  padding-bottom: 30px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.header-content {
+  width: 100%;
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 40px;
+}
+
+nav ul li:last-child {
+  margin-right: 0 auto;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav ul li a:hover {
+  color: #ff7f50;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+#randomize {
+  background-color: #007bff;
+  width: auto;
+  margin: 20px auto;
+  display: block;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#randomize:hover {
+  background-color: #0056b3;
+
+}
+/* comment */
+#CommentBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#CommentBtn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Style for the modal background */
+#modalBackground {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Style for the comment form */
+#commentForm {
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  z-index: 1001;
+}
+
+#commentForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#commentForm textarea {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+#commentForm button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#commentForm button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+
+
+
+#musicDropdown {
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(#1845ad, #23a2f6);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #e5e5e5;
+  font-size: 24px;
+  position: fixed;
+  top: 90px; /* Adjust the position as needed */
+  left: 10px;
+}
+
+#musicDropdown select {
+  color: #e5e5e5;
+  font-size: 24px;
+  background-color: #5fd9f4;
+  border: none;
+  outline: none;
+}
+#musicDropdown:hover {
+    background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
 }
