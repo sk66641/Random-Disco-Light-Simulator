@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomNumColors = Math.floor(Math.random() * 1000) + 1;
         colorInput.value = randomNumColors;
 
+        // Stopped the random selection for input for better view:
         // const colorInput1 = document.getElementById('color1');
         // const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
         // colorInput1.value = randomColor1;
