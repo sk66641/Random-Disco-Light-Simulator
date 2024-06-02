@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         timerInterval = setInterval(() => {
             let minutes = Math.floor(timer / 60);
-            let seconds = timer % 60;
+            let seconds = Math.floor(timer % 60);
 
             timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
 
@@ -51,11 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let unit = document.getElementById("unit").value;
         let view = document.getElementById("view").value;
         let soundEffect = document.getElementById("sound").value;
+        let color1 = document.getElementById('color1').value;
+        let color2 = document.getElementById('color2').value;
 
         if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
             document.getElementById("error").innerHTML = "";
+            document.querySelector(".footer").style.display = "none";
             document.querySelector(".container").style.display = "none";
-            startSimulation(n, set_time, unit, view);
+            startSimulation(n, set_time, unit, view,color1,color2);
 
             startCountdown(countdownValue);
 
@@ -83,8 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function startSimulation(n, set_time, unit, view) {
+    function startSimulation(n, set_time, unit, view,color1, color2) {
         alert("Double click on the screen to reload!");
+        const rgbColor1 = hexToRgb(color1);
+        const rgbColor2 = hexToRgb(color2);
 
         document.body.children[0].style.display = 'none';
         document.body.children[1].style.display = 'none';
@@ -101,32 +106,41 @@ document.addEventListener('DOMContentLoaded', () => {
             set_time *= 1000;
         }
 
-        function getRandomColor() {
-            let val1 = parseInt(0 + Math.random() * 256);
-            let val2 = parseInt(0 + Math.random() * 256);
-            let val3 = parseInt(0 + Math.random() * 256);
-            return `rgb(${val1}, ${val2}, ${val3})`;
+        function getRandomColorBetween(color1, color2) {
+            if(color1.r === color2.r && color1.g === color2.g && color1.b === color2.b){
+                const randomR = Math.floor(Math.random() * 256);
+                const randomG = Math.floor(Math.random() * 256);
+                const randomB = Math.floor(Math.random() * 256);
+                return `rgb(${randomR}, ${randomG}, ${randomB})`;
+            }
+            else{
+                const randomR = Math.floor(Math.random() * (color2.r - color1.r + 1)) + color1.r;
+                const randomG = Math.floor(Math.random() * (color2.g - color1.g + 1)) + color1.g;
+                const randomB = Math.floor(Math.random() * (color2.b - color1.b + 1)) + color1.b;
+                return `rgb(${randomR}, ${randomG}, ${randomB})`;
+            }
         }
+        
 
-        function numberColors(num) {
-            let colors = `${getRandomColor()}`;
+        function numberColorsBetween(color1, color2, num) {
+            let colors = `${getRandomColorBetween(color1, color2)}`;
             while (num > 1) {
-                colors += `, ${getRandomColor()}`;
+                colors += `, ${getRandomColorBetween(color1, color2)}`;
                 num--;
             }
             return colors;
         }
 
         if (n == 1) {
-            document.body.style.backgroundColor = getRandomColor();
+            document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             setInterval(() => {
-                document.body.style.backgroundColor = getRandomColor();
+                document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             }, set_time);
         } else {
             let gradientType = view === "conic" ? "conic-gradient" : view === "linear" ? "linear-gradient" : "radial-gradient";
-            document.body.style.background = `${gradientType}(${numberColors(n - 1)}, ${getRandomColor()})`;
+            document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
             setInterval(() => {
-                document.body.style.background = `${gradientType}(${numberColors(n - 1)}, ${getRandomColor()})`;
+                document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
             }, set_time);
         }
     }
@@ -135,6 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const colorInput = document.getElementById('color');
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
+
+        const colorInput1 = document.getElementById('color1');
+        const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        colorInput1.value = randomColor1;
+
+        const colorInput2 = document.getElementById('color2');
+        const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        colorInput2.value = randomColor2;
 
         const timeInput = document.getElementById('time');
         const randomTimeInterval = Math.floor(Math.random() * 5000) + 1000;
@@ -171,6 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
             musicAudio.play();
         }
     });
+
+    function hexToRgb(hex) {
+        let bigint = parseInt(hex.slice(1), 16);
+        let r = (bigint >> 16) & 255;
+        let g = (bigint >> 8) & 255;
+        let b = bigint & 255;
+        return { r, g, b };
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -284,7 +314,18 @@ function showFeaturesPopup() {
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
 }
-
+function darkMode() {
+    let element = document.body;
+    
+    element.className = "dark-mode";
+ 
+}
+function lightMode() {
+    let element = document.body;
+    
+    element.className = "light-mode";
+    
+}
 document.getElementById('submit').addEventListener('click', function() {
     document.getElementById('musicDropdown').style.display = 'block';
 
@@ -298,6 +339,7 @@ document.getElementById('submit').addEventListener('click', function() {
             document.getElementById(selectedMusic).play();
         }
     });
+
 });
 
 const toggleTheme = document.getElementById('toggleTheme');

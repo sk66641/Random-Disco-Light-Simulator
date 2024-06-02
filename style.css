@@ -61,6 +61,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -103,7 +104,7 @@ body {
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
   right: -240px;
-  bottom: -100px;
+  bottom: -60px;
 }
 
 h1 {
@@ -162,7 +163,8 @@ strong {
 }
 
 #view,
-#unit,#sound{
+#unit,
+#sound {
   text-align: center;
   border-radius: 10px;
   background-color: var(--input-bg-color);
@@ -224,7 +226,7 @@ svg {
 }
 
 button {
-  border:none;
+  border: none;
   font-size: 20px;
   padding: 10px 20px;
   color: var(--button-color);
@@ -276,11 +278,13 @@ a:hover {
     font-size: 24px !important;
   }
 
-  input, #unit {
+  input,
+  #unit {
     margin-top: 10px;
   }
 
-  #time, #unit {
+  #time,
+  #unit {
     width: 45%;
   }
 
@@ -295,15 +299,15 @@ a:hover {
 }
 
 #timerDisplay {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 #message {
@@ -341,115 +345,179 @@ a:hover {
 
 #fullscreenBtn:hover, #toggleTheme:hover {
     background: linear-gradient(to right, #ff512f, #f09819);
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(113, 230, 245);
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 1000;
+  font-size: 18px;
+  text-align: center;
 }
-footer{
-  background-color: rgb(45, 45, 52);
-}
-.footerContainer{
-  
-  width: 100%;
-  height: vw;
 
+footer {
+  background-color: white;
 }
-.socialIcons{
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.socialIcons {
   display: flex;
   justify-content: center;
 }
-.socialIcons a{
+
+.socialIcons a {
   text-decoration: none;
-  padding:  10px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   margin: 2vw;
   border-radius: 50%;
 }
-.socialIcons a i{
+
+.socialIcons a i {
   font-size: 1em;
   color: var(--social-icon-color);
   opacity: 0,9;
 }
+
 /* Hover affect on social media icon */
-.socialIcons a:hover{
+
+.socialIcons a:hover {
   background-color: #111;
+
   transition: 0.5s;
 }
-.socialIcons a:hover i{
+
+.socialIcons a:hover i {
   color: white;
   transition: 0.5s;
 }
-.footerNav{
+
+.footerNav {
   margin: 30px 0;
 }
-.footerNav ul{
+
+.footerNav ul {
   display: flex;
   justify-content: center;
   list-style-type: none;
 }
-.footerNav ul li a{
-  color:white;
+
+.footerNav ul li a {
+  color: white;
   margin: 20px;
   text-decoration: none;
   font-size: 1.3em;
   opacity: 0.7;
   transition: 0.5s;
-
 }
-.footerNav ul li a:hover{
+
+.footerNav ul li a:hover {
   opacity: 1;
 }
-.footerBottom{
+
+.footerBottom {
   background-color: #111;
   height: 5vw;
   text-align: center;
 }
-.footerBottom p{
+
+.footerBottom p {
   color: white;
-  
 }
-.designer{
+
+.designer {
   opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
   margin: 0px 5px;
 }
-@media (max-width: 700px){
-  .footerNav ul{
-      flex-direction: column;
-  } 
-  .footerNav ul li{
-      width:100%;
-      text-align: center;
-      margin: 10px;
+
+@media (max-width: 700px) {
+  .footerNav ul {
+    flex-direction: column;
   }
-  .socialIcons a{
+
+  .footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .socialIcons a {
     padding: 8px;
     margin: 4px;
+  }
 }
+
+#facebook:hover {
+  background-color: rgb(24, 119, 242);
+  transition: 0.5s;
+}
+
+#instagram:hover {
+  background-color: rgb(214, 41, 176);
+  transition: 0.5s;
+}
+
+#twitter:hover {
+  background-color: rgb(29 161 242);
+  transition: 0.5s;
+}
+
+#google-plus:hover {
+  background-color: #dd4b39;
+  transition: 0.5s;
+}
+
+#youtube:hover {
+  background-color: #FF0000;
+  transition: 0.5s;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  color: white;
+  height: 50px;
 }
 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  animation: slide-down 0.3s ease-out; 
+  animation: slide-down 0.3s ease-out;
 }
 
 @keyframes slide-down {
@@ -504,10 +572,9 @@ button:hover {
   background-color: #0056b3;
 }
 
-
 @media (max-width: 600px) {
   .modal-content {
-    width: 95%; 
+    width: 95%;
   }
 }
 
@@ -518,7 +585,7 @@ button:hover {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .snowflake {
@@ -544,27 +611,23 @@ button:hover {
   }
 }
 
-
-body, ul {
+body,
+ul {
   margin: 0;
   padding: 0;
 }
 
 header {
-  /* background-color: #333;  */
-  padding-top: 2px; 
+  padding-top: 2px;
   padding-bottom: 30px;
   height: 30px;
   padding-left: 10px;
 }
 
-
 .header-content {
-  width:100%;
-  margin: 0 ;
- 
+  width: 100%;
+  margin: 0;
 }
-
 
 nav ul {
   list-style-type: none;
@@ -572,48 +635,46 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin-right: 40px; 
+  margin-right: 60px; 
 }
 
 nav ul li:last-child {
-  margin-right: 0 auto; 
+  margin-right: 0 auto;
 }
 
 nav ul li a {
-  color: #fff; 
+  color: #fff;
   text-decoration: none;
   font-size: 20px;
 }
 
 nav ul li a:hover {
-  color: #ff7f50; 
+  color: #ff7f50;
 }
 
-
-
 .popup {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  backdrop-filter: blur(5px); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .popup-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  animation: slide-down 0.3s ease-out; 
+  animation: slide-down 0.3s ease-out;
 }
 
 @keyframes slide-down {
@@ -640,53 +701,10 @@ nav ul li a:hover {
 .close:focus {
   color: #000;
 }
-/* 
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-  background-color: #fefefe;
-margin-top: 20px;
-margin-left: 400px;
-  padding: 20px;
-  border:1px solid #888;
-  border-radius: 10px; 
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  position: relative; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 10px; 
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1; 
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-
-} */
 #randomize {
   background-color: #007bff;
-  width: auto; /* Adjust the width as needed */
-  margin: 20px auto; /* Adjust margin as needed */
+  width: auto;
+  margin: 20px auto;
   display: block;
   color: #ffffff;
   border: none;
@@ -699,7 +717,88 @@ margin-left: 400px;
 
 #randomize:hover {
   background-color: #0056b3;
+
 }
+/* comment */
+#CommentBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#CommentBtn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Style for the modal background */
+#modalBackground {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Style for the comment form */
+#commentForm {
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  z-index: 1001;
+}
+
+#commentForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#commentForm textarea {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+#commentForm button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#commentForm button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+
+
 
 #musicDropdown {
   text-align: center;
@@ -725,3 +824,155 @@ margin-left: 400px;
 #musicDropdown:hover {
     background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
 }
+.dark-mode {
+  background-color: black;
+  color: white;
+
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.light-mode input {
+  background-color: rgba(255, 255, 255, 0.07);
+  outline: none;
+  border:1px black solid;
+  color: #0a0606;
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.light-mode .box {
+max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
+  overflow: auto; /* Added scroll because content overflows */
+  background: rgba(0, 0, 0, 0.13);
+  border-radius: 20px;
+  padding: 10px 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(28, 22, 22, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: #0f0c0c;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.light-mode ::placeholder {
+  color: #120c0c;
+  font-size: 20px;
+}
+.light-mode #view,.light-mode #unit, .light-mode #sound{
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(16, 10, 10, 0.07);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #080505;
+  font-size: 24px;
+  width: auto;
+}
+.light-mode option {
+  color: #0f0b0b;
+  font-size: 24px;
+  background-color: #fff8f8;
+  border: none;
+  outline: none;
+}
+
+.light-mode.socialIcons a:hover{
+  background-color: #f4efef;
+  transition: 0.5s;
+}
+.light-mode.socialIcons a:hover i{
+  color: rgb(7, 6, 6);
+  transition: 0.5s;
+}
+
+ .light-mode .snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; 
+}
+
+.light-mode .snowflake {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #1e1818;
+  animation: snowfall linear infinite;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.light-mode ul li a {
+  color: #130a0a; 
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.light-mode .popup {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(239, 234, 234, 0.8); 
+  backdrop-filter: blur(5px); 
+}
+
+.light-mode .popup-content {
+  background-color: #120e0e;
+  /* color: rgb(254, 254, 254); */
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  width: 90%; 
+  max-width: 500px; 
+  text-align: center;
+  animation: slide-down 0.3s ease-out; 
+}
+.light-mode .popup-content p,.light-mode .popup-content h2,.light-mode .popup-content h1{
+color: #9ba2a8;
+}
+.light-mode .close {
+  color: #fef5f5;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.light-mode .close:hover,
+.light-mode .close:focus {
+  color: #fff7f7;
+}
+.box h1{
+  font-family: Arial, sans-serif;
+  font-size: 39px;
+  color: #ffffff;
+}
+.box span{
+  font-family: Arial, sans-serif;
+  font-size: 39px;
+  font-weight: bold;
+  color: #ff7f50;
+}
+.light-mode .box h1{
+  color: black;
+}
+
