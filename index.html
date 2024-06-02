@@ -27,7 +27,7 @@
           >2. Time interval
           <i>(with which the color changes randomly)</i>:</label
 					><br />
-					<input type="number" min="0" oninput="validity.valid||(value='');" id="time" placeholder="Enter" />
+					<input type="number" min="0" oninput="this.value = Math.abs(this.value) > 0 ? Math.abs(this.value) : null" id="time" placeholder="Enter" />
 					<select id="unit">
             <option value="unit">Unit</option>
 						<option value="milliseconds">milliseconds</option>
