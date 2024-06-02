@@ -131,7 +131,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return colors;
         }
 
-        if (n == 1) {
+        function createRandomGradientPattern(n) {
+            let gradientPattern = `background-color: ${getRandomColorBetween(rgbColor1, rgbColor2)}; background-image: `;
+    
+            for (let i = 0; i < n; i++) {
+                const randomPositionX = Math.floor(Math.random() * 100);
+                const randomPositionY = Math.floor(Math.random() * 100);
+                gradientPattern += `radial-gradient(circle at ${randomPositionX}% ${randomPositionY}%, ${getRandomColorBetween(rgbColor1, rgbColor2)} 0%, transparent 50%), `;
+            }
+    
+            // Remove the last comma and space
+            gradientPattern = gradientPattern.slice(0, -2);
+            gradientPattern += '; background-blend-mode: normal;';
+    
+            return gradientPattern;
+        }
+    
+        function applyRandomGradientPattern() {
+            document.body.style.cssText = createRandomGradientPattern(n);
+        }        
+    
+        if (view === "custom") {
+            applyRandomGradientPattern();
+            setInterval(() => {
+                applyRandomGradientPattern();
+            }, set_time);
+        } else if (n == 1) {
             document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             setInterval(() => {
                 document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
