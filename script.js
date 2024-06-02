@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 100) + 1;
+        const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
 
         // Stopped the random selection for 2nd input for better view:
