@@ -19,9 +19,10 @@ To acheive this task we need to follow these steps.
 3. Issues would be sub divided meaning, a game can be divided into sub parts, one issue for making prompts, one for creating gaming assets like characters and last one for creating actual game python file
 4. After doing your task make a pull request
 5. Make sure you do not change someone else file.
-6. Plagiarism is big no and doing so may result in lost of ranks and ban from repo.
-7. Based on efforts levels will be given
-8. If any issue contact Project Admin
+6. Make sure to include the aria labels to the code. The labels should be clear and concise.
+7. Plagiarism is big no and doing so may result in lost of ranks and ban from repo.
+8. Based on efforts levels will be given
+9. If any issue contact Project Admin
 
 <br>
 
