@@ -36,13 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function stopSimulation() {
-        const messageDiv = document.getElementById('message');
-        messageDiv.style.display = 'block';
-
-        setTimeout(() => {
-            window.location.reload();
-        }, 3000);
+        // const messageDiv = document.getElementById('message');
+        // messageDiv.style.display = 'block';
+        const replayModelEl=document.getElementById('replayModel')
+        replayModelEl.style.display='block'
     }
+    document.getElementById('replayModelBtn').addEventListener('click',function(){
+        const replayModelEl=document.getElementById('replayModel')
+        replayModelEl.style.display='none'
+        run()
+    })
+    document.getElementById('exitBtn').addEventListener('click',function(){
+        window.location.reload()
+        run()
+    })
 
     function run() {
         let countdownValue = document.getElementById('countdown').value;
