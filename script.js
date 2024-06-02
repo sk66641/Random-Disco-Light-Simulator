@@ -147,23 +147,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 100) + 1;
+        const randomNumColors = Math.floor(Math.random() * 1000) + 1;
         colorInput.value = randomNumColors;
 
-        const colorInput1 = document.getElementById('color1');
-        const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        colorInput1.value = randomColor1;
+        // const colorInput1 = document.getElementById('color1');
+        // const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        // colorInput1.value = randomColor1;
 
-        const colorInput2 = document.getElementById('color2');
-        const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        colorInput2.value = randomColor2;
+        // const colorInput2 = document.getElementById('color2');
+        // const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        // colorInput2.value = randomColor2;
 
         const timeInput = document.getElementById('time');
-        const randomTimeInterval = Math.floor(Math.random() * 1000) + 100;
-        timeInput.value = randomTimeInterval;
-
+        
         const unitSelect = document.getElementById('unit');
-        const randomUnitIndex = Math.random() < 1 ? 1 : 2;
+        const randomUnitIndex = Math.random() < 0.5 ? 1 : 2;
+        if (randomUnitIndex == 1) {
+            var randomTimeInterval = Math.floor(Math.random()*1000)+1;
+            timeInput.value = randomTimeInterval;
+        }
+        else{
+            var randomTimeInterval = Math.floor(Math.random()*10)+1;
+            timeInput.value = randomTimeInterval;          
+        }
         unitSelect.selectedIndex = randomUnitIndex;
 
         const viewSelect = document.getElementById('view');
