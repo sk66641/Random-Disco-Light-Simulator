@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 10) + 1;
+        const randomNumColors = Math.floor(Math.random() * 100) + 1;
         colorInput.value = randomNumColors;
 
         const colorInput1 = document.getElementById('color1');
@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
         colorInput2.value = randomColor2;
 
         const timeInput = document.getElementById('time');
-        const randomTimeInterval = Math.floor(Math.random() * 5000) + 1000;
+        const randomTimeInterval = Math.floor(Math.random() * 1000) + 100;
         timeInput.value = randomTimeInterval;
 
         const unitSelect = document.getElementById('unit');
-        const randomUnitIndex = Math.random() < 0.5 ? 1 : 2;
+        const randomUnitIndex = Math.random() < 1 ? 1 : 2;
         unitSelect.selectedIndex = randomUnitIndex;
 
         const viewSelect = document.getElementById('view');
