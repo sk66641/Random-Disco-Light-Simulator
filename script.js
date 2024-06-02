@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
-        document.body.children[0].style.display = 'none';
-        document.body.children[1].style.display = 'none';
+        document.body.querySelector(".snowflakes").style.display = 'none';
+        document.body.querySelector("#particles-js").style.display = 'none';
         document.body.style.cursor = "pointer";
 
         document.body.addEventListener("dblclick", () => {
@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 1000) + 1;
+        const randomNumColors = Math.floor(Math.random() * 100) + 1;
         colorInput.value = randomNumColors;
 
-        // Stopped the random selection for input for better view:
+        // Stopped the random selection for 2nd input for better view:
         // const colorInput1 = document.getElementById('color1');
         // const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
         // colorInput1.value = randomColor1;
