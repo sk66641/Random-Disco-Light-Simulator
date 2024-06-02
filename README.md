@@ -77,6 +77,7 @@ On the basis of these inputs, it simulates the selected view.
 
 </table>
 
+### This [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) will guide you through the process of contributing to our project. 
 
 ## 🔗 Link
 
