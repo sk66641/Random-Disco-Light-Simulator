@@ -50,8 +50,9 @@
         </div>
       </header>
 				<div>
+          <form action="#">
 					<label for="color">1. Number of Colors:</label>
-					<input type="number" id="color" placeholder="Enter" />
+					<input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter" required /> <!--prevents user from entering value less than 1-->
 				</div>
         <div>
           <label for="color1">2. Select your desired start & end colors for the gradient:</label>
@@ -65,9 +66,9 @@
           >3. Time interval
           <i>(with which the color changes randomly)</i>:</label
 					><br />
-					<input type="number" id="time" placeholder="Enter" />
-					<select id="unit">
-            <option value="unit">Unit</option>
+					<input type="number" min="0" oninput="this.value = Math.abs(this.value) > 0 ? Math.abs(this.value) : null" id="time" placeholder="Enter" required />
+					<select id="unit" required>
+            <option value="" disabled selected>Select Unit</option>
 						<option value="milliseconds">milliseconds</option>
 						<option value="seconds">seconds</option>
 					</select>
@@ -80,10 +81,12 @@
 					<select id="view">
             <option
             style="background-color: lightslategray; color: white"
-            value="select"
+            value=""
+            disabled selected
 						>
             Select
           </option>
+          
           <option value="conic">Conic</option>
           <option value="linear">Linear</option>
           <option value="radial">Radial</option>
@@ -93,9 +96,12 @@
         <label for="countdown">5. Countdown Timer (in seconds):</label>
         <input
         type="number"
+        min="0"
+        oninput="validity.valid||(value='');"
         id="countdown"
         aria-label="Countdown Timer"
         placeholder="Enter time in seconds"
+        required
         />
       </div>
       <div >
@@ -103,6 +109,7 @@
         <select
           id="sound"
          value="select"
+         
         
         >
           <option value="none">None</option>
