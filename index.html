@@ -10,57 +10,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="snowflakes" aria-label="Snowflakes">
+    <div class="snowflakes">
         <!-- Generate snowflakes dynamically with JavaScript -->
     </div>
-    <div id="particles-js" aria-label="Particles"></div>
-		<div class="container" aria-label="Container">
-			<div class="background" aria-label="Background">
-				<div class="shape" aria-label="Shape"></div>
-				<div class="shape" aria-label="Shape"></div>
+    <div id="particles-js"></div>
+		<div class="container">
+			<div class="background">
+				<div class="shape"></div>
+				<div class="shape"></div>
 			</div>
-			<div class="box" aria-label="Box">
-                <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 39px; color: #ffffff;" aria-label="Changing Heading">
+			<div class="box">
+                <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 39px; color: #ffffff;">
                     Random Disco
-                    <span id="changing" style="font-family: Arial, sans-serif; font-size: 39px; font-weight: bold; color: #ff7f50;" aria-label="Changing Span">
+                    <span id="changing" style="font-family: Arial, sans-serif; font-size: 39px; font-weight: bold; color: #ff7f50;">
                         Light Simulator
                     </span>
                 </h1>
-      <header aria-label="Header">
-        <div class="header-content" aria-label="Header Content">
-          <nav aria-label="Navigation">
-            <ul aria-label="List Navigation">
-              <li><a href="#about" onclick="showAboutPopup()" aria-label="About">About</a></li>
+      <header>
+        <div class="header-content">
+          <nav>
+            <ul>
+              <li><a href="#about" onclick="showAboutPopup()">About</a></li>
               <li>
-                <a href="#features" onclick="showFeaturesPopup()" aria-label="Features">Features</a>
+                <a href="#features" onclick="showFeaturesPopup()">Features</a>
               </li>
               <li>
                 <a href="#lightmode" onclick="lightMode()" id="lightbtn"
-                  aria-label="Light Mode">LightMode</a
+                  >LightMode</a
                 >
               </li>
 
               <li>
                 <a href="#darkmode" onclick="darkMode()" id="darkbtn"
-                  aria-label="Dark Mode">Darkmode</a
+                  >Darkmode</a
                 >
               </li>
             </ul>
           </nav>
         </div>
       </header>
-				<div aria-label="Inputs">
+				<div>
 					<label for="color">1. Number of Colors:</label>
 					<input type="number" id="color" placeholder="Enter" />
 				</div>
-        <div aria-label="Gradient Colors">
+        <div>
           <label for="color1">2. Select your desired start & end colors for the gradient:</label>
           <input type="color" id="color1" />
           <label for="color2"></label>
           <input type="color" id="color2" />
       </div>
       <strong>[Random color spectrum will be shown for the same colors]</strong>
-				<div aria-label="Time Interval">
+				<div>
           <label for="time"
           >3. Time interval
           <i>(with which the color changes randomly)</i>:</label
@@ -75,7 +75,7 @@
 				<strong
         >[Negative interval or no input will be treated as 0 interval]</strong
 				>
-				<div aria-label="View">
+				<div>
           <label for="view">4. View:</label>
 					<select id="view">
             <option
@@ -89,7 +89,7 @@
           <option value="radial">Radial</option>
         </select>
       </div>
-      <div aria-label="Countdown Timer">
+      <div>
         <label for="countdown">5. Countdown Timer (in seconds):</label>
         <input
         type="number"
@@ -98,7 +98,7 @@
         placeholder="Enter time in seconds"
         />
       </div>
-      <div aria-label="Sound Effect">
+      <div >
         <label for="sound">6. Sound Effect:</label>
         <select
           id="sound"
@@ -119,153 +119,155 @@
 <div class="button">
     <button id="submit">Submit</button>
     
-    <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank" aria-label="GitHub Link">
-        <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-label="SVG">
+    <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank">
+        <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
             <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
         </svg>
     </a>
         <button id="reset">Reset</button>
       </div>
-      <footer class="footer" style="width: 100%;height: 2px;" aria-label="Footer">
-        <div class="footerContainer" aria-label="Footer Container">
-          <div class="socialIcons" aria-label="Social Icons">
-            <a id="facebook" href=""><i class="fa-brands fa-facebook"></i></a>
-            <a id="instagram" href=""><i class="fa-brands fa-instagram"></i></a>
-            <a id="twitter" href=""><i class="fa-brands fa-twitter"></i></a>
-            <a id="google-plus" href=""><i class="fa-brands fa-google-plus"></i></a>
-            <a id="youtube" href=""><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="copyright" aria-label="Copyright">&copy;2024 Random-Disco-Light-Simulator. All rights reserved.</div>
-      </footer>
-      <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
-      <audio id="disco" src="assets/audios/disco.mp3"></audio>
-      <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
-      <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
-      <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
-      <audio id="omniscent" src="assets/audios/omniscent.mp3"></audio>
-      <audio id="snare" src="assets/audios/Snare.mp3"></audio>
-      <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
-      <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
-
-      <div aria-label="Music Dropdown">
-        <select id="musicDropdown" style="display: none;">
-            <option value="select" disabled selected>Change Music</option>
-            <option value="none">None</option>
-            <option value="disco">Disco</option>
-            <option value="fairies">Fairies</option>
-            <option value="funky">Funky</option>
-            <option value="omniscent">Omniscient</option>
-            <option value="vintage">Vintage</option>
-            <option value="whistle">Whistle</option>
-            <option value="snare">Snare</option>
-        </select>
+      <div id="error"></div>
     </div>
-        <div id="message" aria-label="Message">The timer has ended. The page will reload.</div>
-
-        <button id="fullscreenBtn" aria-label="Fullscreen">Fullscreen</button>
-        <button id="CommentBtn" aria-label="Comment Button"><i class="fas fa-comment"></i></button>  <!-- Comment form -->
-
-    <!-- Modal background -->
-    <div id="modalBackground" aria-label="Modal Background">
-      <!-- Comment form -->
-      <div id="commentForm" aria-label="Comment Form">
-          <form>
-              <label for="userComment">Your Comment:</label>
-              <textarea id="userComment" name="comment" rows="4" cols="40" placeholder="Write your comment here..."></textarea>
-              <button type="submit">Submit</button>
-          </form>
+  </div>
+  <footer class="footer" style="width: 100%;height: 2px;">
+    <div class="footerContainer">
+      <div class="socialIcons">
+        <a id="facebook" href=""><i class="fa-brands fa-facebook"></i></a>
+        <a id="instagram" href=""><i class="fa-brands fa-instagram"></i></a>
+        <a id="twitter" href=""><i class="fa-brands fa-twitter"></i></a>
+        <a id="google-plus" href=""><i class="fa-brands fa-google-plus"></i></a>
+        <a id="youtube" href=""><i class="fa-brands fa-youtube"></i></a>
       </div>
     </div>
+    <div class="copyright">&copy;2024 Random-Disco-Light-Simulator. All rights reserved.</div>
+  </footer>
+  <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
+  <audio id="disco" src="assets/audios/disco.mp3"></audio>
+  <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
+  <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
+  <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
+  <audio id="omniscent" src="assets/audios/omniscent.mp3"></audio>
+  <audio id="snare" src="assets/audios/Snare.mp3"></audio>
+  <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
+  <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
 
-    <script>
-        document.getElementById("CommentBtn").addEventListener("click", function() {
-            document.getElementById("modalBackground").style.display = "flex";
-        });
+  <div>
+    <select id="musicDropdown" style="display: none;">
+        <option value="select" disabled selected>Change Music</option>
+        <option value="none">None</option>
+        <option value="disco">Disco</option>
+        <option value="fairies">Fairies</option>
+        <option value="funky">Funky</option>
+        <option value="omniscent">Omniscient</option>
+        <option value="vintage">Vintage</option>
+        <option value="whistle">Whistle</option>
+        <option value="snare">Snare</option>
+    </select>
+</div>
+		<div id="message">The timer has ended. The page will reload.</div>
 
-        // Close the form when clicking outside of it (optional)
-        document.getElementById("modalBackground").addEventListener("click", function(event) {
-            if (event.target === this) {
-                this.style.display = "none";
-            }
-        });
-    </script>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <script src="background.js"></script>
-        <script src="script.js"></script>
+    <button id="fullscreenBtn">Fullscreen</button>
+    <button id="CommentBtn"><i class="fas fa-comment"></i></button>  <!-- Comment form -->
 
-        <div id="warningModal" class="modal" aria-label="Warning Modal">
-            <div class="modal-content" aria-label="Modal Content">
-                <span class="close" id="closeModal">&times;</span>
-                <h2>Warning: Sensitivity to Flashing Lights</h2>
-                <p>
-                    This site contains flashing lights that may cause discomfort or
-                    trigger seizures for people with photosensitive epilepsy. Viewer
-                    discretion is advised.
-                </p>
-                <button id="proceed">Proceed</button>
-            </div>
+<!-- Modal background -->
+<div id="modalBackground">
+  <!-- Comment form -->
+  <div id="commentForm">
+      <form>
+          <label for="userComment">Your Comment:</label>
+          <textarea id="userComment" name="comment" rows="4" cols="40" placeholder="Write your comment here..."></textarea>
+          <button type="submit">Submit</button>
+      </form>
+  </div>
+</div>
+
+<script>
+    document.getElementById("CommentBtn").addEventListener("click", function() {
+        document.getElementById("modalBackground").style.display = "flex";
+    });
+
+    // Close the form when clicking outside of it (optional)
+    document.getElementById("modalBackground").addEventListener("click", function(event) {
+        if (event.target === this) {
+            this.style.display = "none";
+        }
+    });
+</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+
+    <div id="warningModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Warning: Sensitivity to Flashing Lights</h2>
+            <p>
+                This site contains flashing lights that may cause discomfort or
+                trigger seizures for people with photosensitive epilepsy. Viewer
+                discretion is advised.
+            </p>
+            <button id="proceed">Proceed</button>
         </div>
+    </div>
 
-        <div id="aboutPopup" class="popup" aria-label="About Popup">
-            <div class="popup-content" aria-label="Popup Content">
-                <span class="close" onclick="closeAboutPopup()">&times;</span>
-                <h2>About</h2>
-                <p>
-                    The Random Disco Light Simulator is a fun and interactive project that
-                    brings the excitement of a disco dance floor to your screen whether
-                    you're a developer, a party enthusiast, or just curious.
-                </p>
-                <p>
-                    Inputs:
-                    - How many random colors you want to be shown?
-                    <br />
-                    - With how much time interval (in milliseconds) you want to change the
-                    colors randomly?
-                    <br />
-                    - What type of view you want to choose (conic, linear, or radial)?
-                    <br />
-                    - Countdown timer (in seconds)
-                    <br />
-                    - Sound Effect
-                </p>
-                <p>
-                    Output:
-                    On the basis of these inputs, it simulates the selected view.
-                </p>
-                <p>Try these inputs and have fun! 😄</p>
-                <p>1000 1 milliseconds conic 60</p>
-                <p>1000 1 milliseconds radial 60</p>
-                <p>1000 1 milliseconds linear 60</p>
-            </div>
+    <div id="aboutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeAboutPopup()">&times;</span>
+            <h2>About</h2>
+            <p>
+                The Random Disco Light Simulator is a fun and interactive project that
+                brings the excitement of a disco dance floor to your screen whether
+                you're a developer, a party enthusiast, or just curious.
+            </p>
+            <p>
+                Inputs:
+                - How many random colors you want to be shown?
+                <br />
+                - With how much time interval (in milliseconds) you want to change the
+                colors randomly?
+                <br />
+                - What type of view you want to choose (conic, linear, or radial)?
+                <br />
+                - Countdown timer (in seconds)
+                <br />
+                - Sound Effect
+            </p>
+            <p>
+                Output:
+                On the basis of these inputs, it simulates the selected view.
+            </p>
+            <p>Try these inputs and have fun! 😄</p>
+            <p>1000 1 milliseconds conic 60</p>
+            <p>1000 1 milliseconds radial 60</p>
+            <p>1000 1 milliseconds linear 60</p>
         </div>
+    </div>
 
-        <div id="featuresPopup" class="popup" aria-label="Features Popup">
-            <div class="popup-content" aria-label="Popup Content">
-                <span class="close" onclick="closeFeaturesPopup()">&times;</span>
-                <h2>Features</h2>
-                <h1>Conic Mode</h1>
-                <p>
-                    Imagine a spotlight sweeping across the room, creating vibrant cones
-                    of light. The colors change dynamically as the spotlight moves, adding
-                    an electrifying effect.
-                    effect.
-                </p>
-                <h1>Radial Mode</h1>
-                <p>
-                    Picture a pulsating ring of light expanding and contracting. The
-                    radial pattern syncs perfectly with the beat, making you feel the
-                    rhythm.
-                </p>
-                <h1>Linear Mode</h1>
-                <p>
-                    Visualize colorful streaks of light moving in straight lines. These
-                    streaks crisscross, intersect, and dance across the floor,
-                    transforming your space into a dynamic disco.
-                </p>
-            </div>
+    <div id="featuresPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeFeaturesPopup()">&times;</span>
+            <h2>Features</h2>
+            <h1>Conic Mode</h1>
+            <p>
+                Imagine a spotlight sweeping across the room, creating vibrant cones
+                of light. The colors change dynamically as the spotlight moves, adding
+                an electrifying effect.
+            </p>
+            <h1>Radial Mode</h1>
+            <p>
+                Picture a pulsating ring of light expanding and contracting. The
+                radial pattern syncs perfectly with the beat, making you feel the
+                rhythm.
+            </p>
+            <h1>Linear Mode</h1>
+            <p>
+                Visualize colorful streaks of light moving in straight lines. These
+                streaks crisscross, intersect, and dance across the floor,
+                transforming your space into a dynamic disco.
+            </p>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
-
