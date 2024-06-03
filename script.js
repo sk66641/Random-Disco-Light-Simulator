@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let musicAudio;
 
-    submitButton.addEventListener('click', ()=>{
+    submitButton.addEventListener('click', () => {
         alert("Double click on the screen to reload!");
         run()
     });
@@ -42,15 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function stopSimulation() {
         // const messageDiv = document.getElementById('message');
         // messageDiv.style.display = 'block';
-        const replayModelEl=document.getElementById('replayModel')
-        replayModelEl.style.display='block'
+        const replayModelEl = document.getElementById('replayModel')
+        replayModelEl.style.display = 'block'
     }
-    document.getElementById('replayModelBtn').addEventListener('click',function(){
-        const replayModelEl=document.getElementById('replayModel')
-        replayModelEl.style.display='none'
+    document.getElementById('replayModelBtn').addEventListener('click', function () {
+        const replayModelEl = document.getElementById('replayModel')
+        replayModelEl.style.display = 'none'
         run()
     })
-    document.getElementById('exitBtn').addEventListener('click',function(){
+    document.getElementById('exitBtn').addEventListener('click', function () {
         window.location.reload()
         run()
     })
@@ -96,8 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
     }
-
-
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
