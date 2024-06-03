@@ -344,6 +344,7 @@ document.getElementById('submit').addEventListener('click', function() {
 function effect(){
     loader.style.display="none";
     document.querySelector(".unload").style.display="block";
+    document.querySelector(".snowflakes").style.display="block";
   }
 
 
