@@ -214,38 +214,47 @@
         <button id="proceed" aria-label="Proceed">Proceed</button>
       </div>
     </div>
-
-    <div id="aboutPopup" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
-        <h2>About</h2>
-        <p>
-          The Random Disco Light Simulator is a fun and interactive project that
-          brings the excitement of a disco dance floor to your screen whether
-          you're a developer, a party enthusiast, or just curious.
-        </p>
-        <p>
-          Inputs:
-          - How many random colors you want to be shown?
-          <br />
-          - With how much time interval (in milliseconds) you want to change the
-          colors randomly?
-          <br />
-          - What type of view you want to choose (conic, linear, or radial)?
-          <br />
-          - Countdown timer (in seconds)
-          <br />
-          - Sound Effect
-        </p>
-        <p>
-          Output:
-          On the basis of these inputs, it simulates the selected view.
-        </p>
-        <p>Try these inputs and have fun! 😄</p>
-        <p>1000 1 milliseconds conic 60</p>
-        <p>1000 1 milliseconds radial 60</p>
-        <p>1000 1 milliseconds linear 60</p>
+    </div>
+    <div id="replayModel" class="modal">
+      <div class="modal-content">
+          <h2>Wanna replay the disco..?</h2>
+          <p>
+              Press Yes to replay... Press No to Exit
+          </p>
+          <button id="replayModelBtn">Yes</button>
+          <button id="exitBtn">No</button>
       </div>
+   </div>
+  <div id="aboutPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
+      <h2>About</h2>
+      <p>
+        The Random Disco Light Simulator is a fun and interactive project that
+        brings the excitement of a disco dance floor to your screen whether
+        you're a developer, a party enthusiast, or just curious.
+      </p>
+      <p>
+        Inputs:
+        - How many random colors you want to be shown?
+        <br />
+        - With how much time interval (in milliseconds) you want to change the
+        colors randomly?
+        <br />
+        - What type of view you want to choose (conic, linear, or radial)?
+        <br />
+        - Countdown timer (in seconds)
+        <br />
+        - Sound Effect
+      </p>
+      <p>
+        Output:
+        On the basis of these inputs, it simulates the selected view.
+      </p>
+      <p>Try these inputs and have fun! 😄</p>
+      <p>1000 1 milliseconds conic 60</p>
+      <p>1000 1 milliseconds radial 60</p>
+      <p>1000 1 milliseconds linear 60</p>
     </div>
 
     <div id="featuresPopup" class="popup">
