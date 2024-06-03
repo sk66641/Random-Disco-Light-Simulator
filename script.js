@@ -191,11 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const unitSelect = document.getElementById('unit');
         const randomUnitIndex = Math.random() < 0.5 ? 1 : 2;
         if (randomUnitIndex == 1) {
-            var randomTimeInterval = Math.floor(Math.random() * 1000) + 1;
+             randomTimeInterval = Math.floor(Math.random() * 1000) + 1;
             timeInput.value = randomTimeInterval;
         }
         else {
-            var randomTimeInterval = Math.floor(Math.random() * 10) + 1;
+             randomTimeInterval = Math.floor(Math.random() * 10) + 1;
             timeInput.value = randomTimeInterval;
         }
         unitSelect.selectedIndex = randomUnitIndex;
