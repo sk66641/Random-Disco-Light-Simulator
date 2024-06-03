@@ -186,14 +186,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const timeInput = document.getElementById('time');
 
+        const randomTimeInterval = Math.floor(Math.random() * 5000) + 1000;
+        timeInput.value = randomTimeInterval;
         const unitSelect = document.getElementById('unit');
         const randomUnitIndex = Math.random() < 0.5 ? 1 : 2;
         if (randomUnitIndex == 1) {
-            var randomTimeInterval = Math.floor(Math.random() * 1000) + 1;
+             randomTimeInterval = Math.floor(Math.random() * 1000) + 1;
             timeInput.value = randomTimeInterval;
         }
         else {
-            var randomTimeInterval = Math.floor(Math.random() * 10) + 1;
+             randomTimeInterval = Math.floor(Math.random() * 10) + 1;
             timeInput.value = randomTimeInterval;
         }
         unitSelect.selectedIndex = randomUnitIndex;
@@ -372,3 +374,16 @@ document.getElementById('submit').addEventListener('click', function () {
         }
     });
 });
+
+function effect(){
+    loader.style.display="none";
+    document.querySelector(".unload").style.display="block";
+    document.querySelector(".snowflakes").style.display="block";
+  }
+
+
+
+    var loader=document.querySelector(".loader");
+    window.addEventListener('load',()=>{
+      let timout=setTimeout(effect,4000);
+    })
