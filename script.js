@@ -372,3 +372,23 @@ document.getElementById('submit').addEventListener('click', function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var backToTopBtn = document.getElementById("backToTopBtn");
+  
+    // Show back-to-top button initially
+    backToTopBtn.style.display = "block";
+  
+    // Scroll to the top when button is clicked
+    backToTopBtn.addEventListener("click", function() {
+      scrollToTop();
+    });
+  
+    // Function to scroll the page to the top
+    function scrollToTop() {
+      // Scroll smoothly to the top
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  });
