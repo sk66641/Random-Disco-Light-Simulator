@@ -749,18 +749,17 @@ nav ul li a:hover {
 
 
 #musicDropdown {
-  text-align: center;
-  border-radius: 10px;
-  background: linear-gradient(#1845ad, #23a2f6);
-  outline: none;
-  border: none;
-  padding: 5px 10px;
-  color: #e5e5e5;
-  font-size: 24px;
   position: fixed;
-  top: 90px;
-  /* Adjust the position as needed */
-  left: 10px;
+  top: 70px; /* Changed from 'bottom' to 'top' */
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: .4;
   transition: 500ms;
 }
@@ -957,7 +956,8 @@ nav ul li a:hover {
 
 .light-mode .copyright {
   background-color: #080505;
-}#backToTopBtn {
+}
+#backToTopBtn {
   position: fixed;
   bottom: 20px;
   left: 20px;
