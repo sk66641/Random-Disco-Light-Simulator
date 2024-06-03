@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             document.querySelector(".container").style.display = "none";
-            startSimulation(n, set_time, unit, view,color1,color2);
+            startSimulation(n, set_time, unit, view, color1, color2);
 
             startCountdown(countdownValue);
 
@@ -96,12 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function startSimulation(n, set_time, unit, view,color1, color2) {
+
+
+    function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
-        document.body.children[0].style.display = 'none';
-        document.body.children[1].style.display = 'none';
+        document.body.querySelector(".snowflakes").style.display = 'none';
+        document.body.querySelector("#particles-js").style.display = 'none';
         document.body.style.cursor = "pointer";
 
         document.body.addEventListener("dblclick", () => {
@@ -116,20 +118,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function getRandomColorBetween(color1, color2) {
-            if(color1.r === color2.r && color1.g === color2.g && color1.b === color2.b){
+            if (color1.r === color2.r && color1.g === color2.g && color1.b === color2.b) {
                 const randomR = Math.floor(Math.random() * 256);
                 const randomG = Math.floor(Math.random() * 256);
                 const randomB = Math.floor(Math.random() * 256);
                 return `rgb(${randomR}, ${randomG}, ${randomB})`;
             }
-            else{
+            else {
                 const randomR = Math.floor(Math.random() * (color2.r - color1.r + 1)) + color1.r;
                 const randomG = Math.floor(Math.random() * (color2.g - color1.g + 1)) + color1.g;
                 const randomB = Math.floor(Math.random() * (color2.b - color1.b + 1)) + color1.b;
                 return `rgb(${randomR}, ${randomG}, ${randomB})`;
             }
         }
-        
+
 
         function numberColorsBetween(color1, color2, num) {
             let colors = `${getRandomColorBetween(color1, color2)}`;
@@ -140,7 +142,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return colors;
         }
 
-        if (n == 1) {
+        function createRandomGradientPattern(n) {
+            let gradientPattern = `background-color: ${getRandomColorBetween(rgbColor1, rgbColor2)}; background-image: `;
+
+            for (let i = 0; i < n; i++) {
+                const randomPositionX = Math.floor(Math.random() * 100);
+                const randomPositionY = Math.floor(Math.random() * 100);
+                gradientPattern += `radial-gradient(circle at ${randomPositionX}% ${randomPositionY}%, ${getRandomColorBetween(rgbColor1, rgbColor2)} 0%, transparent 50%), `;
+            }
+
+            // Remove the last comma and space
+            gradientPattern = gradientPattern.slice(0, -2);
+            gradientPattern += '; background-blend-mode: normal;';
+
+            return gradientPattern;
+        }
+
+        function applyRandomGradientPattern() {
+            document.body.style.cssText = createRandomGradientPattern(n);
+        }
+
+        if (view === "custom") {
+            applyRandomGradientPattern();
+            setInterval(() => {
+                applyRandomGradientPattern();
+            }, set_time);
+        } else if (n == 1) {
             document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
             setInterval(() => {
                 document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
@@ -156,23 +183,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 100) + 1;
+        const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
 
-        const colorInput1 = document.getElementById('color1');
-        const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        colorInput1.value = randomColor1;
+        // Stopped the random selection for 2nd input for better view:
+        // const colorInput1 = document.getElementById('color1');
+        // const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        // colorInput1.value = randomColor1;
 
-        const colorInput2 = document.getElementById('color2');
-        const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        colorInput2.value = randomColor2;
+        // const colorInput2 = document.getElementById('color2');
+        // const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+        // colorInput2.value = randomColor2;
 
         const timeInput = document.getElementById('time');
-        const randomTimeInterval = Math.floor(Math.random() * 1000) + 100;
-        timeInput.value = randomTimeInterval;
 
         const unitSelect = document.getElementById('unit');
-        const randomUnitIndex = Math.random() < 1 ? 1 : 2;
+        const randomUnitIndex = Math.random() < 0.5 ? 1 : 2;
+        if (randomUnitIndex == 1) {
+            var randomTimeInterval = Math.floor(Math.random() * 1000) + 1;
+            timeInput.value = randomTimeInterval;
+        }
+        else {
+            var randomTimeInterval = Math.floor(Math.random() * 10) + 1;
+            timeInput.value = randomTimeInterval;
+        }
         unitSelect.selectedIndex = randomUnitIndex;
 
         const viewSelect = document.getElementById('view');
@@ -242,22 +276,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.onload = function() {
+window.onload = function () {
     const modal = document.getElementById("warningModal");
     const closeModal = document.getElementById("closeModal");
     const proceedButton = document.getElementById("proceed");
 
     modal.style.display = "block";
 
-    closeModal.onclick = function() {
+    closeModal.onclick = function () {
         modal.style.display = "none";
     }
 
-    proceedButton.onclick = function() {
+    proceedButton.onclick = function () {
         modal.style.display = "none";
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
@@ -325,23 +359,23 @@ function closeFeaturesPopup() {
 }
 function darkMode() {
     let element = document.body;
-    
+
     element.className = "dark-mode";
- 
+
 }
 function lightMode() {
     let element = document.body;
-    
+
     element.className = "light-mode";
-    
+
 }
-document.getElementById('submit').addEventListener('click', function() {
+document.getElementById('submit').addEventListener('click', function () {
     document.getElementById('musicDropdown').style.display = 'block';
 
-    document.getElementById('musicDropdown').addEventListener('change', function() {
+    document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
         const audioElements = document.querySelectorAll('audio');
-        
+
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {

@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: black;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 #particles-js {
@@ -60,9 +60,12 @@ h1 {
 }
 
 .box {
-  max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
-  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
-  overflow: auto; /* Added scroll because content overflows */
+  max-height: calc(100vh - 40px);
+  /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px);
+  /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
+  overflow: auto;
+  /* Added scroll because content overflows */
   background: rgba(255, 255, 255, 0.13);
   border-radius: 20px;
   padding: 10px 25px;
@@ -92,6 +95,7 @@ input {
 }
 
 ::placeholder {
+  font-family: 'Cinzel', serif;
   color: #d3d1d1;
   font-size: 20px;
 }
@@ -254,7 +258,8 @@ a:hover {
   opacity: 0.2;
   transition: 500ms;
 }
-#timerDisplay:hover{
+
+#timerDisplay:hover {
   opacity: 1;
 }
 
@@ -460,6 +465,7 @@ footer {
     transform: translateY(-100px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -540,6 +546,7 @@ button:hover {
     transform: translateY(-10px) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0;
@@ -570,7 +577,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin-right: 60px; 
+  margin-right: 60px;
 }
 
 nav ul li:last-child {
@@ -617,6 +624,7 @@ nav ul li a:hover {
     transform: translateY(-100px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -636,6 +644,7 @@ nav ul li a:hover {
 .close:focus {
   color: #000;
 }
+
 #randomize {
   background-color: #007bff;
   width: auto;
@@ -654,6 +663,7 @@ nav ul li a:hover {
   background-color: #0056b3;
 
 }
+
 /* comment */
 #CommentBtn {
   position: fixed;
@@ -748,12 +758,14 @@ nav ul li a:hover {
   color: #e5e5e5;
   font-size: 24px;
   position: fixed;
-  top: 90px; /* Adjust the position as needed */
+  top: 90px;
+  /* Adjust the position as needed */
   left: 10px;
   opacity: .4;
   transition: 500ms;
 }
-#musicDropdown:hover{
+
+#musicDropdown:hover {
   opacity: 1;
 }
 
@@ -764,9 +776,12 @@ nav ul li a:hover {
   border: none;
   outline: none;
 }
+
 #musicDropdown:hover {
-    background: linear-gradient(to right, #ff512f, #f09819); /* Change to the desired hover gradient */
+  background: linear-gradient(to right, #ff512f, #f09819);
+  /* Change to the desired hover gradient */
 }
+
 .dark-mode {
   background-color: black;
   color: white;
@@ -781,16 +796,20 @@ nav ul li a:hover {
 .light-mode input {
   background-color: rgba(255, 255, 255, 0.07);
   outline: none;
-  border:1px black solid;
+  border: 1px black solid;
   color: #0a0606;
   font-size: 24px;
   padding: 5px 10px;
   border-radius: 10px;
 }
+
 .light-mode .box {
-max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
-  max-width: calc(100% - 40px); /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */ 
-  overflow: auto; /* Added scroll because content overflows */
+  max-height: calc(100vh - 40px);
+  /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
+  max-width: calc(100% - 40px);
+  /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
+  overflow: auto;
+  /* Added scroll because content overflows */
   background: rgba(0, 0, 0, 0.13);
   border-radius: 20px;
   padding: 10px 25px;
@@ -803,11 +822,15 @@ max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and
   flex-direction: column;
   gap: 10px;
 }
+
 .light-mode ::placeholder {
   color: #120c0c;
   font-size: 20px;
 }
-.light-mode #view,.light-mode #unit, .light-mode #sound{
+
+.light-mode #view,
+.light-mode #unit,
+.light-mode #sound {
   text-align: center;
   border-radius: 10px;
   background-color: rgba(16, 10, 10, 0.07);
@@ -818,6 +841,7 @@ max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and
   font-size: 24px;
   width: auto;
 }
+
 .light-mode option {
   color: #0f0b0b;
   font-size: 24px;
@@ -826,23 +850,24 @@ max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and
   outline: none;
 }
 
-.light-mode.socialIcons a:hover{
+.light-mode.socialIcons a:hover {
   background-color: #f4efef;
   transition: 0.5s;
 }
-.light-mode.socialIcons a:hover i{
+
+.light-mode.socialIcons a:hover i {
   color: rgb(7, 6, 6);
   transition: 0.5s;
 }
 
- .light-mode .snowflakes {
+.light-mode .snowflakes {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .light-mode .snowflake {
@@ -858,22 +883,22 @@ max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and
 }
 
 .light-mode ul li a {
-  color: #130a0a; 
+  color: #130a0a;
   text-decoration: none;
   font-size: 20px;
 }
 
 .light-mode .popup {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(239, 234, 234, 0.8); 
-  backdrop-filter: blur(5px); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(239, 234, 234, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .light-mode .popup-content {
@@ -881,16 +906,20 @@ max-height: calc(100vh - 40px); /*box was taking whole vh,20 margin from top and
   /* color: rgb(254, 254, 254); */
   margin: 10% auto;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 90%; 
-  max-width: 500px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  animation: slide-down 0.3s ease-out; 
+  animation: slide-down 0.3s ease-out;
 }
-.light-mode .popup-content p,.light-mode .popup-content h2,.light-mode .popup-content h1{
-color: #9ba2a8;
+
+.light-mode .popup-content p,
+.light-mode .popup-content h2,
+.light-mode .popup-content h1 {
+  color: #9ba2a8;
 }
+
 .light-mode .close {
   color: #fef5f5;
   float: right;
@@ -904,18 +933,28 @@ color: #9ba2a8;
 .light-mode .close:focus {
   color: #fff7f7;
 }
-.box h1{
+
+.box h1 {
   font-family: Arial, sans-serif;
   font-size: 39px;
   color: #ffffff;
 }
-.box span{
+
+.box span {
   font-family: Arial, sans-serif;
   font-size: 39px;
   font-weight: bold;
   color: #ff7f50;
 }
-.light-mode .box h1{
+
+.light-mode .box h1 {
   color: black;
 }
 
+.light-mode .footerContainer {
+  background-color: #080505;
+}
+
+.light-mode .copyright {
+  background-color: #080505;
+}
