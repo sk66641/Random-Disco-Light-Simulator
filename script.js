@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let musicAudio;
 
-    submitButton.addEventListener('click', run);
+    submitButton.addEventListener('click', ()=>{
+        alert("Double click on the screen to reload!");
+        run()
+    });
     resetButton.addEventListener('click', () => {
         window.location.reload();
         clearInterval(timerInterval);
@@ -94,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startSimulation(n, set_time, unit, view,color1, color2) {
-        alert("Double click on the screen to reload!");
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
