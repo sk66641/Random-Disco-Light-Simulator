@@ -395,14 +395,17 @@ function effect() {
 var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     let timout = setTimeout(effect, 4000);
+
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
+
 })
 
 function changeColor() {
   document.getElementById('name').style.color = "black";
   document.getElementById('email').style.color = "black";
 }
+
 document.addEventListener("DOMContentLoaded", function() {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "block";
@@ -425,3 +428,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
   });
+
