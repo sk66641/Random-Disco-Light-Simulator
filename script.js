@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".footer").style.display = "none";
             document.querySelector(".container").style.display = "none";
             startSimulation(n, set_time, unit, view, color1, color2);
-
+            var backToTopBtn = document.getElementById("backToTopBtn");
+            backToTopBtn.style.display = "none";
             startCountdown(countdownValue);
 
             if (musicAudio) {
@@ -385,6 +386,8 @@ function effect() {
     loader.style.display = "none";
     document.querySelector(".unload").style.display = "block";
     document.querySelector(".snowflakes").style.display = "block";
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "block";
 }
 
 
@@ -392,9 +395,37 @@ function effect() {
 var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     let timout = setTimeout(effect, 4000);
+
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "none";
+
 })
 
 function changeColor() {
   document.getElementById('name').style.color = "black";
   document.getElementById('email').style.color = "black";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "block";
+    backToTopBtn.addEventListener("click", function() {
+      scrollToTop();
+      scrollToForm();
+    });
+  
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+    function scrollToForm() {
+        const formElement = document.getElementById("box"); 
+        formElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+  });
+
