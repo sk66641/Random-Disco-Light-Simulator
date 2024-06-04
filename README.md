@@ -23,6 +23,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 ### Inputs
 
 1. How many random colors you want to be shown?
+2. Select your desired start & end colors for the gradient
 2. With how much time interval (in milliseconds) you want to change the colors randomly?
 3. What type of view you want to choose (conic, linear or radial)?
 4. Countdown timer (in seconds)
@@ -39,6 +40,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
+                <li></li>
                 <li>1 milliseconds</li>
                 <li>conic</li>
                 <li>60</li>
@@ -47,6 +49,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
+                <li></li>
                 <li>1 milliseconds</li>
                 <li>radial</li>
                 <li>60</li>
@@ -55,6 +58,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>2</li>
+                <li></li>
                 <li>500 milliseconds</li>
                 <li>linear</li>
                 <li>60</li>
@@ -63,6 +67,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
+                <li></li>
                 <li>1 milliseconds</li>
                 <li>linear</li>
                 <li>60</li>
@@ -72,6 +77,7 @@ On the basis of these inputs, it simulates the selected view.
 
 </table>
 
+### This [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) will guide you through the process of contributing to our project. 
 
 ## 🔗 Link
 
