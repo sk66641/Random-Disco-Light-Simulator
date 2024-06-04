@@ -189,11 +189,36 @@
     <div id="modalBackground">
       <!-- Comment form -->
       <div id="commentForm">
-        <form>
-          <label for="userComment">Your Comment:</label>
-          <textarea id="userComment" name="comment" rows="4" cols="40" placeholder="Write your comment here..."
-            aria-label="User Comment"></textarea>
-          <button type="submit" aria-label="Submit Comment">Submit</button>
+        <form id="feedback-form">
+          <label for="userComment">Your Feedback:</label>
+          <div class="form-group">
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
+          </div>
+          <div class="form-group">
+            <div class="icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
+          </div>
+          <div class="form-group">
+            <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
+          </div>
+          <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5">5 stars</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4">4 stars</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3">3 stars</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2">2 stars</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1">1 star</label>
+          </div>
+          <button id="ll" >Submit</button>
         </form>
       </div>
     </div>
@@ -202,13 +227,30 @@
       document.getElementById("CommentBtn").addEventListener("click", function () {
         document.getElementById("modalBackground").style.display = "flex";
       });
-
+     
       // Close the form when clicking outside of it (optional)
       document.getElementById("modalBackground").addEventListener("click", function (event) {
         if (event.target === this) {
           this.style.display = "none";
         }
       });
+      let commentForm = document.getElementById("commentForm");
+let modalBackground = document.getElementById("modalBackground");
+
+document.getElementById("CommentBtn").addEventListener("click", function(event) {
+  if (commentForm.style.display === "none") {
+    commentForm.style.display = "block";
+    modalBackground.style.display = "flex";
+  } else {
+    commentForm.style.display = "none";
+    modalBackground.style.display = "none";
+  }
+});
+
+document.getElementById("ll").addEventListener("click", function(event) {
+  commentForm.style.display = "none";
+  modalBackground.style.display = "none";
+});
     </script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>

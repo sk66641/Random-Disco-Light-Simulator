@@ -393,3 +393,8 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     let timout = setTimeout(effect, 4000);
 })
+
+function changeColor() {
+  document.getElementById('name').style.color = "black";
+  document.getElementById('email').style.color = "black";
+}
