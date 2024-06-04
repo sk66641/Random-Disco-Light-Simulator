@@ -761,17 +761,18 @@ nav ul li a:hover {
 
 
 #musicDropdown {
-  position: fixed;
-  top: 70px; /* Changed from 'bottom' to 'top' */
-  left: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
+  text-align: center;
+  border-radius: 10px;
   background: linear-gradient(#1845ad, #23a2f6);
-  color: white;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: #e5e5e5;
+  font-size: 24px;
+  position: fixed;
+  top: 90px;
+  /* Adjust the position as needed */
+  left: 10px;
   opacity: .4;
   transition: 500ms;
 }
@@ -969,6 +970,51 @@ nav ul li a:hover {
 .light-mode .copyright {
   background-color: #080505;
 }
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.rating input[type="radio"]:checked ~ label {
+  color: #ffc107;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  direction: ltr;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.rating label:before {
+  content: "\2605"; /* Unicode character for a star */
+  color: #ccc;
+}
+
+.rating input[type="radio"]:checked + label:before {
+  color: #ffd700; /* Yellow color for selected star */
+}
 #backToTopBtn {
   position: fixed;
   bottom: 20px;
@@ -989,5 +1035,3 @@ nav ul li a:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
   opacity: 1;
 }
-
-

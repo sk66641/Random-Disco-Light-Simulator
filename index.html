@@ -15,10 +15,6 @@
 
 <body>
 
-  <button id="backToTopBtn" aria-label="Back to Top">Back To Top</button>
-
-
-
   <div class="loader">
     <div>
       <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -26,102 +22,11 @@
       </lottie-player>
     </div>
   </div>
-
+  <button id="backToTopBtn" aria-label="Back to Top">Back To Top</button>
   <!-- Generate snowflakes dynamically with JavaScript -->
-
   <div class="snowflakes">
     <div id="particles-js"></div>
   </div>
-
-  <div id="particles-js"></div>
-  <div class="container">
-    
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-    <div class="box">
-      <h1 id="changingHeading" style="font-family: 'Cinzel', serif; font-size: 39px; color: #ffffff;">
-        Random Disco
-        <span id="changing" style="font-family: 'Cinzel', serif; font-size: 39px; font-weight: bold; color: #ff7f50;">
-          Light Simulator
-        </span>
-      </h1>
-      <header>
-        <div class="header-content">
-          <nav>
-            <ul>
-              <li><a href="#about" onclick="showAboutPopup()">About</a></li>
-              <li>
-                <a href="#features" onclick="showFeaturesPopup()">Features</a>
-              </li>
-              <li>
-                <a href="#lightmode" onclick="lightMode()" id="lightbtn">LightMode</a>
-              </li>
-
-              <li>
-                <a href="#darkmode" onclick="darkMode()" id="darkbtn">Darkmode</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <div>
-        <form action="#">
-          <label for="color">1. Number of Colors:</label>
-          <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
-            aria-label="Number of Colors" required /> <!--prevents user from entering value less than 1-->
-      </div>
-      <div>
-        <label for="color1">2. Select your desired start & end colors for the gradient:</label>
-        <input type="color" id="color1" aria-label="Start Color" />
-        <label for="color2"></label>
-        <input type="color" id="color2" aria-label="End Color" />
-      </div>
-      <strong>[For Random color spectrum, don't select different colors]</strong>
-      <div>
-        <label for="time">3. Time interval
-          <i>(with which the color changes randomly)</i>:</label><br />
-        <input type="number" min="0" oninput="this.value = Math.abs(this.value) > 0 ? Math.abs(this.value) : null"
-          id="time" placeholder="Enter" aria-label="Time Interval" required />
-        <select id="unit" aria-label="Time Interval Unit">
-          <option value="" disabled selected>Select Unit</option>
-          <option value="milliseconds">milliseconds</option>
-          <option value="seconds">seconds</option>
-        </select>
-      </div>
-      <strong>[Without input, it will be treated as 0 interval]</strong>
-      <div>
-        <label for="view">4. View:</label>
-        <select id="view" aria-label="Select View">
-          <option style="background-color: lightslategray; color: white" value="" disabled selected>
-            Select
-          </option>
-
-          <option value="conic">Conic</option>
-          <option value="linear">Linear</option>
-          <option value="radial">Radial</option>
-          <option value="custom">Custom Pattern</option>
-        </select>
-      </div>
-      <div>
-        <label for="countdown">5. Countdown Timer (in seconds):</label>
-        <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
-          placeholder="Enter time in seconds" required />
-      </div>
-      <div>
-        <label for="sound">6. Sound Effect:</label>
-        <select id="sound" value="select" aria-label="Sound Effect">
-          <option value="none">None</option>
-          <option value="disco">disco</option>
-          <option value="fairies">fairies</option>
-          <option value="funky">funky</option>
-          <option value="omniscent">omniscent</option>
-          <option value="vintage">vintage</option>
-          <option value="whistle">whistle</option>
-          <option value="snare">Snare</option>
-        </select>
-
 
   <div class="unload">
     <div class="container">
@@ -129,10 +34,9 @@
       <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
-
       </div>
 
-      <div class="box">
+      <div class="box" id="box">
 
         <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 39px; color: #ffffff;">
           Random Disco
@@ -285,11 +189,36 @@
     <div id="modalBackground">
       <!-- Comment form -->
       <div id="commentForm">
-        <form>
-          <label for="userComment">Your Comment:</label>
-          <textarea id="userComment" name="comment" rows="4" cols="40" placeholder="Write your comment here..."
-            aria-label="User Comment"></textarea>
-          <button type="submit" aria-label="Submit Comment">Submit</button>
+        <form id="feedback-form">
+          <label for="userComment">Your Feedback:</label>
+          <div class="form-group">
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
+          </div>
+          <div class="form-group">
+            <div class="icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
+          </div>
+          <div class="form-group">
+            <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
+          </div>
+          <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5">5 stars</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4">4 stars</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3">3 stars</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2">2 stars</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1">1 star</label>
+          </div>
+          <button id="ll" >Submit</button>
         </form>
       </div>
     </div>
@@ -298,13 +227,30 @@
       document.getElementById("CommentBtn").addEventListener("click", function () {
         document.getElementById("modalBackground").style.display = "flex";
       });
-
+     
       // Close the form when clicking outside of it (optional)
       document.getElementById("modalBackground").addEventListener("click", function (event) {
         if (event.target === this) {
           this.style.display = "none";
         }
       });
+      let commentForm = document.getElementById("commentForm");
+let modalBackground = document.getElementById("modalBackground");
+
+document.getElementById("CommentBtn").addEventListener("click", function(event) {
+  if (commentForm.style.display === "none") {
+    commentForm.style.display = "block";
+    modalBackground.style.display = "flex";
+  } else {
+    commentForm.style.display = "none";
+    modalBackground.style.display = "none";
+  }
+});
+
+document.getElementById("ll").addEventListener("click", function(event) {
+  commentForm.style.display = "none";
+  modalBackground.style.display = "none";
+});
     </script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
