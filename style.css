@@ -719,3 +719,6 @@ margin-left: 400px;
 #commentForm button[type="submit"]:hover {
   background-color: #218838;
 }
+.file-input {
+  width: 200px; /* Set the desired fixed width */
+}

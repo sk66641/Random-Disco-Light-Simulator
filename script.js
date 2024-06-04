@@ -1,15 +1,18 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
     const timerDisplay = document.getElementById('timerDisplay');
     let timerInterval;
+    let selectedAudio = null; // Variable to store the selected audio element
 
     submitButton.addEventListener('click', run);
     resetButton.addEventListener('click', () => {
         window.location.reload();
         clearInterval(timerInterval);
+        if (selectedAudio) {
+            selectedAudio.pause(); // Pause the audio if reset
+            selectedAudio.currentTime = 0; // Reset audio to beginning
+        }
     });
 
     function startCountdown(duration) {
@@ -38,14 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Display a message to the user
         const messageDiv = document.getElementById('message');
         messageDiv.style.display = 'block';
-    
+
         // Wait for a few seconds before reloading the page
         setTimeout(() => {
             window.location.reload();
         }, 3000); // Change this value to adjust the delay
     }
-    
-    function run() {
+
+    function run(event) {
+        event.preventDefault(); // Prevent default form submission behavior
+
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
@@ -53,34 +58,57 @@ document.addEventListener('DOMContentLoaded', () => {
         let view = document.getElementById("view").value;
         let soundEffect = document.getElementById("sound").value;
 
-        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
+        // Get selected audio file or URL
+        let selectedFile = document.getElementById('music-file').files[0];
+        let selectedUrl = document.getElementById('music-url').value;
+
+        // Determine which audio source to use
+        if (selectedFile) {
+            // User selected a file
+            selectedAudio = new Audio(URL.createObjectURL(selectedFile));
+        } else if (selectedUrl) {
+            // User pasted a URL
+            selectedAudio = new Audio(selectedUrl);
+
+            // To handle CORS issues, check if the URL is valid and playable
+            selectedAudio.addEventListener('error', (e) => {
+                console.error('Error loading audio from URL:', e);
+                displayErrorMessage(countdownValue, n, unit, view, selectedAudio);
+            });
+        }
+
+        if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && selectedAudio) {
             // Clear error message if everything is correct
             document.getElementById("error").innerHTML = "";
             // Hide the main container
-        document.querySelector(".container").style.display = "none";
-            startSimulation(n, set_time, unit, view);
+            document.querySelector(".container").style.display = "none";
 
-            // Start the countdown timer
+            // Start the simulation and countdown
+            startSimulation(n, set_time, unit, view);
             startCountdown(countdownValue);
 
-            // Start the sound effect
-            const audio = document.getElementById(soundEffect);
-            audio.loop = true; // Loop the audio
-            audio.play();
+            // Start the selected audio
+            selectedAudio.loop = true; // Loop the audio
+            selectedAudio.play();
         } else {
             // Display error message if any input is missing or invalid
-            // document.getElementById("error").innerHTML = "<strong>Please fill out all required fields correctly!</strong>";
-            document.getElementById("error").style.color = "red";
-            if(Number(n)<0 || !Number.isInteger(Number(n))|| n===""){
-                document.getElementById("error").innerHTML = "<strong>The Number of Colours must be a positive integer.</strong>"; 
-            }else if(unit === "unit"){
-                document.getElementById("error").innerHTML = "<strong>The Unit field must be selected.</strong>"; 
-            }else if(view === "select"){
-                document.getElementById("error").innerHTML = "<strong>The View field must be selected.</strong>"; 
-            }else if(countdownValue <=0){
-                document.getElementById("error").innerHTML = "<strong>The CountDown Timer must be a positive value greater than zero.</strong>"; 
-            }
-            return;
+            displayErrorMessage(countdownValue, n, unit, view, selectedAudio);
+        }
+    }
+
+    // Function to display error messages
+    function displayErrorMessage(countdownValue, n, unit, view, selectedAudio) {
+        document.getElementById("error").style.color = "red";
+        if (Number(n) < 0 || !Number.isInteger(Number(n)) || n === "") {
+            document.getElementById("error").innerHTML = "<strong>The Number of Colours must be a positive integer.</strong>";
+        } else if (unit === "unit") {
+            document.getElementById("error").innerHTML = "<strong>The Unit field must be selected.</strong>";
+        } else if (view === "select") {
+            document.getElementById("error").innerHTML = "<strong>The View field must be selected.</strong>";
+        } else if (countdownValue <= 0) {
+            document.getElementById("error").innerHTML = "<strong>The CountDown Timer must be a positive value greater than zero.</strong>";
+        } else if (!selectedAudio) {
+            document.getElementById("error").innerHTML = "<strong>Please select an audio file or paste a valid URL.</strong>";
         }
     }
 
@@ -133,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     const fullscreenBtn = document.getElementById('fullscreenBtn');
 
@@ -163,131 +190,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
- window.onload = function() {
-    // Warning modal logic
-    var modal = document.getElementById("warningModal");
-    var closeModal = document.getElementById("closeModal");
-    var proceedButton = document.getElementById("proceed");
-  
-
-    modal.style.display = "block";
-  
-    closeModal.onclick = function() {
-      modal.style.display = "none";
-    }
-  
-    proceedButton.onclick = function() {
-      modal.style.display = "none";
-    }
-  
-  
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-    // Text animation logic
-    var words = ["Light Simulator", "Beat Spectrum"];
-    var index = 0;
-    var direction = "left";
-    var interval = 100;
-  
-    function animateText() {
-      var word = words[index]; 
-      var len = word.length;
-      var i = direction === "left" ? 0 : len;
-     var timer = setInterval(function () {
-        $("#changing").text(word.substring(0, i)); 
-        if (direction === "left") {
-          i++;
-          if (i > len) {
-            clearInterval(timer); 
-            direction = "right"; 
-            animateText(); 
-          }
-        } else {
-          i--;
-          if (i === 0) {
-            clearInterval(timer);
-            index = (index + 1) % words.length; 
-            direction = "left"; 
-            animateText(); 
-          }
-        }
-      }, interval);
-    }
-    animateText();
-    
-    // Snowflakes animation logic
-    
- const snowflakesContainer = document.querySelector(".snowflakes");
- const numberOfSnowflakes = 300;
-
- for (let i = 0; i < numberOfSnowflakes; i++) {
-   const snowflake = document.createElement("div");
-   snowflake.classList.add("snowflake");
-   snowflake.style.left = `${Math.random() * 100}%`;
-   snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
-   snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-   snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-   snowflakesContainer.appendChild(snowflake);
- }
-
-};
-
-
-function showAboutPopup() {
-    document.getElementById("aboutPopup").style.display = "block";
-}
-
-function closeAboutPopup() {
-    document.getElementById("aboutPopup").style.display = "none";
-}
-
-function showFeaturesPopup() {
-    document.getElementById('featuresPopup').style.display = 'block';
-  }
-  
- 
-  function closeFeaturesPopup() {
-    document.getElementById('featuresPopup').style.display = 'none';
-  }
-  
-document.addEventListener('DOMContentLoaded', () => {
-    const randomizeButton = document.getElementById('randomize');
-
-    randomizeButton.addEventListener('click', () => {
-        // Randomize number of colors
-        const colorInput = document.getElementById('color');
-        const randomNumColors = Math.floor(Math.random() * 10) + 1; // Generates a random number between 1 and 10
-        colorInput.value = randomNumColors;
-
-        // Randomize time interval
-        const timeInput = document.getElementById('time');
-        const randomTimeInterval = Math.floor(Math.random() * 5000) + 1000; // Generates a random number between 1000 and 6000 (milliseconds)
-        timeInput.value = randomTimeInterval;
-
-        // Randomize unit
-        const unitSelect = document.getElementById('unit');
-        const randomUnitIndex = Math.random() < 0.5 ? 1 : 2; // Randomly selects milliseconds or seconds
-        unitSelect.selectedIndex = randomUnitIndex;
-
-        // Randomize view
-        const viewSelect = document.getElementById('view');
-        const randomViewIndex = Math.floor(Math.random() * (viewSelect.options.length - 1)) + 1; // Excludes the first "Select" option
-        viewSelect.selectedIndex = randomViewIndex;
-
-        // Randomize sound effect
-        const soundSelect = document.getElementById('sound');
-        const randomSoundIndex = Math.floor(Math.random() * soundSelect.options.length);
-        soundSelect.selectedIndex = randomSoundIndex;
-
-        // Randomize countdown timer
-        const countdownInput = document.getElementById('countdown');
-        const randomCountdown = Math.floor(Math.random() * 300) + 30; // Generates a random number between 30 and 330 (seconds)
-        countdownInput.value = randomCountdown;
-    });
-});
-
