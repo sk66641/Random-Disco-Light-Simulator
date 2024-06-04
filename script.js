@@ -12,8 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
         run()
     });
     resetButton.addEventListener('click', () => {
-        window.location.reload();
-        clearInterval(timerInterval);
+        document.getElementById('color').value='';
+        document.getElementById('color1').value='';
+        document.getElementById('color2').value='';
+        document.getElementById('time').value='';
+        document.getElementById('view').value='';
+        document.getElementById('countdown').value='';
+        document.getElementById('unit').value='';
+        document.getElementById('sound').value='';
+        // window.location.reload();
+        // clearInterval(timerInterval);
     });
 
     function startCountdown(duration) {
