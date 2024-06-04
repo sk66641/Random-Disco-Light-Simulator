@@ -15,6 +15,18 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+.unload {
+  display: none;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 #particles-js {
   position: absolute;
   width: 100%;

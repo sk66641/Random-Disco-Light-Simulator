@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let musicAudio;
 
-    submitButton.addEventListener('click', run);
+    submitButton.addEventListener('click', () => {
+        alert("Double click on the screen to reload!");
+        run()
+    });
     resetButton.addEventListener('click', () => {
         window.location.reload();
         clearInterval(timerInterval);
@@ -36,13 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function stopSimulation() {
-        const messageDiv = document.getElementById('message');
-        messageDiv.style.display = 'block';
-
-        setTimeout(() => {
-            window.location.reload();
-        }, 3000);
+        // const messageDiv = document.getElementById('message');
+        // messageDiv.style.display = 'block';
+        const replayModelEl = document.getElementById('replayModel')
+        replayModelEl.style.display = 'block'
     }
+    document.getElementById('replayModelBtn').addEventListener('click', function () {
+        const replayModelEl = document.getElementById('replayModel')
+        replayModelEl.style.display = 'none'
+        run()
+    })
+    document.getElementById('exitBtn').addEventListener('click', function () {
+        window.location.reload()
+        run()
+    })
 
     function run() {
         let countdownValue = document.getElementById('countdown').value;
@@ -87,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
-        alert("Double click on the screen to reload!");
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
@@ -372,6 +381,7 @@ document.getElementById('submit').addEventListener('click', function () {
         }
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     var backToTopBtn = document.getElementById("backToTopBtn");
   
@@ -392,3 +402,17 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   });
+
+function effect() {
+    loader.style.display = "none";
+    document.querySelector(".unload").style.display = "block";
+    document.querySelector(".snowflakes").style.display = "block";
+}
+
+
+
+var loader = document.querySelector(".loader");
+window.addEventListener('load', () => {
+    let timout = setTimeout(effect, 4000);
+})
+
