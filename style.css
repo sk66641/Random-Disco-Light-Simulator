@@ -1036,3 +1036,23 @@ nav ul li a:hover {
   opacity: 1;
 
 }
+
+#pauseStartBtn {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: .4;
+  transition: 500ms;
+}
+
+#pauseStartBtn:hover {
+  background: linear-gradient(to right, #ff512f, #f09819);
+}
