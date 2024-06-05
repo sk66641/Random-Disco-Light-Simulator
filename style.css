@@ -420,12 +420,13 @@ a:hover {
 }
 
 #facebook:hover {
-  background-color: rgb(24, 119, 242);
+  background-color: #3B5998;;
   transition: 0.5s;
 }
 
 #instagram:hover {
-  background-color: rgb(214, 41, 176);
+  color: #c13583;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   transition: 0.5s;
 }
 
@@ -434,13 +435,9 @@ a:hover {
   transition: 0.5s;
 }
 
-#google-plus:hover {
-  background-color: #dd4b39;
-  transition: 0.5s;
-}
 
 #youtube:hover {
-  background-color: #FF0000;
+  background-color: #C31A1E;
   transition: 0.5s;
 }
 
