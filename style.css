@@ -1,6 +1,11 @@
 * {
   font-size: 40px;
 }
+.prevent-select {
+  -webkit-user-select: none; 
+  -ms-user-select: none;
+  user-select: none; 
+}
 
 body {
   margin: 0;
