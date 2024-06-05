@@ -429,3 +429,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  function toggleSidebar() {
+    var sidebar = document.querySelector('.sidebarOne');
+    if (sidebar.style.display === 'block') {
+      sidebar.style.display = 'none';
+    } else {
+      sidebar.style.display = 'block';
+    }
+  }
+  document.querySelector('.cross').addEventListener('click', function() {
+    document.querySelector('.sidebarOne').style.display = 'none';
+  })
+  document.addEventListener('DOMContentLoaded',()=>{
+    setTimeout(() => {
+        document.querySelector(".navMain").style.visibility = "visible";
+    }, 4100);
+  })
