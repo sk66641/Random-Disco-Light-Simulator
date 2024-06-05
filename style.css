@@ -1036,3 +1036,6 @@ nav ul li a:hover {
   opacity: 1;
 
 }
+.file-input {
+  width: 200px; 
+}
