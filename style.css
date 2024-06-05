@@ -1039,7 +1039,7 @@ nav ul li a:hover {
 
 #pauseStartBtn {
   position: fixed;
-  top: 70px;
+  top: 150px;
   right: 20px;
   padding: 10px 20px;
   font-size: 16px;
