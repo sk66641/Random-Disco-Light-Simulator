@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
+            document.querySelector(".navHeader").style.display = "none";
             document.querySelector(".container").style.display = "none";
             startSimulation(n, set_time, unit, view, color1, color2);
             var backToTopBtn = document.getElementById("backToTopBtn");
@@ -429,3 +430,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  function toggleSidebar() {
+    var sidebar = document.querySelector('.sidebarOne');
+    if (sidebar.style.display === 'block') {
+      sidebar.style.display = 'none';
+    } else {
+      sidebar.style.display = 'block';
+    }
+  }
+  document.querySelector('.cross').addEventListener('click', function() {
+    document.querySelector('.sidebarOne').style.display = 'none';
+  })
+  document.addEventListener('DOMContentLoaded',()=>{
+    setTimeout(() => {
+        document.querySelector(".navMain").style.visibility = "visible";
+    }, 4100);
+  })
