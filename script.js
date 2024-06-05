@@ -444,5 +444,5 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener('DOMContentLoaded',()=>{
     setTimeout(() => {
         document.querySelector(".navMain").style.visibility = "visible";
-    }, 4100);
+    }, 4000);
   })
