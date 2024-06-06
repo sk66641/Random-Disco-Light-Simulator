@@ -1109,3 +1109,9 @@ nav ul li a:hover {
     display: none;
   }
 }
+
+.popup-content h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
