@@ -300,6 +300,7 @@ a:hover {
   position: fixed;
   top: 20px;
   right: 20px;
+  left: auto;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -768,9 +769,9 @@ nav ul li a:hover {
   color: #e5e5e5;
   font-size: 24px;
   position: fixed;
-  top: 90px;
+  top: 150px;
   /* Adjust the position as needed */
-  left: 10px;
+  left: 20px;
   opacity: .4;
   transition: 500ms;
 }
@@ -1087,8 +1088,8 @@ nav ul li a:hover {
 
 #pauseStartBtn {
   position: fixed;
-  top: 150px;
-  right: 20px;
+  top: 90px;
+  left: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;

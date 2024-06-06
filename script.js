@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let lightInterval;
 
     submitButton.addEventListener('click', () => {
-// alert("Double click on the screen to reload!");
-        pauseStartButton.style.display = 'block'; // Show the pause button
+        // alert("Double click on the screen to reload!");
+        // pauseStartButton.style.display = 'block'; // Show the pause button
         console.log("Submit button clicked");
         run()
     });
@@ -52,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCountdown(duration) {
         countdownValue = duration;
-        alert("Double click on the screen to reload!");
+        // alert("Double click on the screen to reload!");
         document.getElementById('musicDropdown').style.display = 'block'; 
         // document.getElementById('musicDropdown').style.display = 'block';  
+        pauseStartButton.style.display = 'block'; // Show the pause button
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
@@ -145,13 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.querySelector(".snowflakes").style.display = 'none';
         document.body.querySelector("#particles-js").style.display = 'none';
         document.body.style.cursor = "pointer";
+        document.querySelector("#fullscreenBtn").style.right = "auto";
+        document.querySelector("#fullscreenBtn").style.left = "20px";
+        document.querySelector("#CommentBtn").style.display = "none";
 
-        document.body.addEventListener("dblclick", () => {
-            let cnf1 = confirm("Are you sure you want to reload?");
-            if (cnf1) {
-                window.location.reload();
-            }
-        });
+        // document.body.addEventListener("dblclick", () => {
+        //     let cnf1 = confirm("Are you sure you want to reload?");
+        //     if (cnf1) {
+        //         window.location.reload();
+        //     }
+        // });
 
         if (unit === "seconds") {
             set_time *= 1000;
