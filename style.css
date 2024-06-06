@@ -955,6 +955,19 @@ nav ul li a:hover {
   background-color: rgba(0, 0, 0, 0.5); 
 }
 
+#aboutPopup .popup-content {
+  background-color: #fff;
+  margin: 10% auto; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: slide-down 0.3s ease-out;
+}
+
+
 .box h1 {
   font-family: Arial, sans-serif;
   font-size: 39px;
