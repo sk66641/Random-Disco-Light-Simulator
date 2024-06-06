@@ -1115,3 +1115,9 @@ nav ul li a:hover {
   margin-bottom: 16px;
   color: #333;
 }
+
+.popup-content p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #555;
+}
