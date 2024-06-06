@@ -4,32 +4,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
+    
+    // Create and append the pause/start button
+    const pauseStartButton = document.createElement('button');
+    pauseStartButton.id = 'pauseStartBtn';
+    pauseStartButton.style.display = 'none';
+    pauseStartButton.textContent = 'Pause';
+    pauseStartButton.ariaLabel = 'Pause/Start';
+    document.body.appendChild(pauseStartButton);
+    
     let timerInterval;
     let musicAudio;
+    let isPaused = false;
+    let countdownValue;
+    let lightInterval;
 
     submitButton.addEventListener('click', () => {
         alert("Double click on the screen to reload!");
-        run()
+        pauseStartButton.style.display = 'block'; // Show the pause button
+        console.log("Submit button clicked");
+        run();
     });
+
     resetButton.addEventListener('click', () => {
         window.location.reload();
         clearInterval(timerInterval);
+        pauseStartButton.style.display = 'none'; // Hide the pause button
     });
 
+    pauseStartButton.addEventListener('click', () => {
+        if (isPaused) {
+            resumeSimulation();
+        } else {
+            pauseSimulation();
+        }
+    });
+
+
     function startCountdown(duration) {
-        let timer = duration;
+        countdownValue = duration;
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
-            let minutes = Math.floor(timer / 60);
-            let seconds = Math.floor(timer % 60);
+            if (!isPaused) {
+                let minutes = Math.floor(countdownValue / 60);
+                let seconds = Math.floor(countdownValue % 60);
 
-            timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
+                timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
 
-            if (--timer < 0) {
-                clearInterval(timerInterval);
-                stopSimulation();
-                timerDisplay.style.display = 'none';
+                if (--countdownValue < 0) {
+                    clearInterval(timerInterval);
+                    stopSimulation();
+                    timerDisplay.style.display = 'none';
+                }
             }
         }, 1000);
     }
@@ -39,20 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function stopSimulation() {
-        // const messageDiv = document.getElementById('message');
-        // messageDiv.style.display = 'block';
-        const replayModelEl = document.getElementById('replayModel')
-        replayModelEl.style.display = 'block'
+        const replayModelEl = document.getElementById('replayModel');
+        replayModelEl.style.display = 'block';
     }
+
     document.getElementById('replayModelBtn').addEventListener('click', function () {
-        const replayModelEl = document.getElementById('replayModel')
-        replayModelEl.style.display = 'none'
-        run()
-    })
+        const replayModelEl = document.getElementById('replayModel');
+        replayModelEl.style.display = 'none';
+        run();
+    });
+
     document.getElementById('exitBtn').addEventListener('click', function () {
-        window.location.reload()
-        run()
-    })
+        window.location.reload();
+        run();
+    });
 
     function run() {
         let countdownValue = document.getElementById('countdown').value;
@@ -83,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             musicAudio = audio;
 
             document.getElementById('musicDropdown').style.display = 'block';
+            pauseStartButton.style.display = 'block'; // Show the pause/start button
         } else {
             document.getElementById("error").style.color = "red";
             if (Number(n) < 0 || !Number.isInteger(Number(n)) || n === "") {
@@ -132,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
         function numberColorsBetween(color1, color2, num) {
             let colors = `${getRandomColorBetween(color1, color2)}`;
             while (num > 1) {
@@ -164,24 +191,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (view === "custom") {
             applyRandomGradientPattern();
-            setInterval(() => {
-                applyRandomGradientPattern();
+            lightInterval = setInterval(() => {
+                if (!isPaused) {
+                    applyRandomGradientPattern();
+                }
             }, set_time);
         } else if (n == 1) {
             document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
-            setInterval(() => {
-                document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
+            lightInterval = setInterval(() => {
+                if (!isPaused) {
+                    document.body.style.backgroundColor = getRandomColorBetween(rgbColor1, rgbColor2);
+                }
             }, set_time);
         } else {
             let gradientType = view === "conic" ? "conic-gradient" : view === "linear" ? "linear-gradient" : "radial-gradient";
             document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
-            setInterval(() => {
-                document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
+            lightInterval = setInterval(() => {
+                if (!isPaused) {
+                    document.body.style.background = `${gradientType}(${numberColorsBetween(rgbColor1, rgbColor2, n - 1)}, ${getRandomColorBetween(rgbColor1, rgbColor2)})`;
+                }
             }, set_time);
         }
     }
 
-    randomizeButton.addEventListener('click', () => {
+  randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
@@ -224,28 +257,53 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update music dropdown
         musicSelect.value = soundSelect.value;
     });
+    let musicMuted = false; // Variable to track whether music is muted
 
-    musicSelect.addEventListener('change', () => {
+    function pauseSimulation() {
+        clearInterval(timerInterval);
+        clearInterval(lightInterval);
         if (musicAudio) {
+            musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
-        const selectedMusic = musicSelect.value;
-        if (selectedMusic) {
-            musicAudio = new Audio(selectedMusic);
-            musicAudio.loop = true;
-            musicAudio.play();
+        pauseStartButton.textContent = 'Start';
+        isPaused = true;
+    }
+    
+    function resumeSimulation() {
+        startCountdown(countdownValue);
+        if (musicAudio) {
+            if (!musicMuted) {
+                musicAudio.play();
+            }
         }
-    });
+        startSimulation(
+            document.getElementById("color").value,
+            document.getElementById("time").value,
+            document.getElementById("unit").value,
+            document.getElementById("view").value,
+            document.getElementById('color1').value,
+            document.getElementById('color2').value
+        );
+        pauseStartButton.textContent = 'Pause';
+        isPaused = false;
+    }
+    
 
     function hexToRgb(hex) {
-        let bigint = parseInt(hex.slice(1), 16);
-        let r = (bigint >> 16) & 255;
-        let g = (bigint >> 8) & 255;
-        let b = bigint & 255;
-        return { r, g, b };
+        const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+            return r + r + g + g + b + b;
+        });
+
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
     }
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     const fullscreenBtn = document.getElementById('fullscreenBtn');
 
@@ -446,3 +504,5 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".navMain").style.visibility = "visible";
     }, 4000);
   })
+
+
