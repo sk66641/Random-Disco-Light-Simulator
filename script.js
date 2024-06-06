@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let musicAudio;
 
     submitButton.addEventListener('click', () => {
-        alert("Double click on the screen to reload!");
+        // alert("Double click on the screen to reload!");
         run()
     });
     resetButton.addEventListener('click', () => {
@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function startCountdown(duration) {
+        alert("Double click on the screen to reload!");
+        document.getElementById('musicDropdown').style.display = 'block'; 
+        // document.getElementById('musicDropdown').style.display = 'block';  
         let timer = duration;
         timerDisplay.style.display = 'block';
 
@@ -43,11 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // messageDiv.style.display = 'block';
         const replayModelEl = document.getElementById('replayModel')
         replayModelEl.style.display = 'block'
+        
     }
     document.getElementById('replayModelBtn').addEventListener('click', function () {
         const replayModelEl = document.getElementById('replayModel')
         replayModelEl.style.display = 'none'
         run()
+        
     })
     document.getElementById('exitBtn').addEventListener('click', function () {
         window.location.reload()
@@ -82,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             audio.play();
             musicAudio = audio;
 
-            document.getElementById('musicDropdown').style.display = 'block';
+            
         } else {
             document.getElementById("error").style.color = "red";
             if (Number(n) < 0 || !Number.isInteger(Number(n)) || n === "") {
@@ -370,7 +375,7 @@ function lightMode() {
 
 }
 document.getElementById('submit').addEventListener('click', function () {
-    document.getElementById('musicDropdown').style.display = 'block';
+   
 
     document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
