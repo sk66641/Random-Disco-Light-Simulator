@@ -57,7 +57,7 @@ body {
 .shape:first-child {
   background: linear-gradient(#1845ad, #23a2f6);
   left: -240px;
-  top: -100px;
+  top: 10px;
 }
 
 .shape:last-child {
@@ -218,7 +218,8 @@ button {
 
 a {
   display: inline-block;
-  width: 45px;
+  font-weight: bold;
+  font-family: sans-serif;
   height: 45px;
   transition: 0.2s all;
 }
@@ -254,6 +255,12 @@ a:hover {
 
   .background {
     display: none;
+  }
+  .copyright{
+    font-size: 16px !important;
+  }
+  .socialIcons a i{
+    font-size: 30px !important;
   }
 }
 
@@ -292,7 +299,7 @@ a:hover {
 #fullscreenBtn {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -310,20 +317,19 @@ a:hover {
   opacity: 1;
 }
 
-footer {
-  background-color: white;
-}
-
 .footerContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+  margin-bottom: 10px;
 }
 
 .socialIcons {
   display: flex;
   justify-content: center;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .socialIcons a {
@@ -333,7 +339,6 @@ footer {
   align-items: center;
   width: 50px;
   height: 50px;
-  margin: 2vw;
   border-radius: 50%;
 }
 
@@ -415,27 +420,24 @@ footer {
 }
 
 #facebook:hover {
-  background-color: rgb(24, 119, 242);
+  background-color: #3B5998;;
   transition: 0.5s;
 }
 
 #instagram:hover {
-  background-color: rgb(214, 41, 176);
+  color: #c13583;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   transition: 0.5s;
 }
 
 #twitter:hover {
-  background-color: rgb(29 161 242);
+  background-color: rgb(39, 39, 39);
   transition: 0.5s;
 }
 
-#google-plus:hover {
-  background-color: #dd4b39;
-  transition: 0.5s;
-}
 
 #youtube:hover {
-  background-color: #FF0000;
+  background-color: #C31A1E;
   transition: 0.5s;
 }
 
@@ -529,6 +531,9 @@ button:hover {
   .modal-content {
     width: 95%;
   }
+  .copyright{
+    font-size: 12px !important;
+  }
 }
 
 .snowflakes {
@@ -569,13 +574,6 @@ body,
 ul {
   margin: 0;
   padding: 0;
-}
-
-header {
-  padding-top: 2px;
-  padding-bottom: 30px;
-  height: 30px;
-  padding-left: 10px;
 }
 
 .header-content {
@@ -969,4 +967,121 @@ nav ul li a:hover {
 
 .light-mode .copyright {
   background-color: #080505;
+}
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.rating input[type="radio"]:checked ~ label {
+  color: #ffc107;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  direction: ltr;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.rating label:before {
+  content: "\2605"; /* Unicode character for a star */
+  color: #ccc;
+}
+
+.rating input[type="radio"]:checked + label:before {
+  color: #ffd700; /* Yellow color for selected star */
+}
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: .4;
+  transition: 500ms;
+}
+
+#backToTopBtn:hover {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  opacity: 1;
+
+}
+.navHeader {
+  margin-top: 100px;
+  width: 100vw;
+}
+.navMain {
+  display: flex;
+  justify-content: flex-start;
+  gap: 35px;
+  padding-left: 50px;
+  visibility: hidden;
+}
+.sidebarOne {
+  position: fixed;
+  padding: 35px;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 230px;
+  background-color: rgba(0, 0, 0, 0.697);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  padding-top: 50px;
+}
+.sidebar ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 35px;
+  padding-left: 50px;
+  flex-direction: column;
+}
+#sidebarLines {
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+.cross{
+  color: white;
+  display: flex;
+  margin-bottom: 30px;
+}
+@media only screen and (max-width: 875px) {
+  #sidebarLines {
+    display: flex;
+    color: white;
+  }
+  .navMain li a{
+    display: none;
+  }
 }
