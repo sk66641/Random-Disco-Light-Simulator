@@ -355,18 +355,26 @@ function showFeaturesPopup() {
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
 }
+
+//Toggle function that is affected by the slider box
+function toggleTheme(){
+    var slider= document.getElementById('themeToggle');
+    if (slider.checked){
+        darkMode();
+    }else{
+        lightMode();
+    }
+}
 function darkMode() {
     let element = document.body;
-
     element.className = "dark-mode";
-
 }
+
 function lightMode() {
     let element = document.body;
-
     element.className = "light-mode";
-
 }
+
 document.getElementById('submit').addEventListener('click', function () {
     document.getElementById('musicDropdown').style.display = 'block';
 
