@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
+    
+    // Create and append the pause/start button
     const pauseStartButton = document.createElement('button');
     pauseStartButton.id = 'pauseStartBtn';
     pauseStartButton.style.display = 'none';
     pauseStartButton.textContent = 'Pause';
     pauseStartButton.ariaLabel = 'Pause/Start';
     document.body.appendChild(pauseStartButton);
+    
     let timerInterval;
     let musicAudio;
     let isPaused = false;
@@ -18,12 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitButton.addEventListener('click', () => {
         alert("Double click on the screen to reload!");
-        run()
+        pauseStartButton.style.display = 'block'; // Show the pause button
+        console.log("Submit button clicked");
+        run();
     });
 
     resetButton.addEventListener('click', () => {
         window.location.reload();
         clearInterval(timerInterval);
+        pauseStartButton.style.display = 'none'; // Hide the pause button
     });
 
     pauseStartButton.addEventListener('click', () => {
@@ -33,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pauseSimulation();
         }
     });
+
 
     function startCountdown(duration) {
         countdownValue = duration;
@@ -207,25 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function pauseSimulation() {
-        clearInterval(timerInterval);
-        clearInterval(lightInterval);
-        if (musicAudio) {
-            musicAudio.pause();
-        }
-        pauseStartButton.textContent = 'Start';
-        isPaused = true;
-    }
-
-    function resumeSimulation() {
-        startCountdown(countdownValue);
-        if (musicAudio) {
-            musicAudio.play();
-        }
-        startSimulation(document.getElementById("color").value, document.getElementById("time").value, document.getElementById("unit").value, document.getElementById("view").value, document.getElementById('color1').value, document.getElementById('color2').value);
-        pauseStartButton.textContent = 'Pause';
-        isPaused = false;
-    }
   randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
@@ -271,36 +259,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     let musicMuted = false; // Variable to track whether music is muted
 
-function pauseSimulation() {
-    clearInterval(timerInterval);
-    clearInterval(lightInterval);
-    if (musicAudio) {
-        musicAudio.pause();
-        musicMuted = musicAudio.muted; // Remember the mute state
-        musicAudio.muted = true; // Mute the audio when pausing
-    }
-    pauseStartButton.textContent = 'Start';
-    isPaused = true;
-}
-
-function resumeSimulation() {
-    startCountdown(countdownValue);
-    if (musicAudio) {
-        if (!musicMuted) {
-            musicAudio.play();
+    function pauseSimulation() {
+        clearInterval(timerInterval);
+        clearInterval(lightInterval);
+        if (musicAudio) {
+            musicMuted = musicAudio.muted; // Remember the mute state
+            musicAudio.pause();
         }
+        pauseStartButton.textContent = 'Start';
+        isPaused = true;
     }
-    startSimulation(
-        document.getElementById("color").value,
-        document.getElementById("time").value,
-        document.getElementById("unit").value,
-        document.getElementById("view").value,
-        document.getElementById('color1').value,
-        document.getElementById('color2').value
-    );
-    pauseStartButton.textContent = 'Pause';
-    isPaused = false;
-}
+    
+    function resumeSimulation() {
+        startCountdown(countdownValue);
+        if (musicAudio) {
+            if (!musicMuted) {
+                musicAudio.play();
+            }
+        }
+        startSimulation(
+            document.getElementById("color").value,
+            document.getElementById("time").value,
+            document.getElementById("unit").value,
+            document.getElementById("view").value,
+            document.getElementById('color1').value,
+            document.getElementById('color2').value
+        );
+        pauseStartButton.textContent = 'Pause';
+        isPaused = false;
+    }
+    
 
     function hexToRgb(hex) {
         const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -516,4 +504,5 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".navMain").style.visibility = "visible";
     }, 4000);
   })
+
 
