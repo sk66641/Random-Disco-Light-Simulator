@@ -982,6 +982,17 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
+#aboutPopup .popup-content p strong { 
+  font-weight: bold; 
+  color: #ff7f50; /* Orange color for bold text */
+}
+
+#aboutPopup .popup-content ul { 
+  list-style-type: disc;
+  margin-left: 40px;
+  padding-left: 0; 
+  /* Remove default padding */
+}
 
 .box h1 {
   font-family: Arial, sans-serif;
