@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && selectedAudio) {
+    if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" ) {
         document.getElementById("error").innerHTML = "";
         document.querySelector(".footer").style.display = "none";
         document.querySelector(".container").style.display = "none";
