@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let lightInterval;
 
     submitButton.addEventListener('click', () => {
-        alert("Double click on the screen to reload!");
+// alert("Double click on the screen to reload!");
         pauseStartButton.style.display = 'block'; // Show the pause button
         console.log("Submit button clicked");
-        run();
+        run()
     });
 
     resetButton.addEventListener('click', () => {
@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCountdown(duration) {
         countdownValue = duration;
+        alert("Double click on the screen to reload!");
+        document.getElementById('musicDropdown').style.display = 'block'; 
+        // document.getElementById('musicDropdown').style.display = 'block';  
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
@@ -437,7 +440,7 @@ function lightMode() {
 
 }
 document.getElementById('submit').addEventListener('click', function () {
-    document.getElementById('musicDropdown').style.display = 'block';
+   
 
     document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
