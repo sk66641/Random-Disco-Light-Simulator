@@ -580,14 +580,14 @@ nav ul {
   list-style-type: none;
 }
 
-nav ul li {
+/* nav ul li {
   display: inline;
   margin-right: 60px;
 }
 
 nav ul li:last-child {
   margin-right: 0 auto;
-}
+} */
 
 nav ul li a {
   color: #fff;

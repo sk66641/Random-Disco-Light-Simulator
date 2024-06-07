@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('view').value = '';
         document.getElementById('countdown').value = '';
         document.getElementById('unit').value = '';
-        document.getElementById('sound').value = '';
+        document.getElementById('sound').value = 'none';
         // window.location.reload();
         // clearInterval(timerInterval);
     });
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = function () {
-    // const modal = document.getElementById("warningModal");
+    const modal = document.getElementById("warningModal");
     const closeModal = document.getElementById("closeModal");
     const proceedButton = document.getElementById("proceed");
 
