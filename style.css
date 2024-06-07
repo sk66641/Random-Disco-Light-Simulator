@@ -310,6 +310,7 @@ a:hover {
   opacity: 1;
 }
 /* Styles for the the theme toggle checkbox */
+
 .theme-toggle {
   position: fixed; 
   top: 30px; 
@@ -339,7 +340,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.6;
+  opacity: 0.85;
   background-color: #000000;
   border-radius: 34px;
   transition: background-color 0.4s;

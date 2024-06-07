@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
+        document.body.querySelector(".slider").style.display='none';
         document.body.querySelector(".snowflakes").style.display = 'none';
         document.body.querySelector("#particles-js").style.display = 'none';
         document.body.style.cursor = "pointer";
