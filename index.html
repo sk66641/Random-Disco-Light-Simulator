@@ -179,6 +179,7 @@
     </footer>
 
     <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
+    <button id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</button>
     <audio id="disco" src="assets/audios/disco.mp3"></audio>
     <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
     <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
@@ -202,7 +203,7 @@
       </select>
     </div>
 
-    <div id="message" aria-live="polite">The timer has ended. The page will reload.</div>
+    <!-- <div id="message" aria-live="polite">The timer has ended. The page will reload.</div> -->
 
     <button id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</button>
     <button id="CommentBtn" aria-label="Toggle Comment Form"><i class="fas fa-comment"></i></button>
@@ -305,14 +306,14 @@
   <div id="aboutPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
-      <h2>About</h2>
+      <h2><strong>About</strong></h2>
       <p>
-        The Random Disco Light Simulator is a fun and interactive project that
+        <strong>The Random Disco Light Simulator</strong> is a fun and interactive project that
         brings the excitement of a disco dance floor to your screen whether
         you're a developer, a party enthusiast, or just curious.
       </p>
       <p>
-        Inputs:
+        <strong>Inputs:</strong>
         - How many random colors you want to be shown?
         <br />
         - With how much time interval (in milliseconds) you want to change the
@@ -325,7 +326,7 @@
         - Sound Effect
       </p>
       <p>
-        Output:
+        <strong> Output:</strong>
         On the basis of these inputs, it simulates the selected view.
       </p>
       <p>Try these inputs and have fun! 😄</p>
@@ -336,28 +337,38 @@
 
     <div id="featuresPopup" class="popup">
       <div class="popup-content">
-        <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-        <h2>Features</h2>
-        <h1>Conic Mode</h1>
-        <p>
-          Imagine a spotlight sweeping across the room, creating vibrant cones
-          of light. The colors change dynamically as the spotlight moves, adding
-          an electrifying effect.
-        </p>
-        <h1>Radial Mode</h1>
-        <p>
-          Picture a pulsating ring of light expanding and contracting. The
-          radial pattern syncs perfectly with the beat, making you feel the
-          rhythm.
-        </p>
-        <h1>Linear Mode</h1>
-        <p>
-          Visualize colorful streaks of light moving in straight lines. These
-          streaks crisscross, intersect, and dance across the floor,
-          transforming your space into a dynamic disco.
-        </p>
+          <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
+          <h2>Features</h2>
+          
+          <h1>Conic Mode</h1>
+          <p>
+              Imagine a spotlight sweeping across the room, creating vibrant cones
+              of light. The colors change dynamically as the spotlight moves, adding
+              an electrifying effect.
+          </p>
+          <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
+          <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2"  style="width: 180px; height: 180px;">
+          
+          <h1>Radial Mode</h1>
+          <p>
+              Picture a pulsating ring of light expanding and contracting. The
+              radial pattern syncs perfectly with the beat, making you feel the
+              rhythm.
+          </p>
+          <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
+          <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
+          
+          <h1>Linear Mode</h1>
+          <p>
+              Visualize colorful streaks of light moving in straight lines. These
+              streaks crisscross, intersect, and dance across the floor,
+              transforming your space into a dynamic disco.
+          </p>
+          <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
+          <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
       </div>
-    </div>
+  </div>
+  
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
 </body>
