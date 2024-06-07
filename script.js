@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rgbColor1 = hexToRgb(color1);
         const rgbColor2 = hexToRgb(color2);
 
+        document.body.querySelector(".slider").style.display='none';
         document.body.querySelector(".snowflakes").style.display = 'none';
         document.body.querySelector("#particles-js").style.display = 'none';
         // document.body.addEventListener("dblclick", () => {
@@ -423,18 +424,26 @@ function showFeaturesPopup() {
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
 }
+
+//Toggle function that is affected by the slider box
+function toggleTheme(){
+    var slider= document.getElementById('themeToggle');
+    if (slider.checked){
+        darkMode();
+    }else{
+        lightMode();
+    }
+}
 function darkMode() {
     let element = document.body;
-
     element.className = "dark-mode";
-
 }
+
 function lightMode() {
     let element = document.body;
-
     element.className = "light-mode";
-
 }
+
 document.getElementById('submit').addEventListener('click', function () {
 
 

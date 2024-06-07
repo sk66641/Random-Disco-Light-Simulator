@@ -198,6 +198,18 @@
 
 
     <!-- <div id="message" aria-live="polite">The timer has ended. The page will reload.</div> -->
+    <label id="themeChangeToggle"  class="theme-toggle" for="themeToggle" style="position: fixed; 
+    top: 30px; 
+    right: 30px; 
+    z-index: 100; 
+    display: flex; 
+    align-items: center; 
+    border: none; 
+    background-color: transparent;">
+      <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+      <span class="slider" style="width: 40px; height: 20px;"></span>
+    </label>
+
     <!-- Comment form -->
 
     <!-- Modal background -->
@@ -294,7 +306,7 @@
       <button id="exitBtn">No</button>
     </div>
   </div>
-  <div id="aboutPopup" class="popup">
+  <div id="aboutp" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
       <h2><strong>About</strong></h2>
