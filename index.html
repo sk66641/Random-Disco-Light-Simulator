@@ -33,17 +33,31 @@
       <nav>
         <ul class="sidebarOne">
           <li class="cross"><i class="fa-solid fa-x"></i></li>
-          <li><a href="#about" onclick="showAboutPopup()">ABOUT</a></li>
-          <li><a href="#features" onclick="showFeaturesPopup()">FEATURES</a></li>
-          <li><a href="#lightmode" onclick="lightMode()" id="lightbtn">LIGHT MODE</a></li>
-          <li><a href="#darkmode" onclick="darkMode()" id="darkbtn">DARK MODE</a></li>
+          <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
+          <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
+          <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
+          <li><a href="#" onclick="showAboutPopup()">About</a></li>
+          <li><a href="#" onclick="showFeaturesPopup()">Features</a></li>
+          <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+          <li> <a href="#">
+              <select id="musicDropdown" style="display: none;">
+                <option value="select" disabled selected>Change Music</option>
+                <option value="none">None</option>
+                <option value="disco">Disco</option>
+                <option value="fairies">Fairies</option>
+                <option value="funky">Funky</option>
+                <option value="omniscent">Omniscient</option>
+                <option value="vintage">Vintage</option>
+                <option value="whistle">Whistle</option>
+                <option value="snare">Snare</option>
+              </select>
+            </a>
+          </li>
+
         </ul>
         <ul class="navMain">
           <li id="sidebarLines" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></li>
-          <li><a href="#about" onclick="showAboutPopup()">ABOUT</a></li>
-          <li><a href="#features" onclick="showFeaturesPopup()">FEATURES</a></li>
-          <li><a href="#lightmode" onclick="lightMode()" id="lightbtn">LIGHT MODE</a></li>
-          <li><a href="#darkmode" onclick="darkMode()" id="darkbtn">DARK MODE</a></li>
         </ul>
       </nav>
     </div>
@@ -155,12 +169,13 @@
       <div class="footerContainer">
         <div class="socialIcons">
 
-          <a id="facebook" href="" aria-label="Facebook" title="facebook"><i class="fa-brands fa-facebook fa-1x"></i></a>
+          <a id="facebook" href="" aria-label="Facebook" title="facebook"><i
+              class="fa-brands fa-facebook fa-1x"></i></a>
           <a id="instagram" href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank" title="github">
             <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
               <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
             </svg>
           </a>
           <a id="twitter" href="" aria-label="Twitter" title="X"><i class="fa-brands fa-x-twitter"></i></a>
@@ -172,7 +187,6 @@
     </footer>
 
     <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
-    <button id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</button>
     <audio id="disco" src="assets/audios/disco.mp3"></audio>
     <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
     <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
@@ -182,24 +196,8 @@
     <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
     <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
 
-    <div>
-      <select id="musicDropdown" style="display: none;">
-        <option value="select" disabled selected>Change Music</option>
-        <option value="none">None</option>
-        <option value="disco">Disco</option>
-        <option value="fairies">Fairies</option>
-        <option value="funky">Funky</option>
-        <option value="omniscent">Omniscient</option>
-        <option value="vintage">Vintage</option>
-        <option value="whistle">Whistle</option>
-        <option value="snare">Snare</option>
-      </select>
-    </div>
 
     <!-- <div id="message" aria-live="polite">The timer has ended. The page will reload.</div> -->
-
-    <button id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</button>
-    <button id="CommentBtn" aria-label="Toggle Comment Form"><i class="fas fa-comment"></i></button>
     <!-- Comment form -->
 
     <!-- Modal background -->
@@ -327,41 +325,41 @@
       <p>1000 1 milliseconds radial 60</p>
       <p>1000 1 milliseconds linear 60</p>
     </div>
-
+  </div>
     <div id="featuresPopup" class="popup">
       <div class="popup-content">
-          <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-          <h2>Features</h2>
-          
-          <h1>Conic Mode</h1>
-          <p>
-              Imagine a spotlight sweeping across the room, creating vibrant cones
-              of light. The colors change dynamically as the spotlight moves, adding
-              an electrifying effect.
-          </p>
-          <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
-          <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2"  style="width: 180px; height: 180px;">
-          
-          <h1>Radial Mode</h1>
-          <p>
-              Picture a pulsating ring of light expanding and contracting. The
-              radial pattern syncs perfectly with the beat, making you feel the
-              rhythm.
-          </p>
-          <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
-          <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
-          
-          <h1>Linear Mode</h1>
-          <p>
-              Visualize colorful streaks of light moving in straight lines. These
-              streaks crisscross, intersect, and dance across the floor,
-              transforming your space into a dynamic disco.
-          </p>
-          <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
-          <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
+        <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
+        <h2>Features</h2>
+
+        <h1>Conic Mode</h1>
+        <p>
+          Imagine a spotlight sweeping across the room, creating vibrant cones
+          of light. The colors change dynamically as the spotlight moves, adding
+          an electrifying effect.
+        </p>
+        <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
+        <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
+
+        <h1>Radial Mode</h1>
+        <p>
+          Picture a pulsating ring of light expanding and contracting. The
+          radial pattern syncs perfectly with the beat, making you feel the
+          rhythm.
+        </p>
+        <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
+        <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
+
+        <h1>Linear Mode</h1>
+        <p>
+          Visualize colorful streaks of light moving in straight lines. These
+          streaks crisscross, intersect, and dance across the floor,
+          transforming your space into a dynamic disco.
+        </p>
+        <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
+        <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
       </div>
-  </div>
-  
+    </div>
+
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 

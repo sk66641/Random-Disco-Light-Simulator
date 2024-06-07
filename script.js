@@ -4,15 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
-    
+
     // Create and append the pause/start button
-    const pauseStartButton = document.createElement('button');
-    pauseStartButton.id = 'pauseStartBtn';
-    pauseStartButton.style.display = 'none';
-    pauseStartButton.textContent = 'Pause';
-    pauseStartButton.ariaLabel = 'Pause/Start';
-    document.body.appendChild(pauseStartButton);
-    
+    const pauseStartButton = document.getElementById('pauseStartBtn');
+
     let timerInterval;
     let musicAudio;
     let isPaused = false;
@@ -27,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', () => {
-        clearInterval(timerInterval);
-        pauseStartButton.style.display = 'none'; // Hide the pause button
-        document.getElementById('color').value='';
-        document.getElementById('color1').value='';
-        document.getElementById('color2').value='';
-        document.getElementById('time').value='';
-        document.getElementById('view').value='';
-        document.getElementById('countdown').value='';
-        document.getElementById('unit').value='';
-        document.getElementById('sound').value='';
+        // clearInterval(timerInterval);
+        // pauseStartButton.style.display = 'none'; // Hide the pause button
+        document.getElementById('color').value = '';
+        document.getElementById('color1').value = '';
+        document.getElementById('color2').value = '';
+        document.getElementById('time').value = '';
+        document.getElementById('view').value = '';
+        document.getElementById('countdown').value = '';
+        document.getElementById('unit').value = '';
+        document.getElementById('sound').value = '';
         // window.location.reload();
         // clearInterval(timerInterval);
     });
@@ -53,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCountdown(duration) {
         countdownValue = duration;
         // alert("Double click on the screen to reload!");
-        document.getElementById('musicDropdown').style.display = 'block'; 
+        document.getElementById('musicDropdown').style.display = 'block';
         // document.getElementById('musicDropdown').style.display = 'block';  
-        pauseStartButton.style.display = 'block'; // Show the pause button
+        pauseStartButton.style.display = 'inline-block'; // Show the pause button
+        document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
@@ -107,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countdownValue && countdownValue > 0 && Number(n) >= 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select") {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
-            document.querySelector(".navHeader").style.display = "none";
+            // document.querySelector(".navHeader").style.display = "none";
             document.querySelector(".container").style.display = "none";
             startSimulation(n, set_time, unit, view, color1, color2);
             var backToTopBtn = document.getElementById("backToTopBtn");
@@ -122,8 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
             audio.play();
             musicAudio = audio;
 
-            document.getElementById('musicDropdown').style.display = 'block';
-            pauseStartButton.style.display = 'block'; // Show the pause/start button
+            // document.getElementById('musicDropdown').style.display = 'block';
+            // pauseStartButton.style.display = 'block'; // Show the pause/start button
         } else {
             document.getElementById("error").style.color = "red";
             if (Number(n) < 0 || !Number.isInteger(Number(n)) || n === "") {
@@ -145,11 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.querySelector(".snowflakes").style.display = 'none';
         document.body.querySelector("#particles-js").style.display = 'none';
-        document.body.style.cursor = "pointer";
-        document.querySelector("#fullscreenBtn").style.right = "auto";
-        document.querySelector("#fullscreenBtn").style.left = "20px";
-        document.querySelector("#CommentBtn").style.display = "none";
-
         // document.body.addEventListener("dblclick", () => {
         //     let cnf1 = confirm("Are you sure you want to reload?");
         //     if (cnf1) {
@@ -230,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-  randomizeButton.addEventListener('click', () => {
+    randomizeButton.addEventListener('click', () => {
         const colorInput = document.getElementById('color');
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
@@ -285,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseStartButton.textContent = 'Start';
         isPaused = true;
     }
-    
+
     function resumeSimulation() {
         startCountdown(countdownValue);
         if (musicAudio) {
@@ -304,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
-    
+
 
     function hexToRgb(hex) {
         const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -336,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.exitFullscreen()
                 .then(() => {
                     fullscreenBtn.textContent = 'Fullscreen';
+
                 })
                 .catch(err => {
                     console.error(`Error attempting to disable fullscreen mode: ${err.message} (${err.name})`);
@@ -351,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = function () {
-    const modal = document.getElementById("warningModal");
+    // const modal = document.getElementById("warningModal");
     const closeModal = document.getElementById("closeModal");
     const proceedButton = document.getElementById("proceed");
 
@@ -444,7 +436,7 @@ function lightMode() {
 
 }
 document.getElementById('submit').addEventListener('click', function () {
-   
+
 
     document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
@@ -469,56 +461,62 @@ function effect() {
 
 var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
-    let timout = setTimeout(effect, 4000);
-
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-
+    setTimeout(effect, 4000);
 })
 
 function changeColor() {
-  document.getElementById('name').style.color = "black";
-  document.getElementById('email').style.color = "black";
+    document.getElementById('name').style.color = "black";
+    document.getElementById('email').style.color = "black";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "block";
-    backToTopBtn.addEventListener("click", function() {
-      scrollToTop();
-      scrollToForm();
+    backToTopBtn.addEventListener("click", function () {
+        scrollToTop();
+        scrollToForm();
     });
-  
+
     function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
     function scrollToForm() {
-        const formElement = document.getElementById("box"); 
+        const formElement = document.getElementById("box");
         formElement.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }
-  });
 
-  function toggleSidebar() {
+    document.querySelector("#reload").addEventListener("click", () => {
+        window.location.reload();
+    });
+
+});
+function toggleSidebar() {
     var sidebar = document.querySelector('.sidebarOne');
+    document.querySelector(".navMain").style.display = "none";
     if (sidebar.style.display === 'block') {
-      sidebar.style.display = 'none';
+        sidebar.style.display = 'none';
     } else {
-      sidebar.style.display = 'block';
+        sidebar.style.display = 'block';
     }
-  }
-  document.querySelector('.cross').addEventListener('click', function() {
-    document.querySelector('.sidebarOne').style.display = 'none';
-  })
-  document.addEventListener('DOMContentLoaded',()=>{
+}
+document.querySelector('.cross').addEventListener('click', function () {
+    document.querySelector('.sidebarOne').style.display = 'none'
+    document.querySelector(".navMain").style.display = "block";
+})
+document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.querySelector(".navMain").style.visibility = "visible";
     }, 4000);
-  })
+})
+
+
 
 

@@ -256,10 +256,12 @@ a:hover {
   .background {
     display: none;
   }
-  .copyright{
+
+  .copyright {
     font-size: 16px !important;
   }
-  .socialIcons a i{
+
+  .socialIcons a i {
     font-size: 30px !important;
   }
 }
@@ -268,18 +270,13 @@ a:hover {
   position: fixed;
   top: 10px;
   right: 10px;
-  font-size: 2em;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  opacity: 0.2;
   transition: 500ms;
-}
-
-#timerDisplay:hover {
-  opacity: 1;
 }
 
 #message {
@@ -296,11 +293,8 @@ a:hover {
   text-align: center;
 }
 
+/* 
 #fullscreenBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  left: auto;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -309,14 +303,12 @@ a:hover {
   color: white;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: .4;
   transition: 500ms;
 }
 
 #fullscreenBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
-  opacity: 1;
-}
+} */
 
 .footerContainer {
   display: flex;
@@ -421,7 +413,8 @@ a:hover {
 }
 
 #facebook:hover {
-  background-color: #3B5998;;
+  background-color: #3B5998;
+  ;
   transition: 0.5s;
 }
 
@@ -532,7 +525,8 @@ button:hover {
   .modal-content {
     width: 95%;
   }
-  .copyright{
+
+  .copyright {
     font-size: 12px !important;
   }
 }
@@ -676,30 +670,21 @@ nav ul li a:hover {
 }
 
 /* comment */
-#CommentBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 50%;
+/* #CommentBtn {
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 24px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.4;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: 500ms;
 }
 
 #CommentBtn:hover {
-  background-color: #0056b3;
-  opacity: 1;
-}
+  background: linear-gradient(to right, #ff512f, #f09819);
+} */
 
 
 /* Style for the modal background */
@@ -765,20 +750,19 @@ nav ul li a:hover {
   background: linear-gradient(#1845ad, #23a2f6);
   outline: none;
   border: none;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   color: #e5e5e5;
   font-size: 24px;
-  position: fixed;
+  /* position: fixed; */
   top: 150px;
-  /* Adjust the position as needed */
   left: 20px;
-  opacity: .4;
+  /* opacity: .4; */
   transition: 500ms;
 }
 
-#musicDropdown:hover {
+/* #musicDropdown:hover {
   opacity: 1;
-}
+} */
 
 #musicDropdown select {
   color: #e5e5e5;
@@ -790,7 +774,6 @@ nav ul li a:hover {
 
 #musicDropdown:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
-  /* Change to the desired hover gradient */
 }
 
 .dark-mode {
@@ -948,17 +931,17 @@ nav ul li a:hover {
 #aboutPopup {
   display: none;
   position: fixed;
-  z-index: 1000; 
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #aboutPopup .popup-content {
   background-color: #fff;
-  margin: 10% auto; 
+  margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -972,26 +955,27 @@ nav ul li a:hover {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #333; 
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #aboutPopup .popup-content p {
   font-size: 18px;
   line-height: 1.6;
-  color: #555; 
+  color: #555;
   margin-bottom: 15px;
 }
 
-#aboutPopup .popup-content p strong { 
-  font-weight: bold; 
-  color: #ff7f50; /* Orange color for bold text */
+#aboutPopup .popup-content p strong {
+  font-weight: bold;
+  color: #ff7f50;
+  /* Orange color for bold text */
 }
 
-#aboutPopup .popup-content ul { 
+#aboutPopup .popup-content ul {
   list-style-type: disc;
   margin-left: 40px;
-  padding-left: 0; 
+  padding-left: 0;
   /* Remove default padding */
 }
 
@@ -1019,6 +1003,7 @@ nav ul li a:hover {
 .light-mode .copyright {
   background-color: #080505;
 }
+
 .rating {
   display: flex;
   justify-content: space-between;
@@ -1036,9 +1021,10 @@ nav ul li a:hover {
   transition: color 0.3s;
 }
 
-.rating input[type="radio"]:checked ~ label {
+.rating input[type="radio"]:checked~label {
   color: #ffc107;
 }
+
 .rating {
   display: flex;
   flex-direction: row;
@@ -1057,17 +1043,21 @@ nav ul li a:hover {
 }
 
 .rating label:before {
-  content: "\2605"; /* Unicode character for a star */
+  content: "\2605";
+  /* Unicode character for a star */
   color: #ccc;
 }
 
-.rating input[type="radio"]:checked + label:before {
-  color: #ffd700; /* Yellow color for selected star */
+.rating input[type="radio"]:checked+label:before {
+  color: #ffd700;
+  /* Yellow color for selected star */
 }
+
 #backToTopBtn {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
+  left: auto;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -1086,7 +1076,7 @@ nav ul li a:hover {
 
 }
 
-#pauseStartBtn {
+/* #pauseStartBtn {
   position: fixed;
   top: 90px;
   left: 20px;
@@ -1104,12 +1094,13 @@ nav ul li a:hover {
 
 #pauseStartBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
-}
+} */
 
-.navHeader {
+.header {
   margin-top: 100px;
   width: 100vw;
 }
+
 .navMain {
   display: flex;
   justify-content: flex-start;
@@ -1117,6 +1108,7 @@ nav ul li a:hover {
   padding-left: 50px;
   visibility: hidden;
 }
+
 .sidebarOne {
   position: fixed;
   padding: 35px;
@@ -1130,7 +1122,9 @@ nav ul li a:hover {
   display: none;
   flex-direction: column;
   padding-top: 50px;
+  overflow: scroll;
 }
+
 .sidebar ul {
   display: flex;
   justify-content: flex-start;
@@ -1138,23 +1132,29 @@ nav ul li a:hover {
   padding-left: 50px;
   flex-direction: column;
 }
+
 #sidebarLines {
   color: white;
   display: none;
   cursor: pointer;
 }
-.cross{
+
+.cross {
   color: white;
   display: flex;
   margin-bottom: 30px;
 }
-@media only screen and (max-width: 875px) {
-  #sidebarLines {
-    display: flex;
-    color: white;
-  }
-  .navMain li a{
-    display: none;
-  }
+
+#sidebarLines {
+  display: flex;
+  color: white;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: auto;
+  z-index: 1;
 }
 
+.navMain li a {
+  display: none;
+}
