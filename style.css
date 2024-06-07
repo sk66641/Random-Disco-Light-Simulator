@@ -384,11 +384,6 @@ input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-
-footer {
-  background-color: white;
-}
-
 .footerContainer {
   display: flex;
   flex-direction: row;
