@@ -216,17 +216,17 @@ button {
   font-weight: 700;
 }
 
-a {
+/* a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
   height: 45px;
   transition: 0.2s all;
-}
+} */
 
-a:hover {
+/* a:hover {
   transform: scale(1.1);
-}
+} 
 
 @media only screen and (max-width: 915px) {
   * {
@@ -393,13 +393,99 @@ input:checked + .slider:before {
 }
 
 .socialIcons {
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+ backdrop-filter: blur(8px);
+
+}
+.icons {
+  position: relative;
+  background: rgba(106, 106, 106, 0.189);
+  top: 0px;
+  color: blue;
+  box-shadow: 3px 4px 10px rgba(176, 175, 175, 0.248);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  width: 100%;
-  justify-content: space-around;
+  border-radius: 50% 50%;
+  overflow: hidden;
 }
 
-.socialIcons a {
+.icons a::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  left: 0;
+  background: linear-gradient(
+    40deg,
+    rgb(246, 126, 28),
+    rgb(221, 54, 54),
+    rgb(250, 41, 118),
+    rgb(214, 18, 214)
+  );
+  position: absolute;
+  transition: 0.5s;
+}
+
+.icons a:hover::after {
+  top: 0;
+  left: 0;
+}
+
+.icons:nth-child(1) a::after {
+  background: linear-gradient(
+    40deg,
+    rgb(13, 108, 139),
+    rgb(86, 202, 240),
+    rgb(28, 192, 246),
+    rgb(127, 214, 244)
+  );
+}
+
+.icons:nth-child(2) a::after {
+  background: linear-gradient(
+    40deg,
+    rgb(246, 126, 28),
+    rgb(221, 54, 54),
+    rgb(250, 41, 118),
+    rgb(214, 18, 214)
+  );
+}
+.icons:nth-child(3) a::after {
+  background: linear-gradient(40deg, #000000, #410bc8);
+}
+
+.icons:nth-child(4) a::after {
+  background: rgb(19, 12, 12);
+}
+.icons:nth-child(5) a::after {
+  background: 
+    rgb(255, 23, 23)
+}
+
+.ico {
+  position: absolute;
+  font-size: 21px;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: white;
+}
+
+/* .socialIcons a {
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -413,10 +499,10 @@ input:checked + .slider:before {
   font-size: 1em;
   color: white;
   opacity: 0, 9;
-}
+} */
 
 /* Hover affect on social media icon */
-
+/* 
 .socialIcons a:hover {
   background-color: #111;
 
@@ -426,7 +512,7 @@ input:checked + .slider:before {
 .socialIcons a:hover i {
   color: white;
   transition: 0.5s;
-}
+} */
 
 .footerNav {
   margin: 30px 0;
@@ -486,28 +572,6 @@ input:checked + .slider:before {
   }
 }
 
-#facebook:hover {
-  background-color: #3B5998;
-  ;
-  transition: 0.5s;
-}
-
-#instagram:hover {
-  color: #c13583;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  transition: 0.5s;
-}
-
-#twitter:hover {
-  background-color: rgb(39, 39, 39);
-  transition: 0.5s;
-}
-
-
-#youtube:hover {
-  background-color: #C31A1E;
-  transition: 0.5s;
-}
 
 .copyright {
   display: flex;
@@ -890,7 +954,17 @@ nav ul li a:hover {
   flex-direction: column;
   gap: 10px;
 }
-
+.light-mode .icons{
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);  
+}
+.light-mode .ico{
+  color: rgb(102, 100, 100);
+}
+.light-mode .ico:hover{
+  color: white;
+  transition: all ease-in 0.1s;
+}
 .light-mode ::placeholder {
   color: #120c0c;
   font-size: 20px;
@@ -918,15 +992,7 @@ nav ul li a:hover {
   outline: none;
 }
 
-.light-mode.socialIcons a:hover {
-  background-color: #f4efef;
-  transition: 0.5s;
-}
 
-.light-mode.socialIcons a:hover i {
-  color: rgb(7, 6, 6);
-  transition: 0.5s;
-}
 
 .light-mode .snowflakes {
   position: fixed;
@@ -1070,9 +1136,6 @@ nav ul li a:hover {
   color: black;
 }
 
-.light-mode .footerContainer {
-  background-color: #080505;
-}
 
 .light-mode .copyright {
   background-color: #080505;
