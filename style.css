@@ -34,6 +34,10 @@ body {
   z-index: -1;
 }
 
+#changeHeading{
+  color:black;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -55,15 +59,15 @@ body {
 }
 
 .shape:first-child {
-  background: linear-gradient(#1845ad, #23a2f6);
-  left: -240px;
-  top: 10px;
+  background: linear-gradient(to right, #ff512f, #f09819);
+  left: -8vw;
+  top: -18vh;
 }
 
 .shape:last-child {
-  background: linear-gradient(to right, #ff512f, #f09819);
-  right: -240px;
-  bottom: -60px;
+  background: linear-gradient(#1845ad, #23a2f6);
+  right: -8vw;
+  bottom: -18vh;
 }
 
 h1 {
@@ -313,13 +317,13 @@ button {
 /* Styles for the the theme toggle checkbox */
 
 .theme-toggle {
-  position: fixed; 
-  top: 30px; 
+  position: fixed;
+  top: 30px;
   right: 20px;
-  z-index: 100; 
-  display: flex; 
-  align-items: center; 
-  border: none; 
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border: none;
   background-color: transparent;
   /* display: inline-block; */
   position: relative;
@@ -347,14 +351,17 @@ button {
   transition: background-color 0.4s;
   box-shadow: 0 0 3px #ffffff;
 }
-.slider:hover{
+
+.slider:hover {
   opacity: 1;
 }
-.light-mode .slider{
+
+.light-mode .slider {
   background-color: #ffffff;
   box-shadow: 0 0 5px #020202;
 }
-.light-mode .slider:before{
+
+.light-mode .slider:before {
   height: 16px;
   width: 16px;
   left: 2px;
@@ -362,6 +369,7 @@ button {
   background-image: linear-gradient(to bottom right, yellow, orange, red);
   box-shadow: none;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -370,7 +378,7 @@ button {
   left: 3px;
   bottom: 3px;
   /* background-image: linear-gradient(to bottom right, yellow, orange, red); */
-  background-image:linear-gradient(black, rgb(18, 18, 18));
+  background-image: linear-gradient(black, rgb(18, 18, 18));
   box-shadow: inset -3px -1.4px #ffffff, inset -3.2px -1.4px 0.2px 0.1px rgb(58, 52, 58);
   border-radius: 50%;
   transition: transform 0.4s;
@@ -380,7 +388,7 @@ button {
   transition: transform 0.4s;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(20px);
 }
 
@@ -450,6 +458,7 @@ input:checked + .slider:before {
     rgb(28, 192, 246),
     rgb(127, 214, 244)
   );
+
 }
 
 .icons:nth-child(2) a::after {
@@ -791,11 +800,11 @@ nav ul li a:hover {
 #randomize {
   background-color: #007bff;
   width: auto;
-  margin: 20px auto;
+  margin: 5px auto;
   display: block;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px 20px;
   font-size: 20px;
   cursor: pointer;
@@ -1270,12 +1279,6 @@ nav ul li a:hover {
   flex-direction: column;
 }
 
-#sidebarLines {
-  color: white;
-  display: none;
-  cursor: pointer;
-}
-
 .cross {
   color: white;
   display: flex;
@@ -1283,6 +1286,7 @@ nav ul li a:hover {
 }
 
 #sidebarLines {
+  cursor: pointer;
   display: flex;
   color: white;
   position: fixed;
@@ -1294,4 +1298,16 @@ nav ul li a:hover {
 
 .navMain li a {
   display: none;
+}
+
+#countdown,
+#time,
+#color,
+#music-url {
+  width: 200px;
+}
+
+#music-file {
+  width: 260px;
+  font-size: 20px;
 }
