@@ -78,7 +78,7 @@ h1 {
 }
 
 .box {
-  min-height: 100vh;
+  /* min-height: 100vh; */
 
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
@@ -915,7 +915,7 @@ nav ul li a:hover {
 }
 
 .light-mode .box {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
