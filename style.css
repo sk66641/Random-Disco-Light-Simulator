@@ -905,14 +905,16 @@ nav ul li a:hover {
 }
 
 .light-mode .box {
-  max-height: calc(100vh - 40px);
+  min-height: 100vh;
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
-  overflow: auto;
+  overflow: visible;
+  position: relative;
+
   /* Added scroll because content overflows */
   background: rgba(0, 0, 0, 0.13);
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 10px 25px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(28, 22, 22, 0.1);
@@ -922,6 +924,19 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.light-mode .box::before,
+.light-mode .box::after {
+  content: '';
+  position: fixed;
+  inset: -0.1rem;
+  z-index: -1;
+  background: conic-gradient(from var(--gradient-angle), #f34bb0, #f8597b, #76acdbfc, #776ede,#33fff8fc,#ed666c);
+  border-radius: inherit;
+  animation: moving 3s linear infinite;
+
+  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
+        linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
 }
 
 .light-mode ::placeholder {
