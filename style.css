@@ -34,6 +34,10 @@ body {
   z-index: -1;
 }
 
+#changeHeading{
+  color:black;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -55,15 +59,15 @@ body {
 }
 
 .shape:first-child {
-  background: linear-gradient(#1845ad, #23a2f6);
-  left: -240px;
-  top: 10px;
+  background: linear-gradient(to right, #ff512f, #f09819);
+  left: -8vw;
+  top: -18vh;
 }
 
 .shape:last-child {
-  background: linear-gradient(to right, #ff512f, #f09819);
-  right: -240px;
-  bottom: -60px;
+  background: linear-gradient(#1845ad, #23a2f6);
+  right: -8vw;
+  bottom: -18vh;
 }
 
 h1 {
@@ -310,6 +314,84 @@ a:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
 } */
 
+/* Styles for the the theme toggle checkbox */
+
+.theme-toggle {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  /* display: inline-block; */
+  position: relative;
+  width: 40px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.85;
+  background-color: #000000;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+  box-shadow: 0 0 3px #ffffff;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.light-mode .slider {
+  background-color: #ffffff;
+  box-shadow: 0 0 5px #020202;
+}
+
+.light-mode .slider:before {
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-image: linear-gradient(to bottom right, yellow, orange, red);
+  box-shadow: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  /* background-image: linear-gradient(to bottom right, yellow, orange, red); */
+  background-image: linear-gradient(black, rgb(18, 18, 18));
+  box-shadow: inset -3px -1.4px #ffffff, inset -3.2px -1.4px 0.2px 0.1px rgb(58, 52, 58);
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+.dark-mode .slider:before {
+  transition: transform 0.4s;
+}
+
+input:checked+.slider:before {
+  transform: translateX(20px);
+}
+
 .footerContainer {
   display: flex;
   flex-direction: row;
@@ -323,6 +405,7 @@ a:hover {
   justify-content: center;
   width: 100%;
   justify-content: space-around;
+  z-index: 1;
 }
 
 .socialIcons a {
@@ -653,11 +736,11 @@ nav ul li a:hover {
 #randomize {
   background-color: #007bff;
   width: auto;
-  margin: 20px auto;
+  margin: 5px auto;
   display: block;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px 20px;
   font-size: 20px;
   cursor: pointer;
@@ -1133,12 +1216,6 @@ nav ul li a:hover {
   flex-direction: column;
 }
 
-#sidebarLines {
-  color: white;
-  display: none;
-  cursor: pointer;
-}
-
 .cross {
   color: white;
   display: flex;
@@ -1146,6 +1223,7 @@ nav ul li a:hover {
 }
 
 #sidebarLines {
+  cursor: pointer;
   display: flex;
   color: white;
   position: fixed;
@@ -1157,4 +1235,16 @@ nav ul li a:hover {
 
 .navMain li a {
   display: none;
+}
+
+#countdown,
+#time,
+#color,
+#music-url {
+  width: 200px;
+}
+
+#music-file {
+  width: 260px;
+  font-size: 20px;
 }
