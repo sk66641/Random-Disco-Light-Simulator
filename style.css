@@ -54,7 +54,7 @@ body {
   border-radius: 50%;
 }
 
-.shape:first-child {
+/* .shape:first-child {
   background: linear-gradient(#1845ad, #23a2f6);
   left: -240px;
   top: 10px;
@@ -64,7 +64,20 @@ body {
   background: linear-gradient(to right, #ff512f, #f09819);
   right: -240px;
   bottom: -60px;
+} */
+
+.shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6);
+  left: -240px;
+  top:60px;
 }
+
+.shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  right: -240px;
+  bottom: -30px;
+}
+
 
 h1 {
   font-size: 34px;
@@ -324,7 +337,21 @@ a:hover {
   justify-content: space-evenly;
   margin-bottom: 10px;
 }
-
+@media screen  and(max-width:425px){
+  .footerContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-evenly;
+    margin-bottom: 7px;
+  }
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    justify-content: space-around;
+  }
+}
 .socialIcons {
   display: flex;
   justify-content: center;
@@ -447,6 +474,16 @@ a:hover {
   font-size: large;
   color: white;
   height: 50px;
+}
+
+@media screen  and (max-width:425px){
+  .copyright {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    color: white;
+    height: 120px;
+  }
 }
 
 .modal {
@@ -694,7 +731,27 @@ nav ul li a:hover {
   opacity: 0.4;
   transition: 500ms;
 }
-
+@media screen and (max-width:425px) {
+  #CommentBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    width: 50px;
+    height: 40px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 21px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.4;
+    transition: 500ms;
+  }
+}
 #CommentBtn:hover {
   background-color: #0056b3;
   opacity: 1;
@@ -1028,7 +1085,23 @@ nav ul li a:hover {
   opacity: .4;
   transition: 500ms;
 }
-
+@media screen  and (max-width: 425px){
+  #backToTopBtn {
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+    padding: 8px 18px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(#1845ad, #23a2f6);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: .4;
+    transition: 500ms;
+  }
+}
 #backToTopBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
   opacity: 1;
