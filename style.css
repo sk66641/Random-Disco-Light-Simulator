@@ -60,17 +60,19 @@ body {
   border-radius: 50%;
 }
 
-.shape:first-child {
+/* .shape:first-child {
   background: linear-gradient(to right, #ff512f, #f09819);
+  align-self: flex-end;
   left: -8vw;
   top: -18vh;
 }
 
 .shape:last-child {
   background: linear-gradient(#1845ad, #23a2f6);
+  align-self: flex-start;
   right: -8vw;
   bottom: -18vh;
-}
+} */
 
 h1 {
   font-size: 34px;
