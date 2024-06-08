@@ -49,6 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startCountdown(duration) {
       countdownValue = duration;
+     // alert("Click menu icon to enable various functions!");
+        const modal1 = document.getElementById("infomodal");
+        const closeModal1 = document.getElementById("closeModal1");
+        const proceedButton1 = document.getElementById("proceed1");
+    
+        modal1.style.display = "block";
+    
+        closeModal1.onclick = function () {
+            modal1.style.display = "none";
+        }
+    
+        proceedButton1.onclick = function () {
+            modal1.style.display = "none";
+        }
+    
+        window.onclick = function (event) {
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
       // alert("Double click on the screen to reload!");
       document.getElementById('musicDropdown').style.display = 'block';
       // document.getElementById('musicDropdown').style.display = 'block';  
@@ -367,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
           b: parseInt(result[3], 16)
       } : null;
   }
+
 });
 document.addEventListener('DOMContentLoaded', () => {
   const fullscreenBtn = document.getElementById('fullscreenBtn');
