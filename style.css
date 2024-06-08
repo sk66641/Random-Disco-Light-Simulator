@@ -76,7 +76,7 @@ h1 {
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
-  overflow: auto;
+  /* overflow: auto; */
   /* Added scroll because content overflows */
   background: rgba(255, 255, 255, 0.13);
   border-radius: 20px;
@@ -101,7 +101,7 @@ input {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 10px;
   border-radius: 10px;
 }
@@ -118,11 +118,11 @@ input:focus {
 }
 
 i {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 strong {
-  font-size: 24px;
+  font-size: 22px;
   color: #f09819;
 }
 
@@ -136,13 +136,13 @@ strong {
   border: none;
   padding: 5px 10px;
   color: #e5e5e5;
-  font-size: 24px;
+  font-size: 20px;
   width: auto;
 }
 
 select option {
   color: #e5e5e5;
-  font-size: 24px;
+  font-size: 18px;
   background-color: #333;
   border: none;
   outline: none;
@@ -158,6 +158,7 @@ select option {
   cursor: pointer;
   border-radius: 10px;
   transition: 0.2s all;
+  margin-bottom: 20px;
 }
 
 #submit:hover {
@@ -169,6 +170,7 @@ select option {
   background-color: red;
   cursor: pointer;
   transition: 0.2s all;
+  margin-bottom: 20px;
 }
 
 #reset:hover {
@@ -738,7 +740,7 @@ nav ul li a:hover {
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
