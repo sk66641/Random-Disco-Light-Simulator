@@ -269,7 +269,7 @@ a:hover {
   transform: scale(1.1);
 }
 
-@media only screen and (max-width: 915px) {
+@media only screen and (max-width: 750px) {
   * {
     font-size: 18px !important;
   }
@@ -294,8 +294,27 @@ a:hover {
     margin: 5px;
   }
 
-  .background {
+  /* .background {
     display: none;
+  } */
+
+  /* .copyright {
+    font-size: 16px !important;
+  } */
+
+  .socialIcons a i {
+    font-size: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  * {
+    font-size: 14px !important;
+  }
+
+  h1 {
+    overflow-wrap: break-word;
+    font-size: 16px !important;
   }
 
   .copyright {
@@ -303,7 +322,25 @@ a:hover {
   }
 
   .socialIcons a i {
-    font-size: 30px !important;
+    font-size: 26px !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+  * {
+    font-size: 12px !important;
+  }
+
+  h1 {
+    overflow-wrap: break-word;
+    font-size: 14px !important;
+  }
+
+  .copyright {
+    font-size: 14px !important;
+  }
+
+  .socialIcons a i {
+    font-size: 24px !important;
   }
 }
 
@@ -474,63 +511,12 @@ input:checked+.slider:before {
   transition: 0.5s;
 }
 
-.footerNav {
-  margin: 30px 0;
-}
-
-.footerNav ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-}
-
-.footerNav ul li a {
-  color: white;
-  margin: 20px;
-  text-decoration: none;
-  font-size: 1.3em;
-  opacity: 0.7;
-  transition: 0.5s;
-}
-
-.footerNav ul li a:hover {
-  opacity: 1;
-}
-
-.footerBottom {
-  background-color: #111;
-  height: 5vw;
-  text-align: center;
-}
-
-.footerBottom p {
-  color: white;
-}
-
-.designer {
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 400;
-  margin: 0px 5px;
-}
-
-@media (max-width: 700px) {
-  .footerNav ul {
-    flex-direction: column;
-  }
-
-  .footerNav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 10px;
-  }
-
+/* @media (max-width: 700px) {
   .socialIcons a {
     padding: 8px;
     margin: 4px;
   }
-}
+} */
 
 #facebook:hover {
   background-color: #3B5998;
@@ -641,7 +627,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .modal-content {
     width: 95%;
   }
@@ -649,7 +635,7 @@ button:hover {
   .copyright {
     font-size: 12px !important;
   }
-}
+} */
 
 .snowflakes {
   position: fixed;
@@ -686,29 +672,16 @@ button:hover {
   }
 }
 
-body,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 .header-content {
   width: 100%;
   margin: 0;
 }
 
 nav ul {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
 }
-
-/* nav ul li {
-  display: inline;
-  margin-right: 60px;
-}
-
-nav ul li:last-child {
-  margin-right: 0 auto;
-} */
 
 nav ul li a {
   color: #fff;
@@ -861,9 +834,6 @@ nav ul li a:hover {
 #commentForm button[type="submit"]:hover {
   background-color: #218838;
 }
-
-
-
 
 #musicDropdown {
   text-align: center;
