@@ -139,16 +139,19 @@ input {
   background-color: rgba(255, 255, 255, 0.07);
   outline: none;
   border: none;
-  color: #fff;
+  color: #0e0e0e;
   font-size: 20px;
   padding: 5px 10px;
   border-radius: 10px;
+  border: 1px solid black;
+  /* width: 11rem; */
 }
 
 ::placeholder {
   font-family: 'Cinzel', serif;
-  color: #d3d1d1;
+  color: #8d8080;
   font-size: 20px;
+  
 }
 
 input:focus {
@@ -635,6 +638,8 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+          /* margin-left: 4rem; */
+          width: 4rem;
 }
 
 button:hover {
@@ -826,17 +831,27 @@ nav ul li a:hover {
 #commentForm {
   max-width: 500px;
   padding: 20px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #040404; */
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   background-color: #f9f9f9;
-  z-index: 1001;
+  /* z-index: 1001; */
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 7px 0px 15px #53e3e3, -7px 0px 15px #4d97c8;
+    background: url(./assets/images/pngtree-blue-background-high-resolution-images-free-vector-image_13093708.jpg);
+    background-size: cover;
+  
 }
 
 #commentForm label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  margin-left: 0px;
+  font-size:40px
 }
 
 #commentForm textarea {
@@ -846,6 +861,9 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   border-radius: 5px;
   resize: vertical;
+  /* margin-top: 30px; */
+  opacity: 0.4;
+  
 }
 
 #commentForm button[type="submit"] {
@@ -861,7 +879,9 @@ nav ul li a:hover {
 #commentForm button[type="submit"]:hover {
   background-color: #218838;
 }
-
+.icon{
+  text-transform: none;
+}
 
 
 

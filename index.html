@@ -228,20 +228,24 @@
       <!-- Comment form -->
       <div id="commentForm">
         <form id="feedback-form">
-          <label for="userComment">Your Feedback:</label>
+          <label for="userComment" style="text-align: center; color:rgb(95, 104, 104)"> Feedback Form</label>
           <div class="form-group">
             <div class="icon">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user" style="color: #7a7a73;">  n a m e</i>
+             
             </div>
-            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
+            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required >
           </div>
           <div class="form-group">
             <div class="icon">
-              <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope" style="color: #7a7a73;">  m a i l</i>
             </div>
             <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
           </div>
           <div class="form-group">
+            <div class="icon">
+              <i class="fa-solid fa-comment"style="color:#7a7a73;"> f e e d b a c k</i>
+            </div>
             <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
           </div>
           <div class="rating">
@@ -256,7 +260,7 @@
             <input type="radio" id="star1" name="rating" value="1" />
             <label for="star1">1 star</label>
           </div>
-          <button id="ll">Submit</button>
+          <button id="ll" style="margin-left: 4rem;background-color: #488de8;">Submit</button>
         </form>
       </div>
     </div>
