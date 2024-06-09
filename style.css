@@ -257,7 +257,7 @@ button {
   font-weight: 700;
 }
 
-a {
+/* a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
@@ -267,7 +267,7 @@ a {
 
 a:hover {
   transform: scale(1.1);
-}
+} */
 
 @media only screen and (max-width: 915px) {
   * {
@@ -429,49 +429,105 @@ input:checked+.slider:before {
   transform: translateX(20px);
 }
 
-.footerContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-}
+
 
 .socialIcons {
+ 
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  width: 100%;
-  justify-content: space-around;
-  z-index: 1;
-}
-
-.socialIcons a {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  justify-content: center;
+
+  gap: 30px;
+ backdrop-filter: blur(8px);
+
+}
+.icons {
+  position: relative;
+  background: rgba(106, 106, 106, 0.189);
+  top: 0px;
+  color: blue;
+  box-shadow: 3px 4px 10px rgba(176, 175, 175, 0.248);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 50%;
+  overflow: hidden;
 }
 
-.socialIcons a i {
-  font-size: 1em;
-  color: white;
-  opacity: 0, 9;
-}
-
-/* Hover affect on social media icon */
-
-.socialIcons a:hover {
-  background-color: #111;
-
+.icons a::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  left: 0;
+  background: linear-gradient(
+    40deg,
+    rgb(246, 126, 28),
+    rgb(221, 54, 54),
+    rgb(250, 41, 118),
+    rgb(214, 18, 214)
+  );
+  position: absolute;
   transition: 0.5s;
 }
 
-.socialIcons a:hover i {
+.icons a:hover::after {
+  top: 0;
+  left: 0;
+}
+
+.icons:nth-child(1) a::after {
+  background: linear-gradient(
+    40deg,
+    rgb(13, 108, 139),
+    rgb(86, 202, 240),
+    rgb(28, 192, 246),
+    rgb(127, 214, 244)
+  );
+}
+
+.icons:nth-child(2) a::after {
+  background: linear-gradient(
+    40deg,
+    rgb(246, 126, 28),
+    rgb(221, 54, 54),
+    rgb(250, 41, 118),
+    rgb(214, 18, 214)
+  );
+}
+.icons:nth-child(3) a::after {
+  background: linear-gradient(40deg, #000000, #410bc8);
+}
+
+.icons:nth-child(4) a::after {
+  background: rgb(19, 12, 12);
+}
+.icons:nth-child(5) a::after {
+  background: 
+    rgb(255, 23, 23)
+}
+
+.ico {
+  position: absolute;
+  font-size: 21px;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   color: white;
-  transition: 0.5s;
+}
+.light-mode .icons{
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);  
 }
 
 .footerNav {
@@ -526,11 +582,25 @@ input:checked+.slider:before {
     margin: 10px;
   }
 
-  .socialIcons a {
-    padding: 8px;
-    margin: 4px;
+
+    .socialIcons {
+     position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      top: 0%;
+      right: 0%;
+      left: 0%;
+      gap: 20px;
+      margin-top: 30px;
+      bottom: 0%;
+      width: 100%;
+      justify-content: center;
+  
+    
+    }
   }
-}
+
 
 #facebook:hover {
   background-color: #3B5998;
@@ -650,6 +720,7 @@ button:hover {
     font-size: 12px !important;
   }
 }
+
 
 .snowflakes {
   position: fixed;
@@ -979,14 +1050,20 @@ nav ul li a:hover {
   outline: none;
 }
 
-.light-mode.socialIcons a:hover {
-  background-color: #f4efef;
-  transition: 0.5s;
+.light-mode .icons{
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);  
 }
-
-.light-mode.socialIcons a:hover i {
-  color: rgb(7, 6, 6);
-  transition: 0.5s;
+.light-mode .ico{
+  color: rgb(102, 100, 100);
+}
+.light-mode .ico:hover{
+  color: white;
+  transition: all ease-in 0.1s;
+}
+.light-mode ::placeholder {
+  color: #120c0c;
+  font-size: 20px;
 }
 
 .light-mode .snowflakes {
