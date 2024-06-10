@@ -1330,3 +1330,9 @@ button:hover {
 button:active {
   transform: scale(.95);
 }
+
+.navHeader .header-content nav .logo img {
+  height: 100px; 
+  margin-right: auto ;
+  width: 120px;
+}
