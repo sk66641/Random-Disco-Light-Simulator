@@ -35,8 +35,8 @@ body {
   z-index: -1;
 }
 
-#changeHeading{
-  color:black;
+#changeHeading {
+  color: black;
 }
 
 ::-webkit-scrollbar {
@@ -86,7 +86,7 @@ h1 {
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
   position: relative;
- 
+
   /* Added scroll because content overflows */
   background: rgba(255, 255, 255, 0.063);
   backdrop-filter: blur(10px);
@@ -101,32 +101,35 @@ h1 {
   gap: 10px;
   border-radius: 10px;
 }
+
 @property --gradient-angle {
-  syntax :"<angle>";
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
+
 .box::before,
 .box::after {
   content: '';
   position: fixed;
   inset: -0.1rem;
   z-index: -1;
-  background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede,#8eebe8fc,#ed666c);
+  background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede, #8eebe8fc, #ed666c);
   border-radius: inherit;
   animation: moving 3s linear infinite;
 
   mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
-        linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
 }
 
 
 @keyframes moving {
   0% {
-      --gradient-angle:0deg;
+    --gradient-angle: 0deg;
   }
+
   100% {
-      --gradient-angle:360deg;
+    --gradient-angle: 360deg;
   }
 }
 
@@ -257,7 +260,7 @@ button {
   font-weight: 700;
 }
 
-a {
+/* a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
@@ -267,9 +270,9 @@ a {
 
 a:hover {
   transform: scale(1.1);
-}
+} */
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
   * {
     font-size: 18px !important;
   }
@@ -325,6 +328,7 @@ a:hover {
     font-size: 26px !important;
   }
 }
+
 @media only screen and (max-width: 320px) {
   * {
     font-size: 12px !important;
@@ -426,7 +430,7 @@ a:hover {
   box-shadow: 0 0 3px #ffffff;
 }
 
- @media screen and (max-width: 425px){
+@media screen and (max-width: 425px) {
   .slider {
     cursor: pointer;
     position: absolute;
@@ -440,7 +444,8 @@ a:hover {
     transition: background-color 0.4s;
     box-shadow: 0 0 3px #ffffff;
   }
- }
+}
+
 .slider:hover {
   opacity: 1;
 }
@@ -481,57 +486,125 @@ input:checked+.slider:before {
   transform: translateX(20px);
 }
 
-.footerContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-}
+
 
 .socialIcons {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  justify-content: space-around;
-  z-index: 1;
-}
 
-.socialIcons a {
-  text-decoration: none;
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  justify-content: center;
+
+  gap: 30px;
+  backdrop-filter: blur(8px);
+
 }
 
-.socialIcons a i {
-  font-size: 1em;
-  color: white;
-  opacity: 0, 9;
+.icons {
+  position: relative;
+  background: rgba(106, 106, 106, 0.189);
+  top: 0px;
+  color: blue;
+  box-shadow: 3px 4px 10px rgba(176, 175, 175, 0.248);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 50%;
+  overflow: hidden;
 }
 
-/* Hover affect on social media icon */
-
-.socialIcons a:hover {
-  background-color: #111;
-
+.icons a::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  left: 0;
+  background: linear-gradient(40deg,
+      rgb(246, 126, 28),
+      rgb(221, 54, 54),
+      rgb(250, 41, 118),
+      rgb(214, 18, 214));
+  position: absolute;
   transition: 0.5s;
 }
 
-.socialIcons a:hover i {
-  color: white;
-  transition: 0.5s;
+.icons a:hover::after {
+  top: 0;
+  left: 0;
 }
 
-/* @media (max-width: 700px) {
-  .socialIcons a {
-    padding: 8px;
-    margin: 4px;
+.icons:nth-child(1) a::after {
+  background: linear-gradient(40deg,
+      rgb(13, 108, 139),
+      rgb(86, 202, 240),
+      rgb(28, 192, 246),
+      rgb(127, 214, 244));
+}
+
+.icons:nth-child(2) a::after {
+  background: linear-gradient(40deg,
+      rgb(246, 126, 28),
+      rgb(221, 54, 54),
+      rgb(250, 41, 118),
+      rgb(214, 18, 214));
+}
+
+.icons:nth-child(3) a::after {
+  background: linear-gradient(40deg, #000000, #410bc8);
+}
+
+.icons:nth-child(4) a::after {
+  background: rgb(19, 12, 12);
+}
+
+.icons:nth-child(5) a::after {
+  background:
+    rgb(255, 23, 23)
+}
+
+.ico {
+  position: absolute;
+  font-size: 21px;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: white;
+}
+
+.light-mode .icons {
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+
+  .socialIcons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    gap: 20px;
+    margin-top: 30px;
+    bottom: 0%;
+    width: 100%;
+    justify-content: center;
+
+
   }
-} */
+}
+
 
 #facebook:hover {
   background-color: #3B5998;
@@ -573,6 +646,7 @@ input:checked+.slider:before {
     height: 100px;
   }
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -660,6 +734,7 @@ button:hover {
     font-size: 12px !important;
   }
 } */
+
 
 .snowflakes {
   position: fixed;
@@ -933,19 +1008,21 @@ nav ul li a:hover {
   flex-direction: column;
   gap: 10px;
 }
+
 .light-mode .box::before,
 .light-mode .box::after {
   content: '';
   position: fixed;
   inset: -0.1rem;
   z-index: -1;
-  background: conic-gradient(from var(--gradient-angle), #f34ba5, #f8597b, #76acdbfc, #776ede,#33fff8fc,#ed7866);
+  background: conic-gradient(from var(--gradient-angle), #f34ba5, #f8597b, #76acdbfc, #776ede, #33fff8fc, #ed7866);
   border-radius: inherit;
   animation: moving 3s linear infinite;
 
   mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
-        linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
 }
+
 .light-mode ::placeholder {
   color: #120c0c;
   font-size: 20px;
@@ -973,14 +1050,23 @@ nav ul li a:hover {
   outline: none;
 }
 
-.light-mode.socialIcons a:hover {
-  background-color: #f4efef;
-  transition: 0.5s;
+.light-mode .icons {
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
 }
 
-.light-mode.socialIcons a:hover i {
-  color: rgb(7, 6, 6);
-  transition: 0.5s;
+.light-mode .ico {
+  color: rgb(102, 100, 100);
+}
+
+.light-mode .ico:hover {
+  color: white;
+  transition: all ease-in 0.1s;
+}
+
+.light-mode ::placeholder {
+  color: #120c0c;
+  font-size: 20px;
 }
 
 .light-mode .snowflakes {
@@ -1209,6 +1295,7 @@ nav ul li a:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
 /* #pauseStartBtn {
   position: fixed;
   top: 90px;
@@ -1282,10 +1369,12 @@ nav ul li a:hover {
   right: auto;
   z-index: 1;
 }
+
 /* added a condition to toggle colour of sidebarlines in light mode */
-.light-mode #sidebarLines{
+.light-mode #sidebarLines {
   color: black;
 }
+
 .navMain li a {
   display: none;
 }
@@ -1302,7 +1391,7 @@ nav ul li a:hover {
   font-size: 20px;
 }
 
-button{
+button {
   color: #fff;
   padding: 10px 20px;
   border-radius: 14px;
@@ -1332,7 +1421,7 @@ button:active {
 }
 
 .navHeader .header-content nav .logo img {
-  height: 100px; 
-  margin-right: auto ;
+  height: 100px;
+  margin-right: auto;
   width: 120px;
 }
