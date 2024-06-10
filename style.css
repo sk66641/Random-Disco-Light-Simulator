@@ -1163,25 +1163,28 @@ nav ul li a:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  left: auto;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 15px;
+  /* left: auto; */
+  font-size: 20px;
   cursor: pointer;
   border: none;
   background: linear-gradient(#1845ad, #23a2f6);
   color: white;
-  border-radius: 5px;
+  border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: .4;
   transition: 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #backToTopBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
   opacity: 1;
-
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
 /* #pauseStartBtn {
   position: fixed;
   top: 90px;
