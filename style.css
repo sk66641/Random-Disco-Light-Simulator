@@ -1302,12 +1302,6 @@ nav ul li a:hover {
   font-size: 20px;
 }
 
-.navHeader .header-content nav .logo img {
-  height: 150px; 
-  margin-right: auto ;
-  width: 200px;
-}
-
 button{
   color: #fff;
   padding: 10px 20px;
@@ -1335,5 +1329,10 @@ button:hover {
 
 button:active {
   transform: scale(.95);
->>>>>>>>> Temporary merge branch 2
+}
+
+.navHeader .header-content nav .logo img {
+  height: 100px; 
+  margin-right: auto ;
+  width: 120px;
 }
