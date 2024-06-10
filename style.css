@@ -1271,3 +1271,9 @@ nav ul li a:hover {
   width: 260px;
   font-size: 20px;
 }
+
+.navHeader .header-content nav .logo img {
+  height: 150px; 
+  margin-right: auto ;
+  width: 200px;
+}
