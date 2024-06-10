@@ -291,7 +291,7 @@ a:hover {
 
   .box {
     padding: 10px 15px;
-    margin: 5px;
+    margin: 5px 20px;
   }
 
   /* .background {
@@ -426,6 +426,21 @@ a:hover {
   box-shadow: 0 0 3px #ffffff;
 }
 
+ @media screen and (max-width: 425px){
+  .slider {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.85;
+    background-color: #000000;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+    box-shadow: 0 0 3px #ffffff;
+  }
+ }
 .slider:hover {
   opacity: 1;
 }
@@ -477,7 +492,7 @@ input:checked+.slider:before {
 .socialIcons {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   justify-content: space-around;
   z-index: 1;
 }
@@ -549,6 +564,15 @@ input:checked+.slider:before {
   height: 50px;
 }
 
+@media screen and (max-width : 414px) {
+  .copyright {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    color: white;
+    height: 100px;
+  }
+}
 .modal {
   display: none;
   position: fixed;
@@ -1163,25 +1187,28 @@ nav ul li a:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  left: auto;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 15px;
+  /* left: auto; */
+  font-size: 20px;
   cursor: pointer;
   border: none;
   background: linear-gradient(#1845ad, #23a2f6);
   color: white;
-  border-radius: 5px;
+  border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: .4;
   transition: 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #backToTopBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
   opacity: 1;
-
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
 /* #pauseStartBtn {
   position: fixed;
   top: 90px;
