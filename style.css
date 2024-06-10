@@ -291,7 +291,7 @@ a:hover {
 
   .box {
     padding: 10px 15px;
-    margin: 5px;
+    margin: 5px 20px;
   }
 
   /* .background {
@@ -426,6 +426,21 @@ a:hover {
   box-shadow: 0 0 3px #ffffff;
 }
 
+ @media screen and (max-width: 425px){
+  .slider {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.85;
+    background-color: #000000;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+    box-shadow: 0 0 3px #ffffff;
+  }
+ }
 .slider:hover {
   opacity: 1;
 }
@@ -477,7 +492,7 @@ input:checked+.slider:before {
 .socialIcons {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   justify-content: space-around;
   z-index: 1;
 }
@@ -549,6 +564,15 @@ input:checked+.slider:before {
   height: 50px;
 }
 
+@media screen and (max-width : 414px) {
+  .copyright {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    color: white;
+    height: 100px;
+  }
+}
 .modal {
   display: none;
   position: fixed;
@@ -1274,3 +1298,4 @@ nav ul li a:hover {
   width: 260px;
   font-size: 20px;
 }
+
