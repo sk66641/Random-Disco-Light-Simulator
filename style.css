@@ -260,7 +260,7 @@ button {
   font-weight: 700;
 }
 
-/* a {
+a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
@@ -270,7 +270,7 @@ button {
 
 a:hover {
   transform: scale(1.1);
-} */
+}
 
 @media only screen and (max-width: 850px) {
   * {
