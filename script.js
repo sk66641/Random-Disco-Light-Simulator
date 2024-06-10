@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
+    const addTimeButton = document.getElementById('addTimeBtn'); // Add Time button
+
+    addTimeButton.addEventListener('click', () => {
+        // Add 15 seconds to the countdown timer
+        countdownValue += 15;
+        // Update the timer display
+        timerDisplay.textContent = `${pad(Math.floor(countdownValue / 60))}:${pad(Math.floor(countdownValue % 60))}`;
+    });
+    
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -13,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
-
+    
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
@@ -40,13 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
+   
     function startCountdown(duration) {
         countdownValue = duration;
         document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
         document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
         timerDisplay.style.display = 'block';
+        addTimeButton.style.display = 'block';
 
         timerInterval = setInterval(() => {
             if (!isPaused) {
@@ -59,11 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     clearInterval(timerInterval);
                     stopSimulation();
                     timerDisplay.style.display = 'none';
+                    addTimeButton.style.display = 'block';
                 }
             }
         }, 1000);
     }
-
+     
     function pad(number) {
         return number.toString().padStart(2, '0');
     }
