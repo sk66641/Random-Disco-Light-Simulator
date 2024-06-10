@@ -1299,3 +1299,31 @@ nav ul li a:hover {
   font-size: 20px;
 }
 
+button{
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+
+  box-shadow: rgba(0, 0, 0, 0.1) -3px -3px 9px inset, rgba(0, 0, 0, 0.15) 0 3px 9px inset, rgba(0, 0, 0, 0.6) 0 1px 1px inset, rgba(0, 0, 0, 0.3) 0 -8px 36px inset, rgba(0, 0, 0, 0.6) 0 1px 5px inset, rgba(0, 0, 0, 0.2) 2px 19px 31px;
+  background-color: #7F00FF;
+  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
+  transition: all 150ms ease-in-out;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: scale(.95);
+}
