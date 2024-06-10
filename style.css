@@ -1255,7 +1255,10 @@ nav ul li a:hover {
   right: auto;
   z-index: 1;
 }
-
+/* added a condition to toggle colour of sidebarlines in light mode */
+.light-mode #sidebarLines{
+  color: black;
+}
 .navMain li a {
   display: none;
 }
