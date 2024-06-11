@@ -509,6 +509,16 @@ function closeFeaturesPopup() {
 }
 
 //Toggle function that is affected by the slider box
+// Check if there's a theme preference stored in localStorage
+var savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+    document.body.className = savedTheme;
+} else {
+
+    lightMode();
+}
+
 function toggleTheme() {
     var slider = document.getElementById('themeToggle');
     if (slider.checked) {
@@ -516,7 +526,11 @@ function toggleTheme() {
     } else {
         lightMode();
     }
+
+    // Store the theme preference in localStorage
+    localStorage.setItem('theme', document.body.className);
 }
+
 function darkMode() {
     let element = document.body;
     element.className = "dark-mode";
