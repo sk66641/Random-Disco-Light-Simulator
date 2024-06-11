@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
+    const addTimeButton = document.getElementById('addTime');
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -13,6 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
+
+    // Event Listener for Add Time Button
+addTimeButton.addEventListener('click', () => {
+    addTime(15);
+});
+
+// Function to add 15 seconds to the timer
+function addTime(seconds) {
+    countdownValue += seconds;
+    updateTimerDisplay();
+}
+
+// Function to update the timer display
+function updateTimerDisplay() {
+    const minutes = Math.floor(countdownValue / 60);
+    const seconds = countdownValue % 60;
+    timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
@@ -46,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
         document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
+        addTimeButton.style.display = 'inline-block'; // Show the add time button
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
