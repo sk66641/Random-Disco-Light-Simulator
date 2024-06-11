@@ -64,7 +64,8 @@ function updateTimerDisplay() {
         countdownValue = duration;
         document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
-        document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
+        document.querySelector("#reload").style.display = 'inline-block'; 
+        addTimeButton.style.display = 'inline-block'; // Show the add time button
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
