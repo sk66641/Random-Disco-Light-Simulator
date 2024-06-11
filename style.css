@@ -21,12 +21,15 @@ body {
 }
 
 .loader {
-  display: flex;
+
   align-items: center;
-  justify-content: center;
   width: 100vw;
+  justify-content: center;
   height: 100vh;
+  display: flex;
+
 }
+
 
 #particles-js {
   position: absolute;
@@ -92,14 +95,13 @@ h1 {
   backdrop-filter: blur(10px);
   padding: 10px 25px;
   overflow: visible;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   color: #ffffff;
   margin: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 10px;
 }
 
 @property --gradient-angle {
@@ -404,8 +406,6 @@ nav ul li a:hover {
   align-items: center;
   border: none;
   background-color: transparent;
-  /* display: inline-block; */
-  position: relative;
   width: 40px;
   height: 20px;
   margin: 0 5px;
@@ -1286,7 +1286,6 @@ nav ul li a:hover {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  /* left: auto; */
   font-size: 20px;
   cursor: pointer;
   border: none;
@@ -1294,7 +1293,7 @@ nav ul li a:hover {
   color: white;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: .4;
+  opacity: 0.4;
   transition: 500ms;
   display: flex;
   justify-content: center;
@@ -1358,11 +1357,11 @@ nav ul li a:hover {
 }
 
 .sidebar ul {
-  display: flex;
-  justify-content: flex-start;
-  gap: 35px;
-  padding-left: 50px;
   flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 50px;
+  gap: 35px;
+  display: flex;
 }
 
 .cross {
@@ -1433,9 +1432,9 @@ button:active {
 }
 
 .navHeader .header-content nav .logo img {
-  height: 100px;
   margin-right: auto;
   width: 120px;
+  height: 100px;
 }
 
 .icon {
