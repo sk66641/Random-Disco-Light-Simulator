@@ -865,6 +865,41 @@ nav ul li a:hover {
   opacity: 0.4;
   
 }
+#ll {
+  background-color: #488de8;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 4rem; /* This can be adjusted to be responsive */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Default margin for larger screens */
+@media (min-width: 768px) {
+  #ll {
+      margin-left: 4rem;
+  }
+}
+
+/* Adjust margin for medium screens */
+@media (max-width: 767px) {
+  #ll {
+      margin-left: 2rem;
+  }
+}
+
+/* Adjust margin for small screens */
+@media (max-width: 480px) {
+  #ll {
+      margin-left: 1rem;
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+      padding: 10px 5px; /* Adjust padding for smaller screens */
+  }
+}
+
+
 
 #commentForm button[type="submit"] {
   background-color: #28a745;
