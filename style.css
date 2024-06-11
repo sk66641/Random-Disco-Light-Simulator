@@ -261,7 +261,7 @@ button {
   font-weight: 700;
 }
 
-a {
+nav ul li a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
@@ -269,7 +269,7 @@ a {
   transition: 0.2s all;
 }
 
-a:hover {
+nav ul li a:hover {
   transform: scale(1.1);
 }
 
