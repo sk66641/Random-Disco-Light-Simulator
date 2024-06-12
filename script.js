@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicSelect = document.getElementById('musicSelect');
     let timerInterval;
     let musicAudio;
+    
 
     submitButton.addEventListener('click', () => {
         alert("Double click on the screen to reload!");
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.reload();
         clearInterval(timerInterval);
     });
+
 
     function startCountdown(duration) {
         let timer = duration;
@@ -446,3 +448,21 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".navMain").style.visibility = "visible";
     }, 4000);
   })
+
+  function goToStart() {
+    // Redirect to the start of the page or reload the page
+    window.location.href = window.location.href.split('#')[0];
+  }
+  
+  document.getElementById("submit").addEventListener("click", function() {
+    // Your submit logic here
+    // After your submit logic, call the function to show the "Go to Start" button
+    showGoToStartButton();
+  });
+  
+  function showGoToStartButton() {
+    var goToStartBtn = document.getElementById("goToStartBtn");
+    goToStartBtn.style.display = "block";
+  }
+  
+

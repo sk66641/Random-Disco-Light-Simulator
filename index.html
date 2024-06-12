@@ -182,6 +182,7 @@
     <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
 
     <div>
+
       <select id="musicDropdown" style="display: none;">
         <option value="select" disabled selected>Change Music</option>
         <option value="none">None</option>
@@ -193,6 +194,10 @@
         <option value="whistle">Whistle</option>
         <option value="snare">Snare</option>
       </select>
+      <button id="goToStartBtn" onclick="goToStart()" aria-label="Go to Start" style="display: none; position: fixed; top: 20px; left: 20px; opacity: 0.4;  border-radius: 10px;">&#11013;</button>
+
+
+
     </div>
 
     <div id="message" aria-live="polite">The timer has ended. The page will reload.</div>
