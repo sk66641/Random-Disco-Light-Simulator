@@ -582,8 +582,11 @@ input:checked+.slider:before {
 }
 
 .light-mode .icons {
-  background: rgba(10, 9, 9, 0.063);
+  background: rgba(10, 9, 9, 0);
   box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
+}
+.light-mode .icons a i {
+  color: rgb(21, 21, 21);
 }
 
 @media (max-width: 700px),
@@ -1229,7 +1232,8 @@ nav ul li a:hover {
 }
 
 .light-mode .copyright {
-  background-color: #080505;
+  background-color: white;
+  color: black;
 }
 
 .rating {
@@ -1370,7 +1374,9 @@ nav ul li a:hover {
   display: flex;
   margin-bottom: 30px;
 }
-
+.light-mode .cross{
+  color: #000;
+}
 #sidebarLines {
   cursor: pointer;
   display: flex;
