@@ -182,10 +182,14 @@ strong {
   font-size: 20px;
   width: auto;
 }
+select{
+  font-family: 'Playfair Display', serif;
+}
 
 select option {
   color: #e5e5e5;
   font-size: 18px;
+  font-family: 'Playfair Display', serif;
   background-color: #333;
   border: none;
   outline: none;
@@ -1401,8 +1405,12 @@ nav ul li a:hover {
 #music-file {
   width: 260px;
   font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
 }
-
+.file-input{
+  font-family: 'Playfair Display', serif;
+}
 button {
   color: #fff;
   padding: 10px 20px;
