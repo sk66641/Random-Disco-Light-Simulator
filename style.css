@@ -78,7 +78,7 @@ body {
 } */
 
 h1 {
-  font-size: 34px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -701,7 +701,7 @@ input:checked+.slider:before {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 16px;
   color: #333;
 }
@@ -1150,10 +1150,14 @@ nav ul li a:hover {
   cursor: pointer;
   transition: color 0.3s;
 }
-
 .light-mode .close:hover,
 .light-mode .close:focus {
   color: #fff7f7;
+}
+
+.nameAbout {
+  color: #333333;
+  font-size: 30px;
 }
 
 #aboutPopup {
@@ -1188,7 +1192,7 @@ nav ul li a:hover {
 }
 
 #aboutPopup .popup-content p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #555;
   margin-bottom: 15px;
@@ -1196,16 +1200,17 @@ nav ul li a:hover {
 
 #aboutPopup .popup-content p strong {
   font-weight: bold;
-  color: #ff7f50;
-  /* Orange color for bold text */
+  color: #080505;
+  font-size: 25px;
+  display: block;
 }
 
 #aboutPopup .popup-content ul {
   list-style-type: disc;
   margin-left: 40px;
   padding-left: 0;
-  /* Remove default padding */
 }
+
 
 .box h1 {
   font-family: Arial, sans-serif;
