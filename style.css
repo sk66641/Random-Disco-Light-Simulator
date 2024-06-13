@@ -83,12 +83,14 @@ h1 {
   /* min-height: 100vh; */
 
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
-  max-width: calc(100% - 40px);
+
+  /* max-width: calc(100% - 40px); */
+
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
   position: relative;
 
   /* Added scroll because content overflows */
-  background: rgba(255, 255, 255, 0.063);
+  /* background: rgba(255, 255, 255, 0.063); */
   backdrop-filter: blur(10px);
   padding: 10px 25px;
   overflow: visible;
@@ -100,6 +102,15 @@ h1 {
   flex-direction: column;
   gap: 10px;
   border-radius: 10px;
+
+  /*adding background img*/ 
+ /* background: #400219; */
+ background: #180410; 
+ background-image: url(assets/images/formbgi.jpg); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* height: 500px; */
+  width: 1050px;
 }
 
 @property --gradient-angle {
@@ -114,12 +125,12 @@ h1 {
   position: fixed;
   inset: -0.1rem;
   z-index: -1;
-  background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede, #8eebe8fc, #ed666c);
-  border-radius: inherit;
+  /* background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede, #8eebe8fc, #ed666c); */
+  /* border-radius: inherit; */
   animation: moving 3s linear infinite;
 
-  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
-    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+  /* mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
+    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%); */
 }
 
 
@@ -134,12 +145,15 @@ h1 {
 }
 
 label {
-  font-size: 22px;
-  font-weight: 500;
+  /* font-size: 22px; */ 
+  font-size: 20px; 
+  /* font-weight: 300; */
+  font-family: system-ui;
 }
 
 input {
-  background-color: rgba(255, 255, 255, 0.07);
+  /* background-color: rgba(255, 255, 255, 0.07); */
+  background: #290a1d;
   outline: none;
   border: none;
   color: #fff;
@@ -149,9 +163,11 @@ input {
 }
 
 ::placeholder {
-  font-family: 'Cinzel', serif;
+  /* font-family: 'Cinzel', serif; */
+  font-family: system-ui;
   color: #8d8080;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 15px;
 }
 
 input:focus {
@@ -165,7 +181,10 @@ i {
 }
 
 strong {
-  font-size: 22px;
+  /* font-size: 22px; */ 
+
+  font-family: arial;
+  font-size: 17px;
   color: #f09819;
 }
 
@@ -221,10 +240,14 @@ select option {
 }
 
 .button {
-  margin-top: 5px;
+  /* margin-top: 5px;
+  
+ justify-content: center;  */ 
+ margin-top: 20px;
+ display: flex;
+
   margin-bottom: 16px;
-  display: flex;
-  justify-content: center;
+  
   align-items: center;
   gap: 20px;
 }
@@ -846,21 +869,29 @@ nav ul li a:hover {
 }
 
 #randomize {
-  background-color: #007bff;
-  width: auto;
+  /* background-color: #007bff; */
+  /* width: auto;
   margin: 5px auto;
-  display: block;
-  color: #ffffff;
+  /* display: block;*/
+  
+   width: fit-content;
+   display: flex;
+   margin-top: 20px;
+
+  /* color: #ffffff; */
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: darkgreen;
+  background: #7ED957; 
+
 }
 
 #randomize:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
 
 }
 
@@ -1214,8 +1245,10 @@ nav ul li a:hover {
 }
 
 .box span {
-  font-family: Arial, sans-serif;
-  font-size: 39px;
+  /* font-family: Arial, sans-serif;
+  font-size: 39px; */
+  font-family:sans-serif;
+  font-size: 30px;
   font-weight: bold;
   color: #ff7f50;
 }
@@ -1422,8 +1455,8 @@ button {
   background-color: #7F00FF;
   background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
   transition: all 150ms ease-in-out;
+ 
 }
-
 button:hover {
   filter: brightness(1.05);
 }
