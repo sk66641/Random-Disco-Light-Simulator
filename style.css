@@ -211,10 +211,10 @@ select option {
 #submit a {
   position: relative;
   display: inline-block;
-  padding: 25px 30px;
-  margin: 40px 0 ;
+  padding: 15px 30px;
+  margin: 0 0 ;
   color: #ff4d00;
-  font-size: 24px;
+  font-size: 22px;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -314,10 +314,10 @@ select option {
 #reset a {
   position: relative;
   display: inline-block;
-  padding: 25px 30px;
-  margin: 40px 0 ;
+  padding: 15px 30px;
+  margin: 0 0 ;
   color: #e35ee5;
-  font-size: 24px;
+  font-size: 22px;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -425,16 +425,16 @@ select option {
 }
 
 #randomize {
-  margin-left: 30%;
+  margin-left: 32%;
 }
 
 #randomize a {
   position: relative;
   display: inline-block;
-  padding: 25px 30px;
+  padding: 15px 30px;
   margin: 40px 0 ;
   color: #03e9f4;
-  font-size: 24px;
+  font-size: 22px;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
