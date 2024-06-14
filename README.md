@@ -14,7 +14,6 @@
 - [Input🎛](#input)
 - [Output🎉](#output)
 - [Getting Started💥](#getting-started)
-- [Project Admin⚡](#project-admin)
 - [Project Contributors🫂](#project-contributors)
 - [Contributing is fun🧡](#contributing-is-fun)
 <br>
