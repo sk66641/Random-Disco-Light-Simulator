@@ -220,7 +220,6 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
-  -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
 }
 
 #submit a:hover {
@@ -323,7 +322,6 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
-  -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
 }
 
 #reset a:hover {
@@ -440,7 +438,6 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
-  -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
 }
 
 #randomize a:hover {
