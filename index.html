@@ -22,7 +22,7 @@
       </lottie-player>
     </div>
   </div>
-  <button id="backToTopBtn" aria-label="Back to Top">Back To Top</button>
+  <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
   <!-- Generate snowflakes dynamically with JavaScript -->
   <div class="snowflakes">
     <div id="particles-js"></div>
@@ -32,18 +32,34 @@
     <div class="header-content">
       <nav>
         <ul class="sidebarOne">
-          <li class="cross"><i class="fa-solid fa-x"></i></li>
-          <li><a href="#about" onclick="showAboutPopup()">ABOUT</a></li>
-          <li><a href="#features" onclick="showFeaturesPopup()">FEATURES</a></li>
-          <li><a href="#lightmode" onclick="lightMode()" id="lightbtn">LIGHT MODE</a></li>
-          <li><a href="#darkmode" onclick="darkMode()" id="darkbtn">DARK MODE</a></li>
+          <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
+          <li class="logo"><img src="assets/images/logo/logo..png" alt="Website Logo"></li>
+          <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
+          <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
+          <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
+          <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
+          <li><a href="#" onclick="showAboutPopup()">About</a></li>
+          <li><a href="#" onclick="showFeaturesPopup()">Features</a></li>
+          <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+          <li> <a href="#">
+              <select id="musicDropdown" style="display: none;">
+                <option value="select" disabled selected>Change Music</option>
+                <option value="none">None</option>
+                <option value="disco">Disco</option>
+                <option value="fairies">Fairies</option>
+                <option value="funky">Funky</option>
+                <option value="upbeatdisco">upbeatdisco</option>
+                <option value="vintage">Vintage</option>
+                <option value="whistle">Whistle</option>
+                <option value="snare">Snare</option>
+              </select>
+            </a>
+          </li>
+
         </ul>
         <ul class="navMain">
-          <li id="sidebarLines" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></li>
-          <li><a href="#about" onclick="showAboutPopup()">ABOUT</a></li>
-          <li><a href="#features" onclick="showFeaturesPopup()">FEATURES</a></li>
-          <li><a href="#lightmode" onclick="lightMode()" id="lightbtn">LIGHT MODE</a></li>
-          <li><a href="#darkmode" onclick="darkMode()" id="darkbtn">DARK MODE</a></li>
+          <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
         </ul>
       </nav>
     </div>
@@ -52,27 +68,29 @@
   <div class="unload">
     <div class="container">
 
-      <div class="background">
+      <!-- <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
-      </div>
+      </div> -->
 
 
       <div class="box" id="box">
 
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 39px; color: #ffffff;">
+
+        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
+
           Random Disco
           <span id="changing"
-            style="font-family: Arial, sans-serif; font-size: 39px; font-weight: bold; color: #ff7f50;">
+            style="font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; color: #ff7f50;">
             Light Simulator
           </span>
         </h1>
 
         <div>
-          <form action="#">
-            <label for="color">1. Number of Colors:</label>
-            <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
-              aria-label="Number of Colors" required> <!--prevents user from entering value less than 1-->
+          <!-- <form action="#"> -->
+          <label for="color">1. Number of Colors:</label>
+          <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
+            aria-label="Number of Colors" required> <!--prevents user from entering value less than 1-->
         </div>
 
         <div>
@@ -87,21 +105,22 @@
         <div>
           <label for="time">3. Time interval
             <i>(with which the color changes randomly)</i>:</label><br />
-          <input type="number" min="0" oninput="this.value = Math.abs(this.value) > 0 ? Math.abs(this.value) : null"
-            id="time" placeholder="Enter" aria-label="Time Interval" required />
+          <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
+          <!-- <input type="number" min="0" oninput="this.value = Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+            id="time" placeholder="Enter" aria-label="Time Interval" required /> -->
           <select id="unit" aria-label="Time Interval Unit">
-            <option value="" disabled selected>Select Unit</option>
-            <option value="milliseconds">milliseconds</option>
-            <option value="seconds">seconds</option>
+            <option value="unit" disabled selected>Select Unit</option>
+            <option value="milliseconds">Milliseconds</option>
+            <option value="seconds">Seconds</option>
           </select>
         </div>
 
-        <strong>[Without input, it will be treated as 0 interval]</strong>
+        <strong>[Negative interval or No input will be treated as 0 interval]</strong>
 
         <div>
           <label for="view">4. View:</label>
           <select id="view" aria-label="Select View">
-            <option style="background-color: lightslategray; color: white" value="" disabled selected>
+            <option style="background-color: lightslategray; color: white" value="select" disabled selected>
               Select
             </option>
             <option value="conic">Conic</option>
@@ -118,17 +137,24 @@
         </div>
 
         <div>
-          <label for="sound">6. Sound Effect:</label>
+          <label for="sound">6. Select Music:</label>
           <select id="sound" value="select" aria-label="Sound Effect">
             <option value="none">None</option>
-            <option value="disco">disco</option>
-            <option value="fairies">fairies</option>
-            <option value="funky">funky</option>
-            <option value="omniscent">omniscent</option>
-            <option value="vintage">vintage</option>
-            <option value="whistle">whistle</option>
+            <option value="disco">Disco</option>
+            <option value="fairies">Fairies</option>
+            <option value="funky">Funky</option>
+            <option value="upbeatdisco">Upbeatdisco</option>
+            <option value="vintage">Vintage</option>
+            <option value="whistle">Whistle</option>
             <option value="snare">Snare</option>
           </select>
+          <span style="font-size: 24px; color: #f09819;">or</span>
+
+
+
+          <input type="url" id="music-url" placeholder="Paste link here" /><br>
+          <span style="font-size: 24px; color: #f09819;">or</span>
+          <input type="file" id="music-file" accept="audio/*" class="file-input" />
         </div>
 
         <button id="randomize" aria-label="Randomize">Randomize</button>
@@ -152,23 +178,30 @@
     </div>
 
     <footer class="footer" style="width: 100%;height: 2px;">
-      <div class="footerContainer">
-        <div class="socialIcons">
 
-          <a id="facebook" href="" aria-label="Facebook" title="facebook"><i class="fa-brands fa-facebook fa-1x"></i></a>
-          <a id="instagram" href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank" title="github">
-            <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-              <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-            </svg>
-          </a>
-          <a id="twitter" href="" aria-label="Twitter" title="X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a id="youtube" href="" aria-label="YouTube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
 
-        </div>
+      <div class="socialIcons">
+        <span class="icons">
+          <a href="" aria-label="Facebook" title="facebook"><i class="fab fa-facebook ico"></i></a></span>
+
+        <span class="icons"> <a href="" aria-label="Instagram" title="instagram"><i
+              class="fa-brands fa-instagram ico"></i></a></span>
+        <span class="icons"><a href="https://github.com/sk66641/Random-Disco-Light-Simulator" target="_blank"
+            title="github">
+            <i class="fab fa-github ico"></i>
+          </a></span>
+        <span class="icons"><a href="" aria-label="Twitter" title="X"><i
+              class="fa-brands fa-x-twitter ico"></i></a></span>
+        <span class="icons"><a href="" aria-label="YouTube" title="youtube"><i
+              class="fa-brands fa-youtube ico"></i></a></span>
       </div>
-      <div class="copyright">&copy;2024 Random-Disco-Light-Simulator. All rights reserved.</div>
+
+      <div class="copyright">
+        <p class="copyright" style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
@@ -176,29 +209,25 @@
     <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
     <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
     <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
-    <audio id="omniscent" src="assets/audios/omniscent.mp3"></audio>
+    <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
     <audio id="snare" src="assets/audios/Snare.mp3"></audio>
     <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
     <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
 
-    <div>
-      <select id="musicDropdown" style="display: none;">
-        <option value="select" disabled selected>Change Music</option>
-        <option value="none">None</option>
-        <option value="disco">Disco</option>
-        <option value="fairies">Fairies</option>
-        <option value="funky">Funky</option>
-        <option value="omniscent">Omniscient</option>
-        <option value="vintage">Vintage</option>
-        <option value="whistle">Whistle</option>
-        <option value="snare">Snare</option>
-      </select>
-    </div>
 
-    <div id="message" aria-live="polite">The timer has ended. The page will reload.</div>
+    <!-- <div id="message" aria-live="polite">The timer has ended. The page will reload.</div> -->
+    <label id="themeChangeToggle" class="theme-toggle" for="themeToggle" style="position: fixed; 
+    top: 30px; 
+    right: 30px; 
+    z-index: 100; 
+    display: flex; 
+    align-items: center; 
+    border: none; 
+    background-color: transparent;">
+      <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+      <span class="slider" style="width: 40px; height: 20px;"></span>
+    </label>
 
-    <button id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</button>
-    <button id="CommentBtn" aria-label="Toggle Comment Form"><i class="fas fa-comment"></i></button>
     <!-- Comment form -->
 
     <!-- Modal background -->
@@ -206,20 +235,24 @@
       <!-- Comment form -->
       <div id="commentForm">
         <form id="feedback-form">
-          <label for="userComment">Your Feedback:</label>
+          <label for="userComment" style="text-align: center; color:rgb(95, 104, 104)"> Feedback Form</label>
           <div class="form-group">
             <div class="icon">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user" style="color: #7a7a73;"> n a m e</i>
+
             </div>
             <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
           </div>
           <div class="form-group">
             <div class="icon">
-              <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope" style="color: #7a7a73;"> m a i l</i>
             </div>
             <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
           </div>
           <div class="form-group">
+            <div class="icon">
+              <i class="fa-solid fa-comment" style="color:#7a7a73;"> f e e d b a c k</i>
+            </div>
             <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
           </div>
           <div class="rating">
@@ -285,6 +318,22 @@
       </div>
     </div>
   </div>
+  <div id="infomodal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal1">&times;</span>
+      <h2>Important!!</h2>
+      <p>
+        Click the menu icon to enable various functions:
+      </p>
+
+      <p>Reload:Refreshes the page.</p>
+      <p>Pause:Pauses the current activity.</p>
+      <p>Fullscreen:Toggles fullscreen mode.</p>
+      <p>Change Music:Allows you to change the background music.</p>
+
+      <button id="proceed1" aria-label="Proceed">Proceed</button>
+    </div>
+  </div>
   <div id="replayModel" class="modal">
     <div class="modal-content">
       <h2>Wanna replay the disco..?</h2>
@@ -298,14 +347,14 @@
   <div id="aboutPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
-      <h2>About</h2>
+      <h2><strong class = "nameAbout">About</strong></h2>
       <p>
-        The Random Disco Light Simulator is a fun and interactive project that
+        <strong>The Random Disco Light Simulator</strong> is a fun and interactive project that
         brings the excitement of a disco dance floor to your screen whether
         you're a developer, a party enthusiast, or just curious.
       </p>
       <p>
-        Inputs:
+        <strong>Inputs:</strong>
         - How many random colors you want to be shown?
         <br />
         - With how much time interval (in milliseconds) you want to change the
@@ -318,7 +367,7 @@
         - Sound Effect
       </p>
       <p>
-        Output:
+        <strong> Output:</strong>
         On the basis of these inputs, it simulates the selected view.
       </p>
       <p>Try these inputs and have fun! 😄</p>
@@ -326,32 +375,42 @@
       <p>1000 1 milliseconds radial 60</p>
       <p>1000 1 milliseconds linear 60</p>
     </div>
+  </div>
+  <div id="featuresPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
+      <h2>Features</h2>
 
-    <div id="featuresPopup" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-        <h2>Features</h2>
-        <h1>Conic Mode</h1>
-        <p>
-          Imagine a spotlight sweeping across the room, creating vibrant cones
-          of light. The colors change dynamically as the spotlight moves, adding
-          an electrifying effect.
-        </p>
-        <h1>Radial Mode</h1>
-        <p>
-          Picture a pulsating ring of light expanding and contracting. The
-          radial pattern syncs perfectly with the beat, making you feel the
-          rhythm.
-        </p>
-        <h1>Linear Mode</h1>
-        <p>
-          Visualize colorful streaks of light moving in straight lines. These
-          streaks crisscross, intersect, and dance across the floor,
-          transforming your space into a dynamic disco.
-        </p>
-      </div>
+      <h1>Conic Mode</h1>
+      <p>
+        Imagine a spotlight sweeping across the room, creating vibrant cones
+        of light. The colors change dynamically as the spotlight moves, adding
+        an electrifying effect.
+      </p>
+      <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
+      <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
+
+      <h1>Radial Mode</h1>
+      <p>
+        Picture a pulsating ring of light expanding and contracting. The
+        radial pattern syncs perfectly with the beat, making you feel the
+        rhythm.
+      </p>
+      <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
+      <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
+
+      <h1>Linear Mode</h1>
+      <p>
+        Visualize colorful streaks of light moving in straight lines. These
+        streaks crisscross, intersect, and dance across the floor,
+        transforming your space into a dynamic disco.
+      </p>
+      <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
+      <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </div>
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
 </html>

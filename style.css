@@ -6,13 +6,14 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   background-color: black;
   font-family: 'Playfair Display', serif;
+
 }
 
 .unload {
@@ -20,18 +21,25 @@ body {
 }
 
 .loader {
-  display: flex;
+
   align-items: center;
-  justify-content: center;
   width: 100vw;
+  justify-content: center;
   height: 100vh;
+  display: flex;
+
 }
+
 
 #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+#changeHeading {
+  color: black;
 }
 
 ::-webkit-scrollbar {
@@ -45,6 +53,7 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
+
 }
 
 .background .shape {
@@ -54,41 +63,76 @@ body {
   border-radius: 50%;
 }
 
-.shape:first-child {
-  background: linear-gradient(#1845ad, #23a2f6);
-  left: -240px;
-  top: 10px;
+/* .shape:first-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  align-self: flex-end;
+  left: -8vw;
+  top: -18vh;
 }
 
 .shape:last-child {
-  background: linear-gradient(to right, #ff512f, #f09819);
-  right: -240px;
-  bottom: -60px;
-}
+  background: linear-gradient(#1845ad, #23a2f6);
+  align-self: flex-start;
+  right: -8vw;
+  bottom: -18vh;
+} */
 
 h1 {
-  font-size: 34px;
+  font-size: 25px;
   text-align: center;
 }
 
 .box {
-  max-height: calc(100vh - 40px);
+  /* min-height: 100vh; */
+
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
-  overflow: auto;
+  position: relative;
+
   /* Added scroll because content overflows */
-  background: rgba(255, 255, 255, 0.13);
-  border-radius: 20px;
-  padding: 10px 25px;
+  background: rgba(255, 255, 255, 0.063);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 25px;
+  overflow: visible;
+  border-radius: 10px;
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   color: #ffffff;
   margin: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.box::before,
+.box::after {
+  content: '';
+  position: fixed;
+  inset: -0.1rem;
+  z-index: -1;
+  background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede, #8eebe8fc, #ed666c);
+  border-radius: inherit;
+  animation: moving 3s linear infinite;
+
+  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
+    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+}
+
+
+@keyframes moving {
+  0% {
+    --gradient-angle: 0deg;
+  }
+
+  100% {
+    --gradient-angle: 360deg;
+  }
 }
 
 label {
@@ -101,28 +145,29 @@ input {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px 10px;
   border-radius: 10px;
 }
 
 ::placeholder {
   font-family: 'Cinzel', serif;
-  color: #d3d1d1;
+  color: #8d8080;
   font-size: 20px;
 }
 
 input:focus {
   outline: none;
+  width: 4rem;
   border: none;
 }
 
 i {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 strong {
-  font-size: 24px;
+  font-size: 22px;
   color: #f09819;
 }
 
@@ -136,13 +181,17 @@ strong {
   border: none;
   padding: 5px 10px;
   color: #e5e5e5;
-  font-size: 24px;
+  font-size: 20px;
   width: auto;
+}
+select{
+  font-family: 'Playfair Display', serif;
 }
 
 select option {
   color: #e5e5e5;
-  font-size: 24px;
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
   background-color: #333;
   border: none;
   outline: none;
@@ -158,6 +207,7 @@ select option {
   cursor: pointer;
   border-radius: 10px;
   transition: 0.2s all;
+  margin-bottom: 20px;
 }
 
 #submit:hover {
@@ -169,6 +219,7 @@ select option {
   background-color: red;
   cursor: pointer;
   transition: 0.2s all;
+  margin-bottom: 20px;
 }
 
 #reset:hover {
@@ -216,7 +267,7 @@ button {
   font-weight: 700;
 }
 
-a {
+nav ul li a {
   display: inline-block;
   font-weight: bold;
   font-family: sans-serif;
@@ -224,11 +275,11 @@ a {
   transition: 0.2s all;
 }
 
-a:hover {
+nav ul li a:hover {
   transform: scale(1.1);
 }
 
-@media only screen and (max-width: 915px) {
+@media only screen and (max-width: 850px) {
   * {
     font-size: 18px !important;
   }
@@ -250,17 +301,57 @@ a:hover {
 
   .box {
     padding: 10px 15px;
-    margin: 5px;
+    margin: 5px 20px;
   }
 
-  .background {
+  /* .background {
     display: none;
+  } */
+
+  /* .copyright {
+    font-size: 16px !important;
+  } */
+
+  .socialIcons a i {
+    font-size: 30px !important;
   }
-  .copyright{
+}
+
+@media only screen and (max-width: 350px) {
+  * {
+    font-size: 14px !important;
+  }
+
+  h1 {
+    overflow-wrap: break-word;
     font-size: 16px !important;
   }
-  .socialIcons a i{
-    font-size: 30px !important;
+
+  .copyright {
+    font-size: 16px !important;
+  }
+
+  .socialIcons a i {
+    font-size: 26px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  * {
+    font-size: 12px !important;
+  }
+
+  h1 {
+    overflow-wrap: break-word;
+    font-size: 14px !important;
+  }
+
+  .copyright {
+    font-size: 14px !important;
+  }
+
+  .socialIcons a i {
+    font-size: 24px !important;
   }
 }
 
@@ -268,18 +359,13 @@ a:hover {
   position: fixed;
   top: 10px;
   right: 10px;
-  font-size: 2em;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  opacity: 0.2;
   transition: 500ms;
-}
-
-#timerDisplay:hover {
-  opacity: 1;
 }
 
 #message {
@@ -296,10 +382,8 @@ a:hover {
   text-align: center;
 }
 
+/* 
 #fullscreenBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -308,119 +392,232 @@ a:hover {
   color: white;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: .4;
   transition: 500ms;
 }
 
 #fullscreenBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
+} */
+
+/* Styles for the the theme toggle checkbox */
+
+.theme-toggle {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.85;
+  background-color: #000000;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+  box-shadow: 0 0 3px #ffffff;
+}
+
+@media screen and (max-width: 425px) {
+  .slider {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.85;
+    background-color: #000000;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+    box-shadow: 0 0 3px #ffffff;
+  }
+}
+
+.slider:hover {
   opacity: 1;
 }
 
-.footerContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
+.light-mode .slider {
+  background-color: #ffffff;
+  box-shadow: 0 0 5px #020202;
 }
+
+.light-mode .slider:before {
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-image: linear-gradient(to bottom right, yellow, orange, red);
+  box-shadow: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  /* background-image: linear-gradient(to bottom right, yellow, orange, red); */
+  background-image: linear-gradient(black, rgb(18, 18, 18));
+  box-shadow: inset -3px -1.4px #ffffff, inset -3.2px -1.4px 0.2px 0.1px rgb(58, 52, 58);
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+.dark-mode .slider:before {
+  transition: transform 0.4s;
+}
+
+input:checked+.slider:before {
+  transform: translateX(20px);
+}
+
+
 
 .socialIcons {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  justify-content: space-around;
-}
 
-.socialIcons a {
-  text-decoration: none;
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.socialIcons a i {
-  font-size: 1em;
-  color: white;
-  opacity: 0, 9;
-}
-
-/* Hover affect on social media icon */
-
-.socialIcons a:hover {
-  background-color: #111;
-
-  transition: 0.5s;
-}
-
-.socialIcons a:hover i {
-  color: white;
-  transition: 0.5s;
-}
-
-.footerNav {
-  margin: 30px 0;
-}
-
-.footerNav ul {
-  display: flex;
   justify-content: center;
-  list-style-type: none;
+
+  gap: 30px;
+  backdrop-filter: blur(8px);
+
 }
 
-.footerNav ul li a {
-  color: white;
-  margin: 20px;
-  text-decoration: none;
-  font-size: 1.3em;
-  opacity: 0.7;
+.icons {
+  position: relative;
+  background: rgba(106, 106, 106, 0.189);
+  top: 0px;
+  color: blue;
+  box-shadow: 3px 4px 10px rgba(176, 175, 175, 0.248);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 50%;
+  overflow: hidden;
+}
+
+.icons a::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  left: 0;
+  background: linear-gradient(40deg,
+      rgb(246, 126, 28),
+      rgb(221, 54, 54),
+      rgb(250, 41, 118),
+      rgb(214, 18, 214));
+  position: absolute;
   transition: 0.5s;
 }
 
-.footerNav ul li a:hover {
-  opacity: 1;
+.icons a:hover::after {
+  top: 0;
+  left: 0;
 }
 
-.footerBottom {
-  background-color: #111;
-  height: 5vw;
-  text-align: center;
+.icons:nth-child(1) a::after {
+  background: linear-gradient(40deg,
+      rgb(13, 108, 139),
+      rgb(86, 202, 240),
+      rgb(28, 192, 246),
+      rgb(127, 214, 244));
 }
 
-.footerBottom p {
+.icons:nth-child(2) a::after {
+  background: linear-gradient(40deg,
+      rgb(246, 126, 28),
+      rgb(221, 54, 54),
+      rgb(250, 41, 118),
+      rgb(214, 18, 214));
+}
+
+.icons:nth-child(3) a::after {
+  background: linear-gradient(40deg, #000000, #410bc8);
+}
+
+.icons:nth-child(4) a::after {
+  background: rgb(19, 12, 12);
+}
+
+.icons:nth-child(5) a::after {
+  background:
+    rgb(255, 23, 23)
+}
+
+.ico {
+  position: absolute;
+  font-size: 21px;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   color: white;
 }
 
-.designer {
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 400;
-  margin: 0px 5px;
+.light-mode .icons {
+  background: rgba(10, 9, 9, 0);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
+}
+.light-mode .icons a i {
+  color: rgb(21, 21, 21);
 }
 
-@media (max-width: 700px) {
-  .footerNav ul {
-    flex-direction: column;
-  }
+@media (max-width: 700px),
+(max-height: 500px) {
 
-  .footerNav ul li {
+  .socialIcons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    gap: 20px;
+    margin-top: 30px;
+    bottom: 0%;
     width: 100%;
-    text-align: center;
-    margin: 10px;
-  }
+    justify-content: center;
 
-  .socialIcons a {
-    padding: 8px;
-    margin: 4px;
+
   }
 }
+
 
 #facebook:hover {
-  background-color: #3B5998;;
+  background-color: #3B5998;
+  ;
   transition: 0.5s;
 }
 
@@ -447,6 +644,16 @@ a:hover {
   font-size: large;
   color: white;
   height: 50px;
+}
+
+@media screen and (max-width : 414px) {
+  .copyright {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    color: white;
+    height: 100px;
+  }
 }
 
 .modal {
@@ -501,7 +708,7 @@ a:hover {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 16px;
   color: #333;
 }
@@ -527,14 +734,16 @@ button:hover {
   background-color: #0056b3;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .modal-content {
     width: 95%;
   }
-  .copyright{
+
+  .copyright {
     font-size: 12px !important;
   }
-}
+} */
+
 
 .snowflakes {
   position: fixed;
@@ -548,14 +757,15 @@ button:hover {
 
 .snowflake {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background-color: #fff;
+  width: 0.3rem;
+  height: 0.5rem;
+  background-color: #ffffffec;
   animation: snowfall linear infinite;
   animation-duration: 10s;
   animation-fill-mode: both;
   border-radius: 50%;
   pointer-events: none;
+  box-shadow: 3px 3px 6px #a970e2;
 }
 
 @keyframes snowfall {
@@ -570,28 +780,15 @@ button:hover {
   }
 }
 
-body,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 .header-content {
   width: 100%;
   margin: 0;
 }
 
 nav ul {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 60px;
-}
-
-nav ul li:last-child {
-  margin-right: 0 auto;
 }
 
 nav ul li a {
@@ -658,13 +855,13 @@ nav ul li a:hover {
 #randomize {
   background-color: #007bff;
   width: auto;
-  margin: 20px auto;
+  margin: 5px auto;
   display: block;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -675,30 +872,21 @@ nav ul li a:hover {
 }
 
 /* comment */
-#CommentBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 50%;
+/* #CommentBtn {
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 24px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.4;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: 500ms;
 }
 
 #CommentBtn:hover {
-  background-color: #0056b3;
-  opacity: 1;
-}
+  background: linear-gradient(to right, #ff512f, #f09819);
+} */
 
 
 /* Style for the modal background */
@@ -719,17 +907,26 @@ nav ul li a:hover {
 #commentForm {
   max-width: 500px;
   padding: 20px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   background-color: #f9f9f9;
-  z-index: 1001;
+  /* z-index: 1001; */
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 7px 0px 15px #53e3e3, -7px 0px 15px #4d97c8;
+  background: url(./assets/images/pngtree-blue-background-high-resolution-images-free-vector-image_13093708.jpg);
+  background-size: cover;
 }
 
 #commentForm label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  margin-left: 0px;
+  font-size: 40px
 }
 
 #commentForm textarea {
@@ -739,6 +936,7 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   border-radius: 5px;
   resize: vertical;
+  opacity: 0.5;
 }
 
 #commentForm button[type="submit"] {
@@ -755,29 +953,25 @@ nav ul li a:hover {
   background-color: #218838;
 }
 
-
-
-
 #musicDropdown {
   text-align: center;
   border-radius: 10px;
   background: linear-gradient(#1845ad, #23a2f6);
   outline: none;
   border: none;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   color: #e5e5e5;
   font-size: 24px;
-  position: fixed;
-  top: 90px;
-  /* Adjust the position as needed */
-  left: 10px;
-  opacity: .4;
+  /* position: fixed; */
+  top: 150px;
+  left: 20px;
+  /* opacity: .4; */
   transition: 500ms;
 }
 
-#musicDropdown:hover {
+/* #musicDropdown:hover {
   opacity: 1;
-}
+} */
 
 #musicDropdown select {
   color: #e5e5e5;
@@ -789,7 +983,6 @@ nav ul li a:hover {
 
 #musicDropdown:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
-  /* Change to the desired hover gradient */
 }
 
 .dark-mode {
@@ -814,14 +1007,16 @@ nav ul li a:hover {
 }
 
 .light-mode .box {
-  max-height: calc(100vh - 40px);
+  /* min-height: 100vh; */
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
-  overflow: auto;
+  overflow: visible;
+  position: relative;
+
   /* Added scroll because content overflows */
   background: rgba(0, 0, 0, 0.13);
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 10px 25px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(28, 22, 22, 0.1);
@@ -833,8 +1028,22 @@ nav ul li a:hover {
   gap: 10px;
 }
 
+.light-mode .box::before,
+.light-mode .box::after {
+  content: '';
+  position: fixed;
+  inset: -0.1rem;
+  z-index: -1;
+  background: conic-gradient(from var(--gradient-angle), #f34ba5, #f8597b, #76acdbfc, #776ede, #33fff8fc, #ed7866);
+  border-radius: inherit;
+  animation: moving 3s linear infinite;
+
+  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
+    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+}
+
 .light-mode ::placeholder {
-  color: #120c0c;
+  color: #8d8080;
   font-size: 20px;
 }
 
@@ -860,14 +1069,23 @@ nav ul li a:hover {
   outline: none;
 }
 
-.light-mode.socialIcons a:hover {
-  background-color: #f4efef;
-  transition: 0.5s;
+.light-mode .icons {
+  background: rgba(10, 9, 9, 0.063);
+  box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
 }
 
-.light-mode.socialIcons a:hover i {
-  color: rgb(7, 6, 6);
-  transition: 0.5s;
+.light-mode .ico {
+  color: rgb(102, 100, 100);
+}
+
+.light-mode .ico:hover {
+  color: white;
+  transition: all ease-in 0.1s;
+}
+
+.light-mode ::placeholder {
+  color: #120c0c;
+  font-size: 20px;
 }
 
 .light-mode .snowflakes {
@@ -884,12 +1102,13 @@ nav ul li a:hover {
   position: absolute;
   width: 4px;
   height: 4px;
-  background-color: #1e1818;
+  background-color: #4134f7;
   animation: snowfall linear infinite;
   animation-duration: 10s;
   animation-fill-mode: both;
   border-radius: 50%;
   pointer-events: none;
+  box-shadow: 2px 2px 6px #6d63f6;
 }
 
 .light-mode ul li a {
@@ -938,11 +1157,67 @@ nav ul li a:hover {
   cursor: pointer;
   transition: color 0.3s;
 }
-
 .light-mode .close:hover,
 .light-mode .close:focus {
   color: #fff7f7;
 }
+
+.nameAbout {
+  color: #333333;
+  font-size: 30px;
+}
+
+#aboutPopup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#aboutPopup .popup-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  animation: slide-down 0.3s ease-out;
+}
+
+#aboutPopup .popup-content h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#aboutPopup .popup-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+#aboutPopup .popup-content p strong {
+  font-weight: bold;
+  color: #080505;
+  font-size: 25px;
+  display: block;
+}
+
+#aboutPopup .popup-content ul {
+  list-style-type: disc;
+  margin-left: 40px;
+  padding-left: 0;
+}
+
 
 .box h1 {
   font-family: Arial, sans-serif;
@@ -966,8 +1241,10 @@ nav ul li a:hover {
 }
 
 .light-mode .copyright {
-  background-color: #080505;
+  background-color: white;
+  color: black;
 }
+
 .rating {
   display: flex;
   justify-content: space-between;
@@ -985,9 +1262,10 @@ nav ul li a:hover {
   transition: color 0.3s;
 }
 
-.rating input[type="radio"]:checked ~ label {
+.rating input[type="radio"]:checked~label {
   color: #ffc107;
 }
+
 .rating {
   display: flex;
   flex-direction: row;
@@ -1006,16 +1284,45 @@ nav ul li a:hover {
 }
 
 .rating label:before {
-  content: "\2605"; /* Unicode character for a star */
+  content: "\2605";
+  /* Unicode character for a star */
   color: #ccc;
 }
 
-.rating input[type="radio"]:checked + label:before {
-  color: #ffd700; /* Yellow color for selected star */
+.rating input[type="radio"]:checked+label:before {
+  color: #ffd700;
+  /* Yellow color for selected star */
 }
+
 #backToTopBtn {
   position: fixed;
   bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#1845ad, #23a2f6);
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0.4;
+  transition: 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#backToTopBtn:hover {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* #pauseStartBtn {
+  position: fixed;
+  top: 90px;
   left: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -1029,15 +1336,15 @@ nav ul li a:hover {
   transition: 500ms;
 }
 
-#backToTopBtn:hover {
+#pauseStartBtn:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
-  opacity: 1;
+} */
 
-}
-.navHeader {
+.header {
   margin-top: 100px;
   width: 100vw;
 }
+
 .navMain {
   display: flex;
   justify-content: flex-start;
@@ -1045,6 +1352,7 @@ nav ul li a:hover {
   padding-left: 50px;
   visibility: hidden;
 }
+
 .sidebarOne {
   position: fixed;
   padding: 35px;
@@ -1058,30 +1366,96 @@ nav ul li a:hover {
   display: none;
   flex-direction: column;
   padding-top: 50px;
+  overflow: scroll;
 }
+
 .sidebar ul {
-  display: flex;
-  justify-content: flex-start;
-  gap: 35px;
-  padding-left: 50px;
   flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 50px;
+  gap: 35px;
+  display: flex;
 }
-#sidebarLines {
-  color: white;
-  display: none;
-  cursor: pointer;
-}
-.cross{
+
+.cross {
   color: white;
   display: flex;
   margin-bottom: 30px;
 }
-@media only screen and (max-width: 875px) {
-  #sidebarLines {
-    display: flex;
-    color: white;
-  }
-  .navMain li a{
-    display: none;
-  }
+.light-mode .cross{
+  color: #000;
+}
+#sidebarLines {
+  cursor: pointer;
+  display: flex;
+  color: white;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: auto;
+  z-index: 1;
+}
+
+/* added a condition to toggle colour of sidebarlines in light mode */
+.light-mode #sidebarLines {
+  color: black;
+}
+
+.navMain li a {
+  display: none;
+}
+
+#countdown,
+#time,
+#color,
+#music-url {
+  width: 200px;
+}
+
+#music-file {
+  width: 260px;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+}
+.file-input{
+  font-family: 'Playfair Display', serif;
+}
+button {
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+
+  box-shadow: rgba(0, 0, 0, 0.1) -3px -3px 9px inset, rgba(0, 0, 0, 0.15) 0 3px 9px inset, rgba(0, 0, 0, 0.6) 0 1px 1px inset, rgba(0, 0, 0, 0.3) 0 -8px 36px inset, rgba(0, 0, 0, 0.6) 0 1px 5px inset, rgba(0, 0, 0, 0.2) 2px 19px 31px;
+  background-color: #7F00FF;
+  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
+  transition: all 150ms ease-in-out;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.navHeader .header-content nav .logo img {
+  margin-right: auto;
+  width: 120px;
+  height: 100px;
+}
+
+.icon {
+  text-transform: none;
 }
