@@ -45,9 +45,17 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 ## Features✨
 
-- **Conic Mode**: Imagine a spotlight sweeping across the room, creating vibrant cones of light. The colors change dynamically as the spotlight moves, adding an electrifying effect.
-- **Radial Mode**: Picture a pulsating ring of light expanding and contracting. The radial pattern syncs perfectly with the beat, making you feel the rhythm.
-- **Linear Mode**: Visualize colorful streaks of light moving in straight lines. These streaks crisscross, intersect, and dance across the floor, transforming your space into a dynamic disco.
+- **Conic Mode**
+   - Imagine a spotlight sweeping across the room, creating vibrant cones of light.
+   - The colors change dynamically as the spotlight moves, adding an electrifying effect.
+
+- **Radial Mode**
+   - Picture a pulsating ring of light expanding and contracting.
+   - The radial pattern syncs perfectly with the beat, making you feel the rhythm.
+
+- **Linear Mode**
+   - Visualize colorful streaks of light moving in straight lines.
+   - These streaks crisscross, intersect, and dance across the floor, transforming your space into a dynamic disco.
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -66,7 +74,7 @@ Customize your disco experience with these inputs:
 
 ## Output🎉
 
-On the basis of these inputs, it simulates the selected view.
+Based on these inputs, the simulator will generate the selected view, creating a dynamic and colorful display.
 
 ## Try these inputs and have fun! 😄
 
@@ -75,7 +83,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
-                <li>1 milliseconds</li>
+                <li>1 millisecond</li>
                 <li>conic</li>
                 <li>60</li>
             </ul>
@@ -83,7 +91,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
-                <li>1 milliseconds</li>
+                <li>1 millisecond</li>
                 <li>radial</li>
                 <li>60</li>
             </ul>
@@ -99,7 +107,7 @@ On the basis of these inputs, it simulates the selected view.
         <td>
             <ul>
                 <li>1000</li>
-                <li>1 milliseconds</li>
+                <li>1 millisecond</li>
                 <li>linear</li>
                 <li>60</li>
             </ul>
