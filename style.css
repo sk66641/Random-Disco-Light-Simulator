@@ -21,12 +21,15 @@ body {
 }
 
 .loader {
-  display: flex;
+
   align-items: center;
-  justify-content: center;
   width: 100vw;
+  justify-content: center;
   height: 100vh;
+  display: flex;
+
 }
+
 
 #particles-js {
   position: absolute;
@@ -75,7 +78,7 @@ body {
 } */
 
 h1 {
-  font-size: 34px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -94,7 +97,7 @@ h1 {
   backdrop-filter: blur(10px);
   padding: 10px 25px;
   overflow: visible;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   color: #ffffff;
   margin: 20px;
@@ -201,10 +204,14 @@ strong {
   font-size: 20px;
   width: auto;
 }
+select{
+  font-family: 'Playfair Display', serif;
+}
 
 select option {
   color: #e5e5e5;
   font-size: 18px;
+  font-family: 'Playfair Display', serif;
   background-color: #333;
   border: none;
   outline: none;
@@ -427,8 +434,6 @@ nav ul li a:hover {
   align-items: center;
   border: none;
   background-color: transparent;
-  /* display: inline-block; */
-  position: relative;
   width: 40px;
   height: 20px;
   margin: 0 5px;
@@ -605,8 +610,11 @@ input:checked+.slider:before {
 }
 
 .light-mode .icons {
-  background: rgba(10, 9, 9, 0.063);
+  background: rgba(10, 9, 9, 0);
   box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
+}
+.light-mode .icons a i {
+  color: rgb(21, 21, 21);
 }
 
 @media (max-width: 700px),
@@ -724,7 +732,7 @@ input:checked+.slider:before {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 16px;
   color: #333;
 }
@@ -1181,10 +1189,14 @@ nav ul li a:hover {
   cursor: pointer;
   transition: color 0.3s;
 }
-
 .light-mode .close:hover,
 .light-mode .close:focus {
   color: #fff7f7;
+}
+
+.nameAbout {
+  color: #333333;
+  font-size: 30px;
 }
 
 #aboutPopup {
@@ -1219,7 +1231,7 @@ nav ul li a:hover {
 }
 
 #aboutPopup .popup-content p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #555;
   margin-bottom: 15px;
@@ -1227,16 +1239,17 @@ nav ul li a:hover {
 
 #aboutPopup .popup-content p strong {
   font-weight: bold;
-  color: #ff7f50;
-  /* Orange color for bold text */
+  color: #080505;
+  font-size: 25px;
+  display: block;
 }
 
 #aboutPopup .popup-content ul {
   list-style-type: disc;
   margin-left: 40px;
   padding-left: 0;
-  /* Remove default padding */
 }
+
 
 .box h1 {
   font-family: Arial, sans-serif;
@@ -1262,7 +1275,8 @@ nav ul li a:hover {
 }
 
 .light-mode .copyright {
-  background-color: #080505;
+  background-color: white;
+  color: black;
 }
 
 .rating {
@@ -1319,7 +1333,6 @@ nav ul li a:hover {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  /* left: auto; */
   font-size: 20px;
   cursor: pointer;
   border: none;
@@ -1327,7 +1340,7 @@ nav ul li a:hover {
   color: white;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: .4;
+  opacity: 0.4;
   transition: 500ms;
   display: flex;
   justify-content: center;
@@ -1391,11 +1404,11 @@ nav ul li a:hover {
 }
 
 .sidebar ul {
-  display: flex;
-  justify-content: flex-start;
-  gap: 35px;
-  padding-left: 50px;
   flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 50px;
+  gap: 35px;
+  display: flex;
 }
 
 .cross {
@@ -1403,7 +1416,9 @@ nav ul li a:hover {
   display: flex;
   margin-bottom: 30px;
 }
-
+.light-mode .cross{
+  color: #000;
+}
 #sidebarLines {
   cursor: pointer;
   display: flex;
@@ -1434,8 +1449,12 @@ nav ul li a:hover {
 #music-file {
   width: 260px;
   font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
 }
-
+.file-input{
+  font-family: 'Playfair Display', serif;
+}
 button {
   color: #fff;
   padding: 10px 20px;
@@ -1466,9 +1485,9 @@ button:active {
 }
 
 .navHeader .header-content nav .logo img {
-  height: 100px;
   margin-right: auto;
   width: 120px;
+  height: 100px;
 }
 
 .icon {
