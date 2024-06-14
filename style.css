@@ -77,10 +77,90 @@ body {
   bottom: -18vh;
 } */
 
+#submit:hover{
+  transform: scale(1.1,1.1);
+}
+
+#reset:hover{
+  transform: scale(1.1,1.1);
+}
+
+#randomize:hover{
+  transform: scale(1.1,1.1);
+}
+
+#color:hover + #n {
+  text-shadow: 2px 2px white;
+}
+
+
+label[for="countdown"]:hover {
+  color: aqua;
+}
+
+#unit:hover,
+#time:hover,
+#color:hover,
+#view:hover,
+#countdown:hover,
+#sound:hover,
+#music-url:hover,
+#music-file:hover {
+  background-color: aqua; 
+  color: black;
+  cursor: pointer;
+}
+
+input[type="color"]:hover {
+  border: 2px solid #f09819; 
+  cursor: pointer; 
+  opacity: 0.8; 
+}
+
+#music-url:hover + #n {
+  text-shadow: 2px 2px white;
+}
+
+
 h1 {
   font-size: 25px;
   text-align: center;
 }
+
+/* Tooltip style */
+.theme-toggle:hover::before {
+  content: "MODE";
+  position: absolute;
+  top: -30px; /* Adjust as needed for positioning */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: 200; /* Ensure tooltip appears above other elements */
+}
+
+.theme-toggle:hover::after {
+  content: "";
+  position: absolute;
+  top: -10px; /* Adjust as needed for positioning */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover::before,
+.theme-toggle:hover::after {
+  opacity: 1; /* Show tooltip on hover */
+}
+
 
 .box {
   /* min-height: 100vh; */
