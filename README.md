@@ -124,7 +124,16 @@ Now, sit back, relax, and enjoy the dazzling display of lights as you experience
 
 ## Getting Started💥
 
-For detailed instructions on how to contribute to the Random Disco Light Simulator project, please refer to this [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) file.
+### Guidelines
+
+- Before creating an issue, use the search feature to check if a similar issue already exists.
+- Issues are assigned on the basis of “first come, first served.” Others get a chance if the issue gets stale and the assignee is inactive for 5+ days.
+- Do not create a Pull Request until the issue has been assigned to you.
+- Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
+`closes #123` `fixes #123` `resolves #123` `implements #123`
+- Remember to follow this practice to streamline collaboration and keep the project organized! 😊
+
+For detailed instructions on how to contribute to this project, please refer to this [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) file.
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
