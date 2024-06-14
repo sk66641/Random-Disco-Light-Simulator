@@ -93,11 +93,6 @@ body {
   text-shadow: 2px 2px white;
 }
 
-
-label[for="countdown"]:hover {
-  color: aqua;
-}
-
 #unit:hover,
 #time:hover,
 #color:hover,
@@ -106,8 +101,14 @@ label[for="countdown"]:hover {
 #sound:hover,
 #music-url:hover,
 #music-file:hover {
-  background-color: aqua; 
+  background-color: lightyellow; 
   color: black;
+}
+
+#unit:hover,
+#view:hover,
+#sound:hover,
+#music-file:hover {
   cursor: pointer;
 }
 
