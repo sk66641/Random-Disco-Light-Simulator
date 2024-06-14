@@ -5,7 +5,7 @@
 
 <div id="top"></div>
 
-<h2>Table of Contents🧾</h2>
+## Table of Contents🧾
 
 - [Introduction📌](#introduction)
 - [Technology Used🚀](#technology-used)
@@ -21,13 +21,13 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Introduction📌</h2>
+## Introduction📌
 
 The **Random Disco Light Simulator** is a fun and interactive project that brings the excitement of a disco dance floor to your screen. Whether you're a developer, a party enthusiast, or just curious, this simulator provides an engaging experience with dynamic lighting effects.
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Technology Used🚀</h2>
+## Technology Used🚀
 
 <p>
   <a href="https://www.w3schools.com/html/"> <img src="https://img.icons8.com/color/70/000000/html-5--v1.png" alt="HTML" /></a>
@@ -38,13 +38,13 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Overview⭐</h2>
+## Overview⭐
 
-<h2>Live Project -- ([https://sk66641.github.io/Random-Disco-Light-Simulator/]))</h2>
+## Live Project -- [https://sk66641.github.io/Random-Disco-Light-Simulator/](https://sk66641.github.io/Random-Disco-Light-Simulator/)
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Features✨</h2>
+## Features✨
 
 - **Conic Mode**: Imagine a spotlight sweeping across the room, creating vibrant cones of light. The colors change dynamically as the spotlight moves, adding an electrifying effect.
 - **Radial Mode**: Picture a pulsating ring of light expanding and contracting. The radial pattern syncs perfectly with the beat, making you feel the rhythm.
@@ -52,7 +52,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Input🎛</h2>
+## Input🎛
 
 Customize your disco experience with these inputs:
 
@@ -65,7 +65,7 @@ Customize your disco experience with these inputs:
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Output🎉</h2>
+## Output🎉
 
 On the basis of these inputs, it simulates the selected view.
 
@@ -115,27 +115,15 @@ Now, sit back, relax, and enjoy the dazzling display of lights as you experience
   
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Getting Started💥</h2>
+## Getting Started💥
 
 For detailed instructions on how to contribute to the Random Disco Light Simulator project, please refer to this [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) file.
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Project Admin⚡</h2>
-
-<table>
-<tr>
-<td align="center">
-<a href="https://github.com/Rakesh9100/"><img src="https://avatars.githubusercontent.com/u/145834771?v=4" height="140px" width="140px" alt="Sanu Kumar
-n"></a><br><sub><b>Sanu Kumar
-</b><br><a href="https://www.linkedin.com/in/sanu-kumar-2a9492283/"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px"></a></sub>
-</td>
-</tr>
-</table>
-
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Project Contributors🫂</h2>
+## Project Contributors🫂
 
 ### Thanks to these wonderful people: ✨
 
@@ -151,9 +139,9 @@ n"></a><br><sub><b>Sanu Kumar
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<h2>Contributing is fun🧡</h2>
+## Contributing is fun🧡
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 <h3>Contributions of any kind from anyone are always welcome🌟!!</h3>
-<h3>Give it a 🌟 if you ❤ this project. Happy Coding👨‍💻</h3>
+<h3>Give it a 🌟 if you ❤ it. Happy Coding👨‍💻</h3>
 <p align="right">(<a href="#top">back to top</a>)</p>
