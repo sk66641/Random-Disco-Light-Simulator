@@ -2,6 +2,16 @@
 
 ![Line](https://github.com/Avdhesh-Varshney/WebMasterLog/assets/114330097/4b78510f-a941-45f8-a9d5-80ed0705e847)
 
+## Guidelines:
+
+- Before creating an issue, use the search feature to check if a similar issue already exists.
+- Issues are assigned on the basis of “first come, first served.” Others get a chance if the issue gets stale and the assignee is inactive for 5+ days.
+- Do not create a Pull Request until the issue has been assigned to you.
+- Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
+
+  `closes #123` `fixes #123` `resolves #123` `implements #123`
+- Remember to follow this practice to streamline collaboration and keep the project organized! 😊
+
 ## Our Promise
 
 We, as members, contributors, and leaders, pledge to make our community a safe and welcoming place for everyone. We commit to treating everyone with respect and kindness, regardless of age, body size, disability, ethnicity, gender identity, experience level, nationality, race, religion, or sexual orientation.
