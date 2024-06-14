@@ -1562,7 +1562,7 @@ nav ul li a:hover {
 }
 
 .light-mode .close {
-  color: #fef5f5;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -1571,7 +1571,7 @@ nav ul li a:hover {
 }
 .light-mode .close:hover,
 .light-mode .close:focus {
-  color: #fff7f7;
+  color: #aaa;
 }
 
 .nameAbout {
