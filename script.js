@@ -526,7 +526,8 @@ if (savedTheme === 'dark-mode') {
 if (savedTheme) {
     document.body.className = savedTheme;
 } else {
-    lightMode();
+    slider.checked = true;
+    darkMode();
 }
 
 // Toggle between light and dark modes when the toggle button is clicked
