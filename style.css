@@ -283,7 +283,7 @@ select option {
   border-radius: 10px;
 }
 
-#submit {
+/* #submit {
   background-color: green;
   cursor: pointer;
   border-radius: 10px;
@@ -293,9 +293,341 @@ select option {
 
 #submit:hover {
   background-color: darkgreen;
+} */
+
+#submit a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 0 0 ;
+  color: #ff4d00;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
 }
 
-#reset {
+#submit a:hover {
+  background-color: #ff4d00;
+  color: #050801;
+  box-shadow: 0 0 5px #ff4d00,
+              0 0 25px #ff4d00,
+              0 0 50px #ff4d00,
+              0 0 200px #ff4d00;
+}  
+
+#submit a span {
+  position: absolute;
+  display: block;
+}
+
+#submit a:nth-child(1) {
+  filter: hue-rotate(290deg);
+}
+
+#submit a:nth-child(3) {
+  filter: hue-rotate(110deg);
+}
+
+#submit a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#ff4d00);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+      left: -100%;
+  }
+  50%,100% {
+      left: 100%;
+  }
+}
+
+#submit a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#ff4d00);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+      top: -100%;
+  }
+  50%,100% {
+      top: 100%;
+  }
+}
+
+#submit a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent,#ff4d00);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+      right: -100%;
+  }
+  50%,100% {
+      right: 100%;
+  }
+}
+
+#submit a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,transparent,#ff4d00);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+#reset a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 0 0 ;
+  color: #e35ee5;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+}
+
+#reset a:hover {
+  background-color: #e35ee5;
+  color: #050801;
+  box-shadow: 0 0 5px #e35ee5,
+              0 0 25px #e35ee5,
+              0 0 50px #e35ee5,
+              0 0 200px #e35ee5;
+}  
+
+#reset a span {
+  position: absolute;
+  display: block;
+}
+
+#reset a:nth-child(1) {
+  filter: hue-rotate(290deg);
+}
+
+#reset a:nth-child(3) {
+  filter: hue-rotate(110deg);
+}
+
+#reset a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#e35ee5);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+      left: -100%;
+  }
+  50%,100% {
+      left: 100%;
+  }
+}
+
+#reset a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#e35ee5);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+      top: -100%;
+  }
+  50%,100% {
+      top: 100%;
+  }
+}
+
+#reset a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent,#e35ee5);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+      right: -100%;
+  }
+  50%,100% {
+      right: 100%;
+  }
+}
+
+#reset a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,transparent,#e35ee5);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+
+@keyframes animate4 {
+  0% {
+      bottom: -100%;
+  }
+  50%,100% {
+      bottom: 100%;
+  }
+}
+
+#randomize {
+  margin-left: 32%;
+}
+
+#randomize a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 40px 0 ;
+  color: #03e9f4;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+}
+
+#randomize a:hover {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 200px #03e9f4;
+}  
+
+#randomize a span {
+  position: absolute;
+  display: block;
+}
+
+#randomize a:nth-child(1) {
+  filter: hue-rotate(290deg);
+}
+
+#randomize a:nth-child(3) {
+  filter: hue-rotate(110deg);
+}
+
+#randomize a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#03e9f4);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+      left: -100%;
+  }
+  50%,100% {
+      left: 100%;
+  }
+}
+
+#randomize a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+      top: -100%;
+  }
+  50%,100% {
+      top: 100%;
+  }
+}
+
+#randomize a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent,#03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+      right: -100%;
+  }
+  50%,100% {
+      right: 100%;
+  }
+}
+
+#randomize a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,transparent,#03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+
+@keyframes animate4 {
+  0% {
+      bottom: -100%;
+  }
+  50%,100% {
+      bottom: 100%;
+  }
+}
+
+
+
+/* #reset {
   border-radius: 10px;
   background-color: red;
   cursor: pointer;
@@ -305,7 +637,7 @@ select option {
 
 #reset:hover {
   background-color: rgb(169, 2, 2);
-}
+} */
 
 .button {
   margin-top: 5px;
@@ -933,7 +1265,7 @@ nav ul li a:hover {
   color: #000;
 }
 
-#randomize {
+/* #randomize {
   background-color: #007bff;
   width: auto;
   margin: 5px auto;
@@ -949,8 +1281,7 @@ nav ul li a:hover {
 
 #randomize:hover {
   background-color: #0056b3;
-
-}
+} */
 
 /* comment */
 /* #CommentBtn {
