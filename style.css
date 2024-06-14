@@ -547,9 +547,9 @@ input:checked+.slider:before {
 .icons:nth-child(1) a::after {
   background: linear-gradient(40deg,
       rgb(13, 108, 139),
-      rgb(86, 202, 240),
-      rgb(28, 192, 246),
-      rgb(127, 214, 244));
+      rgb(48, 106, 126),
+      rgb(38, 126, 156),
+      rgb(15, 112, 145));
 }
 
 .icons:nth-child(2) a::after {
@@ -570,7 +570,7 @@ input:checked+.slider:before {
 
 .icons:nth-child(5) a::after {
   background:
-    rgb(255, 23, 23)
+    rgb(88, 101, 242)
 }
 
 .ico {
