@@ -888,70 +888,184 @@ nav ul li a:hover {
   background: linear-gradient(to right, #ff512f, #f09819);
 } */
 
-
-/* Style for the modal background */
+/* Modal background */
 #modalBackground {
-  display: none;
-  position: fixed;
-  top: 0;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-/* Style for the comment form */
+/* Comment form container */
 #commentForm {
+  background-color: #c9bdf2;
+  background-image: linear-gradient(316deg, #a19ab9 0%, #ffffff 74%);  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px;
+  top: 40%;
+  border: 1px solid #888;
+  width: 90%;
   max-width: 500px;
-  padding: 20px;
-  /* border: 1px solid #ddd; */
   border-radius: 10px;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-  background-color: #f9f9f9;
-  /* z-index: 1001; */
-  display: none;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 7px 0px 15px #53e3e3, -7px 0px 15px #4d97c8;
-  background: url(./assets/images/pngtree-blue-background-high-resolution-images-free-vector-image_13093708.jpg);
-  background-size: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s;
+  position: relative;
+  transform: translateY(-50%);
 }
 
-#commentForm label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  margin-left: 0px;
-  font-size: 40px
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-#commentForm textarea {
-  width: 96%;
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #7a7a73;
+}
+
+.icon i {
+  margin-right: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  resize: vertical;
-  opacity: 0.5;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s;
 }
 
-#commentForm button[type="submit"] {
-  background-color: #28a745;
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  border-color: #555;
+}
+
+textarea {
+  resize: none;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  font-size: 18px;
+  color: #0e101a;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating input[type="radio"]:checked ~ label {
+  color: gold;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: gold;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-#commentForm button[type="submit"]:hover {
-  background-color: #218838;
+button:hover {
+  background-color: #874ed6;
 }
+
+@media (max-width: 768px) {
+  #commentForm {
+    width: 95%;
+    margin: 50px auto; /* Center the form and add margin for better spacing */
+    top: 10%;
+    transform: translateY(-40%);
+  }
+
+  .icon i {
+    font-size: 14px;
+  }
+
+  input[type="text"], input[type="email"], textarea, button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #commentForm {
+    width: 100%;
+    margin: 10px auto; /* Less margin for smaller screens */
+    top: 30%;
+    transform: translateY(-30%);
+  }
+
+  .icon i {
+    font-size: 12px;
+  }
+
+  input[type="text"], input[type="email"], textarea, button {
+    font-size: 12px;
+  }
+}
+
+.success-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
 
 #musicDropdown {
   text-align: center;

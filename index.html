@@ -257,7 +257,7 @@
           </div>
           <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5">5 stars</label>
+            <label for="star5" >5 stars</label>
             <input type="radio" id="star4" name="rating" value="4" />
             <label for="star4">4 stars</label>
             <input type="radio" id="star3" name="rating" value="3" />
@@ -269,38 +269,38 @@
           </div>
           <button id="ll">Submit</button>
         </form>
+        <div id="successMessage" class="success-message">Your feedback is submitted successfully</div>
       </div>
     </div>
 
+    
     <script>
       document.getElementById("CommentBtn").addEventListener("click", function () {
         document.getElementById("modalBackground").style.display = "flex";
       });
-
-      // Close the form when clicking outside of it (optional)
+    
       document.getElementById("modalBackground").addEventListener("click", function (event) {
         if (event.target === this) {
           this.style.display = "none";
         }
       });
-      let commentForm = document.getElementById("commentForm");
-      let modalBackground = document.getElementById("modalBackground");
-
-      document.getElementById("CommentBtn").addEventListener("click", function (event) {
-        if (commentForm.style.display === "none") {
-          commentForm.style.display = "block";
-          modalBackground.style.display = "flex";
-        } else {
-          commentForm.style.display = "none";
-          modalBackground.style.display = "none";
-        }
-      });
-
-      document.getElementById("ll").addEventListener("click", function (event) {
-        commentForm.style.display = "none";
-        modalBackground.style.display = "none";
+    
+      document.getElementById("feedback-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Show success message
+        document.getElementById("successMessage").style.display = "block";
+    
+        // Hide success message after 3 seconds (3000 milliseconds)
+        setTimeout(function() {
+          document.getElementById("successMessage").style.display = "none";
+        }, 3000);
+    
+        document.getElementById("feedback-form").reset();
       });
     </script>
+    
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
     <script src="script.js"></script>
