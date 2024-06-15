@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
+    const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
+    let isMuted = false;
 
     // Event Listener for Add Time Button
 addTimeButton.addEventListener('click', () => {
@@ -36,7 +38,34 @@ function updateTimerDisplay() {
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
+        muteButton.style.display = 'inline-block'; // Show the mute button after submission
     });
+
+    muteButton.addEventListener('click', () => {
+        if (isMuted) {
+            unmuteAudio();
+        } else {
+            muteAudio();
+        }
+    });
+
+    function muteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = true;
+        }
+        isMuted = true;
+        muteIcon.classList.remove('fa-volume-up');
+        muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
+    }
+
+    function unmuteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = false;
+        }
+        isMuted = false;
+        muteIcon.classList.remove('fa-volume-mute');
+        muteIcon.classList.add('fa-volume-up'); // FontAwesome icon classes for unmuted state
+    }
 
     resetButton.addEventListener('click', () => {
         document.getElementById('color').value = '';
@@ -108,7 +137,7 @@ function updateTimerDisplay() {
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
-        let unit = document.getElementById("unit").value;
+        let unit = document.getElementById("unit").value;   
         let view = document.getElementById("view").value;
         let soundEffect = document.getElementById("sound").value;
         let color1 = document.getElementById('color1').value;
