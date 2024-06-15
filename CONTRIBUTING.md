@@ -19,9 +19,10 @@ To acheive this task we need to follow these steps.
 3. Issues would be sub divided meaning, a game can be divided into sub parts, one issue for making prompts, one for creating gaming assets like characters and last one for creating actual game python file
 4. After doing your task make a pull request
 5. Make sure you do not change someone else file.
-6. Plagiarism is big no and doing so may result in lost of ranks and ban from repo.
-7. Based on efforts levels will be given
-8. If any issue contact Project Admin
+6. Make sure to include the aria labels to the code. The labels should be clear and concise.
+7. Plagiarism is big no and doing so may result in lost of ranks and ban from repo.
+8. Based on efforts levels will be given
+9. If any issue contact Project Admin
 
 <br>
 
@@ -31,8 +32,8 @@ To acheive this task we need to follow these steps.
    Launch GitHub Desktop and log in to your GitHub account if you haven't already.
 
 2. **Clone the Repository:**
-   - If you haven't cloned the SuperpeechSaga repository yet, you can do so by clicking on the "File" menu and selecting "Clone Repository."
-   - Choose the SuperpeechSaga repository from the list of repositories on GitHub and clone it to your local machine.
+   - If you haven't cloned the Random-Disco-Light-Simulator repository yet, you can do so by clicking on the "File" menu and selecting "Clone Repository."
+   - Choose the Random-Disco-Light-Simulator repository from the list of repositories on GitHub and clone it to your local machine.
 
 3. **Switch to the Correct Branch:**
    - Ensure you are on the branch that you want to submit a pull request for.
@@ -49,7 +50,7 @@ To acheive this task we need to follow these steps.
    After committing your changes, click the "Push origin" button in the top right corner of GitHub Desktop to push your changes to your forked repository on GitHub.
 
 7. **Create a Pull Request:**
-  - Go to the GitHub website and navigate to your fork of the SuperpeechSaga repository.
+  - Go to the GitHub website and navigate to your fork of the Random-Disco-Light-Simulator repository.
   - You should see a button to "Compare & pull request" between your fork and the original repository. Click on it.
 
 8. **Review and Submit:**
@@ -57,7 +58,7 @@ To acheive this task we need to follow these steps.
    - Once you're satisfied, click the "Create pull request" button to submit your pull request.
 
 9. **Wait for Review:**
-    Your pull request will now be available for review by the project maintainers. They may provide feedback or ask for changes before merging your pull request into the main branch of the SuperpeechSaga repository.
+    Your pull request will now be available for review by the project maintainers. They may provide feedback or ask for changes before merging your pull request into the main branch of the Random-Disco-Light-Simulator repository.
 
 ## 📈 Development Workflow
 
