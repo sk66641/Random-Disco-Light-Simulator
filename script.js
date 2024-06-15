@@ -591,20 +591,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function toggleSidebar() {
-    var sidebar = document.querySelector('.sidebarOne');
-    document.querySelector(".navMain").style.display = "none";
-    if (sidebar.style.display === 'block') {
-        sidebar.style.display = 'none';
-    } else {
-        sidebar.style.display = 'block';
-    }
+  var sidebar = document.querySelector('.sidebarOne');
+  document.querySelector(".navMain").style.display = "none";
+
+  if (sidebar.style.display === 'block') {
+    sidebar.style.display = 'none';
+    sidebar.classList.remove('slide-in');
+    sidebar.classList.add('slide-out');
+
+    // Add reverse staggered animation for sidebar elements
+    const sidebarItems = document.querySelectorAll('.sidebarOne li');
+    sidebarItems.forEach((item, index) => {
+      item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
+      item.classList.remove('fade-in');
+      item.classList.add('fade-out');
+    });
+  } else {
+    sidebar.style.display = 'block';
+    sidebar.classList.remove('slide-out');
+    sidebar.classList.add('slide-in');
+
+    // Add staggered animation for sidebar elements
+    const sidebarItems = document.querySelectorAll('.sidebarOne li');
+    sidebarItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.1}s`;
+      item.classList.remove('fade-out');
+      item.classList.add('fade-in');
+    });
+  }
 }
+
 document.querySelector('.cross').addEventListener('click', function () {
-    document.querySelector('.sidebarOne').style.display = 'none'
-    document.querySelector(".navMain").style.display = "block";
+  document.querySelector('.sidebarOne').style.display = 'none'
+  document.querySelector(".navMain").style.display = "block";
 })
+
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        document.querySelector(".navMain").style.visibility = "visible";
-    }, 4000);
+  setTimeout(() => {
+    document.querySelector(".navMain").style.visibility = "visible";
+  }, 4000);
 })
