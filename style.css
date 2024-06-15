@@ -739,7 +739,7 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
     width: fit-content;
     height: auto;
@@ -766,9 +766,9 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
-    width: fit-content;
+    width: auto;
     height: auto;
 
   }
@@ -779,7 +779,7 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
     width:auto;
     height: auto;
@@ -813,7 +813,7 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
     width: 250px;
     height: auto;
@@ -848,11 +848,14 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
     width: 350px;
     height: auto;
     margin-top: 50px;
+    background: #180410;
+  
+
 
   }
 
@@ -955,7 +958,7 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    /* margin: 5px 20px; kritika */
+    /* margin: 5px 20px;  */
     margin: auto;
     width: min-content;
     height: auto;
@@ -1168,6 +1171,22 @@ input:checked+.slider:before {
 }
 
 @media screen and (max-width : 414px) {
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px;*/
+    margin: auto;
+    width: min-content;
+    height: auto;
+    background: #180410;
+    margin-top: 50px;
+  }
+
+
+  .input {
+    width: 15px;
+  }
+
   .copyright {
     display: flex;
     justify-content: center;
