@@ -106,10 +106,10 @@ h1 {
   gap: 10px;
   border-radius: 10px;
 
-  /*adding background img*/ 
- /* background: #400219; */
- background: #180410; 
- background-image: url(assets/images/formbgi.jpg); 
+  /*adding background img*/
+  /* background: #400219; */
+  background: #180410;
+  background-image: url(assets/images/formbgi.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   /* height: 500px; */
@@ -148,8 +148,8 @@ h1 {
 }
 
 label {
-  /* font-size: 22px; */ 
-  font-size: 20px; 
+  /* font-size: 22px; */
+  font-size: 20px;
   /* font-weight: 300; */
   font-family: system-ui;
 }
@@ -184,7 +184,7 @@ i {
 }
 
 strong {
-  /* font-size: 22px; */ 
+  /* font-size: 22px; */
 
   font-family: arial;
   font-size: 17px;
@@ -204,7 +204,8 @@ strong {
   font-size: 20px;
   width: auto;
 }
-select{
+
+select {
   font-family: 'Playfair Display', serif;
 }
 
@@ -249,12 +250,12 @@ select option {
 .button {
   /* margin-top: 5px;
   
- justify-content: center;  */ 
- margin-top: 20px;
- display: flex;
+ justify-content: center;  */
+  margin-top: 20px;
+  display: flex;
 
   margin-bottom: 16px;
-  
+
   align-items: center;
   gap: 20px;
 }
@@ -325,7 +326,13 @@ nav ul li a:hover {
 
   .box {
     padding: 10px 15px;
-    margin: 5px 20px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width: fit-content;
+    height: auto;
+
+
+
   }
 
   /* .background {
@@ -341,9 +348,36 @@ nav ul li a:hover {
   }
 }
 
+
+@media only screen and (max-width: 950px) {
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width: fit-content;
+    height: auto;
+
+  }
+}
+
+
+@media only screen and (max-width: 1050px) {
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width:auto;
+    height: auto;
+    background: #180410;
+    margin-top: 50px;
+  }
+}
+
 @media only screen and (max-width: 350px) {
   * {
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 
   h1 {
@@ -357,6 +391,22 @@ nav ul li a:hover {
 
   .socialIcons a i {
     font-size: 26px !important;
+  }
+
+  .input {
+    width: 25px;
+  }
+
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width: 250px;
+    height: auto;
+    background: #180410;
+    margin-top: 50px;
+
   }
 }
 
@@ -377,6 +427,22 @@ nav ul li a:hover {
   .socialIcons a i {
     font-size: 24px !important;
   }
+
+  .input {
+    width: 25px;
+  }
+
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width: 350px;
+    height: auto;
+    margin-top: 50px;
+
+  }
+
 }
 
 #timerDisplay {
@@ -473,7 +539,24 @@ nav ul li a:hover {
     transition: background-color 0.4s;
     box-shadow: 0 0 3px #ffffff;
   }
+
+  .box {
+    padding: 10px 15px;
+    /* margin: 5px 20px; kritika */
+    margin: auto;
+    width: min-content;
+    height: auto;
+    background: #180410;
+    margin-top: 50px;
+  }
+
+
+  .input {
+    width: 15px;
+  }
 }
+
+
 
 .slider:hover {
   opacity: 1;
@@ -613,6 +696,7 @@ input:checked+.slider:before {
   background: rgba(10, 9, 9, 0);
   box-shadow: 4px 6px 10px rgba(19, 19, 19, 0.333);
 }
+
 .light-mode .icons a i {
   color: rgb(21, 21, 21);
 }
@@ -881,10 +965,10 @@ nav ul li a:hover {
   /* width: auto;
   margin: 5px auto;
   /* display: block;*/
-  
-   width: fit-content;
-   display: flex;
-   margin-top: 20px;
+
+  width: fit-content;
+  display: flex;
+  margin-top: 20px;
 
   /* color: #ffffff; */
   border: none;
@@ -894,12 +978,12 @@ nav ul li a:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
   color: darkgreen;
-  background: #7ED957; 
+  background: #7ED957;
 
 }
 
 #randomize:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 
 }
 
@@ -1189,6 +1273,7 @@ nav ul li a:hover {
   cursor: pointer;
   transition: color 0.3s;
 }
+
 .light-mode .close:hover,
 .light-mode .close:focus {
   color: #fff7f7;
@@ -1260,7 +1345,7 @@ nav ul li a:hover {
 .box span {
   /* font-family: Arial, sans-serif;
   font-size: 39px; */
-  font-family:sans-serif;
+  font-family: sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #ff7f50;
@@ -1416,9 +1501,11 @@ nav ul li a:hover {
   display: flex;
   margin-bottom: 30px;
 }
-.light-mode .cross{
+
+.light-mode .cross {
   color: #000;
 }
+
 #sidebarLines {
   cursor: pointer;
   display: flex;
@@ -1439,22 +1526,24 @@ nav ul li a:hover {
   display: none;
 }
 
-#countdown,
+/* #countdown,
 #time,
 #color,
 #music-url {
-  width: 200px;
-}
+  width: 200px; 
+} */
 
 #music-file {
-  width: 260px;
+  /* width: 260px; */
   font-size: 20px;
   font-family: 'Playfair Display', serif;
   cursor: pointer;
 }
-.file-input{
+
+.file-input {
   font-family: 'Playfair Display', serif;
 }
+
 button {
   color: #fff;
   padding: 10px 20px;
@@ -1474,8 +1563,9 @@ button {
   background-color: #7F00FF;
   background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
   transition: all 150ms ease-in-out;
- 
+
 }
+
 button:hover {
   filter: brightness(1.05);
 }
