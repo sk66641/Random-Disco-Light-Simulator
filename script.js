@@ -509,14 +509,41 @@ function closeFeaturesPopup() {
 }
 
 //Toggle function that is affected by the slider box
+// Check if there's a theme preference stored in localStorage
+// Check if there's a theme preference stored in localStorage
+// Check if there's a theme preference stored in localStorage
+var savedTheme = localStorage.getItem('theme');
+var slider = document.getElementById('themeToggle');
+
+// Set the toggle button state based on the saved theme preference
+if (savedTheme === 'dark-mode') {
+    slider.checked = true;
+} else {
+    slider.checked = false;
+}
+
+// Apply the theme based on the saved preference or default to light mode
+if (savedTheme) {
+    document.body.className = savedTheme;
+} else {
+    slider.checked = true;
+    darkMode();
+}
+
+// Toggle between light and dark modes when the toggle button is clicked
 function toggleTheme() {
-    var slider = document.getElementById('themeToggle');
     if (slider.checked) {
         darkMode();
     } else {
         lightMode();
     }
+
+    // Store the theme preference in localStorage
+    localStorage.setItem('theme', document.body.className);
 }
+
+
+
 function darkMode() {
     let element = document.body;
     element.className = "dark-mode";
