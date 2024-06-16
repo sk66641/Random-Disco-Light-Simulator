@@ -181,15 +181,15 @@ function updateTimerDisplay() {
         } else {
             document.getElementById("error").style.color = "red";
             if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
-                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer.</strong>";
+                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer!</strong>";
             } else if (unit === "unit") {
-                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected!</strong>";
             } else if (view === "select") {
-                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
             } else if (countdownValue <= 0) {
-                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero.</strong>";
+                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
-                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File</i></strong>";
+                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
 
             }
             return;

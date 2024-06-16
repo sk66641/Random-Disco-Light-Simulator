@@ -677,6 +677,7 @@ button {
 
 #error strong {
   font-size: 22px;
+  color: red;
 }
 
 .connect {
@@ -2013,7 +2014,7 @@ button:hover {
 button {
   color: #fff;
   padding: 10px 20px;
-  border-radius: 14px;
+  border-radius: 10px;
   font-weight: bold;
   font-size: 16px;
 
@@ -2048,4 +2049,10 @@ button:active {
 
 .icon {
   text-transform: none;
+}
+
+#preset{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

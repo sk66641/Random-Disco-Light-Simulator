@@ -129,7 +129,7 @@
             <option value="custom">Custom Pattern</option>
           </select>
         </div>
-      
+
         <div>
           <label for="countdown">5. Countdown Timer (in seconds):</label>
           <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
@@ -151,10 +151,11 @@
           <span style="font-size: 24px; color: #f09819;">or</span>
           <input type="url" id="music-url" placeholder="Paste link here" /><br>
           <span style="font-size: 24px; color: #f09819;">or</span>
-         
+          
           <input type="file" id="music-file" accept="audio/*" class="file-input" />
         </div>
-
+        
+        <div id="error" aria-live="polite"></div>
         <div style="display: flex; justify-content: center; align-items: center;">
           <div id="randomize" aria-label="Randomize">
             <a href="#">
@@ -185,13 +186,13 @@
             </a></div>
         </div>
 
-        <button id="savePresetButton">Save Preset</button>   <!-- new function for loading preset -->
-        <button id="loadPresetButton">Load Preset</button>
-       
+        <div id="preset">
+          <button id="savePresetButton">Save Preset</button> <!-- new function for loading preset -->
+          <button id="loadPresetButton">Load Preset</button>
+        </div>
 
-        <div id="error" aria-live="polite"></div>
       </div>
-    </div>  
+    </div>
 
     <footer class="footer" style="width: 100%;height: 2px;">
 
@@ -281,7 +282,7 @@
           </div>
           <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5" >5 stars</label>
+            <label for="star5">5 stars</label>
             <input type="radio" id="star4" name="rating" value="4" />
             <label for="star4">4 stars</label>
             <input type="radio" id="star3" name="rating" value="3" />
@@ -297,34 +298,34 @@
       </div>
     </div>
 
-    
+
     <script>
       document.getElementById("CommentBtn").addEventListener("click", function () {
         document.getElementById("modalBackground").style.display = "flex";
       });
-    
+
       document.getElementById("modalBackground").addEventListener("click", function (event) {
         if (event.target === this) {
           this.style.display = "none";
         }
       });
-    
+
       document.getElementById("feedback-form").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
-    
+
         // Show success message
         document.getElementById("successMessage").style.display = "block";
-    
+
         // Hide success message after 3 seconds (3000 milliseconds)
-        setTimeout(function() {
+        setTimeout(function () {
           document.getElementById("successMessage").style.display = "none";
         }, 3000);
-    
+
         document.getElementById("feedback-form").reset();
       });
     </script>
-    
-    
+
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
     <script src="script.js"></script>
