@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
+  
+
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -193,6 +195,7 @@ function updateTimerDisplay() {
             return;
         }
     }
+    
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
@@ -658,3 +661,62 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(".navMain").style.visibility = "visible";
   }, 4000);
 })
+
+//  new functionality for saving and loading presets
+function savePreset() {
+    const presetName = prompt("Enter a name for your preset:");
+    if (!presetName) {
+        alert('Please enter a valid name for your preset.');
+        return;
+    }
+
+    const presetData = {
+        color: document.getElementById('color').value,
+        color1: document.getElementById('color1').value,
+        color2: document.getElementById('color2').value,
+        time: document.getElementById('time').value,
+        unit: document.getElementById('unit').value,
+        view: document.getElementById('view').value,
+        countdown: document.getElementById('countdown').value,
+        sound: document.getElementById('sound').value,
+        musicUrl: document.getElementById('music-url').value,
+       
+    };
+
+    // Save to localStorage
+    localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+    alert('Preset saved!');
+}
+
+
+function loadPreset() {
+    const presetName = prompt("Enter the name of the preset you'd like to load:");
+    if (!presetName) {
+        alert('Please enter the name of the preset.');
+        return;
+    }
+
+    const presetData = JSON.parse(localStorage.getItem(`preset-${presetName}`));
+    if (!presetData) {
+        alert('Preset not found!');
+        return;
+    }
+    document.getElementById('color').value = presetData.color;
+    document.getElementById('color1').value = presetData.color1;
+    document.getElementById('color2').value = presetData.color2;
+    document.getElementById('time').value = presetData.time;
+    document.getElementById('unit').value = presetData.unit;
+    document.getElementById('view').value = presetData.view;
+    document.getElementById('countdown').value = presetData.countdown;
+    document.getElementById('sound').value = presetData.sound;
+    document.getElementById('music-url').value = presetData.musicUrl || '';
+    // document.getElementById('music-file') cannot be set due to security reasons
+
+    alert('Preset loaded!');
+}
+document.getElementById('savePresetButton').addEventListener('click', savePreset);
+document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
+
+
+
+
