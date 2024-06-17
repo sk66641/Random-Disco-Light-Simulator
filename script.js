@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
-    const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
+  
+
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
-    let isMuted = false;
 
     // Event Listener for Add Time Button
 addTimeButton.addEventListener('click', () => {
@@ -38,34 +38,7 @@ function updateTimerDisplay() {
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
-        muteButton.style.display = 'inline-block'; // Show the mute button after submission
     });
-
-    muteButton.addEventListener('click', () => {
-        if (isMuted) {
-            unmuteAudio();
-        } else {
-            muteAudio();
-        }
-    });
-
-    function muteAudio() {
-        if (musicAudio) {
-            musicAudio.muted = true;
-        }
-        isMuted = true;
-        muteIcon.classList.remove('fa-volume-up');
-        muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
-    }
-
-    function unmuteAudio() {
-        if (musicAudio) {
-            musicAudio.muted = false;
-        }
-        isMuted = false;
-        muteIcon.classList.remove('fa-volume-mute');
-        muteIcon.classList.add('fa-volume-up'); // FontAwesome icon classes for unmuted state
-    }
 
     resetButton.addEventListener('click', () => {
         document.getElementById('color').value = '';
@@ -137,7 +110,7 @@ function updateTimerDisplay() {
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
-        let unit = document.getElementById("unit").value;   
+        let unit = document.getElementById("unit").value;
         let view = document.getElementById("view").value;
         let soundEffect = document.getElementById("sound").value;
         let color1 = document.getElementById('color1').value;
@@ -208,20 +181,21 @@ function updateTimerDisplay() {
         } else {
             document.getElementById("error").style.color = "red";
             if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
-                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer.</strong>";
+                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer!</strong>";
             } else if (unit === "unit") {
-                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected!</strong>";
             } else if (view === "select") {
-                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
             } else if (countdownValue <= 0) {
-                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero.</strong>";
+                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
-                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File</i></strong>";
+                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
 
             }
             return;
         }
     }
+    
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
@@ -647,20 +621,101 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function toggleSidebar() {
-    var sidebar = document.querySelector('.sidebarOne');
-    document.querySelector(".navMain").style.display = "none";
-    if (sidebar.style.display === 'block') {
-        sidebar.style.display = 'none';
-    } else {
-        sidebar.style.display = 'block';
-    }
+  var sidebar = document.querySelector('.sidebarOne');
+  document.querySelector(".navMain").style.display = "none";
+
+  if (sidebar.style.display === 'block') {
+    sidebar.style.display = 'none';
+    sidebar.classList.remove('slide-in');
+    sidebar.classList.add('slide-out');
+
+    // Add reverse staggered animation for sidebar elements
+    const sidebarItems = document.querySelectorAll('.sidebarOne li');
+    sidebarItems.forEach((item, index) => {
+      item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
+      item.classList.remove('fade-in');
+      item.classList.add('fade-out');
+    });
+  } else {
+    sidebar.style.display = 'block';
+    sidebar.classList.remove('slide-out');
+    sidebar.classList.add('slide-in');
+
+    // Add staggered animation for sidebar elements
+    const sidebarItems = document.querySelectorAll('.sidebarOne li');
+    sidebarItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.1}s`;
+      item.classList.remove('fade-out');
+      item.classList.add('fade-in');
+    });
+  }
 }
+
 document.querySelector('.cross').addEventListener('click', function () {
-    document.querySelector('.sidebarOne').style.display = 'none'
-    document.querySelector(".navMain").style.display = "block";
+  document.querySelector('.sidebarOne').style.display = 'none'
+  document.querySelector(".navMain").style.display = "block";
 })
+
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        document.querySelector(".navMain").style.visibility = "visible";
-    }, 4000);
+  setTimeout(() => {
+    document.querySelector(".navMain").style.visibility = "visible";
+  }, 4000);
 })
+
+//  new functionality for saving and loading presets
+function savePreset() {
+    const presetName = prompt("Enter a name for your preset:");
+    if (!presetName) {
+        alert('Please enter a valid name for your preset.');
+        return;
+    }
+
+    const presetData = {
+        color: document.getElementById('color').value,
+        color1: document.getElementById('color1').value,
+        color2: document.getElementById('color2').value,
+        time: document.getElementById('time').value,
+        unit: document.getElementById('unit').value,
+        view: document.getElementById('view').value,
+        countdown: document.getElementById('countdown').value,
+        sound: document.getElementById('sound').value,
+        musicUrl: document.getElementById('music-url').value,
+       
+    };
+
+    // Save to localStorage
+    localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+    alert('Preset saved!');
+}
+
+
+function loadPreset() {
+    const presetName = prompt("Enter the name of the preset you'd like to load:");
+    if (!presetName) {
+        alert('Please enter the name of the preset.');
+        return;
+    }
+
+    const presetData = JSON.parse(localStorage.getItem(`preset-${presetName}`));
+    if (!presetData) {
+        alert('Preset not found!');
+        return;
+    }
+    document.getElementById('color').value = presetData.color;
+    document.getElementById('color1').value = presetData.color1;
+    document.getElementById('color2').value = presetData.color2;
+    document.getElementById('time').value = presetData.time;
+    document.getElementById('unit').value = presetData.unit;
+    document.getElementById('view').value = presetData.view;
+    document.getElementById('countdown').value = presetData.countdown;
+    document.getElementById('sound').value = presetData.sound;
+    document.getElementById('music-url').value = presetData.musicUrl || '';
+    // document.getElementById('music-file') cannot be set due to security reasons
+
+    alert('Preset loaded!');
+}
+document.getElementById('savePresetButton').addEventListener('click', savePreset);
+document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
+
+
+
