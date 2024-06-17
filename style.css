@@ -2051,6 +2051,19 @@ button:active {
   text-transform: none;
 }
 
+#muteBtn {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 10px;
+  right: 80px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 22px;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
 #preset{
   display: flex;
   justify-content: center;
