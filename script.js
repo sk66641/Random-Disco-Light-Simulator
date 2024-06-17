@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
+    const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
   
 
 
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
-
+    let isMuted = false;
     // Event Listener for Add Time Button
 addTimeButton.addEventListener('click', () => {
     addTime(15);
@@ -38,7 +39,34 @@ function updateTimerDisplay() {
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
+        muteButton.style.display = 'inline-block'; // Show the mute button after submission
     });
+
+    muteButton.addEventListener('click', () => {
+        if (isMuted) {
+            unmuteAudio();
+        } else {
+            muteAudio();
+        }
+    });
+
+    function muteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = true;
+        }
+        isMuted = true;
+        muteIcon.classList.remove('fa-volume-up');
+        muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
+    }
+
+    function unmuteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = false;
+        }
+        isMuted = false;
+        muteIcon.classList.remove('fa-volume-mute');
+        muteIcon.classList.add('fa-volume-up'); // FontAwesome icon classes for unmuted state
+    }
 
     resetButton.addEventListener('click', () => {
         document.getElementById('color').value = '';
@@ -557,9 +585,18 @@ function lightMode() {
     element.className = "light-mode";
 }
 
+// Define global variable to store reference to the currently playing audio
+let currentAudio;
+
+// Function to toggle mute/unmute for the currently playing audio
+function toggleMute() {
+    if (currentAudio) {
+        currentAudio.muted = !currentAudio.muted;
+        // Update mute button icon based on mute state if necessary
+    }
+}
+
 document.getElementById('submit').addEventListener('click', function () {
-
-
     document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
         const audioElements = document.querySelectorAll('audio');
@@ -567,10 +604,18 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
-            document.getElementById(selectedMusic).play();
+            const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.play();
+            currentAudio = musicAudio; // Update currently playing audio reference
         }
     });
 });
+
+// Event listener for the mute button
+document.getElementById('muteBtn').addEventListener('click', function () {
+    toggleMute(); // Call toggleMute function to toggle mute/unmute
+});
+
 function effect() {
     loader.style.display = "none";
     document.querySelector(".unload").style.display = "block";
