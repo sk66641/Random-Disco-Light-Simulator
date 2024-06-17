@@ -39,7 +39,6 @@ function updateTimerDisplay() {
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
-        muteButton.style.display = 'inline-block'; // Show the mute button after submission
     });
 
     muteButton.addEventListener('click', () => {
@@ -178,6 +177,8 @@ function updateTimerDisplay() {
                     modal1.style.display = "none";
                 }
             }
+
+            muteButton.style.display = 'inline-block'; // Show the mute button after successful submission 
 
             if (soundEffect !== 'none') {
 
@@ -370,23 +371,22 @@ function updateTimerDisplay() {
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        if (musicAudio) {
+        /* if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
         else {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
-
-        }
-        document.getElementById("musicDropdown").style.display = 'none';
-        pauseStartButton.textContent = 'Start';
+        } */
+        // document.getElementById("musicDropdown").style.display = 'none';
+        pauseStartButton.textContent = 'Resume';
         isPaused = true;
     }
 
     function resumeSimulation() {
         startCountdown(countdownValue);
-        if (musicAudio) {
+        /* if (musicAudio) {
             if (!musicMuted) {
                 musicAudio.play();
             }
@@ -395,8 +395,7 @@ function updateTimerDisplay() {
             if (!musicMuted) {
                 selectedAudio.play();
             }
-
-        }
+        } */
         startSimulation(
             document.getElementById("color").value,
             document.getElementById("time").value,
@@ -405,7 +404,7 @@ function updateTimerDisplay() {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        document.getElementById("musicDropdown").style.display = 'block';
+        // document.getElementById("musicDropdown").style.display = 'block';
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
