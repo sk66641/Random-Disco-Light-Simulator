@@ -13,7 +13,10 @@ body {
   align-items: center;
   background-color: black;
   font-family: 'Playfair Display', serif;
-
+  -webkit-user-select: none;  
+  -moz-user-select: none;     
+  -ms-user-select: none;      
+  user-select: none; 
 }
 
 .unload {
