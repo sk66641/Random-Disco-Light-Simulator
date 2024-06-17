@@ -1163,6 +1163,10 @@ input:checked+.slider:before {
   animation: slide-down 0.3s ease-out;
 }
 
+.modal-content p strong{
+  color: black;
+}
+
 @keyframes slide-down {
   from {
     transform: translateY(-100px);

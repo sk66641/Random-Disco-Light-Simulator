@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
-  
+
 
 
     // Create and append the pause/start button
@@ -19,22 +19,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let lightInterval;
     let isMuted = false;
     // Event Listener for Add Time Button
-addTimeButton.addEventListener('click', () => {
-    addTime(15);
-});
+    addTimeButton.addEventListener('click', () => {
+        // used instantly invoked function expression
+        (function get_time(){
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease (in "Seconds")'));
+            if (isNaN(add_time)) {
+                alert('Please enter a valid number!')
+                get_time();
+            } else {
+                addTime(add_time);
+            }
+        })()
+    });
 
-// Function to add 15 seconds to the timer
-function addTime(seconds) {
-    countdownValue += seconds;
-    updateTimerDisplay();
-}
+    // Function to add 15 seconds to the timer
+    function addTime(seconds) {
+        countdownValue += Math.floor(seconds);
+        updateTimerDisplay();
+    }
 
-// Function to update the timer display
-function updateTimerDisplay() {
-    const minutes = Math.floor(countdownValue / 60);
-    const seconds = countdownValue % 60;
-    timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
+    // Function to update the timer display
+    function updateTimerDisplay() {
+        const minutes = Math.floor(countdownValue / 60);
+        // Math.floor to deal with float values
+        const seconds = Math.floor(countdownValue % 60);
+        timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
@@ -44,8 +54,10 @@ function updateTimerDisplay() {
     muteButton.addEventListener('click', () => {
         if (isMuted) {
             unmuteAudio();
+            document.getElementById('musicDropdown').style.display = 'block';
         } else {
             muteAudio();
+            document.getElementById('musicDropdown').style.display = 'none';
         }
     });
 
@@ -100,6 +112,7 @@ function updateTimerDisplay() {
         timerInterval = setInterval(() => {
             if (!isPaused) {
                 let minutes = Math.floor(countdownValue / 60);
+                // Math.floor to deal with float values
                 let seconds = Math.floor(countdownValue % 60);
 
                 timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
@@ -134,6 +147,7 @@ function updateTimerDisplay() {
     });
 
     function run() {
+        // after successful submission
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
@@ -178,7 +192,7 @@ function updateTimerDisplay() {
                 }
             }
 
-            muteButton.style.display = 'inline-block'; // Show the mute button after successful submission 
+            muteButton.style.display = 'block'; // Show the mute button after successful submission 
 
             if (soundEffect !== 'none') {
 
@@ -206,8 +220,23 @@ function updateTimerDisplay() {
                 selectedAudio.play();
                 musicAudio = selectedAudio;
             }
+            document.body.style.cursor = 'pointer';
+            document.body.addEventListener('dblclick', () => {
+                if (document.querySelector(".navMain").style.display === "none") {
+                    document.querySelector(".navMain").style.display = "block"
+                    document.querySelector("#muteBtn").style.display = "block"
+                    document.querySelector("#timerDisplay").style.display = "block"
+                    document.querySelector(".sidebarOne").style.display = "none"
+                } else {
+                    document.querySelector(".navMain").style.display = "none"
+                    document.querySelector("#muteBtn").style.display = "none"
+                    document.querySelector("#timerDisplay").style.display = "none"
+                }
+            });
+
 
         } else {
+            // after unsuccessful submission
             document.getElementById("error").style.color = "red";
             if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
                 document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer!</strong>";
@@ -224,7 +253,7 @@ function updateTimerDisplay() {
             return;
         }
     }
-    
+
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
@@ -369,7 +398,7 @@ function updateTimerDisplay() {
         // Update music dropdown
         musicSelect.value = soundSelect.value;
     });
-    let musicMuted = false; // Variable to track whether music is muted
+    // let musicMuted = false; // Variable to track whether music is muted
 
     function pauseSimulation() {
         clearInterval(timerInterval);
@@ -668,45 +697,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function toggleSidebar() {
-  var sidebar = document.querySelector('.sidebarOne');
-  document.querySelector(".navMain").style.display = "none";
+    var sidebar = document.querySelector('.sidebarOne');
+    document.querySelector(".navMain").style.display = "none";
 
-  if (sidebar.style.display === 'block') {
-    sidebar.style.display = 'none';
-    sidebar.classList.remove('slide-in');
-    sidebar.classList.add('slide-out');
+    if (sidebar.style.display === 'block') {
+        sidebar.style.display = 'none';
+        sidebar.classList.remove('slide-in');
+        sidebar.classList.add('slide-out');
 
-    // Add reverse staggered animation for sidebar elements
-    const sidebarItems = document.querySelectorAll('.sidebarOne li');
-    sidebarItems.forEach((item, index) => {
-      item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
-      item.classList.remove('fade-in');
-      item.classList.add('fade-out');
-    });
-  } else {
-    sidebar.style.display = 'block';
-    sidebar.classList.remove('slide-out');
-    sidebar.classList.add('slide-in');
+        // Add reverse staggered animation for sidebar elements
+        const sidebarItems = document.querySelectorAll('.sidebarOne li');
+        sidebarItems.forEach((item, index) => {
+            item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
+            item.classList.remove('fade-in');
+            item.classList.add('fade-out');
+        });
+    } else {
+        sidebar.style.display = 'block';
+        sidebar.classList.remove('slide-out');
+        sidebar.classList.add('slide-in');
 
-    // Add staggered animation for sidebar elements
-    const sidebarItems = document.querySelectorAll('.sidebarOne li');
-    sidebarItems.forEach((item, index) => {
-      item.style.animationDelay = `${index * 0.1}s`;
-      item.classList.remove('fade-out');
-      item.classList.add('fade-in');
-    });
-  }
+        // Add staggered animation for sidebar elements
+        const sidebarItems = document.querySelectorAll('.sidebarOne li');
+        sidebarItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+            item.classList.remove('fade-out');
+            item.classList.add('fade-in');
+        });
+    }
 }
 
 document.querySelector('.cross').addEventListener('click', function () {
-  document.querySelector('.sidebarOne').style.display = 'none'
-  document.querySelector(".navMain").style.display = "block";
+    document.querySelector('.sidebarOne').style.display = 'none'
+    document.querySelector(".navMain").style.display = "block";
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.querySelector(".navMain").style.visibility = "visible";
-  }, 4000);
+    setTimeout(() => {
+        document.querySelector(".navMain").style.visibility = "visible";
+    }, 4000);
 })
 
 //  new functionality for saving and loading presets
@@ -727,7 +756,7 @@ function savePreset() {
         countdown: document.getElementById('countdown').value,
         sound: document.getElementById('sound').value,
         musicUrl: document.getElementById('music-url').value,
-       
+
     };
 
     // Save to localStorage
