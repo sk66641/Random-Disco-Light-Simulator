@@ -254,6 +254,9 @@ function updateTimerDisplay() {
         }
 
         let randomcolor = getRandomColorBetween(color1, color2);
+        setInterval(() => {
+            randomcolor = getRandomColorBetween(color1, color2);
+        }, set_time);
 
         function numberColorsBetween(color1, color2, num) {
             let colors = `${getRandomColorBetween(color1, color2)}`;
