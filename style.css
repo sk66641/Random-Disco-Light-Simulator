@@ -1676,7 +1676,7 @@ button:hover {
   backdrop-filter: blur(5px);
 }
 
-.light-mode .popup-content {
+.dark-mode .popup-content {
   background-color: #120e0e;
   /* color: rgb(254, 254, 254); */
   margin: 10% auto;
@@ -1689,9 +1689,9 @@ button:hover {
   animation: slide-down 0.3s ease-out;
 }
 
-.light-mode .popup-content p,
-.light-mode .popup-content h2,
-.light-mode .popup-content h1 {
+.dark-mode .popup-content p,
+.dark-mode .popup-content h2,
+.dark-mode .popup-content h1 {
   color: #9ba2a8;
 }
 
@@ -1704,17 +1704,23 @@ button:hover {
   transition: color 0.3s;
 }
 
-.light-mode .close:hover,
-.light-mode .close:focus {
+.dark-mode .close {
+  color: rgba(239, 234, 234, 0.8);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close:hover, .close:focus {
   color: #aaa;
 }
 
 .nameAbout {
-  color: #333333;
   font-size: 30px;
 }
 
-#aboutPopup {
+#aboutPopup, #featuresPopup{
   display: none;
   position: fixed;
   z-index: 1000;
@@ -1722,11 +1728,11 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
-#aboutPopup .popup-content {
-  background-color: #fff;
+.popup-content {
+  /* background-color: #fff; */
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1737,29 +1743,27 @@ button:hover {
   animation: slide-down 0.3s ease-out;
 }
 
-#aboutPopup .popup-content h2 {
+.popup-content h2 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #333;
+  /* color: #333; */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#aboutPopup .popup-content p {
+  .popup-content p {
   font-size: 16px;
   line-height: 1.6;
-  color: #555;
+  /* color: #555; */
   margin-bottom: 15px;
 }
-
-#aboutPopup .popup-content p strong {
+ .popup-content p strong {
   font-weight: bold;
-  color: #080505;
+  /* color: #080505; */
   font-size: 25px;
   display: block;
 }
-
-#aboutPopup .popup-content ul {
+ .popup-content ul {
   list-style-type: disc;
   margin-left: 40px;
   padding-left: 0;
