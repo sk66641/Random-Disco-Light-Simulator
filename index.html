@@ -256,51 +256,47 @@
       <span class="slider" style="width: 40px; height: 20px;"></span>
     </label>
 
-    <!-- Comment form -->
-
     <!-- Modal background -->
-    <div id="modalBackground">
-      <!-- Comment form -->
-      <div id="commentForm">
-        <form id="feedback-form">
-          <label for="userComment" style="text-align: center; color:rgb(95, 104, 104)"> Feedback Form</label>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fas fa-user" style="color: #7a7a73;"> n a m e</i>
-
+    <div id="modalBackground" style="color: #fff;">
+      <div class="login-box">
+        <form style="color: #fff;">
+          <div class="user-box" style="color: #fff;">
+            <input type="text" name="name" required="" onfocus="changeColor()" id="name" style="color: #fff;">
+            <label>Name</label>
+          </div>
+          <div class="user-box">
+            <input type="email" required onfocus="changeColor()" id="email">
+            <label>Mail</label>
+          </div>
+          <center>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5">5 stars</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4">4 stars</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3">3 stars</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2">2 stars</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1">1 star</label>
             </div>
-            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
-          </div>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fas fa-envelope" style="color: #7a7a73;"> m a i l</i>
+            <div class="form-group">
+              <p>Feedback</p>
+              <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
             </div>
-            <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
-          </div>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fa-solid fa-comment" style="color:#7a7a73;"> f e e d b a c k</i>
-            </div>
-            <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
-          </div>
-          <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5">5 stars</label>
-            <input type="radio" id="star4" name="rating" value="4" />
-            <label for="star4">4 stars</label>
-            <input type="radio" id="star3" name="rating" value="3" />
-            <label for="star3">3 stars</label>
-            <input type="radio" id="star2" name="rating" value="2" />
-            <label for="star2">2 stars</label>
-            <input type="radio" id="star1" name="rating" value="1" />
-            <label for="star1">1 star</label>
-          </div>
-          <button id="ll">Submit</button>
+            <button id="ll" class="btnna">Submit</button>
+             <span></span>
+          </center>
         </form>
-        <div id="successMessage" class="success-message">Your feedback is submitted successfully</div>
-      </div>
+        <center>
+          <div class="loader" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
+            <div data-glitch="Loading..." class="glitch">Submitting...</div>
+          </div>
+        </center>
+      </div>    
     </div>
-
+    
 
     <script>
       document.getElementById("CommentBtn").addEventListener("click", function () {
@@ -313,7 +309,7 @@
         }
       });
 
-      document.getElementById("feedback-form").addEventListener("submit", function (event) {
+      document.querySelector("form").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
         // Show success message
@@ -324,11 +320,22 @@
           document.getElementById("successMessage").style.display = "none";
         }, 3000);
 
-        document.getElementById("feedback-form").reset();
+        setTimeout(()=>{
+          document.querySelector("form").reset();
+          alert("Form Submitted Successfully");
+        } , 3000)
+        setTimeout(()=>{
+          location.reload();
+        } , 5000)
       });
     </script>
-
-
+    <style>
+      .loader{
+        display: flex;
+        position: relative;
+        right: 70px;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
     <script src="script.js"></script>
@@ -440,6 +447,15 @@
     </div>
   </div>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    btnn = document.querySelector(".btnna");
+    loader = document.querySelector(".loader");
+    page = document.querySelector('.pg');
+    btnn.addEventListener("click", ()=>{
+      btnn.style.display = "none";
+      loader.style.display = 1;
+    })
+  </script>
 </body>
 
 </html>

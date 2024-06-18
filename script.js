@@ -665,8 +665,8 @@ window.addEventListener('load', () => {
 })
 
 function changeColor() {
-    document.getElementById('name').style.color = "black";
-    document.getElementById('email').style.color = "black";
+    document.getElementById('name').style.color = "#fff";
+    document.getElementById('email').style.color = "#fff";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
