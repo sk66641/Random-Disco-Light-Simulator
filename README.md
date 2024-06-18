@@ -40,6 +40,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 ## Overview⭐
 
 ## Live Project -- [https://sk66641.github.io/Random-Disco-Light-Simulator/](https://sk66641.github.io/Random-Disco-Light-Simulator/)
+**Click on "Randomize" button to fill the required fields randomly and then press "submit".**
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
