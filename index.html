@@ -31,6 +31,9 @@
   <div class="navHeader">
     <div class="header-content">
       <nav>
+        <button id="muteBtn" class="mute-btn" style="display: none;">
+          <i id="muteIcon" class="fas fa-volume-up"></i>
+        </button>
         <ul class="sidebarOne">
           <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
           <li class="logo"><img src="assets/images/logo/logo..png" alt="Website Logo"></li>
@@ -66,6 +69,7 @@
   </div>
 
   <div class="unload">
+    <div class="cursor"></div>
     <div class="container">
 
       <!-- <div class="background">
@@ -149,11 +153,9 @@
             <option value="snare">Snare</option>
           </select>
           <span style="font-size: 24px; color: #f09819;">or</span>
-
-
-
           <input type="url" id="music-url" placeholder="Paste link here" /><br>
           <span style="font-size: 24px; color: #f09819;">or</span>
+          
           <input type="file" id="music-file" accept="audio/*" class="file-input" />
           
           <span style="font-size: 24px; color: #f09819;">or</span>
@@ -181,7 +183,8 @@
         }
     </script>
         </div>
-
+        
+        <div id="error" aria-live="polite"></div>
         <div style="display: flex; justify-content: center; align-items: center;">
           <div id="randomize" aria-label="Randomize">
             <a href="#">
@@ -212,7 +215,11 @@
             </a></div>
         </div>
 
-        <div id="error" aria-live="polite"></div>
+        <div id="preset">
+          <button id="savePresetButton">Save Preset</button> <!-- new function for loading preset -->
+          <button id="loadPresetButton">Load Preset</button>
+        </div>
+
       </div>
     </div>
 
@@ -316,38 +323,38 @@
           </div>
           <button id="ll">Submit</button>
         </form>
+        <div id="successMessage" class="success-message">Your feedback is submitted successfully</div>
       </div>
     </div>
+
 
     <script>
       document.getElementById("CommentBtn").addEventListener("click", function () {
         document.getElementById("modalBackground").style.display = "flex";
       });
 
-      // Close the form when clicking outside of it (optional)
       document.getElementById("modalBackground").addEventListener("click", function (event) {
         if (event.target === this) {
           this.style.display = "none";
         }
       });
-      let commentForm = document.getElementById("commentForm");
-      let modalBackground = document.getElementById("modalBackground");
 
-      document.getElementById("CommentBtn").addEventListener("click", function (event) {
-        if (commentForm.style.display === "none") {
-          commentForm.style.display = "block";
-          modalBackground.style.display = "flex";
-        } else {
-          commentForm.style.display = "none";
-          modalBackground.style.display = "none";
-        }
-      });
+      document.getElementById("feedback-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
 
-      document.getElementById("ll").addEventListener("click", function (event) {
-        commentForm.style.display = "none";
-        modalBackground.style.display = "none";
+        // Show success message
+        document.getElementById("successMessage").style.display = "block";
+
+        // Hide success message after 3 seconds (3000 milliseconds)
+        setTimeout(function () {
+          document.getElementById("successMessage").style.display = "none";
+        }, 3000);
+
+        document.getElementById("feedback-form").reset();
       });
     </script>
+
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
     <script src="script.js"></script>
@@ -370,13 +377,15 @@
       <span class="close" id="closeModal1">&times;</span>
       <h2>Important!!</h2>
       <p>
-        Click the menu icon to enable various functions:
+        <strong>Click the menu icon to use various functions:</strong>
       </p>
 
-      <p>Reload:Refreshes the page.</p>
-      <p>Pause:Pauses the current activity.</p>
-      <p>Fullscreen:Toggles fullscreen mode.</p>
-      <p>Change Music:Allows you to change the background music.</p>
+      <p>Reload: Refreshes the page.</p>
+      <p>Pause: Pauses the simulation.</p>
+      <p>Fullscreen: Toggles fullscreen mode.</p>
+      <p>Change Music: Allows you to change the background music.</p>
+      <p><strong><i>Double click on the screen to hide/show the icons</i></strong></p>
+      
 
       <button id="proceed1" aria-label="Proceed">Proceed</button>
     </div>
@@ -426,10 +435,9 @@
   <div id="featuresPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-      <h2>Features</h2>
+      <h2><strong class="nameAbout">Features</strong></h2>
 
-      <h1>Conic Mode</h1>
-      <p>
+      <p><strong>Conic Mode</strong> 
         Imagine a spotlight sweeping across the room, creating vibrant cones
         of light. The colors change dynamically as the spotlight moves, adding
         an electrifying effect.
@@ -437,8 +445,7 @@
       <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
       <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
 
-      <h1>Radial Mode</h1>
-      <p>
+      <p><strong>Radial Mode</strong> 
         Picture a pulsating ring of light expanding and contracting. The
         radial pattern syncs perfectly with the beat, making you feel the
         rhythm.
@@ -446,8 +453,7 @@
       <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
       <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
 
-      <h1>Linear Mode</h1>
-      <p>
+      <p><strong>Linear Mode</strong> 
         Visualize colorful streaks of light moving in straight lines. These
         streaks crisscross, intersect, and dance across the floor,
         transforming your space into a dynamic disco.
@@ -456,7 +462,6 @@
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
   </div>
-
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
