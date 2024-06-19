@@ -728,7 +728,7 @@ function toggleSidebar() {
     }
 }
 
-document.querySelector('.cross').addEventListener('click', function () {
+document.querySelector('.cross').addEventListener('click', ()=> {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
