@@ -162,24 +162,7 @@
           <br><br>
           <iframe id="videoPlayer" allow="autoplay"></iframe>
 
-          <script>
-            function playYouTubeAudio() {
-            var url = document.getElementById('youtubeUrlInput').value;  /* Taking youtube url*/
-            var videoId = extractVideoId(url);   /*Verified youtube url*/
-            if (videoId) {
-                var iframe = document.getElementById('videoPlayer');
-                iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
-            } else {
-                alert('Invalid YouTube URL');
-            }
-        }
-
-        function extractVideoId(url) {
-            var regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-            var match = url.match(regex);
-            return match ? match[1] : null;
-        }
-    </script>
+     
         </div>
 
         <div style="display: flex; justify-content: center; align-items: center;">

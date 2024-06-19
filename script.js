@@ -117,6 +117,8 @@ function updateTimerDisplay() {
         // Get selected audio file or URL
         let selectedFile = document.getElementById("music-file").files[0];
         let selectedUrl = document.getElementById("music-url").value;
+        let youtubeUrl=document.getElementById("youtubeUrlInput").value;
+        
 
 
         if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl)) {
@@ -157,6 +159,7 @@ function updateTimerDisplay() {
                 musicAudio = audio;
             }
             else {
+                
                 let selectedAudio;
                 if (selectedFile) {
                     // User selected a file
@@ -170,10 +173,25 @@ function updateTimerDisplay() {
                         console.error("Error loading audio from URL:", e);
                     });
                 }
+                else if(youtubeUrl){
+                    let videoId=extractVideoId(youtubeUrl);
+                    if (videoId) {
+                        var iframe = document.getElementById('videoPlayer');
+                        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+                    } else {
+                        alert('Invalid YouTube URL');
+                    }
+                }
                 // Initialize selectedAudio variable
                 selectedAudio.loop = true;
                 selectedAudio.play();
                 musicAudio = selectedAudio;
+            }
+            /*Music url youtube*/
+            function extractVideoId(url) {
+                var regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+                var match = url.match(regex);
+                return match ? match[1] : null;
             }
 
         } else {
