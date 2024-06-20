@@ -14,8 +14,6 @@
 </head>
 
 <body>
-  <div id="google_translate_element" style = "display: none"> 
-  </div>
   <div class="loader">
     <div>
       <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -45,6 +43,8 @@
           <li><a href="./about.html">About</a></li>
           <li><a href="./features.html">Features</a></li>
           <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+          <li><a href="#" id="google_translate_element"></a></li>
 
           <li> <a href="#">
               <select id="musicDropdown" style="display: none;">
@@ -440,13 +440,10 @@
   </div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
     }
 </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 

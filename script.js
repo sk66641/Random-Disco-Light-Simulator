@@ -654,7 +654,6 @@ function effect() {
     document.querySelector(".snowflakes").style.display = "block";
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "block";
-    document.getElementById('google_translate_element').style.display = 'block';
 }
 
 
