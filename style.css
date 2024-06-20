@@ -1204,6 +1204,7 @@ p {
   margin-bottom: 24px;
   color: #555;
 }
+/* josfoknfsonfonfsofnosfnsofnsofnsofj */
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -1682,7 +1683,7 @@ button:hover {
   backdrop-filter: blur(5px);
 }
 
-.dark-mode .popup-content {
+.light-mode .popup-content {
   background-color: #120e0e;
   /* color: rgb(254, 254, 254); */
   margin: 10% auto;
@@ -1695,9 +1696,9 @@ button:hover {
   animation: slide-down 0.3s ease-out;
 }
 
-.dark-mode .popup-content p,
-.dark-mode .popup-content h2,
-.dark-mode .popup-content h1 {
+.light-mode .popup-content p,
+.light-mode .popup-content h2,
+.light-mode .popup-content h1 {
   color: #9ba2a8;
 }
 
@@ -1710,23 +1711,17 @@ button:hover {
   transition: color 0.3s;
 }
 
-.dark-mode .close {
-  color: rgba(239, 234, 234, 0.8);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.close:hover, .close:focus {
+.light-mode .close:hover,
+.light-mode .close:focus {
   color: #aaa;
 }
 
 .nameAbout {
+  color: #333333;
   font-size: 30px;
 }
 
-#aboutPopup, #featuresPopup{
+#aboutPopup {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -1734,11 +1729,11 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.popup-content {
-  /* background-color: #fff; */
+#aboutPopup .popup-content {
+  background-color: #fff;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1749,27 +1744,29 @@ button:hover {
   animation: slide-down 0.3s ease-out;
 }
 
-.popup-content h2 {
+#aboutPopup .popup-content h2 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
-  /* color: #333; */
+  color: #333;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-  .popup-content p {
+#aboutPopup .popup-content p {
   font-size: 16px;
   line-height: 1.6;
-  /* color: #555; */
+  color: #555;
   margin-bottom: 15px;
 }
- .popup-content p strong {
+
+#aboutPopup .popup-content p strong {
   font-weight: bold;
-  /* color: #080505; */
+  color: #080505;
   font-size: 25px;
   display: block;
 }
- .popup-content ul {
+
+#aboutPopup .popup-content ul {
   list-style-type: disc;
   margin-left: 40px;
   padding-left: 0;
@@ -2079,214 +2076,6 @@ button:active {
   justify-content: center;
   gap: 20px;
 }
-#savePresetButton,#savePresetButton::after {
-  padding: 10px 50px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: transparent;
-  position: relative;
-  border: 2px solid #ccc;
-}
-
-#savePresetButton::after {
-  --move1: inset(50% 50% 50% 50%);
-  --move2: inset(31% 0 40% 0);
-  --move3: inset(39% 0 15% 0);
-  --move4: inset(45% 0 40% 0);
-  --move5: inset(45% 0 6% 0);
-  --move6: inset(14% 0 61% 0);
-  clip-path: var(--move1);
-  content: 'GLITCH';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-}
-
-#savePresetButton:hover::after {
-  animation: glitch_4011 1s;
-  text-shadow: 10 10px 10px black;
-  animation-timing-function: steps(2, end);
-  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
-  background-color: transparent;
-  border: 3px solid rgb(0, 255, 213);
-}
-
-#savePresetButton:hover {
-  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
-}
-
-#savePresetButton:hover {
-  background-color: transparent;
-  border: 1px solid rgb(0, 255, 213);
-  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
-}
-
-@keyframes glitch_4011 {
-  0% {
-    clip-path: var(--move1);
-    transform: translate(0px,-10px);
-  }
-
-  10% {
-    clip-path: var(--move2);
-    transform: translate(-10px,10px);
-  }
-
-  20% {
-    clip-path: var(--move3);
-    transform: translate(10px,0px);
-  }
-
-  30% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  40% {
-    clip-path: var(--move5);
-    transform: translate(10px,-10px);
-  }
-
-  50% {
-    clip-path: var(--move6);
-    transform: translate(-10px,10px);
-  }
-
-  60% {
-    clip-path: var(--move1);
-    transform: translate(10px,-10px);
-  }
-
-  70% {
-    clip-path: var(--move3);
-    transform: translate(-10px,10px);
-  }
-
-  80% {
-    clip-path: var(--move2);
-    transform: translate(10px,-10px);
-  }
-
-  90% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  100% {
-    clip-path: var(--move1);
-    transform: translate(0);
-  }
-}
-
-
-#loadPresetButton,#loadPresetButton::after {
-  padding: 10px 50px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: transparent;
-  position: relative;
-  border: 2px solid #ccc;
-}
-
-#loadPresetButton::after {
-  --move1: inset(50% 50% 50% 50%);
-  --move2: inset(31% 0 40% 0);
-  --move3: inset(39% 0 15% 0);
-  --move4: inset(45% 0 40% 0);
-  --move5: inset(45% 0 6% 0);
-  --move6: inset(14% 0 61% 0);
-  clip-path: var(--move1);
-  content: 'GLITCH';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-}
-
-#loadPresetButton:hover::after {
-  animation: glitch_4011 1s;
-  text-shadow: 10 10px 10px black;
-  animation-timing-function: steps(2, end);
-  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
-  background-color: transparent;
-  border: 3px solid rgb(0, 255, 213);
-}
-
-#loadPresetButton:hover {
-  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
-}
-
-#loadPresetButton:hover {
-  background-color: transparent;
-  border: 1px solid rgb(0, 255, 213);
-  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
-}
-
-@keyframes glitch_4011 {
-  0% {
-    clip-path: var(--move1);
-    transform: translate(0px,-10px);
-  }
-
-  10% {
-    clip-path: var(--move2);
-    transform: translate(-10px,10px);
-  }
-
-  20% {
-    clip-path: var(--move3);
-    transform: translate(10px,0px);
-  }
-
-  30% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  40% {
-    clip-path: var(--move5);
-    transform: translate(10px,-10px);
-  }
-
-  50% {
-    clip-path: var(--move6);
-    transform: translate(-10px,10px);
-  }
-
-  60% {
-    clip-path: var(--move1);
-    transform: translate(10px,-10px);
-  }
-
-  70% {
-    clip-path: var(--move3);
-    transform: translate(-10px,10px);
-  }
-
-  80% {
-    clip-path: var(--move2);
-    transform: translate(10px,-10px);
-  }
-
-  90% {
-    clip-path: var(--move4);
-    transform: translate(-10px,10px);
-  }
-
-  100% {
-    clip-path: var(--move1);
-    transform: translate(0);
-  }
-}
 
 .login-box {
   position: absolute;
@@ -2477,45 +2266,4 @@ button:active {
   71% {
     transform: skewX(10deg) skewY(-10deg);
   }
-=======
-.cursor{
-  z-index: 999;
-  position: fixed;
-  background: #2696E8;
-  width: 20px;
-  height: 20px;
-  border-radius: 50px;
-  pointer-events: none;
-  box-shadow: 0 0 20px #2696E8,
-              0 0 60px #2696E8,
-              0 0 60px #2696E8;
-  animation: colors 5s infinite;
-  transform: translate(-50%,-50%);
-  display: none;
-
-}
-@keyframes colors {
-  0%{
-      filter:hue-rotate(0deg);
-  }
-  100%{
-      filter: hue-rotate(360deg);
-  }
-  
-}
-.cursor:before{
-  content: '';
-  position: absolute;
-  background: #2696E8;
-  width: 50px;
-  height: 50px;
-  opacity: 0.2;
-  transform: translate(-30%,-30%);
-  border-radius: 50%;
-}
-
-#preset{
-  display: flex;
-  justify-content: center;
-  gap: 20px;
 }
