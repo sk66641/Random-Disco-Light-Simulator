@@ -2195,7 +2195,6 @@ button:active {
   left: 0;
   opacity: 0.8;
 }
-
 .glitch:before {
   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
   color: #8b00ff;
@@ -2267,3 +2266,9 @@ button:active {
     transform: skewX(10deg) skewY(-10deg);
   }
 }
+#preset{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+

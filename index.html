@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
   <div class="loader">
     <div>
       <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -36,14 +35,16 @@
         </button>
         <ul class="sidebarOne">
           <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
-          <li class="logo"><img src="assets/images/logo/logo..png" alt="Website Logo"></li>
+          <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png" alt="Website Logo"></a></li>
           <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
           <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
           <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
           <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
-          <li><a href="#" onclick="showAboutPopup()">About</a></li>
-          <li><a href="#" onclick="showFeaturesPopup()">Features</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./features.html">Features</a></li>
           <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+          <li><a href="#" id="google_translate_element"></a></li>
 
           <li> <a href="#">
               <select id="musicDropdown" style="display: none;">
@@ -447,6 +448,12 @@
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
   </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
     document.addEventListener("ContentLoaded", ()=>{

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
         (function get_time(){
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease (in "Seconds")'));
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
             if (isNaN(add_time)) {
                 alert('Please enter a valid number!')
                 get_time();
@@ -636,6 +636,7 @@ document.getElementById('submit').addEventListener('click', function () {
 
         if (selectedMusic !== 'none') {
             const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
         }
@@ -727,7 +728,7 @@ function toggleSidebar() {
     }
 }
 
-document.querySelector('.cross').addEventListener('click', function () {
+document.querySelector('.cross').addEventListener('click', ()=> {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
