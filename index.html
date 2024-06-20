@@ -449,21 +449,25 @@
   </div>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
-    btnn = document.querySelector(".btnna");
-    loader = document.querySelector(".loader");
-    page = document.querySelector('.pg');
-    if(document.querySelector("#name").value.length > 0 && document.querySelector("#email").value.length > 0){
-      btnn.addEventListener("click", ()=>{
-        btnn.style.display = "none";
-        loader.style.display = 1;
-      })
-    }
-    else{
-      btnn.addEventListener("click", ()=>{
-        btnn.preventDefault();
-        loader.style.display = 1;
-      })
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+      const btnn = document.querySelector(".btnna");
+      const loader = document.querySelector(".loader");
+      btnn.addEventListener("click", function(event) {
+        const nameValue = document.querySelector("#name").value;
+        const emailValue = document.querySelector("#email").value;
+
+        if(nameValue.length > 0 && emailValue.length > 0) {
+          btnn.style.display = "none";
+          document.querySelector(".sidebarOne").style.display = 'none';
+          loader.style.display = "block";
+        }else {
+          event.preventDefault();
+          loader.style.display = "none";
+          alert("Please fill out both the name and email fields.");
+        }
+      });
+    });
+
   </script>
 </body>
 
