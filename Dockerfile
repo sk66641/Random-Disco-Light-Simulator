@@ -14,5 +14,5 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 #run this app you have to use 2 command 
-# 1. docker build -t your-image-name
+# 1. docker build -t your-image-name .
 # 2. docker run -d -p 3000:80 your-image-name
