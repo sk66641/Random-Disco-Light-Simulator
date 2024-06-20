@@ -283,7 +283,7 @@
             </div>
             <div class="form-group">
               <p>Feedback</p>
-              <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
+              <textarea cols="30" rows="5" placeholder="Your Feedback" required id="feed"></textarea>
             </div>
             <button id="ll" class="btnna">Submit</button>
              <span></span>
@@ -449,18 +449,24 @@
   </div>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("ContentLoaded", ()=>{
       const btnn = document.querySelector(".btnna");
       const loader = document.querySelector(".loader");
+      const feedb = document.querySelector("#feed");
       btnn.addEventListener("click", function(event) {
         const nameValue = document.querySelector("#name").value;
         const emailValue = document.querySelector("#email").value;
+        const feedb = document.querySelector("#feed").value;
 
-        if(nameValue.length > 0 && emailValue.length > 0) {
+        if(nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
           btnn.style.display = "none";
           document.querySelector(".sidebarOne").style.display = 'none';
           loader.style.display = "block";
-        }else {
+        }
+        else if(d){
+          
+        }
+        else {
           event.preventDefault();
           loader.style.display = "none";
           alert("Please fill out both the name and email fields.");
