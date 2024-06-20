@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
         (function get_time(){
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease (in "Seconds")'));
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
             if (isNaN(add_time)) {
                 alert('Please enter a valid number!')
                 get_time();
@@ -636,6 +636,7 @@ document.getElementById('submit').addEventListener('click', function () {
 
         if (selectedMusic !== 'none') {
             const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
         }
@@ -727,7 +728,7 @@ function toggleSidebar() {
     }
 }
 
-document.querySelector('.cross').addEventListener('click', function () {
+document.querySelector('.cross').addEventListener('click', ()=> {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
@@ -812,50 +813,6 @@ document.addEventListener("mousemove",(e)=>{
 document.addEventListener("mouseout",()=>{
     cursor.style.display = "none";
 });
-
-function changeToGif1() {
-    document.getElementById('image1').src = 'assets/images/learn/Conic_1.gif';
-}
-function changeToStatic1() {
-    document.getElementById('image1').src = 'assets/images/learn/Conic_1.PNG';
-}
-
-function changeToGif2() {
-    document.getElementById('image2').src = 'assets/images/learn/Conic_2.gif';
-}
-function changeToStatic2() {
-    document.getElementById('image2').src = 'assets/images/learn/Conic_2.PNG';
-}
-
-function changeToGif3() {
-    document.getElementById('image3').src = 'assets/images/learn/Radial_01.gif';
-}
-function changeToStatic3() {
-    document.getElementById('image3').src = 'assets/images/learn/Radial_01.jpg';
-}
-
-function changeToGif4() {
-    document.getElementById('image4').src = 'assets/images/learn/Radial_02.gif';
-}
-function changeToStatic4() {
-    document.getElementById('image4').src = 'assets/images/learn/Radial_02.jpg';
-}
-
-function changeToGif5() {
-    document.getElementById('image5').src = 'assets/images/learn/Linear_01.gif';
-}
-function changeToStatic5() {
-    document.getElementById('image5').src = 'assets/images/learn/Linear_01.jpg';
-}
-
-function changeToGif6() {
-    document.getElementById('image6').src = 'assets/images/learn/Linear_02.gif';
-}
-function changeToStatic6() {
-    document.getElementById('image6').src = 'assets/images/learn/Linear_02.jpg';
-}
-
-
 
 
 
