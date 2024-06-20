@@ -14,7 +14,8 @@
 </head>
 
 <body>
-
+  <div id="google_translate_element"> 
+  </div>
   <div class="loader">
     <div>
       <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -437,6 +438,14 @@
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
   </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
