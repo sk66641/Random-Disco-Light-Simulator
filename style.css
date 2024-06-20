@@ -2135,7 +2135,6 @@ button:active {
   text-align: center;
   font-size: 10px; /* Reduced font size */
   width: auto;
-  display : none;
 }
 
 /* Style the dropdown */
