@@ -654,7 +654,6 @@ function effect() {
     document.querySelector(".snowflakes").style.display = "block";
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "block";
-    document.getElementById('google_translate_element').style.display = 'block';
 }
 
 
@@ -667,8 +666,8 @@ window.addEventListener('load', () => {
 })
 
 function changeColor() {
-    document.getElementById('name').style.color = "black";
-    document.getElementById('email').style.color = "black";
+    document.getElementById('name').style.color = "#fff";
+    document.getElementById('email').style.color = "#fff";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -794,6 +793,7 @@ function loadPreset() {
 }
 document.getElementById('savePresetButton').addEventListener('click', savePreset);
 document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
+
 const cursor=document.querySelector(".cursor");
 var timeout;
 document.addEventListener("mousemove",(e)=>{
@@ -809,11 +809,16 @@ document.addEventListener("mousemove",(e)=>{
     }
     clearTimeout(timeout);
     timeout=setTimeout(mousestopped,1000);
-    
+
 });
 document.addEventListener("mouseout",()=>{
     cursor.style.display = "none";
 });
 
+document.querySelector('#ll').addEventListener("submit", (event) => {
+    if(document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
+        event.preventDefault();
+    }
+});
 
 
