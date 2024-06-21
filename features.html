@@ -161,12 +161,23 @@
     <script src="background.js"></script>
     <script src="script.js"></script>
     <script>
-        document.querySelector(".box").style.backgroundImage = "none";
+                document.querySelector(".box").style.backgroundImage = "none";
         document.querySelector(".navMain").style.visibility = "visible";
-        document.querySelector('.cross').addEventListener('click', () => {
-            document.querySelector('.sidebarOne').style.display = 'none'
+
+        // Function to close the sidebar
+        function closeSidebar() {
+            document.querySelector('.sidebarOne').style.display = 'none';
             document.querySelector(".navMain").style.display = "block";
-        })
+        }
+
+        // Close sidebar when the cross icon is clicked
+        document.querySelector('.cross').addEventListener('click', closeSidebar);
+
+        // Close sidebar when any sidebar navigation item is clicked
+        document.querySelectorAll('.sidebarOne li a').forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+
     </script>
 </body>
 
