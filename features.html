@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Random Disco Light Simulator</title>
+
+    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="snowflakes" style="display: block;">
+        <div id="particles-js"></div>
+    </div>
+    <div class="navHeader">
+        <div class="header-content">
+            <nav>
+                <button id="muteBtn" class="mute-btn" style="display: none;">
+                    <i id="muteIcon" class="fas fa-volume-up"></i>
+                </button>
+                <ul class="sidebarOne">
+                    <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
+                    <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png"
+                                alt="Website Logo"></a></li>
+                    <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
+                    <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
+                    <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
+                    <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./features.html">Features</a></li>
+                    <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+                    <li> <a href="#">
+                            <select id="musicDropdown" style="display: none;">
+                                <option value="select" disabled selected>Change Music</option>
+                                <option value="none">None</option>
+                                <option value="disco">Disco</option>
+                                <option value="fairies">Fairies</option>
+                                <option value="funky">Funky</option>
+                                <option value="upbeatdisco">upbeatdisco</option>
+                                <option value="vintage">Vintage</option>
+                                <option value="whistle">Whistle</option>
+                                <option value="snare">Snare</option>
+                            </select>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="navMain">
+                    <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="box" id="box">
+        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
+            Features
+        </h1>
+        <div class="aboutBox">
+            <div class="heading">Conic Mode</div>
+            <div class="desc">Imagine a spotlight sweeping across the room, creating vibrant cones of light. The colors
+                change dynamically as the spotlight moves, adding an electrifying effect.</div>
+            <div class="imageFeatures">
+                <img src="assets/images/learn/Conic_1.jpg" alt="Conic Example 1" height="400px" width="400px">
+                <img src="assets/images/learn/Conic_2.jpg" alt="Conic Example 2" height="400px" width="400px">
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Radial Mode</div>
+            <div class="desc">Picture a pulsating ring of light expanding and contracting. The radial pattern syncs
+                perfectly with the beat, making you feel the rhythm.</div>
+            <div class="imageFeatures">
+                <img src="assets/images/learn/Radial_01.jpg" alt="Radial Example 1" height="400px" width="400px">
+                <img src="assets/images/learn/Radial_02.jpg" alt="Radial Example 2" height="400px" width="400px">
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Linear Mode</div>
+            <div class="desc">Visualize colorful streaks of light moving in straight lines. These streaks crisscross,
+                intersect, and dance across the floor, transforming your space into a dynamic disco.</div>
+            <div class="imageFeatures">
+                <img src="assets/images/learn/Linear_01.jpg" alt="Linear Example 1" height="400px" width="400px">
+                <img src="assets/images/learn/Linear_02.jpg" alt="Linear Example 2" height="400px" width="400px">
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Interactive Controls</div>
+            <div class="desc">
+                Customize your experience with interactive controls. Set the number of colors, adjust the time interval
+                for color changes, choose your preferred view type, and set a countdown timer for the duration of the
+                simulation.
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Sound Effects</div>
+            <div class="desc">
+                Enhance your disco light show with synchronized sound effects. Choose from a variety of soundtracks to
+                match the vibe of your light display.
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Full Screen Mode</div>
+            <div class="desc">
+                Immerse yourself in the experience by toggling fullscreen mode. Enjoy an uninterrupted, full-screen
+                light show that fills your entire screen with vibrant colors and patterns.
+            </div>
+        </div>
+        <div class="aboutBox">
+            <div class="heading">Customizable Settings</div>
+            <div class="desc">
+                Experiment with different settings to create your own unique disco light show. Change the music, adjust
+                the visuals, and tweak the settings to find the perfect combination for your party or relaxation time.
+            </div>
+        </div>
+        <div class="desc" style="text-align: center; color: chocolate; font-weight: bold;">Experiment with different
+            settings and have fun creating your own disco light show! 😄</div>
+    </div>
+    <footer class="footer" style="width: 100%;height: 2px;">
+
+
+        <div class="socialIcons">
+            <span class="icons">
+                <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
+            </span>
+
+            <span class="icons">
+                <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
+                    <i class="fab fa-github ico"></i>
+                </a>
+            </span>
+
+            <span class="icons">
+                <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
+            </span>
+
+            <span class="icons">
+                <a href="" aria-label="Discord" title="discord"><i class="fa-brands fa-discord ico"></i></a>
+            </span>
+        </div>
+
+
+        <div class="copyright">
+            <p class="copyright" style="text-align: center">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights
+                reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.querySelector(".box").style.backgroundImage = "none";
+        document.querySelector(".navMain").style.visibility = "visible";
+        document.querySelector('.cross').addEventListener('click', () => {
+            document.querySelector('.sidebarOne').style.display = 'none'
+            document.querySelector(".navMain").style.display = "block";
+        })
+    </script>
+</body>
+
+</html>

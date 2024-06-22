@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
+
+
+
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
 
 
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
         (function get_time(){
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease (in "Seconds")'));
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
             if (isNaN(add_time)) {
                 alert('Please enter a valid number!')
                 get_time();
@@ -238,6 +241,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 var match = url.match(regex);
                 return match ? match[1] : null;
             }
+            document.body.style.cursor = 'pointer';
+            document.body.addEventListener('dblclick', () => {
+                if (document.querySelector(".navMain").style.display === "none") {
+                    document.querySelector(".navMain").style.display = "block"
+                    document.querySelector("#muteBtn").style.display = "block"
+                    document.querySelector("#timerDisplay").style.display = "block"
+                    document.querySelector(".sidebarOne").style.display = "none"
+                } else {
+                    document.querySelector(".navMain").style.display = "none"
+                    document.querySelector("#muteBtn").style.display = "none"
+                    document.querySelector("#timerDisplay").style.display = "none"
+                }
+            });
+
             document.body.style.cursor = 'pointer';
             document.body.addEventListener('dblclick', () => {
                 if (document.querySelector(".navMain").style.display === "none") {
@@ -654,6 +671,7 @@ document.getElementById('submit').addEventListener('click', function () {
 
         if (selectedMusic !== 'none') {
             const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
         }
@@ -683,8 +701,8 @@ window.addEventListener('load', () => {
 })
 
 function changeColor() {
-    document.getElementById('name').style.color = "black";
-    document.getElementById('email').style.color = "black";
+    document.getElementById('name').style.color = "#fff";
+    document.getElementById('email').style.color = "#fff";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -745,7 +763,7 @@ function toggleSidebar() {
     }
 }
 
-document.querySelector('.cross').addEventListener('click', function () {
+document.querySelector('.cross').addEventListener('click', ()=> {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
@@ -810,6 +828,7 @@ function loadPreset() {
 }
 document.getElementById('savePresetButton').addEventListener('click', savePreset);
 document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
+
 const cursor=document.querySelector(".cursor");
 var timeout;
 document.addEventListener("mousemove",(e)=>{
@@ -825,11 +844,16 @@ document.addEventListener("mousemove",(e)=>{
     }
     clearTimeout(timeout);
     timeout=setTimeout(mousestopped,1000);
-    
+
 });
 document.addEventListener("mouseout",()=>{
     cursor.style.display = "none";
 });
 
+document.querySelector('#ll').addEventListener("submit", (event) => {
+    if(document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
+        event.preventDefault();
+    }
+});
 
 
