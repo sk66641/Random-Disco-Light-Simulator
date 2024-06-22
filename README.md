@@ -40,6 +40,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 ## Overview⭐
 
 ## Live Project -- [https://sk66641.github.io/Random-Disco-Light-Simulator/](https://sk66641.github.io/Random-Disco-Light-Simulator/)
+**Click on "Randomize" button to fill the required fields randomly and then press "submit".**
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -127,7 +128,7 @@ Now, sit back, relax, and enjoy the dazzling display of lights as you experience
 ### Guidelines
 
 - Before creating an issue, use the search feature to check if a similar issue already exists.
-- Issues are assigned on the basis of “first come, first served.” Others get a chance if the issue gets stale and the assignee is inactive for 5+ days.
+- Issues are assigned on the basis of “first come, first served.” Others may get a chance if the issue gets stale and the assignee is inactive for over a week.
 - Do not create a Pull Request until the issue has been assigned to you.
 - Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
 `closes #123` `fixes #123` `resolves #123` `implements #123`

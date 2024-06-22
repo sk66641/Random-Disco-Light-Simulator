@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
+    const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
+
+
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -14,29 +17,67 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let countdownValue;
     let lightInterval;
-
+    let isMuted = false;
     // Event Listener for Add Time Button
-addTimeButton.addEventListener('click', () => {
-    addTime(15);
-});
+    addTimeButton.addEventListener('click', () => {
+        // used instantly invoked function expression
+        (function get_time(){
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease (in "Seconds")'));
+            if (isNaN(add_time)) {
+                alert('Please enter a valid number!')
+                get_time();
+            } else {
+                addTime(add_time);
+            }
+        })()
+    });
 
-// Function to add 15 seconds to the timer
-function addTime(seconds) {
-    countdownValue += seconds;
-    updateTimerDisplay();
-}
+    // Function to add 15 seconds to the timer
+    function addTime(seconds) {
+        countdownValue += Math.floor(seconds);
+        updateTimerDisplay();
+    }
 
-// Function to update the timer display
-function updateTimerDisplay() {
-    const minutes = Math.floor(countdownValue / 60);
-    const seconds = countdownValue % 60;
-    timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
+    // Function to update the timer display
+    function updateTimerDisplay() {
+        const minutes = Math.floor(countdownValue / 60);
+        // Math.floor to deal with float values
+        const seconds = Math.floor(countdownValue % 60);
+        timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
         run()
     });
+
+    muteButton.addEventListener('click', () => {
+        if (isMuted) {
+            unmuteAudio();
+            document.getElementById('musicDropdown').style.display = 'block';
+        } else {
+            muteAudio();
+            document.getElementById('musicDropdown').style.display = 'none';
+        }
+    });
+
+    function muteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = true;
+        }
+        isMuted = true;
+        muteIcon.classList.remove('fa-volume-up');
+        muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
+    }
+
+    function unmuteAudio() {
+        if (musicAudio) {
+            musicAudio.muted = false;
+        }
+        isMuted = false;
+        muteIcon.classList.remove('fa-volume-mute');
+        muteIcon.classList.add('fa-volume-up'); // FontAwesome icon classes for unmuted state
+    }
 
     resetButton.addEventListener('click', () => {
         document.getElementById('color').value = '';
@@ -71,6 +112,7 @@ function updateTimerDisplay() {
         timerInterval = setInterval(() => {
             if (!isPaused) {
                 let minutes = Math.floor(countdownValue / 60);
+                // Math.floor to deal with float values
                 let seconds = Math.floor(countdownValue % 60);
 
                 timerDisplay.textContent = `${pad(minutes)}:${pad(seconds)}`;
@@ -105,6 +147,7 @@ function updateTimerDisplay() {
     });
 
     function run() {
+        // after successful submission
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
@@ -151,6 +194,8 @@ function updateTimerDisplay() {
                 }
             }
 
+            muteButton.style.display = 'block'; // Show the mute button after successful submission 
+
             if (soundEffect !== 'none') {
 
                 const audio = document.getElementById(soundEffect);
@@ -193,24 +238,40 @@ function updateTimerDisplay() {
                 var match = url.match(regex);
                 return match ? match[1] : null;
             }
+            document.body.style.cursor = 'pointer';
+            document.body.addEventListener('dblclick', () => {
+                if (document.querySelector(".navMain").style.display === "none") {
+                    document.querySelector(".navMain").style.display = "block"
+                    document.querySelector("#muteBtn").style.display = "block"
+                    document.querySelector("#timerDisplay").style.display = "block"
+                    document.querySelector(".sidebarOne").style.display = "none"
+                } else {
+                    document.querySelector(".navMain").style.display = "none"
+                    document.querySelector("#muteBtn").style.display = "none"
+                    document.querySelector("#timerDisplay").style.display = "none"
+                }
+            });
+
 
         } else {
+            // after unsuccessful submission
             document.getElementById("error").style.color = "red";
             if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
-                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer.</strong>";
+                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer!</strong>";
             } else if (unit === "unit") {
-                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected!</strong>";
             } else if (view === "select") {
-                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected.</strong>";
+                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
             } else if (countdownValue <= 0) {
-                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero.</strong>";
+                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
-                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File</i></strong>";
+                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
 
             }
             return;
         }
     }
+
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
         const rgbColor1 = hexToRgb(color1);
@@ -240,6 +301,9 @@ function updateTimerDisplay() {
         }
 
         let randomcolor = getRandomColorBetween(color1, color2);
+        setInterval(() => {
+            randomcolor = getRandomColorBetween(color1, color2);
+        }, set_time);
 
         function numberColorsBetween(color1, color2, num) {
             let colors = `${getRandomColorBetween(color1, color2)}`;
@@ -352,28 +416,27 @@ function updateTimerDisplay() {
         // Update music dropdown
         musicSelect.value = soundSelect.value;
     });
-    let musicMuted = false; // Variable to track whether music is muted
+    // let musicMuted = false; // Variable to track whether music is muted
 
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        if (musicAudio) {
+        /* if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
         else {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
-
-        }
-        document.getElementById("musicDropdown").style.display = 'none';
-        pauseStartButton.textContent = 'Start';
+        } */
+        // document.getElementById("musicDropdown").style.display = 'none';
+        pauseStartButton.textContent = 'Resume';
         isPaused = true;
     }
 
     function resumeSimulation() {
         startCountdown(countdownValue);
-        if (musicAudio) {
+        /* if (musicAudio) {
             if (!musicMuted) {
                 musicAudio.play();
             }
@@ -382,8 +445,7 @@ function updateTimerDisplay() {
             if (!musicMuted) {
                 selectedAudio.play();
             }
-
-        }
+        } */
         startSimulation(
             document.getElementById("color").value,
             document.getElementById("time").value,
@@ -392,7 +454,7 @@ function updateTimerDisplay() {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        document.getElementById("musicDropdown").style.display = 'block';
+        // document.getElementById("musicDropdown").style.display = 'block';
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
@@ -572,9 +634,18 @@ function lightMode() {
     element.className = "light-mode";
 }
 
+// Define global variable to store reference to the currently playing audio
+let currentAudio;
+
+// Function to toggle mute/unmute for the currently playing audio
+function toggleMute() {
+    if (currentAudio) {
+        currentAudio.muted = !currentAudio.muted;
+        // Update mute button icon based on mute state if necessary
+    }
+}
+
 document.getElementById('submit').addEventListener('click', function () {
-
-
     document.getElementById('musicDropdown').addEventListener('change', function () {
         const selectedMusic = this.value;
         const audioElements = document.querySelectorAll('audio');
@@ -582,10 +653,18 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
-            document.getElementById(selectedMusic).play();
+            const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.play();
+            currentAudio = musicAudio; // Update currently playing audio reference
         }
     });
 });
+
+// Event listener for the mute button
+document.getElementById('muteBtn').addEventListener('click', function () {
+    toggleMute(); // Call toggleMute function to toggle mute/unmute
+});
+
 function effect() {
     loader.style.display = "none";
     document.querySelector(".unload").style.display = "block";
@@ -638,18 +717,119 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleSidebar() {
     var sidebar = document.querySelector('.sidebarOne');
     document.querySelector(".navMain").style.display = "none";
+
     if (sidebar.style.display === 'block') {
         sidebar.style.display = 'none';
+        sidebar.classList.remove('slide-in');
+        sidebar.classList.add('slide-out');
+
+        // Add reverse staggered animation for sidebar elements
+        const sidebarItems = document.querySelectorAll('.sidebarOne li');
+        sidebarItems.forEach((item, index) => {
+            item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
+            item.classList.remove('fade-in');
+            item.classList.add('fade-out');
+        });
     } else {
         sidebar.style.display = 'block';
+        sidebar.classList.remove('slide-out');
+        sidebar.classList.add('slide-in');
+
+        // Add staggered animation for sidebar elements
+        const sidebarItems = document.querySelectorAll('.sidebarOne li');
+        sidebarItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+            item.classList.remove('fade-out');
+            item.classList.add('fade-in');
+        });
     }
 }
+
 document.querySelector('.cross').addEventListener('click', function () {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
+
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.querySelector(".navMain").style.visibility = "visible";
     }, 4000);
 })
+
+//  new functionality for saving and loading presets
+function savePreset() {
+    const presetName = prompt("Enter a name for your preset:");
+    if (!presetName) {
+        alert('Please enter a valid name for your preset.');
+        return;
+    }
+
+    const presetData = {
+        color: document.getElementById('color').value,
+        color1: document.getElementById('color1').value,
+        color2: document.getElementById('color2').value,
+        time: document.getElementById('time').value,
+        unit: document.getElementById('unit').value,
+        view: document.getElementById('view').value,
+        countdown: document.getElementById('countdown').value,
+        sound: document.getElementById('sound').value,
+        musicUrl: document.getElementById('music-url').value,
+
+    };
+
+    // Save to localStorage
+    localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+    alert('Preset saved!');
+}
+
+
+function loadPreset() {
+    const presetName = prompt("Enter the name of the preset you'd like to load:");
+    if (!presetName) {
+        alert('Please enter the name of the preset.');
+        return;
+    }
+
+    const presetData = JSON.parse(localStorage.getItem(`preset-${presetName}`));
+    if (!presetData) {
+        alert('Preset not found!');
+        return;
+    }
+    document.getElementById('color').value = presetData.color;
+    document.getElementById('color1').value = presetData.color1;
+    document.getElementById('color2').value = presetData.color2;
+    document.getElementById('time').value = presetData.time;
+    document.getElementById('unit').value = presetData.unit;
+    document.getElementById('view').value = presetData.view;
+    document.getElementById('countdown').value = presetData.countdown;
+    document.getElementById('sound').value = presetData.sound;
+    document.getElementById('music-url').value = presetData.musicUrl || '';
+    // document.getElementById('music-file') cannot be set due to security reasons
+
+    alert('Preset loaded!');
+}
+document.getElementById('savePresetButton').addEventListener('click', savePreset);
+document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
+const cursor=document.querySelector(".cursor");
+var timeout;
+document.addEventListener("mousemove",(e)=>{
+    let x = e.pageX;
+    let y =e.pageY;
+
+    cursor.style.top = y+"px";
+    cursor.style.left = x+"px";
+    cursor.style.display = "block";
+
+    function mousestopped(){
+        cursor.style.display = "none";
+    }
+    clearTimeout(timeout);
+    timeout=setTimeout(mousestopped,1000);
+    
+});
+document.addEventListener("mouseout",()=>{
+    cursor.style.display = "none";
+});
+
+
+
