@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
   <div class="loader">
     <div>
       <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -36,14 +35,16 @@
         </button>
         <ul class="sidebarOne">
           <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
-          <li class="logo"><img src="assets/images/logo/logo..png" alt="Website Logo"></li>
+          <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png" alt="Website Logo"></a></li>
           <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
           <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
           <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
           <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
-          <li><a href="#" onclick="showAboutPopup()">About</a></li>
-          <li><a href="#" onclick="showFeaturesPopup()">Features</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./features.html">Features</a></li>
           <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+
+          <li><a href="#" id="google_translate_element"></a></li>
 
           <li> <a href="#">
               <select id="musicDropdown" style="display: none;">
@@ -282,51 +283,47 @@
       <span class="slider" style="width: 40px; height: 20px;"></span>
     </label>
 
-    <!-- Comment form -->
-
     <!-- Modal background -->
-    <div id="modalBackground">
-      <!-- Comment form -->
-      <div id="commentForm">
-        <form id="feedback-form">
-          <label for="userComment" style="text-align: center; color:rgb(95, 104, 104)"> Feedback Form</label>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fas fa-user" style="color: #7a7a73;"> n a m e</i>
-
+    <div id="modalBackground" style="color: #fff;">
+      <div class="login-box">
+        <form style="color: #fff;">
+          <div class="user-box" style="color: #fff;">
+            <input type="text" name="name" required="" onfocus="changeColor()" id="name" style="color: #fff;">
+            <label>Name</label>
+          </div>
+          <div class="user-box">
+            <input type="email" required onfocus="changeColor()" id="email">
+            <label>Mail</label>
+          </div>
+          <center>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5">5 stars</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4">4 stars</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3">3 stars</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2">2 stars</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1">1 star</label>
             </div>
-            <input type="text" id="name" onfocus="changeColor()" placeholder="Your Name" name="name" required>
-          </div>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fas fa-envelope" style="color: #7a7a73;"> m a i l</i>
+            <div class="form-group">
+              <p>Feedback</p>
+              <textarea cols="30" rows="5" placeholder="Your Feedback" required id="feed"></textarea>
             </div>
-            <input type="email" id="email" onfocus="changeColor()" placeholder="Email Id" required>
-          </div>
-          <div class="form-group">
-            <div class="icon">
-              <i class="fa-solid fa-comment" style="color:#7a7a73;"> f e e d b a c k</i>
-            </div>
-            <textarea cols="30" rows="5" placeholder="Your Feedback" required></textarea>
-          </div>
-          <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5">5 stars</label>
-            <input type="radio" id="star4" name="rating" value="4" />
-            <label for="star4">4 stars</label>
-            <input type="radio" id="star3" name="rating" value="3" />
-            <label for="star3">3 stars</label>
-            <input type="radio" id="star2" name="rating" value="2" />
-            <label for="star2">2 stars</label>
-            <input type="radio" id="star1" name="rating" value="1" />
-            <label for="star1">1 star</label>
-          </div>
-          <button id="ll">Submit</button>
+            <button id="ll" class="btnna">Submit</button>
+             <span></span>
+          </center>
         </form>
-        <div id="successMessage" class="success-message">Your feedback is submitted successfully</div>
-      </div>
+        <center>
+          <div class="loader" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
+            <div data-glitch="Loading..." class="glitch">Submitting...</div>
+          </div>
+        </center>
+      </div>    
     </div>
-
+    
 
     <script>
       document.getElementById("CommentBtn").addEventListener("click", function () {
@@ -339,7 +336,7 @@
         }
       });
 
-      document.getElementById("feedback-form").addEventListener("submit", function (event) {
+      document.querySelector("form").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
         // Show success message
@@ -350,11 +347,16 @@
           document.getElementById("successMessage").style.display = "none";
         }, 3000);
 
-        document.getElementById("feedback-form").reset();
+        setTimeout(()=>{
+          document.querySelector("form").reset();
+          alert("Form Submitted Successfully");
+        } , 3000)
+        setTimeout(()=>{
+          location.reload();
+        } , 5000)
       });
+
     </script>
-
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="background.js"></script>
     <script src="script.js"></script>
@@ -435,9 +437,10 @@
   <div id="featuresPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-      <h2><strong class="nameAbout">Features</strong></h2>
+      <h2>Features</h2>
 
-      <p><strong>Conic Mode</strong> 
+      <h1>Conic Mode</h1>
+      <p>
         Imagine a spotlight sweeping across the room, creating vibrant cones
         of light. The colors change dynamically as the spotlight moves, adding
         an electrifying effect.
@@ -445,7 +448,8 @@
       <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
       <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
 
-      <p><strong>Radial Mode</strong> 
+      <h1>Radial Mode</h1>
+      <p>
         Picture a pulsating ring of light expanding and contracting. The
         radial pattern syncs perfectly with the beat, making you feel the
         rhythm.
@@ -453,7 +457,8 @@
       <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
       <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
 
-      <p><strong>Linear Mode</strong> 
+      <h1>Linear Mode</h1>
+      <p>
         Visualize colorful streaks of light moving in straight lines. These
         streaks crisscross, intersect, and dance across the floor,
         transforming your space into a dynamic disco.
@@ -462,7 +467,40 @@
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
   </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    document.addEventListener("ContentLoaded", ()=>{
+      const btnn = document.querySelector(".btnna");
+      const loader = document.querySelector(".loader");
+      const feedb = document.querySelector("#feed");
+      btnn.addEventListener("click", function(event) {
+        const nameValue = document.querySelector("#name").value;
+        const emailValue = document.querySelector("#email").value;
+        const feedb = document.querySelector("#feed").value;
+
+        if(nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
+          btnn.style.display = "none";
+          document.querySelector(".sidebarOne").style.display = 'none';
+          loader.style.display = "block";
+        }
+        else if(d){
+          
+        }
+        else {
+          event.preventDefault();
+          loader.style.display = "none";
+          alert("Please fill out both the name and email fields.");
+        }
+      });
+    });
+
+  </script>
 </body>
 
 </html>
