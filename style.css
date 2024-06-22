@@ -17,7 +17,49 @@ body {
   -moz-user-select: none;     
   -ms-user-select: none;      
   user-select: none; 
+  overflow: scroll;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden;
+
 }
+
+
+.light-mode::-webkit-scrollbar-track {
+  background:black;
+  background: linear-gradient(180deg, rgba(148,1,1,1) 0%, rgba(196,171,3,1) 20%, rgba(44,179,2,1) 40%, rgba(7,200,136,1) 60%, rgba(31,5,148,1) 80%, rgba(255,0,0,1) 100%);
+}
+
+.light-mode::-webkit-scrollbar-thumb {
+  background-color: black;
+  opacity:0.7; /* Semi-transparent thumb */
+ 
+  border-radius: 3px;
+  
+}
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  margin-top: 100px;
+  margin-bottom:100px;
+
+ 
+ 
+}
+
+::-webkit-scrollbar-track {
+  background:black;
+  background: linear-gradient(180deg, rgba(148,1,1,1) 0%, rgba(196,171,3,1) 20%, rgba(44,179,2,1) 40%, rgba(7,200,136,1) 60%, rgba(31,5,148,1) 80%, rgba(255,0,0,1) 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  opacity:0.7; /* Semi-transparent thumb */
+ 
+  border-radius: 3px;
+  
+}
+
+
+
 
 .unload {
   display: none;
@@ -45,9 +87,7 @@ body {
   color: black;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+
 
 .background {
   width: 430px;
