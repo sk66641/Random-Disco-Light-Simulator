@@ -810,9 +810,9 @@ nav ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 400px) {
   * {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   h1 {
@@ -836,7 +836,7 @@ nav ul li a:hover {
   .box {
     padding: 10px 15px;
     margin: auto;
-    width: 250px;
+    width: auto;
     height: auto;
     margin-top: 50px;
 
