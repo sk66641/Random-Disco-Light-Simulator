@@ -554,7 +554,7 @@ window.onload = function () {
     }
 };
 
-function showAboutPopup() {
+/* function showAboutPopup() {
     document.getElementById("aboutPopup").style.display = "block";
 }
 
@@ -568,7 +568,7 @@ function showFeaturesPopup() {
 
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
-}
+} */
 
 //Toggle function that is affected by the slider box
 // Check if there's a theme preference stored in localStorage
@@ -821,3 +821,71 @@ document.querySelector('#ll').addEventListener("submit", (event) => {
     }
 });
 
+// feedback 
+document.getElementById("CommentBtn").addEventListener("click", function () {
+  document.getElementById("modalBackground").style.display = "flex";
+});
+
+document.getElementById("modalBackground").addEventListener("click", function (event) {
+  if (event.target === this) {
+    this.style.display = "none";
+  }
+});
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Show success message
+  document.getElementById("successMessage").style.display = "block";
+
+  // Hide success message after 3 seconds (3000 milliseconds)
+  setTimeout(function () {
+    document.getElementById("successMessage").style.display = "none";
+  }, 3000);
+
+  setTimeout(() => {
+    document.querySelector("form").reset();
+    alert("Form Submitted Successfully");
+  }, 3000)
+  setTimeout(() => {
+    location.reload();
+  }, 5000)
+});
+
+// Function to close the sidebar
+function closeSidebar() {
+  document.querySelector('.sidebarOne').style.display = 'none';
+  document.querySelector(".navMain").style.display = "block";
+}
+
+// Close sidebar when the cross icon is clicked
+document.querySelector('.cross').addEventListener('click', closeSidebar);
+
+// Close sidebar when any sidebar navigation item is clicked
+document.querySelectorAll('.sidebarOne li a').forEach(item => {
+  item.addEventListener('click', closeSidebar);
+});
+document.addEventListener("ContentLoaded", () => {
+  const btnn = document.querySelector(".btnna");
+  const loader = document.querySelector(".loader");
+  const feedb = document.querySelector("#feed");
+  btnn.addEventListener("click", function (event) {
+    const nameValue = document.querySelector("#name").value;
+    const emailValue = document.querySelector("#email").value;
+    const feedb = document.querySelector("#feed").value;
+
+    if (nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
+      btnn.style.display = "none";
+      document.querySelector(".sidebarOne").style.display = 'none';
+      loader.style.display = "block";
+    }
+    else if (d) {
+
+    }
+    else {
+      event.preventDefault();
+      loader.style.display = "none";
+      alert("Please fill out both the name and email fields.");
+    }
+  });
+});
