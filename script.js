@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listener for Add Time Button
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
-        (function get_time(){
+        (function get_time() {
             const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
             if (isNaN(add_time)) {
                 alert('Please enter a valid number!')
@@ -554,7 +554,7 @@ window.onload = function () {
     }
 };
 
-function showAboutPopup() {
+/* function showAboutPopup() {
     document.getElementById("aboutPopup").style.display = "block";
 }
 
@@ -568,7 +568,7 @@ function showFeaturesPopup() {
 
 function closeFeaturesPopup() {
     document.getElementById('featuresPopup').style.display = 'none';
-}
+} */
 
 //Toggle function that is affected by the slider box
 // Check if there's a theme preference stored in localStorage
@@ -728,7 +728,7 @@ function toggleSidebar() {
     }
 }
 
-document.querySelector('.cross').addEventListener('click', ()=> {
+document.querySelector('.cross').addEventListener('click', () => {
     document.querySelector('.sidebarOne').style.display = 'none'
     document.querySelector(".navMain").style.display = "block";
 })
@@ -794,30 +794,140 @@ function loadPreset() {
 document.getElementById('savePresetButton').addEventListener('click', savePreset);
 document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
 
-const cursor=document.querySelector(".cursor");
+const cursor = document.querySelector(".cursor");
 var timeout;
-document.addEventListener("mousemove",(e)=>{
+document.addEventListener("mousemove", (e) => {
     let x = e.pageX;
-    let y =e.pageY;
+    let y = e.pageY;
 
-    cursor.style.top = y+"px";
-    cursor.style.left = x+"px";
+    cursor.style.top = y + "px";
+    cursor.style.left = x + "px";
     cursor.style.display = "block";
 
-    function mousestopped(){
+    function mousestopped() {
         cursor.style.display = "none";
     }
     clearTimeout(timeout);
-    timeout=setTimeout(mousestopped,1000);
+    timeout = setTimeout(mousestopped, 1000);
 
 });
-document.addEventListener("mouseout",()=>{
+document.addEventListener("mouseout", () => {
     cursor.style.display = "none";
 });
 
 document.querySelector('#ll').addEventListener("submit", (event) => {
-    if(document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
+    if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
         event.preventDefault();
     }
 });
 
+// feedback 
+document.getElementById("CommentBtn").addEventListener("click", function () {
+    document.getElementById("modalBackground").style.display = "flex";
+});
+
+document.getElementById("modalBackground").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.style.display = "none";
+    }
+});
+
+document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Show success message
+    document.getElementById("successMessage").style.display = "block";
+
+    // Hide success message after 3 seconds (3000 milliseconds)
+    setTimeout(function () {
+        document.getElementById("successMessage").style.display = "none";
+    }, 3000);
+
+    setTimeout(() => {
+        document.querySelector("form").reset();
+        alert("Form Submitted Successfully");
+    }, 3000)
+    setTimeout(() => {
+        location.reload();
+    }, 5000)
+});
+
+// Function to close the sidebar
+function closeSidebar() {
+    document.querySelector('.sidebarOne').style.display = 'none';
+    document.querySelector(".navMain").style.display = "block";
+}
+
+// Close sidebar when the cross icon is clicked
+document.querySelector('.cross').addEventListener('click', closeSidebar);
+
+// Close sidebar when any sidebar navigation item is clicked
+document.querySelectorAll('.sidebarOne li a').forEach(item => {
+    item.addEventListener('click', closeSidebar);
+});
+document.addEventListener("ContentLoaded", () => {
+    const btnn = document.querySelector(".btnna");
+    const loader = document.querySelector(".loader");
+    const feedb = document.querySelector("#feed");
+    btnn.addEventListener("click", function (event) {
+        const nameValue = document.querySelector("#name").value;
+        const emailValue = document.querySelector("#email").value;
+        const feedb = document.querySelector("#feed").value;
+
+        if (nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
+            btnn.style.display = "none";
+            document.querySelector(".sidebarOne").style.display = 'none';
+            loader.style.display = "block";
+        }
+        else if (d) {
+
+        }
+        else {
+            event.preventDefault();
+            loader.style.display = "none";
+            alert("Please fill out both the name and email fields.");
+        }
+    });
+});
+
+function changeToGif1() {
+    document.getElementById('image1').src = 'assets/images/features/Conic_1.gif';
+}
+function changeToStatic1() {
+    document.getElementById('image1').src = 'assets/images/features/Conic_1.jpg';
+}
+
+function changeToGif2() {
+    document.getElementById('image2').src = 'assets/images/features/Conic_2.gif';
+}
+function changeToStatic2() {
+    document.getElementById('image2').src = 'assets/images/features/Conic_2.jpg';
+}
+
+function changeToGif3() {
+    document.getElementById('image3').src = 'assets/images/features/Radial_01.gif';
+}
+function changeToStatic3() {
+    document.getElementById('image3').src = 'assets/images/features/Radial_01.jpg';
+}
+
+function changeToGif4() {
+    document.getElementById('image4').src = 'assets/images/features/Radial_02.gif';
+}
+function changeToStatic4() {
+    document.getElementById('image4').src = 'assets/images/features/Radial_02.jpg';
+}
+
+function changeToGif5() {
+    document.getElementById('image5').src = 'assets/images/features/Linear_01.gif';
+}
+function changeToStatic5() {
+    document.getElementById('image5').src = 'assets/images/features/Linear_01.jpg';
+}
+
+function changeToGif6() {
+    document.getElementById('image6').src = 'assets/images/features/Linear_02.gif';
+}
+function changeToStatic6() {
+    document.getElementById('image6').src = 'assets/images/features/Linear_02.jpg';
+}
