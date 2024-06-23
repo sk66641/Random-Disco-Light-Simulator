@@ -852,19 +852,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
     }, 5000)
 });
 
-// Function to close the sidebar
-function closeSidebar() {
-    document.querySelector('.sidebarOne').style.display = 'none';
-    document.querySelector(".navMain").style.display = "block";
-}
-
-// Close sidebar when the cross icon is clicked
-document.querySelector('.cross').addEventListener('click', closeSidebar);
-
-// Close sidebar when any sidebar navigation item is clicked
-document.querySelectorAll('.sidebarOne li a').forEach(item => {
-    item.addEventListener('click', closeSidebar);
-});
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
     const loader = document.querySelector(".loader");
