@@ -891,31 +891,31 @@ document.addEventListener("ContentLoaded", () => {
 });
 
 function changeToGif1() {
-    document.getElementById('image1').src = 'assets/images/learn/Conic_1.gif';
+    document.getElementById('image1').src = 'assets/images/features/Conic_1.gif';
 }
 function changeToStatic1() {
-    document.getElementById('image1').src = 'assets/images/learn/Conic_1.jpg';
+    document.getElementById('image1').src = 'assets/images/features/Conic_1.jpg';
 }
 
 function changeToGif2() {
-    document.getElementById('image2').src = 'assets/images/learn/Conic_2.gif';
+    document.getElementById('image2').src = 'assets/images/features/Conic_2.gif';
 }
 function changeToStatic2() {
-    document.getElementById('image2').src = 'assets/images/learn/Conic_2.jpg';
+    document.getElementById('image2').src = 'assets/images/features/Conic_2.jpg';
 }
 
 function changeToGif3() {
-    document.getElementById('image3').src = 'assets/images/learn/Radial_01.gif';
+    document.getElementById('image3').src = 'assets/images/features/Radial_01.gif';
 }
 function changeToStatic3() {
-    document.getElementById('image3').src = 'assets/images/learn/Radial_01.jpg';
+    document.getElementById('image3').src = 'assets/images/features/Radial_01.jpg';
 }
 
 function changeToGif4() {
-    document.getElementById('image4').src = 'assets/images/learn/Radial_02.gif';
+    document.getElementById('image4').src = 'assets/images/features/Radial_02.gif';
 }
 function changeToStatic4() {
-    document.getElementById('image4').src = 'assets/images/learn/Radial_02.jpg';
+    document.getElementById('image4').src = 'assets/images/features/Radial_02.jpg';
 }
 
 function changeToGif5() {
