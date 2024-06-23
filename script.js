@@ -821,4 +821,3 @@ document.querySelector('#ll').addEventListener("submit", (event) => {
     }
 });
 
-
