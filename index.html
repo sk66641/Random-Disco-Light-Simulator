@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Disco Light Simulator</title>
   <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -156,10 +157,13 @@
           <span style="font-size: 24px; color: #f09819;">or</span>
           <input type="url" id="music-url" placeholder="Paste link here" /><br>
           <span style="font-size: 24px; color: #f09819;">or</span>
-          
+
           <input type="file" id="music-file" accept="audio/*" class="file-input" />
+
+
+
         </div>
-        
+
         <div id="error" aria-live="polite"></div>
         <div style="display: flex; justify-content: center; align-items: center;">
           <div id="randomize" aria-label="Randomize">
@@ -199,7 +203,7 @@
       </div>
     </div>
 
-    <footer class="footer" style="width: 100%;height: 2px;">
+    <footer class="footer" style="width: 100%;height: 2px; ">
 
 
       <div class="socialIcons">
@@ -288,53 +292,19 @@
               <textarea cols="30" rows="5" placeholder="Your Feedback" required id="feed"></textarea>
             </div>
             <button id="ll" class="btnna">Submit</button>
-             <span></span>
+            <span></span>
           </center>
         </form>
         <center>
-          <div class="loader" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
+          <div class="loader" id="successMessage" class="success-message"
+            style="height: 40px; width: 40px; display: none;">
             <div data-glitch="Loading..." class="glitch">Submitting...</div>
           </div>
         </center>
-      </div>    
+      </div>
     </div>
-    
 
-    <script>
-      document.getElementById("CommentBtn").addEventListener("click", function () {
-        document.getElementById("modalBackground").style.display = "flex";
-      });
 
-      document.getElementById("modalBackground").addEventListener("click", function (event) {
-        if (event.target === this) {
-          this.style.display = "none";
-        }
-      });
-
-      document.querySelector("form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Show success message
-        document.getElementById("successMessage").style.display = "block";
-
-        // Hide success message after 3 seconds (3000 milliseconds)
-        setTimeout(function () {
-          document.getElementById("successMessage").style.display = "none";
-        }, 3000);
-
-        setTimeout(()=>{
-          document.querySelector("form").reset();
-          alert("Form Submitted Successfully");
-        } , 3000)
-        setTimeout(()=>{
-          location.reload();
-        } , 5000)
-      });
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./js/background.js"></script>
-    <script src="./js/script.js"></script>
 
     <div id="warningModal" class="modal">
       <div class="modal-content">
@@ -362,7 +332,7 @@
       <p>Fullscreen: Toggles fullscreen mode.</p>
       <p>Change Music: Allows you to change the background music.</p>
       <p><strong><i>Double click on the screen to hide/show the icons</i></strong></p>
-      
+
 
       <button id="proceed1" aria-label="Proceed">Proceed</button>
     </div>
@@ -377,7 +347,7 @@
       <button id="exitBtn">No</button>
     </div>
   </div>
-  <div id="aboutPopup" class="popup">
+  <!--  <div id="aboutPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
       <h2><strong class="nameAbout">About</strong></h2>
@@ -412,10 +382,9 @@
   <div id="featuresPopup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-      <h2>Features</h2>
+      <h2><strong class="nameAbout">Features</strong></h2>
 
-      <h1>Conic Mode</h1>
-      <p>
+      <p><strong>Conic Mode</strong>
         Imagine a spotlight sweeping across the room, creating vibrant cones
         of light. The colors change dynamically as the spotlight moves, adding
         an electrifying effect.
@@ -423,8 +392,7 @@
       <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
       <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
 
-      <h1>Radial Mode</h1>
-      <p>
+      <p><strong>Radial Mode</strong>
         Picture a pulsating ring of light expanding and contracting. The
         radial pattern syncs perfectly with the beat, making you feel the
         rhythm.
@@ -432,8 +400,7 @@
       <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
       <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
 
-      <h1>Linear Mode</h1>
-      <p>
+      <p><strong>Linear Mode</strong>
         Visualize colorful streaks of light moving in straight lines. These
         streaks crisscross, intersect, and dance across the floor,
         transforming your space into a dynamic disco.
@@ -441,53 +408,17 @@
       <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
-  </div>
+  </div> -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/script.js"></script>
   <script type="text/javascript">
     function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
     }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script>
-        // Function to close the sidebar
-        function closeSidebar() {
-            document.querySelector('.sidebarOne').style.display = 'none';
-            document.querySelector(".navMain").style.display = "block";
-        }
-
-        // Close sidebar when the cross icon is clicked
-        document.querySelector('.cross').addEventListener('click', closeSidebar);
-
-        // Close sidebar when any sidebar navigation item is clicked
-        document.querySelectorAll('.sidebarOne li a').forEach(item => {
-            item.addEventListener('click', closeSidebar);
-        });
-    document.addEventListener("ContentLoaded", ()=>{
-      const btnn = document.querySelector(".btnna");
-      const loader = document.querySelector(".loader");
-      const feedb = document.querySelector("#feed");
-      btnn.addEventListener("click", function(event) {
-        const nameValue = document.querySelector("#name").value;
-        const emailValue = document.querySelector("#email").value;
-        const feedb = document.querySelector("#feed").value;
-
-        if(nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
-          btnn.style.display = "none";
-          document.querySelector(".sidebarOne").style.display = 'none';
-          loader.style.display = "block";
-        }
-        else if(d){
-          
-        }
-        else {
-          event.preventDefault();
-          loader.style.display = "none";
-          alert("Please fill out both the name and email fields.");
-        }
-      });
-    });
   </script>
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
