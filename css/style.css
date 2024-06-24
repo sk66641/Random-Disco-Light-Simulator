@@ -235,7 +235,7 @@ h1 {
   margin-top: 50px;
   /*adding background img*/
   background: #180410;
-  background-image: url(assets/images/formbgi.jpg);
+  background-image: url(../assets/images/formbgi.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   height: auto;
