@@ -40,6 +40,7 @@ body {
     from {
         opacity: 0.2;
     }
+
     to {
         opacity: 1;
     }
@@ -62,6 +63,7 @@ body {
     from {
         text-shadow: 0 0 10px #fff, 0 0 20px #00c6ff, 0 0 30px #00c6ff, 0 0 40px #00c6ff, 0 0 50px #00c6ff, 0 0 60px #00c6ff, 0 0 70px #00c6ff;
     }
+
     to {
         text-shadow: 0 0 20px #fff, 0 0 30px #00c6ff, 0 0 40px #00c6ff, 0 0 50px #00c6ff, 0 0 60px #00c6ff, 0 0 70px #00c6ff, 0 0 80px #00c6ff;
     }
@@ -103,13 +105,25 @@ a:hover {
     background-color: rgb(0, 86, 204);
 }
 
+.text4 {
+    font-weight: 800;
+}
+
+.text5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-width: 705px) {
     .text1 {
         font-size: 175px;
     }
+
     .text2 {
         font-size: 20px;
     }
+
     .text3 {
         font-size: 16px;
         width: 500px;
@@ -120,13 +134,16 @@ a:hover {
     .text1 {
         font-size: 125px;
     }
+
     .text2 {
         font-size: 18px;
     }
+
     .text3 {
         font-size: 16px;
         width: 400px;
     }
+
     a {
         width: 155px;
         font-size: 12px;
@@ -138,9 +155,11 @@ a:hover {
     .text1 {
         font-size: 100px;
     }
+
     .text2 {
         font-size: 15px;
     }
+
     .text3 {
         font-size: 12px;
         width: 300px;
@@ -151,6 +170,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -161,6 +181,7 @@ a:hover {
         transform: translateY(50px);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;

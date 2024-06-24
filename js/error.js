@@ -1,6 +1,14 @@
+let n = 10 // seconds
+
 setTimeout(function () {
     window.location.href = './index.html';
-}, 5000);
+}, n*1000);
+
+document.querySelector('.text4').getElementsByTagName("strong")[0].innerHTML = n;
+setInterval(() => {
+    document.querySelector('.text4').getElementsByTagName("strong")[0].innerHTML = n - 1;
+    n = n - 1
+}, 1000);
 
 // Generate stars
 document.addEventListener('DOMContentLoaded', function () {
