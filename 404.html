@@ -10,27 +10,70 @@
         * {
             margin: 0;
             padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Arial', Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stars {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
+            text-align: center;
+            z-index: 2;
+            color: white;
         }
 
         .text1 {
-            background-image: url(./assets/images/Stars.jpg);
-            background-clip: text;
-            color: transparent;
             font-size: 225px;
-            background-size: cover;
             font-weight: 900;
             margin-bottom: 50px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #00c6ff, 0 0 30px #00c6ff, 0 0 40px #00c6ff, 0 0 50px #00c6ff, 0 0 60px #00c6ff, 0 0 70px #00c6ff;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #00c6ff, 0 0 40px #00c6ff, 0 0 50px #00c6ff, 0 0 60px #00c6ff, 0 0 70px #00c6ff, 0 0 80px #00c6ff;
+            }
         }
 
         .text2 {
@@ -38,6 +81,7 @@
             font-weight: 800;
             font-size: 30px;
             margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .text3 {
@@ -45,6 +89,7 @@
             width: 700px;
             text-align: center;
             margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         a {
@@ -59,75 +104,113 @@
             justify-content: center;
             align-items: center;
             border-radius: 50px;
+            transition: background-color 0.3s ease;
+            animation: slideUp 2s ease-in-out;
         }
 
-        .container a:hover{
+        a:hover {
             background-color: rgb(0, 86, 204);
         }
 
-        @media only screen and (max-width:705px){
-            .container{
-                width: 100vw;
-                height: 100vh;
-            }
-            .text1{
+        @media only screen and (max-width: 705px) {
+            .text1 {
                 font-size: 175px;
             }
-            .text2{
+
+            .text2 {
                 font-size: 20px;
             }
-            .text3{
+
+            .text3 {
                 font-size: 16px;
                 width: 500px;
             }
         }
-        @media only screen and (max-width:565px){
-            .container{
-                width: 100vw;
-                height: 100vh;
-            }
-            .text1{
+
+        @media only screen and (max-width: 565px) {
+            .text1 {
                 font-size: 125px;
             }
-            .text2{
+
+            .text2 {
                 font-size: 18px;
             }
-            .text3{
+
+            .text3 {
                 font-size: 16px;
                 width: 400px;
             }
-            a{
+
+            a {
                 width: 155px;
                 font-size: 12px;
                 height: 30px;
             }
         }
-        @media only screen and (max-width:425px){
-            .container{
-                width: 100vw;
-                height: 100vh;
-            }
-            .text1{
+
+        @media only screen and (max-width: 425px) {
+            .text1 {
                 font-size: 100px;
             }
-            .text2{
+
+            .text2 {
                 font-size: 15px;
             }
-            .text3{
+
+            .text3 {
                 font-size: 12px;
                 width: 300px;
             }
         }
-        
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
+    <script>
+        setTimeout(function () {
+            window.location.href = './index.html';
+        }, 5000);
+
+        // Generate stars
+        document.addEventListener('DOMContentLoaded', function () {
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
 </head>
 
 <body>
+    <div class="stars"></div>
     <div class="container">
         <div class="text1">Oops!</div>
         <div class="text2">404 - Page not Found</div>
-        <div class="text3">The page you are looking for might have been removed, had its name changed or is temporarily
-            unavailable.</div>
+        <div class="text3">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</div>
         <a href="./index.html">Go to HomePage</a>
     </div>
 </body>
