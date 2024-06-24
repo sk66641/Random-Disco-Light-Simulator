@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Random Disco Light Simulator</title>
 
-    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -140,28 +140,8 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="background.js"></script>
-    <script src="script.js"></script>
-    <script>
-        // Set background image to none and make main navigation visible
-        document.querySelector(".box").style.backgroundImage = "none";
-        document.querySelector(".navMain").style.visibility = "visible";
-
-        // Function to close the sidebar
-        function closeSidebar() {
-            document.querySelector('.sidebarOne').style.display = 'none';
-            document.querySelector(".navMain").style.display = "block";
-        }
-
-        // Close sidebar when the cross icon is clicked
-        document.querySelector('.cross').addEventListener('click', closeSidebar);
-
-        // Close sidebar when any sidebar navigation item is clicked
-        document.querySelectorAll('.sidebarOne li a').forEach(item => {
-            item.addEventListener('click', closeSidebar);
-        });
-
-    </script>
+    <script src="../js/background.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
