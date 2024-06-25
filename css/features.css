@@ -125,4 +125,24 @@ strong{
 .imageFeatures{
     display: flex;
     justify-content: space-around;
+    gap: 10px;
 }
+ #image1, #image2,#image3, #image4, #image5, #image6{
+    width: 30vw;
+    height: width;
+ }
+ @media only screen and (max-width:1000px){
+    body{
+        padding-top: 800px;
+    }
+ }
+ @media only screen and (max-width:485px){
+    body{
+        padding-top: 950px;
+    }
+ }
+ @media only screen and (max-width:400px){
+    body{
+        padding-top: 750px;
+    }
+ }
