@@ -1,3 +1,5 @@
+/* General styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -115,6 +117,8 @@ a:hover {
     align-items: center;
 }
 
+/* Media queries for responsiveness */
+
 @media only screen and (max-width: 705px) {
     .text1 {
         font-size: 175px;
@@ -186,4 +190,48 @@ a:hover {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* Dark Mode Toggle */
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+}
+
+.dark-mode-toggle label {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.dark-mode-toggle input[type="checkbox"] + label:before {
+    content: '\1F31E'; /* Sun emoji for light mode */
+    font-size: 20px;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label:before {
+    content: '\1F30C'; /* Moon emoji for dark mode */
+}
+
+body.dark-mode {
+    background: #333; /* Dark background color */
+    color: white;
+}
+
+body.dark-mode .container {
+    color: white; /* Adjust text color for dark mode */
+}
+
+body.dark-mode .star {
+    background: rgba(255, 255, 255, 0.8); /* Adjust star color for dark mode */
 }
