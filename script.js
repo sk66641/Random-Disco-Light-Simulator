@@ -5,6 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
 
+    // JavaScript
+document.getElementById('previewButton').addEventListener('click', function () {
+    const selectedMusic = document.getElementById('musicDropdown').value;
+    const audioElements = document.querySelectorAll('audio');
+
+    audioElements.forEach(audio => audio.pause());
+
+    if (selectedMusic !== 'none') {
+        document.getElementById(selectedMusic).play();
+    }
+});
+
+
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
 
@@ -526,6 +539,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
 })
 
+let isPlaying = false;
+let currentAudio = null;
 
+document.getElementById('PreviewButton').addEventListener('click', function () {
+    const selectedSound = document.getElementById('sound').value;
 
+    // Audio files path prefix
+    const audioPath = 'assets/audios/';
 
+    const previewButton = document.getElementById('PreviewButton');
+
+    // Pause and reset current playing audio if any
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    if (isPlaying) {
+        isPlaying = false;
+        previewButton.textContent = 'Preview';
+        return;
+    }
+
+    if (selectedSound !== 'none') {
+        const selectedMusic = audioPath + selectedSound + '.mp3'; // Construct full path
+        currentAudio = new Audio(selectedMusic);
+        currentAudio.play();
+        isPlaying = true;
+        previewButton.textContent = 'Stop';
+
+        // Reset button text when audio ends
+        currentAudio.addEventListener('ended', function() {
+            isPlaying = false;
+            previewButton.textContent = 'Preview';
+        });
+    }
+});
