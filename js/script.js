@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
-
-
+    const editBtn = document.getElementById('editBtn');
+    const editPopup = document.getElementById('editPopup');
+    const closeEditPopup = document.getElementById('closeEditPopup');
+    const addTimeOption = document.getElementById('addTimeOption');
+    const changeSongOption = document.getElementById('changeSongOption');
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -18,6 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let countdownValue;
     let lightInterval;
     let isMuted = false;
+
+    // Function to toggle edit popup visibility
+    function toggleEditPopup() {
+        editPopup.classList.toggle('show-edit-popup');
+    }
+
+    // Event listener for edit button to show popup
+    editBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior of anchor tag
+        toggleEditPopup(); // Show edit popup
+    });
+
+    // Event listener to close edit popup
+    closeEditPopup.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleEditPopup(); // Close edit popup
+    });
+
+    // Example: Function to handle add time option
+    addTimeOption.addEventListener('click', () => {
+        // used instantly invoked function expression
+        (function get_time() {
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
+            if (isNaN(add_time)) {
+                alert('Please enter a valid number!')
+                get_time();
+            } else {
+                addTime(add_time);
+            }
+        })()
+    });
+
     // Event Listener for Add Time Button
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
@@ -48,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
+        editBtn.style.display = 'inline-block';
         run()
     });
 
