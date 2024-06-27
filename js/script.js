@@ -890,8 +890,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
-    const loader = document.querySelector(".loader");
-    const feedb = document.querySelector("#feed");
+    const load = document.querySelector(".load");
     btnn.addEventListener("click", function (event) {
         const nameValue = document.querySelector("#name").value;
         const emailValue = document.querySelector("#email").value;
@@ -900,14 +899,14 @@ document.addEventListener("ContentLoaded", () => {
         if (nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
             btnn.style.display = "none";
             document.querySelector(".sidebarOne").style.display = 'none';
-            loader.style.display = "block";
+            load.style.display = "block";
         }
         else if (d) {
 
         }
         else {
             event.preventDefault();
-            loader.style.display = "none";
+            load.style.display = "none";
             alert("Please fill out both the name and email fields.");
         }
     });
