@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
+        editBtn.style.display = 'inline-block';
         run()
     });
 

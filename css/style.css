@@ -2394,6 +2394,11 @@ button:active {
   gap: 20px;
 }
 
+#editBtn {
+  display: none;
+}
+
+
 /* Example CSS for the edit popup */
 .edit-popup {
   display: none; /* Hide popup by default */
@@ -2421,10 +2426,75 @@ button:active {
   text-align: center;
 }
 
+/* used for removing the google translate bar */
 .VIpgJd-ZVi9od-ORHb-OEVmcd{
   display: none; 
 }
-
+/* used for removing the google translate reloading */
 .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
   display: none;
+}
+
+/* Account Not Available Modal Styles */
+.account-not-available-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 100; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.account-not-available-modal-content {
+  background: linear-gradient(to right, #d4fcff, #c8f7dc);
+
+  color: #ffffff;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.account-not-available-modal .close {
+  color: #ffffff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.account-not-available-modal .close:hover,
+.account-not-available-modal .close:focus {
+  color: #bdc3c7;
+  text-decoration: none;
+}
+
+.account-not-available-modal h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.account-not-available-modal p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
