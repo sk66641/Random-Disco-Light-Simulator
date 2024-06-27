@@ -1,7 +1,7 @@
 name: 💡Feature Request
 description: Suggest a feature
 title: "💡[Feature]: "
-labels: "enhancement"
+labels: [enhancement]
 body:
   - type: checkboxes
     id: existing-issue
