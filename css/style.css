@@ -749,6 +749,11 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
+.light-mode nav ul li a{
+  color: rgb(21, 20, 20);
+}
+
+
 @media only screen and (max-width: 850px) {
   * {
     font-size: 18px !important;
@@ -1969,6 +1974,9 @@ button:hover {
   overflow: scroll;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
+}
+.light-mode .sidebarOne{
+  background-color: rgba(220, 219, 217, 0.281);
 }
 
 .slide-in {
