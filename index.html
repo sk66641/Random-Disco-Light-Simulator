@@ -31,6 +31,7 @@
   <div class="navHeader">
     <div class="header-content">
       <nav>
+        
         <button id="muteBtn" class="mute-btn" style="display: none;">
           <i id="muteIcon" class="fas fa-volume-up"></i>
         </button>
@@ -41,6 +42,32 @@
           <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
           <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
           <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
+          <li><a href="#" id="editBtn" aria-label="Edit">Edit</a></li>
+          <!-- Add this inside your existing HTML structure, preferably at the end of <body> -->
+        <div id="editPopup" class="edit-popup">
+          <div class="edit-popup-content">
+              <h2>Edit Options</h2>
+              <ul>
+                  <li><a href="#" id="addTimeOption">Add Time</a></li>
+                  <li><a href="#"</a>
+                    <select id="musicDropdown" style="display: none;">
+                      <option value="select" disabled selected>Change Music</option>
+                      <option value="none">None</option>
+                      <option value="disco">Disco</option>
+                      <option value="fairies">Fairies</option>
+                      <option value="funky">Funky</option>
+                      <option value="upbeatdisco">upbeatdisco</option>
+                      <option value="vintage">Vintage</option>
+                      <option value="whistle">Whistle</option>
+                      <option value="snare">Snare</option>
+                    </select>
+                  </a>
+                  </li>
+                  <!-- Add more options as needed -->
+              </ul>
+              <button id="closeEditPopup">Close</button>
+          </div>
+      </div>
           <li><a href="pages/about.html">About</a></li>
           <li><a href="pages/features.html">Features</a></li>
           <li><a href="./Login/index1.html">Step In</a></li>
@@ -315,7 +342,7 @@
       </center>
     </form>
     <center>
-      <div class="loader" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
+      <div class="load" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
         <div data-glitch="Loading..." class="glitch">Submitting...</div>
       </div>
     </center>
@@ -447,6 +474,16 @@
       <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
     </div>
   </div> -->
+  <!-- Account Not Available Modal -->
+<div id="accountNotAvailableModal" class="account-not-available-modal">
+  <div class="account-not-available-modal-content">
+    <span class="close" id="closeAccountNotAvailableModal">&times;</span>
+    <h2>Account Not Available</h2>
+    <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working diligently to bring them online as soon as possible.</p>
+    <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our website's feedback form. We appreciate your understanding and patience during this time.</p>
+    <p>Thank you for your continued support! </p>      
+  </div>
+</div>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="js/background.js"></script>
   <script src="js/script.js"></script>

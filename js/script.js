@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
-
-
+    const editBtn = document.getElementById('editBtn');
+    const editPopup = document.getElementById('editPopup');
+    const closeEditPopup = document.getElementById('closeEditPopup');
+    const addTimeOption = document.getElementById('addTimeOption');
+    const changeSongOption = document.getElementById('changeSongOption');
 
     // JavaScript
 document.getElementById('previewButton').addEventListener('click', function () {
@@ -31,6 +34,38 @@ document.getElementById('previewButton').addEventListener('click', function () {
     let countdownValue;
     let lightInterval;
     let isMuted = false;
+
+    // Function to toggle edit popup visibility
+    function toggleEditPopup() {
+        editPopup.classList.toggle('show-edit-popup');
+    }
+
+    // Event listener for edit button to show popup
+    editBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior of anchor tag
+        toggleEditPopup(); // Show edit popup
+    });
+
+    // Event listener to close edit popup
+    closeEditPopup.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleEditPopup(); // Close edit popup
+    });
+
+    // Example: Function to handle add time option
+    addTimeOption.addEventListener('click', () => {
+        // used instantly invoked function expression
+        (function get_time() {
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
+            if (isNaN(add_time)) {
+                alert('Please enter a valid number!')
+                get_time();
+            } else {
+                addTime(add_time);
+            }
+        })()
+    });
+
     // Event Listener for Add Time Button
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
@@ -61,6 +96,7 @@ document.getElementById('previewButton').addEventListener('click', function () {
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
+        editBtn.style.display = 'inline-block';
         run()
     });
 
@@ -867,8 +903,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
-    const loader = document.querySelector(".loader");
-    const feedb = document.querySelector("#feed");
+    const load = document.querySelector(".load");
     btnn.addEventListener("click", function (event) {
         const nameValue = document.querySelector("#name").value;
         const emailValue = document.querySelector("#email").value;
@@ -877,14 +912,14 @@ document.addEventListener("ContentLoaded", () => {
         if (nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
             btnn.style.display = "none";
             document.querySelector(".sidebarOne").style.display = 'none';
-            loader.style.display = "block";
+            load.style.display = "block";
         }
         else if (d) {
 
         }
         else {
             event.preventDefault();
-            loader.style.display = "none";
+            load.style.display = "none";
             alert("Please fill out both the name and email fields.");
         }
     });
@@ -931,3 +966,32 @@ function changeToGif6() {
 function changeToStatic6() {
     document.getElementById('image6').src = '../assets/images/features/Linear_02.jpg';
 }
+
+// Get the modal
+var accountNotAvailableModal = document.getElementById("accountNotAvailableModal");
+
+// Get the <span> element that closes the modal
+var closeAccountNotAvailableModal = document.getElementById("closeAccountNotAvailableModal");
+
+// Get all social media links
+var socialLinks = document.querySelectorAll(".socialIcons a");
+
+// When the user clicks on <span> (x), close the modal
+closeAccountNotAvailableModal.onclick = function() {
+  accountNotAvailableModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == accountNotAvailableModal) {
+    accountNotAvailableModal.style.display = "none";
+  }
+}
+
+// When the user clicks on a social media link, show the modal
+socialLinks.forEach(function(link) {
+  link.onclick = function(event) {
+    event.preventDefault();
+    accountNotAvailableModal.style.display = "block";
+  }
+});

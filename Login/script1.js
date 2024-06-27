@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerBtn = document.getElementById('register');
     const loginBtn = document.getElementById('login');
     
-    const createPasswordInput = document.querySelector('.sign-up input[type="password"]');
+    const createPasswordInput = document.getElementById('passwordSignUp');
     const createPasswordToggle = document.querySelector('.sign-up .password-toggle');
     
-    const signInPasswordInput = document.querySelector('.sign-in input[type="password"]');
+    const signInPasswordInput = document.getElementById('passwordSignIn');
     const signInPasswordToggle = document.querySelector('.sign-in .password-toggle');
 
     registerBtn.addEventListener('click', () => {
@@ -57,5 +57,31 @@ document.addEventListener('DOMContentLoaded', function() {
     signInPasswordToggle.addEventListener('click', function(event) {
         event.preventDefault();
         toggleSignInPasswordVisibility();
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const signInForm = document.querySelector('.form-container.sign-in form');
+    const signUpForm = document.querySelector('.form-container.sign-up form');
+
+    signInForm.addEventListener('submit', function(event) {
+        const email = signInForm.querySelector('input[type="email"]').value;
+        const password = signInForm.querySelector('input[type="password"]').value;
+
+        if (!email || !password) {
+            event.preventDefault();
+            alert('Required fields were not filled.');
+        }
+    });
+
+    signUpForm.addEventListener('submit', function(event) {
+        const name = signUpForm.querySelector('input[type="text"]').value;
+        const email = signUpForm.querySelector('input[type="email"]').value;
+        const password = signUpForm.querySelector('input[type="password"]').value;
+
+        if (!name || !email || !password) {
+            event.preventDefault();
+            alert('Required fields were not filled.');
+        }
     });
 });
