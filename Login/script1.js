@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
@@ -57,5 +58,28 @@ document.addEventListener('DOMContentLoaded', function() {
     signInPasswordToggle.addEventListener('click', function(event) {
         event.preventDefault();
         toggleSignInPasswordVisibility();
+    });
+
+    // Add confirm password validation
+    const signUpForm = document.querySelector('.sign-up form');
+    signUpForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const passwordInput = document.querySelector('.sign-up input#password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const passwordError = document.getElementById('passwordError');
+
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            passwordError.textContent = "Passwords do not match.";
+            return;
+        }
+
+        // Clear previous error messages
+        passwordError.textContent = "";
+
+        // Proceed with form submission logic
+        // signUpUser(); // Replace with your actual function to handle sign-up
+
+        // Clear confirm password input after successful submission
+        confirmPasswordInput.value = '';
     });
 });
