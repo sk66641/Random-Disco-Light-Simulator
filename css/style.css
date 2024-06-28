@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+.varela-round-regular {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 * {
   font-size: 40px;
 }
@@ -135,7 +141,8 @@ body {
 #sound:hover,
 #music-url:hover,
 #music-file:hover {
-  background-color: lightyellow;
+  /* background-color: lightyellow; */
+  background-color: rgba(156, 144, 166, 0.756);
   color: black;
 }
 
@@ -261,7 +268,7 @@ h1 {
 
 label {
   /* font-size: 22px; */
-  font-size: 20px;
+  font-size: 18px;
   /* font-weight: 300; */
   font-family: system-ui;
 }
@@ -272,7 +279,7 @@ input {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px 10px;
   border-radius: 10px;
 }
@@ -290,7 +297,7 @@ input:focus {
 }
 
 i {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 strong {
@@ -309,7 +316,7 @@ strong {
   border: none;
   padding: 5px 10px;
   color: #e5e5e5;
-  font-size: 20px;
+  font-size: 18px;
   width: auto;
 }
 
@@ -343,6 +350,7 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
+  border-radius: 10px;
 }
 
 #submit a:hover {
@@ -451,6 +459,7 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
+  border-radius: 10px;
 }
 
 #reset a:hover {
@@ -571,6 +580,7 @@ select option {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 4px;
+  border-radius: 10px;
 }
 
 #randomize a:hover {
@@ -1639,7 +1649,8 @@ button:hover {
   position: relative;
 
   /* Added scroll because content overflows */
-  background: rgba(0, 0, 0, 0.13);
+  /* background: rgba(0, 0, 0, 0.13); */
+  background: linear-gradient(to right, rgba(94, 6, 6, 0.855), rgba(59, 37, 37, 0.5));
   border-radius: 5px;
   padding: 10px 25px;
   backdrop-filter: blur(10px);
