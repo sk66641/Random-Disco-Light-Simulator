@@ -314,7 +314,8 @@
       <div class="user-box" id="otherFeedbackBox" style="display: none;">
         <input type="text" id="otherFeedback" name="otherFeedback" placeholder="Specify the subject">
       </div>
-      <center>
+       <!-- no center tag in html5 using div is not affecting anything -->
+      <div>
         <div class="rating">
           <input type="radio" id="star5" name="rating" value="5" />
           <label for="star5">5 stars</label>
@@ -333,13 +334,14 @@
         </div>
         <button id="ll" class="btnna">Submit</button>
         <span></span>
-      </center>
+      </div>
     </form>
-    <center>
+    <!-- no center tag in html5 using div is not affecting anything -->
+    <div>
       <div class="load" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
         <div data-glitch="Loading..." class="glitch">Submitting...</div>
       </div>
-    </center>
+    </div>
   </div>
 </div>
 
