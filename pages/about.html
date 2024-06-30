@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <div>
+        <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    </div>
     <div class="snowflakes" style="display: block;">
         <div id="particles-js"></div>
     </div>
@@ -35,8 +38,8 @@
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./features.html">Features</a></li>
                     <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
-
-                    <li> <a href="#">
+                    <li>
+                        <a href="#">
                             <select id="musicDropdown" style="display: none;">
                                 <option value="select" disabled selected>Change Music</option>
                                 <option value="none">None</option>
@@ -50,7 +53,6 @@
                             </select>
                         </a>
                     </li>
-
                 </ul>
                 <ul class="navMain">
                     <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
@@ -106,8 +108,6 @@
             settings and have fun creating your own disco light show! 😄</div>
     </div>
     <footer class="footer" style="width: 100%;height: 2px;">
-
-
         <div class="socialIcons">
             <span class="icons">
                 <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
@@ -115,23 +115,18 @@
             <span class="icons">
                 <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
             </span>
-
             <span class="icons">
                 <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
                     <i class="fab fa-github ico"></i>
                 </a>
             </span>
-
             <span class="icons">
                 <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
             </span>
-
             <span class="icons">
                 <a href="" aria-label="Discord" title="discord"><i class="fa-brands fa-discord ico"></i></a>
             </span>
         </div>
-
-
         <div class="copyright">
             <p class="copyright" style="text-align: center">
                 &copy;
@@ -143,6 +138,7 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/top.js"></script> 
 </body>
 
 </html>

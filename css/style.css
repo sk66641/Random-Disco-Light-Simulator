@@ -24,7 +24,6 @@ body {
 
 }
 
-
 .light-mode::-webkit-scrollbar-track {
   background: black;
   background: linear-gradient(180deg, rgba(148, 1, 1, 1) 0%, rgba(196, 171, 3, 1) 20%, rgba(44, 179, 2, 1) 40%, rgba(7, 200, 136, 1) 60%, rgba(31, 5, 148, 1) 80%, rgba(255, 0, 0, 1) 100%);
@@ -34,7 +33,6 @@ body {
   background-color: black;
   opacity: 0.7;
   /* Semi-transparent thumb */
-
   border-radius: 3px;
 
 }
@@ -43,9 +41,6 @@ body {
 ::-webkit-scrollbar {
   margin-top: 100px;
   margin-bottom: 100px;
-
-
-
 }
 
 ::-webkit-scrollbar-track {
@@ -57,28 +52,21 @@ body {
   background-color: white;
   opacity: 0.7;
   /* Semi-transparent thumb */
-
   border-radius: 3px;
 
 }
-
-
-
 
 .unload {
   display: none;
 }
 
 .loader {
-
   align-items: center;
   width: 100vw;
   justify-content: center;
   height: 100vh;
   display: flex;
-
 }
-
 
 #particles-js {
   position: absolute;
@@ -90,8 +78,6 @@ body {
 #changeHeading {
   color: black;
 }
-
-
 
 .background {
   width: 430px;
@@ -748,6 +734,11 @@ nav ul li a {
 nav ul li a:hover {
   transform: scale(1.1);
 }
+
+.light-mode nav ul li a{
+  color: rgb(21, 20, 20);
+}
+
 
 @media only screen and (max-width: 850px) {
   * {
@@ -1970,6 +1961,9 @@ button:hover {
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
+.light-mode .sidebarOne{
+  background-color: rgba(220, 219, 217, 0.281);
+}
 
 .slide-in {
   animation-name: slide-in;
@@ -2252,6 +2246,7 @@ button:active {
   font-size: 25px;
   font-weight: 700;
   line-height: 1.2;
+  right: 70px;
   color: #fff;
   letter-spacing: 5px;
   z-index: 1;
@@ -2465,6 +2460,7 @@ button:active {
     transform: scale(1);
   }
 }
+
 /* formatting the little back arrow on feature and about page */
 .backbtn{
   font-size: 1rem;
@@ -2472,3 +2468,33 @@ button:active {
   padding-top: 1rem;
 }
 
+#editBtn {
+  display: none;
+}
+
+/* Example CSS for the edit popup */
+.edit-popup {
+  display: none; /* Hide popup by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+#addTimeOption{
+  color: black ;
+}
+
+.edit-popup.show-edit-popup {
+  display: block; /* Show popup when class is applied */
+}
+
+.edit-popup-content {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
