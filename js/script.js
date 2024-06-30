@@ -10,20 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editPopup = document.getElementById('editPopup');
     const closeEditPopup = document.getElementById('closeEditPopup');
     const addTimeOption = document.getElementById('addTimeOption');
-    const changeSongOption = document.getElementById('changeSongOption');
-
-    // JavaScript
-document.getElementById('previewButton').addEventListener('click', function () {
-    const selectedMusic = document.getElementById('musicDropdown').value;
-    const audioElements = document.querySelectorAll('audio');
-
-    audioElements.forEach(audio => audio.pause());
-
-    if (selectedMusic !== 'none') {
-        document.getElementById(selectedMusic).play();
-    }
-});
-
+    // const changeSongOption = document.getElementById('changeSongOption');
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -864,42 +851,42 @@ document.addEventListener("mouseout", () => {
     cursor.style.display = "none";
 });
 
-document.querySelector('#ll').addEventListener("submit", (event) => {
-    if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
-        event.preventDefault();
-    }
-});
+// document.querySelector('#ll').addEventListener("submit", (event) => {
+//     if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
+//         event.preventDefault();
+//     }
+// });
 
 // feedback 
-document.getElementById("CommentBtn").addEventListener("click", function () {
-    document.getElementById("modalBackground").style.display = "flex";
-});
+// document.getElementById("CommentBtn").addEventListener("click", function () {
+//     document.getElementById("modalBackground").style.display = "flex";
+// });
 
-document.getElementById("modalBackground").addEventListener("click", function (event) {
-    if (event.target === this) {
-        this.style.display = "none";
-    }
-});
+// document.getElementById("modalBackground").addEventListener("click", function (event) {
+//     if (event.target === this) {
+//         this.style.display = "none";
+//     }
+// });
 
-document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
+// document.querySelector("form").addEventListener("submit", function (event) {
+//     event.preventDefault(); // Prevent form submission
 
-    // Show success message
-    document.getElementById("successMessage").style.display = "block";
+//     // Show success message
+//     document.getElementById("successMessage").style.display = "block";
 
-    // Hide success message after 3 seconds (3000 milliseconds)
-    setTimeout(function () {
-        document.getElementById("successMessage").style.display = "none";
-    }, 3000);
+//     // Hide success message after 3 seconds (3000 milliseconds)
+//     setTimeout(function () {
+//         document.getElementById("successMessage").style.display = "none";
+//     }, 3000);
 
-    setTimeout(() => {
-        document.querySelector("form").reset();
-        alert("Form Submitted Successfully");
-    }, 3000)
-    setTimeout(() => {
-        location.reload();
-    }, 5000)
-});
+//     setTimeout(() => {
+//         document.querySelector("form").reset();
+//         alert("Form Submitted Successfully");
+//     }, 3000)
+//     setTimeout(() => {
+//         location.reload();
+//     }, 5000)
+// });
 
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
