@@ -2461,6 +2461,13 @@ button:active {
   }
 }
 
+/* formatting the little back arrow on feature and about page */
+.backbtn{
+  font-size: 1rem;
+  padding-left: -25px;
+  padding-top: 1rem;
+}
+
 #editBtn {
   display: none;
 }
