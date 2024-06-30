@@ -12,19 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTimeOption = document.getElementById('addTimeOption');
     const changeSongOption = document.getElementById('changeSongOption');
 
-    // JavaScript
-document.getElementById('previewButton').addEventListener('click', function () {
-    const selectedMusic = document.getElementById('musicDropdown').value;
-    const audioElements = document.querySelectorAll('audio');
-
-    audioElements.forEach(audio => audio.pause());
-
-    if (selectedMusic !== 'none') {
-        document.getElementById(selectedMusic).play();
-    }
-});
-
-
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
 
@@ -994,45 +981,4 @@ socialLinks.forEach(function(link) {
     event.preventDefault();
     accountNotAvailableModal.style.display = "block";
   }
-});
-
-
-let isPlaying = false;
-let CurrentAudio = null;
-
-
-document.getElementById('PreviewButton').addEventListener('click', function () {
-    console.log("he");
-    const selectedSound = document.getElementById('sound').value;
-
-    // Audio files path prefix
-    const audioPath = 'assets/audios/';
-
-    const previewButton = document.getElementById('PreviewButton');
-
-    // Pause and reset current playing audio if any
-    if (CurrentAudio) {
-        CurrentAudio.pause();
-        CurrentAudio.currentTime = 0;
-    }
-
-    if (isPlaying) {
-        isPlaying = false;
-        previewButton.textContent = 'Preview';
-        return;
-    }
-
-    if (selectedSound !== 'none') {
-        const selectedMusic = audioPath + selectedSound + '.mp3'; // Construct full path
-        CurrentAudio = new Audio(selectedMusic);
-        CurrentAudio.play();
-        isPlaying = true;
-        previewButton.textContent = 'Stop';
-
-        // Reset button text when audio ends
-        CurrentAudio.addEventListener('ended', function() {
-            isPlaying = false;
-            previewButton.textContent = 'Preview';
-        });
-    }
 });
