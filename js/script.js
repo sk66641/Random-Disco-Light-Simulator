@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let selectedUrl = document.getElementById("music-url").value;
 
 
-        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl)) {
+        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) && document.getElementById('PreviewButton').textContent !== "Stop") {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
@@ -284,8 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
                 document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
-
+            } else if (document.getElementById('PreviewButton').textContent === "Stop") {
+                document.getElementById("error").innerHTML = "<strong>6. First stop previewing music!</strong>";
             }
+
             return;
         }
     }
@@ -989,7 +991,6 @@ let CurrentAudio = null;
 
 
 document.getElementById('PreviewButton').addEventListener('click', function () {
-    console.log("he");
     const selectedSound = document.getElementById('sound').value;
 
     // Audio files path prefix
