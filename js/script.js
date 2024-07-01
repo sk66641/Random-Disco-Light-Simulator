@@ -441,31 +441,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        /* if (musicAudio) {
+        document.getElementById('musicDropdown').style.display="none";
+        if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
         else {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
-        } */
-        // document.getElementById("musicDropdown").style.display = 'none';
+        } 
+
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
     }
 
     function resumeSimulation() {
         startCountdown(countdownValue);
-        /* if (musicAudio) {
-            if (!musicMuted) {
+        if (!musicMuted) {
                 musicAudio.play();
-            }
         }
-        else {
-            if (!musicMuted) {
-                selectedAudio.play();
-            }
-        } */
+        document.getElementById('musicDropdown').style.display="block";
+        
         startSimulation(
             document.getElementById("color").value,
             document.getElementById("time").value,
@@ -474,7 +470,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        // document.getElementById("musicDropdown").style.display = 'block';
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
@@ -677,6 +672,7 @@ document.getElementById('submit').addEventListener('click', function () {
             musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
+            
         }
     });
 });
