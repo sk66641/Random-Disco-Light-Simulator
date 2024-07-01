@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicSelect = document.getElementById('musicSelect');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
-
-
+    const editBtn = document.getElementById('editBtn');
+    const editPopup = document.getElementById('editPopup');
+    const closeEditPopup = document.getElementById('closeEditPopup');
+    const addTimeOption = document.getElementById('addTimeOption');
+    // const changeSongOption = document.getElementById('changeSongOption');
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -18,6 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let countdownValue;
     let lightInterval;
     let isMuted = false;
+
+    // Function to toggle edit popup visibility
+    function toggleEditPopup() {
+        editPopup.classList.toggle('show-edit-popup');
+    }
+
+    // Event listener for edit button to show popup
+    editBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior of anchor tag
+        toggleEditPopup(); // Show edit popup
+    });
+
+    // Event listener to close edit popup
+    closeEditPopup.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleEditPopup(); // Close edit popup
+    });
+
+    // Example: Function to handle add time option
+    addTimeOption.addEventListener('click', () => {
+        // used instantly invoked function expression
+        (function get_time() {
+            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
+            if (isNaN(add_time)) {
+                alert('Please enter a valid number!')
+                get_time();
+            } else {
+                addTime(add_time);
+            }
+        })()
+    });
+
     // Event Listener for Add Time Button
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
@@ -48,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
+        editBtn.style.display = 'inline-block';
         run()
     });
 
@@ -162,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let selectedUrl = document.getElementById("music-url").value;
 
 
-        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl)) {
+        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) && document.getElementById('PreviewButton').textContent !== "Stop") {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
@@ -248,8 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
                 document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
-
+            } else if (document.getElementById('PreviewButton').textContent === "Stop") {
+                document.getElementById("error").innerHTML = "<strong>6. First stop previewing music!</strong>";
             }
+
             return;
         }
     }
@@ -811,47 +849,46 @@ document.addEventListener("mouseout", () => {
     cursor.style.display = "none";
 });
 
-document.querySelector('#ll').addEventListener("submit", (event) => {
-    if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
-        event.preventDefault();
-    }
-});
+// document.querySelector('#ll').addEventListener("submit", (event) => {
+//     if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
+//         event.preventDefault();
+//     }
+// });
 
 // feedback 
-document.getElementById("CommentBtn").addEventListener("click", function () {
-    document.getElementById("modalBackground").style.display = "flex";
-});
+// document.getElementById("CommentBtn").addEventListener("click", function () {
+//     document.getElementById("modalBackground").style.display = "flex";
+// });
 
-document.getElementById("modalBackground").addEventListener("click", function (event) {
-    if (event.target === this) {
-        this.style.display = "none";
-    }
-});
+// document.getElementById("modalBackground").addEventListener("click", function (event) {
+//     if (event.target === this) {
+//         this.style.display = "none";
+//     }
+// });
 
-document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
+// document.querySelector("form").addEventListener("submit", function (event) {
+//     event.preventDefault(); // Prevent form submission
 
-    // Show success message
-    document.getElementById("successMessage").style.display = "block";
+//     // Show success message
+//     document.getElementById("successMessage").style.display = "block";
 
-    // Hide success message after 3 seconds (3000 milliseconds)
-    setTimeout(function () {
-        document.getElementById("successMessage").style.display = "none";
-    }, 3000);
+//     // Hide success message after 3 seconds (3000 milliseconds)
+//     setTimeout(function () {
+//         document.getElementById("successMessage").style.display = "none";
+//     }, 3000);
 
-    setTimeout(() => {
-        document.querySelector("form").reset();
-        alert("Form Submitted Successfully");
-    }, 3000)
-    setTimeout(() => {
-        location.reload();
-    }, 5000)
-});
+//     setTimeout(() => {
+//         document.querySelector("form").reset();
+//         alert("Form Submitted Successfully");
+//     }, 3000)
+//     setTimeout(() => {
+//         location.reload();
+//     }, 5000)
+// });
 
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
-    const loader = document.querySelector(".loader");
-    const feedb = document.querySelector("#feed");
+    const load = document.querySelector(".load");
     btnn.addEventListener("click", function (event) {
         const nameValue = document.querySelector("#name").value;
         const emailValue = document.querySelector("#email").value;
@@ -860,14 +897,14 @@ document.addEventListener("ContentLoaded", () => {
         if (nameValue.length > 0 && emailValue.length > 0 && feedb.length > 0) {
             btnn.style.display = "none";
             document.querySelector(".sidebarOne").style.display = 'none';
-            loader.style.display = "block";
+            load.style.display = "block";
         }
         else if (d) {
 
         }
         else {
             event.preventDefault();
-            loader.style.display = "none";
+            load.style.display = "none";
             alert("Please fill out both the name and email fields.");
         }
     });
@@ -942,4 +979,44 @@ socialLinks.forEach(function(link) {
     event.preventDefault();
     accountNotAvailableModal.style.display = "block";
   }
+});
+
+
+let isPlaying = false;
+let CurrentAudio = null;
+
+
+document.getElementById('PreviewButton').addEventListener('click', function () {
+    const selectedSound = document.getElementById('sound').value;
+
+    // Audio files path prefix
+    const audioPath = 'assets/audios/';
+
+    const previewButton = document.getElementById('PreviewButton');
+
+    // Pause and reset current playing audio if any
+    if (CurrentAudio) {
+        CurrentAudio.pause();
+        CurrentAudio.currentTime = 0;
+    }
+
+    if (isPlaying) {
+        isPlaying = false;
+        previewButton.textContent = 'Preview';
+        return;
+    }
+
+    if (selectedSound !== 'none') {
+        const selectedMusic = audioPath + selectedSound + '.mp3'; // Construct full path
+        CurrentAudio = new Audio(selectedMusic);
+        CurrentAudio.play();
+        isPlaying = true;
+        previewButton.textContent = 'Stop';
+
+        // Reset button text when audio ends
+        CurrentAudio.addEventListener('ended', function() {
+            isPlaying = false;
+            previewButton.textContent = 'Preview';
+        });
+    }
 });
