@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Random Disco Light Simulator</title>
+    <title>Features - Random Disco Light Simulator</title>
 
     <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/feedback.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,9 +16,6 @@
 </head>
 
 <body>
-    <div>
-        <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
-    </div>
     <div class="snowflakes" style="display: block;">
         <div id="particles-js"></div>
     </div>
@@ -30,7 +27,8 @@
                 </button>
                 <ul class="sidebarOne">
                     <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
-                    <li class="logo"><a href="../index.html"><img src="../assets/images/logo/logo..png" alt="Website Logo"></a></li>
+                    <li class="logo"><a href="../index.html"><img src="../assets/images/logo/logo..png"
+                                alt="Website Logo"></a></li>
                     <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
                     <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
                     <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
@@ -38,8 +36,8 @@
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./features.html">Features</a></li>
                     <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
-                    <li>
-                        <a href="#">
+
+                    <li> <a href="#">
                             <select id="musicDropdown" style="display: none;">
                                 <option value="select" disabled selected>Change Music</option>
                                 <option value="none">None</option>
@@ -53,6 +51,7 @@
                             </select>
                         </a>
                     </li>
+
                 </ul>
                 <ul class="navMain">
                     <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
@@ -61,51 +60,45 @@
         </div>
     </div>
     <div class="box" id="box">
-        <a href="/index.html" class="backbtn"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff; display: block;">
-            About
+        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
+            HELP US IMPROVE!
         </h1>
-        <div class="aboutBox">
-            <div class="heading">The Random Disco-Light Simulator</div>
-            <div class="desc">It is a fun and interactive project that brings the excitement of a disco dance floor to
-                your screen. Whether you're a developer, a party enthusiast, or just someone who loves vibrant colors,
-                this simulator is designed to brighten up your day!</div>
-        </div>
-        <div class="aboutBox">
-            <div class="heading">Inputs</div>
-            <div class="desc">
-                <div class="points"><strong>1. Number of Colors :</strong> Specify how many random colors you want to be
-                    shown.</div>
-                <div class="points"><strong>2. Time Interval :</strong> Set the interval (in milliseconds) at which the
-                    colors should change.</div>
-                <div class="points"><strong>3. View Type :</strong> Choose from conic, linear, or radial views to
-                    customize the visual effect.</div>
-                <div class="points"><strong>4. Countdown Timer :</strong> Set a timer (in seconds) for how long the
-                    simulation should run.</div>
-                <div class="points"><strong>5. Sound Effect :</strong> Optionally, add a sound effect to enhance the
-                    disco experience.</div>
+        <form class="inputFeedback">
+            <div class="pointsFeedback">
+                <label class="points" for="name"><strong>1. Name</strong></label>
+                <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
             </div>
-        </div>
-        <div class="aboutBox">
-            <div class="heading">Output</div>
-            <div class="desc">
-                Based on the inputs you provide, the simulator will display a dynamic and colorful light show in the
-                selected view, changing colors at the specified intervals. The simulation will continue until the
-                countdown timer expires.
+            <div class="pointsFeedback">
+                <label class="points" for="email"><strong>2. Email</strong></label>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
             </div>
-        </div>
-        <div class="aboutBox">
-            <div class="heading">Examples</div>
-            <div class="desc">
-                Try these input combinations and see the magic unfold!
-                <div class="points" style="margin-top: 20px;">1. 1000 colors, 1 millisecond interval, conic view, 60
-                    seconds timer.</div>
-                <div class="points">2. 1000 colors, 1 millisecond interval, radial view, 60 seconds timer.</div>
-                <div class="points">3. 1000 colors, 1 millisecond interval, linear view, 60 seconds timer.</div>
+            <div class="pointsFeedback" style="display: flex;">
+                <label class="points" for="type"><strong>3. Feedback Type</strong></label>
+                <select name="feedback" id="type" name="type" style="width: 150px; background-color: #290a1d;padding: 3px;border-radius: 10px;">
+                    <option value="question">Question</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="issue">Issue</option>
+                    <option value="others">Others</option>
+                </select>
             </div>
-        </div>
-        <div class="desc" style="text-align: center; color: chocolate; font-weight: bold;">Experiment with different
-            settings and have fun creating your own disco light show! 😄</div>
+            <div class="pointsFeedback">
+                <label class="points" for="stars"><strong>4. How Much You Will Rate Us!</strong></label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
+                </div>
+            </div>
+            <div class="pointsFeedback">
+                <label class="points" for="feedback"><strong>5. Your Feedback</strong></label>
+                <textarea name="feedback" id="feedback" style="background-color: #290a1d; height: 200px;" placeholder="Enter Your Feedback"></textarea>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" style="width: 150px;">Submit</button>
+            </div>
+        </form>
     </div>
     <footer class="footer" style="width: 100%;height: 2px;">
         <div class="socialIcons">
@@ -138,7 +131,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
-    <script src="../js/backToTopBtn.js"></script> 
 </body>
 
 </html>
