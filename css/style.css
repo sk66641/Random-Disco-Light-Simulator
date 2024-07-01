@@ -1897,7 +1897,7 @@ button:hover {
   /* Yellow color for selected star */
 }
 
-#backToTopBtn {
+/*#backToTopBtn {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -1921,7 +1921,7 @@ button:hover {
   opacity: 1;
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
+}*/
 
 .header {
   margin-top: 100px;
