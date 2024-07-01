@@ -403,7 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-         if (musicAudio) {
+        document.getElementById('musicDropdown').style.display="none";
+        if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
@@ -411,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
         } 
+
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
     }
@@ -420,6 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!musicMuted) {
                 musicAudio.play();
         }
+        document.getElementById('musicDropdown').style.display="block";
         
         startSimulation(
             document.getElementById("color").value,
@@ -631,6 +634,7 @@ document.getElementById('submit').addEventListener('click', function () {
             musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
+            
         }
     });
 });
