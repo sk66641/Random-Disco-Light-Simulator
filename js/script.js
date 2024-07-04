@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCountdown(duration) {
         countdownValue = duration;
-        document.getElementById('musicDropdown').style.display = 'block';
+        // document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
         document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
         addTimeButton.style.display = 'inline-block'; // Show the add time button
