@@ -1623,9 +1623,11 @@ button:hover {
   outline: none;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 100;
+  transition: 0.2s all;
 }
 #changeMusic select:hover {
   color: #ff7f50;
+  transform: scale(1.17);
 }
 
 
