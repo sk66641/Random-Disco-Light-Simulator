@@ -27,7 +27,7 @@
                 </button>
                 <ul class="sidebarOne">
                     <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
-                    <li class="logo"><a href="../index.html"><img src="../assets/images/logo/logo..png"
+                    <li class="logo"><a href="../index.html"><img src="../assets/images/logo/logo.png"
                                 alt="Website Logo"></a></li>
                     <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
                     <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
@@ -63,7 +63,7 @@
         <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
             HELP US IMPROVE!
         </h1>
-        <form class="inputFeedback">
+        <form class="inputFeedback" id="feedbackForm">
             <div class="pointsFeedback">
                 <label class="points" for="name"><strong>1. Name</strong></label>
                 <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
@@ -74,7 +74,7 @@
             </div>
             <div class="pointsFeedback" style="display: flex;">
                 <label class="points" for="type"><strong>3. Feedback Type</strong></label>
-                <select name="feedback" id="type" name="type" style="width: 150px; background-color: #290a1d;padding: 3px;border-radius: 10px;">
+                <select id="type" name="type" style="width: 150px; background-color: #290a1d;padding: 3px;border-radius: 10px;">
                     <option value="question">Question</option>
                     <option value="suggestion">Suggestion</option>
                     <option value="issue">Issue</option>
@@ -97,6 +97,9 @@
             </div>
             <div style="display: flex; justify-content: center;">
                 <button type="submit" style="width: 150px;">Submit</button>
+            </div>
+            <div id="thankYouMessage" style="display: none; font-size:25px; text-align: center; color: green; margin-top: 20px;">
+                Thank you for your feedback!
             </div>
         </form>
     </div>
@@ -131,6 +134,20 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+            setTimeout(function ()
+            {
+                document.getElementById("feedbackForm").reset();
+                document.getElementById("thankYouMessage").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("thankYouMessage").style.display = "none";
+                }, 3000);
+            }, 100); 
+
+        });
+    </script>
 </body>
 
 </html>
