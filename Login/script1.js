@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('login');
     
     const createPasswordInput = document.getElementById('passwordSignUp');
-    const createPasswordToggle = document.querySelector('.sign-up .password-toggle');
-    
+    const confirmPasswordInput = document.getElementById('confirmPasswordSignUp');
+    const createPasswordToggle = document.querySelector('.password-toggle[data-target="passwordSignUp"]');
+    const confirmPasswordToggle = document.querySelector('.password-toggle[data-target="confirmPasswordSignUp"]');
+
     const signInPasswordInput = document.getElementById('passwordSignIn');
-    const signInPasswordToggle = document.querySelector('.sign-in .password-toggle');
+    const signInPasswordToggle = document.getElementById('togglePasswordSignIn');
 
     registerBtn.addEventListener('click', () => {
         container.classList.add("active");
@@ -18,51 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to toggle password visibility for Create Account
-    function toggleCreatePasswordVisibility() {
-        const type = createPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        createPasswordInput.setAttribute('type', type);
+    function togglePasswordVisibility(input, toggle) {
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
 
         // Toggle eye icon class
         if (type === 'password') {
-            createPasswordToggle.querySelector('i').classList.remove('fa-eye-slash');
-            createPasswordToggle.querySelector('i').classList.add('fa-eye');
+            toggle.querySelector('i').classList.remove('fa-eye-slash');
+            toggle.querySelector('i').classList.add('fa-eye');
         } else {
-            createPasswordToggle.querySelector('i').classList.remove('fa-eye');
-            createPasswordToggle.querySelector('i').classList.add('fa-eye-slash');
+            toggle.querySelector('i').classList.remove('fa-eye');
+            toggle.querySelector('i').classList.add('fa-eye-slash');
         }
     }
 
     // Event listener for Create Account password toggle button
     createPasswordToggle.addEventListener('click', function(event) {
         event.preventDefault();
-        toggleCreatePasswordVisibility();
+        togglePasswordVisibility(createPasswordInput, createPasswordToggle);
     });
 
-    // Function to toggle password visibility for Sign In
-    function toggleSignInPasswordVisibility() {
-        const type = signInPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        signInPasswordInput.setAttribute('type', type);
-
-        // Toggle eye icon class
-        if (type === 'password') {
-            signInPasswordToggle.querySelector('i').classList.remove('fa-eye-slash');
-            signInPasswordToggle.querySelector('i').classList.add('fa-eye');
-        } else {
-            signInPasswordToggle.querySelector('i').classList.remove('fa-eye');
-            signInPasswordToggle.querySelector('i').classList.add('fa-eye-slash');
-        }
-    }
+    // Event listener for Confirm Password toggle button
+    confirmPasswordToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        togglePasswordVisibility(confirmPasswordInput, confirmPasswordToggle);
+    });
 
     // Event listener for Sign In password toggle button
     signInPasswordToggle.addEventListener('click', function(event) {
         event.preventDefault();
-        toggleSignInPasswordVisibility();
+        togglePasswordVisibility(signInPasswordInput, signInPasswordToggle);
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
+
     const signInForm = document.querySelector('.form-container.sign-in form');
-    const signUpForm = document.querySelector('.form-container.sign-up form');
 
     signInForm.addEventListener('submit', function(event) {
         const email = signInForm.querySelector('input[type="email"]').value;
@@ -74,12 +65,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const signUpForm = document.querySelector('.form-container.sign-up form');
     signUpForm.addEventListener('submit', function(event) {
         const name = signUpForm.querySelector('input[type="text"]').value;
         const email = signUpForm.querySelector('input[type="email"]').value;
-        const password = signUpForm.querySelector('input[type="password"]').value;
+        const password = signUpForm.querySelector('#passwordSignUp').value;
+        const confirmPassword = signUpForm.querySelector('#confirmPasswordSignUp').value;
 
-        if (!name || !email || !password) {
+        if (password !== confirmPassword) {
+            event.preventDefault();
+            alert('Passwords do not match!');
+        } else if (!name || !email || !password || !confirmPassword) {
             event.preventDefault();
             alert('Required fields were not filled.');
         }
