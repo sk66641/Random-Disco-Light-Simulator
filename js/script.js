@@ -4,12 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
+    const musicDropdown= document.getElementById('musicDropdown');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
     const editBtn = document.getElementById('editBtn');
-    const editPopup = document.getElementById('editPopup');
-    const closeEditPopup = document.getElementById('closeEditPopup');
-    const addTimeOption = document.getElementById('addTimeOption');
+    const editDrop =document.getElementById('editdropdown');//contains both add time and change music btn
+
+    // const addTimeOption = document.getElementById('addTimeOption');
     // const changeSongOption = document.getElementById('changeSongOption');
 
     // Create and append the pause/start button
@@ -21,39 +22,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let countdownValue;
     let lightInterval;
     let isMuted = false;
+    let isEditdropOpen=false;
 
-    // Function to toggle edit popup visibility
-    function toggleEditPopup() {
-        editPopup.classList.toggle('show-edit-popup');
-    }
+    // toggle function: during runtime when edit is clicked, navbar should expand to show "add time" and "change music"
+    //used same logic as sidebar toggle in this.
+    function toggleEditDropdown() {
+        if (editDrop.style.display === 'block') {
+            editDrop.style.display = 'none';
+            editDrop.classList.remove('slide-in');
+            editDrop.classList.add('slide-out');
+            isEditdropOpen=false;
+    
+            const dropdownItems = document.querySelectorAll('.editdropdown li');
+            dropdownItems.forEach((item, index) => {
+                item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
+                item.classList.remove('fade-in');
+                item.classList.add('fade-out');
+            });
+        } else {
+            editDrop.style.display = 'block';
+            editDrop.classList.remove('slide-out');
+            editDrop.classList.add('slide-in');
+            isEditdropOpen=true;
 
-    // Event listener for edit button to show popup
-    editBtn.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default behavior of anchor tag
-        toggleEditPopup(); // Show edit popup
-    });
+            const dropdownItems = document.querySelectorAll('.editdropdown li');
+            dropdownItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.remove('fade-out');
+                item.classList.add('fade-in');
+            });
+        }}
 
-    // Event listener to close edit popup
-    closeEditPopup.addEventListener('click', function(event) {
-        event.preventDefault();
-        toggleEditPopup(); // Close edit popup
-    });
-
-    // Example: Function to handle add time option
-    addTimeOption.addEventListener('click', () => {
-        // used instantly invoked function expression
-        (function get_time() {
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
-            if (isNaN(add_time)) {
-                alert('Please enter a valid number!')
-                get_time();
-            } else {
-                addTime(add_time);
-            }
-        })()
-    });
-
-    // Event Listener for Add Time Button
+    editBtn.addEventListener('click', function(event) {      
+        // console.log("clikef")  trial
+        toggleEditDropdown(); 
+    })
+    
+    // Event Listener for Add Time Button:- during simulation; if we wish to extend time 
     addTimeButton.addEventListener('click', () => {
         // used instantly invoked function expression
         (function get_time() {
@@ -90,10 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     muteButton.addEventListener('click', () => {
         if (isMuted) {
             unmuteAudio();
-            document.getElementById('musicDropdown').style.display = 'block';
+            document.getElementById('changeMusic').style.display = 'block';
         } else {
             muteAudio();
-            document.getElementById('musicDropdown').style.display = 'none';
+            document.getElementById('changeMusic').style.display = 'none';
         }
     });
 
@@ -141,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownValue = duration;
         // document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
-        document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button
-        addTimeButton.style.display = 'inline-block'; // Show the add time button
+        document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button 
         timerDisplay.style.display = 'block';
 
         timerInterval = setInterval(() => {
@@ -449,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
         } */
-        // document.getElementById("musicDropdown").style.display = 'none';
+        document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
     }
@@ -474,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        // document.getElementById("musicDropdown").style.display = 'block';
+        document.getElementById("changeMusic").style.display = 'block';
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
@@ -578,8 +582,8 @@ window.onload = function () {
     }
     animateText();
     // Snowflakes animation logic
-    const snowflakesContainer = document.querySelector(".snowflakes");
-    const numberOfSnowflakes = 300;
+        const snowflakesContainer = document.querySelector(".snowflakes");
+        const numberOfSnowflakes = 300;
 
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement("div");
@@ -674,7 +678,7 @@ document.getElementById('submit').addEventListener('click', function () {
 
         if (selectedMusic !== 'none') {
             const musicAudio = document.getElementById(selectedMusic);
-            musicAudio.loop = true;
+            // musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
         }
@@ -738,9 +742,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleSidebar() {
     var sidebar = document.querySelector('.sidebarOne');
     document.querySelector(".navMain").style.display = "none";
-
     if (sidebar.style.display === 'block') {
-        sidebar.style.display = 'none';
+        sidebar.style.display ='none';
         sidebar.classList.remove('slide-in');
         sidebar.classList.add('slide-out');
 
@@ -759,9 +762,11 @@ function toggleSidebar() {
         // Add staggered animation for sidebar elements
         const sidebarItems = document.querySelectorAll('.sidebarOne li');
         sidebarItems.forEach((item, index) => {
+            if (!item.classList.contains('exclude')){
+//elements under edit dropdown are a part of sidebar, so we put them under exclude to not have to account for their animation delay
             item.style.animationDelay = `${index * 0.1}s`;
             item.classList.remove('fade-out');
-            item.classList.add('fade-in');
+            item.classList.add('fade-in');}
         });
     }
 }
