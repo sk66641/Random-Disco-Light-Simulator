@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCountdown(duration) {
         countdownValue = duration;
+        // document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
         document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button 
         timerDisplay.style.display = 'block';
@@ -959,36 +960,6 @@ function changeToGif6() {
 function changeToStatic6() {
     document.getElementById('image6').src = '../assets/images/features/Linear_02.jpg';
 }
-
-// Get the modal
-var accountNotAvailableModal = document.getElementById("accountNotAvailableModal");
-
-// Get the <span> element that closes the modal
-var closeAccountNotAvailableModal = document.getElementById("closeAccountNotAvailableModal");
-
-// Get all social media links
-var socialLinks = document.querySelectorAll(".socialIcons a");
-
-// When the user clicks on <span> (x), close the modal
-closeAccountNotAvailableModal.onclick = function() {
-  accountNotAvailableModal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == accountNotAvailableModal) {
-    accountNotAvailableModal.style.display = "none";
-  }
-}
-
-// When the user clicks on a social media link, show the modal
-socialLinks.forEach(function(link) {
-  link.onclick = function(event) {
-    event.preventDefault();
-    accountNotAvailableModal.style.display = "block";
-  }
-});
-
 
 let isPlaying = false;
 let CurrentAudio = null;
