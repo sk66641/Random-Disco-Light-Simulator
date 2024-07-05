@@ -145,3 +145,8 @@ strong{
         padding-top: 750px;
     }
  }
+
+ #image7 {
+    justify-content: center;
+    align-items: center;
+ }
