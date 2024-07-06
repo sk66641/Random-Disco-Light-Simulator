@@ -2525,7 +2525,8 @@ button:active {
 .footer-links a {
   text-decoration: none; 
   color: white;
-  font-weight: normal; 
+  font-weight: normal;
+  font-size:1.2em;
   cursor: pointer; 
 }
 
