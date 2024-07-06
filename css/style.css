@@ -118,7 +118,7 @@ body {
   text-shadow: 2px 2px white;
 }
 
-#youtubeUrlInput:hover,
+/* #youtubeUrlInput:hover,
 #unit:hover,
 #time:hover,
 #color:hover,
@@ -127,10 +127,17 @@ body {
 #sound:hover,
 #music-url:hover,
 #music-file:hover {
-  background-color: lightyellow;
-  color: black;
+ 
+  /* color: black; 
+  
+} */
+.form input:hover{
+  background-color: #4a1234;
 }
-
+.light-mode .form input:hover{
+  background-color: #d6cccc;
+  border: 1.5px solid #f09819;
+}
 #unit:hover,
 #view:hover,
 #sound:hover,
@@ -277,7 +284,7 @@ input {
 
 input:focus {
   outline: none;
-  width: 4rem;
+  /* width: 4rem; */
   border: none;
 }
 
@@ -729,6 +736,21 @@ nav ul li a:hover {
 
 .light-mode nav ul li a{
   color: rgb(21, 20, 20);
+}
+.light-mode #changeMusic select{
+  color: rgb(21, 20, 20);
+}
+.editdropdown li a {
+  font-size: 16px;
+  height: 30px;
+  padding-top: 0.3rem;
+  /* transition: 0.1s all; */
+}
+.editdropdown{
+  margin-top: -0.4rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.3rem;
+
 }
 
 
@@ -1572,37 +1594,42 @@ button:hover {
 
 
 
-#musicDropdown {
+/* #musicDropdown {
   text-align: center;
   border-radius: 10px;
   background: linear-gradient(#1845ad, #23a2f6);
   outline: none;
   border: none;
-  /* padding: 5px 10px; */
+  padding: 5px 10px?;
   color: #e5e5e5;
   font-size: 24px;
-  /* position: fixed; */
+  position: fixed;
   top: 150px;
   left: 20px;
-  /* opacity: .4; */
+  opacity: .4;
   transition: 500ms;
-}
+} */
 
 /* #musicDropdown:hover {
   opacity: 1;
 } */
 
-#musicDropdown select {
+#changeMusic select {
   color: #e5e5e5;
-  font-size: 24px;
-  background-color: #5fd9f4;
+  font-size: 16px;
+  transform: scale(1.07);
+  background-color: #b0b7b800;
   border: none;
   outline: none;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 100;
+  transition: 0.2s all;
+}
+#changeMusic select:hover {
+  color: #ff7f50;
+  transform: scale(1.17);
 }
 
-#musicDropdown:hover {
-  background: linear-gradient(to right, #ff512f, #f09819);
-}
 
 .dark-mode {
   background-color: black;
