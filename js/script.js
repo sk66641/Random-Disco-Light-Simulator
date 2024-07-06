@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
-        console.log(musicAudio);
+        // console.log(musicAudio); testing
     }
 
     function resumeSimulation() {
@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        console.log(musicAudio);
+        // console.log(musicAudio); testing
 
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
