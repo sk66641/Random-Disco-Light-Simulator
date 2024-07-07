@@ -2,6 +2,92 @@
   font-size: 40px;
 }
 
+
+/* Add this to increase the space between divs */
+.content-container {
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.box {
+  /* Existing box styles */
+  margin-bottom: 20px;  /* Add this line */
+}
+
+/* Enhancing form inputs */
+.form input,
+.form select,
+.form button {
+  margin-top: 10px;  /* Add some space between form elements */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Style the submit and reset buttons */
+.button div a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.button div a:hover {
+  background-color: #45a049;
+}
+
+/* Additional styling for better appearance */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.navHeader {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+.navHeader a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navHeader a:hover {
+  background-color: #575757;
+}
+
+footer.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Style for the randomize button */
+#randomize a {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#randomize a:hover {
+  background-color: #e68900;
+}
+
+
 body {
   margin: 0;
   padding: 0;
