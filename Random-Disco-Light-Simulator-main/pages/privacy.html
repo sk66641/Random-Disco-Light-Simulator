@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy - Random Disco Light Simulator</title>
+    <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    </div>
+    <div class="snowflakes" style="display: block;">
+        <div id="particles-js"></div>
+    </div>
+    <div class="navHeader">
+        <div class="header-content">
+            <nav>
+                <button id="muteBtn" class="mute-btn" style="display: none;">
+                    <i id="muteIcon" class="fas fa-volume-up"></i>
+                </button>
+                <ul class="sidebarOne">
+                    <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
+                    <li class="logo"><a href="../index.html"><img src="../assets/images/logo/logo..png" alt="Website Logo"></a></li>
+                    <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
+                    <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
+                    <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
+                    <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./features.html">Features</a></li>
+                    <li><a href="#" id="CommentBtn" aria-label="Toggle Comment Form">Feedback</a></li>
+                    <li>
+                        <a href="#">
+                            <select id="musicDropdown" style="display: none;">
+                                <option value="select" disabled selected>Change Music</option>
+                                <option value="none">None</option>
+                                <option value="disco">Disco</option>
+                                <option value="fairies">Fairies</option>
+                                <option value="funky">Funky</option>
+                                <option value="upbeatdisco">upbeatdisco</option>
+                                <option value="vintage">Vintage</option>
+                                <option value="whistle">Whistle</option>
+                                <option value="snare">Snare</option>
+                            </select>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navMain">
+                    <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="box" id="box">
+        <a href="/index.html" class="backbtn"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff; display: block;">
+            Privacy Policy
+        </h1>
+        <div class="privacyBox">
+            <div class="heading">Privacy Policy</div>
+            <div class="desc">
+                This Privacy Policy describes how your personal information is collected, used, and shared when you visit or
+                make a purchase from our website.
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">Personal Information We Collect</div>
+            <div class="desc">
+                When you visit our website, we automatically collect certain information about your device, including
+                information about your web browser, IP address, time zone, and some of the cookies that are installed on
+                your device. Additionally, as you browse the site, we collect information about the individual web pages or
+                products that you view, what websites or search terms referred you to the site, and information about how
+                you interact with the site. We refer to this automatically-collected information as “Device Information.”
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">How Do We Use Your Personal Information?</div>
+            <div class="desc">
+                We use the Device Information that we collect to help us screen for potential risk and fraud (in particular,
+                your IP address), and more generally to improve and optimize our site (for example, by generating analytics
+                about how our customers browse and interact with the site, and to assess the success of our marketing and
+                advertising campaigns).
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">Sharing Your Personal Information</div>
+            <div class="desc">
+                We share your Personal Information with third parties to help us use your Personal Information, as described
+                above. For example, we use Google Analytics to help us understand how our customers use the site--you can
+                read more about how Google uses your Personal Information here:
+                <a href="https://www.google.com/intl/en/policies/privacy/">https://www.google.com/intl/en/policies/privacy/</a>.
+                You can also opt-out of Google Analytics here:
+                <a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>.
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">Your Rights</div>
+            <div class="desc">
+                If you are a Indian resident, you have the right to access personal information we hold about you and to
+                ask that your personal information be corrected, updated, or deleted. If you would like to exercise this
+                right, please contact us through the contact information below.
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">Data Retention</div>
+            <div class="desc">
+                When you place an order through the site, we will maintain your order information for our records unless and
+                until you ask us to delete this information.
+            </div>
+        </div>
+        <div class="privacyBox">
+            <div class="heading">Changes</div>
+            <div class="desc">
+                We may update this privacy policy from time to time in order to reflect, for example, changes to our
+                practices or for other operational, legal, or regulatory reasons.
+            </div>
+        </div>
+        <div class="desc" style="text-align: center; color: chocolate; font-weight: bold;">For more information about our
+            privacy practices, if you have questions, or if you would like to make a complaint, please contact us by using the feedback page of our website.</div>
+    </div>
+    <footer class="footer" style="width: 100%; height: 2px;">
+        <div class="socialIcons">
+            <span class="icons">
+                <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
+                    <i class="fab fa-github ico"></i>
+                </a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="Discord" title="discord"><i class="fa-brands fa-discord ico"></i></a>
+            </span>
+        </div> 
+        <div class="copyright">
+            <p class="copyright" style="text-align: center">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights
+                reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/background.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/backToTopBtn.js"></script> 
+    <script src="../js/social.js"></script> 
+    <div id="accountNotAvailableModal" class="account-not-available-modal">
+        <div class="account-not-available-modal-content">
+            <span class="close" id="closeAccountNotAvailableModal">&times;</span>
+            <h2>Account Not Available</h2>
+            <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working diligently to bring them online as soon as possible.</p>
+            <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our website's feedback form. We appreciate your understanding and patience during this time.</p>
+            <p>Thank you for your continued support! </p>
+        </div>
+    </div>
+</body>
+</html>

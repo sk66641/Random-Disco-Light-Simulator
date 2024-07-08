@@ -1,0 +1,164 @@
+* {
+    color: white;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    background-color: black;
+    font-family: 'Playfair Display', serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.snowflake {
+    position: absolute;
+    width: 0.3rem;
+    height: 0.5rem;
+    background-color: #ffffffec;
+    animation: snowfall linear infinite;
+    animation-duration: 10s;
+    animation-fill-mode: both;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 3px 3px 6px #a970e2;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.light-mode .snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.light-mode .snowflake {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #4134f7;
+    animation: snowfall linear infinite;
+    animation-duration: 10s;
+    animation-fill-mode: both;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 2px 2px 6px #6d63f6;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 25px;
+    display: block;
+    font-family: arial;
+    color: #f09819;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.desc, .desc div{
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: justify;
+}
+
+.box{
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+    background-image: none;
+}
+
+.aboutBox{
+    margin-bottom: 30px;
+}
+strong{
+    font-size: 20px;
+}
+.points{
+    margin-bottom: 8px;
+}
+.empty{
+    width: 100vw;
+    height: 50px;
+    color: inherit;
+}
+@media only screen and (max-width:950px){
+    body{
+        padding-top: 200px;
+    }
+}
+@media only screen and (max-width:875px){
+    body{
+        padding-top: 225px;
+    }
+}
+@media only screen and (max-width:675px){
+    body{
+        padding-top: 300px;
+    }
+}
+@media only screen and (max-width:525px){
+    body{
+        padding-top: 400px;
+    }
+}
+@media only screen and (max-width:445px){
+    body{
+        padding-top: 430px;
+    }
+    #box{
+        padding: 30px 25px;
+    }
+}
+@media only screen and (max-width:414px){
+    .box{
+        width: 75vw;
+    }
+}
+@media only screen and (max-width:390px){
+    body{
+        padding-top: 500px;
+    }
+}
+@media only screen and (max-width:350px){
+    body{
+        padding-top: 200px;
+    }
+}
