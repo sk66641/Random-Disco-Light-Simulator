@@ -1,3 +1,4 @@
+let musicAudio;
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseStartButton = document.getElementById('pauseStartBtn');
 
     let timerInterval;
-    let musicAudio;
     let isPaused = false;
     let countdownValue;
     let lightInterval;
@@ -445,31 +445,29 @@ document.addEventListener('DOMContentLoaded', () => {
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        /* if (musicAudio) {
+        document.getElementById('musicDropdown').style.display="none";
+        if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
         }
         else {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
-        } */
+        } 
         document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
+        // console.log(musicAudio); testing
     }
 
     function resumeSimulation() {
         startCountdown(countdownValue);
-        /* if (musicAudio) {
-            if (!musicMuted) {
-                musicAudio.play();
-            }
-        }
-        else {
-            if (!musicMuted) {
-                selectedAudio.play();
-            }
-        } */
+        // if (!musicAudio) {
+        musicAudio.play();
+        
+        document.getElementById('musicDropdown').style.display="block";
+        document.getElementById("changeMusic").style.display = 'block';
+        
         startSimulation(
             document.getElementById("color").value,
             document.getElementById("time").value,
@@ -478,7 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        document.getElementById("changeMusic").style.display = 'block';
+        // console.log(musicAudio); testing
+
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
     }
@@ -659,12 +658,12 @@ function lightMode() {
 }
 
 // Define global variable to store reference to the currently playing audio
-let currentAudio;
+// let currentAudio;
 
 // Function to toggle mute/unmute for the currently playing audio
 function toggleMute() {
-    if (currentAudio) {
-        currentAudio.muted = !currentAudio.muted;
+    if (musicAudio) {
+        musicAudio.muted = !musicAudio.muted;
         // Update mute button icon based on mute state if necessary
     }
 }
@@ -677,10 +676,11 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
-            const musicAudio = document.getElementById(selectedMusic);
+            const musicAud = document.getElementById(selectedMusic);
             // musicAudio.loop = true;
-            musicAudio.play();
-            currentAudio = musicAudio; // Update currently playing audio reference
+            musicAud.play();
+            musicAudio = musicAud; // Update currently playing audio reference
+            
         }
     });
 });
