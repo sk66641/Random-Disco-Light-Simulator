@@ -2517,3 +2517,19 @@ button:active {
   margin: auto;
   text-align: center;
 }
+
+.footer-links {
+  margin-left: 20px; /* Margin from the left */
+}
+
+.footer-links a {
+  text-decoration: none; 
+  color: white;
+  font-weight: normal;
+  font-size:1.2em;
+  cursor: pointer; 
+}
+
+.footer-links a:hover {
+  color: #007BFF; /* Light blue color on hover to indicate interactivity */
+}
