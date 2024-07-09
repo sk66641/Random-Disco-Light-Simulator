@@ -2518,18 +2518,28 @@ button:active {
   text-align: center;
 }
 
-.footer-links {
-  margin-left: 20px; /* Margin from the left */
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center; /* Ensure items inside are centered vertically */
 }
 
-.footer-links a {
-  text-decoration: none; 
-  color: white;
-  font-weight: normal;
-  font-size:1.2em;
-  cursor: pointer; 
+.footer-left {
+    justify-content: flex-start;
+    padding-left: 20px; 
 }
 
-.footer-links a:hover {
-  color: #007BFF; /* Light blue color on hover to indicate interactivity */
+.footer-right {
+    justify-content: flex-end;
+    padding-right: 20px; 
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 17px; 
+}
+
+.footer-link:hover {
+    color: lightblue;
 }
