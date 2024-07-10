@@ -151,3 +151,23 @@ strong{
 .star-rating label:hover ~ label {
     color: #f5b301;
 }
+footer {
+    background-color: #1d1d1d; /* dark background */
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000; /* ensure footer is on top of other elements */
+  }
+  
+  .copyright {
+    font-size: 14px;
+    color: #fff; /* white text */
+    margin: 0;
+  }
+  
+  .copyright p {
+    display: inline-block;
+    margin: 2;
+    color: #ffffff;
+  }
