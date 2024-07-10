@@ -39,12 +39,29 @@
           <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
           <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png" alt="Website Logo"></a></li>
           <li><a href="#" id="reload" style="display: none;" aria-label="reload">Reload</a></li>
-          <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li>
+          <!-- <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li> -->
           <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start">Pause</a></li>
           <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</a></li>
           <li><a href="#" id="editBtn" aria-label="Edit">Edit</a></li>
+          <!-- edit drop down content -->
+            <div class="editdropdown" id="editdropdown" style="display: none;">
+              <li class="exclude"><a href="#"  id="addTime" aria-label="Add Time" >Add Time</a></li> <!--exclude is used in script.js in sidenbar animation to remove the animation time function-->
+              <li class="exclude" id="changeMusic">
+                <select id="musicDropdown" aria-label="Change Music">
+                    <option value="select" disabled selected style="font-family: 'Playfair Display', serif;">Change Music</option>
+                      <option value="none">None</option>
+                      <option value="disco">Disco</option>
+                      <option value="fairies">Fairies</option>
+                      <option value="funky">Funky</option>
+                      <option value="upbeatdisco">Upbeatdisco</option>
+                      <option value="vintage">Vintage</option>
+                      <option value="whistle">Whistle</option>
+                      <option value="snare">Snare</option>
+                    </select>
+                  </li>
+             </div>
           <!-- Add this inside your existing HTML structure, preferably at the end of <body> -->
-        <div id="editPopup" class="edit-popup">
+        <!-- <div id="editPopup" class="edit-popup">
           <div class="edit-popup-content">
               <h2>Edit Options</h2>
               <ul>
@@ -56,18 +73,18 @@
                       <option value="disco">Disco</option>
                       <option value="fairies">Fairies</option>
                       <option value="funky">Funky</option>
-                      <option value="upbeatdisco">upbeatdisco</option>
+                      <option value="upbeatdisco">Upbeatdisco</option>
                       <option value="vintage">Vintage</option>
                       <option value="whistle">Whistle</option>
                       <option value="snare">Snare</option>
                     </select>
                   </a>
                   </li>
-                  <!-- Add more options as needed -->
+                  Add more options as needed
               </ul>
               <button id="closeEditPopup">Close</button>
           </div>
-      </div>
+      </div> -->
           <li><a href="pages/about.html">About</a></li>
           <li><a href="pages/features.html">Features</a></li>
           <li><a href="./Login/index1.html">Step In</a></li>
@@ -95,14 +112,14 @@
       <div class="box" id="box">
 
 
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
+        <h1 id="changingHeading">Random Disco <span id="changing">Light Simulator</span></h1>
 
-          Random Disco
+          <!-- Random Disco
           <span id="changing"
             style="font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; color: #ff7f50;">
             Light Simulator
           </span>
-        </h1>
+        </h1> -->
         <div class="form">
 
         <div>
@@ -220,8 +237,11 @@
     </div>
 
     <footer class="footer" style="width: 100%;height: 2px; ">
-      <div class="footer-links">
-        <p><a href="./pages/privacy.html">Privacy Policy</a></p>
+      <div class="footer-left">
+        <a href="./pages/privacy.html" class="footer-link">Privacy Policy</a>
+    </div>
+    <div class="footer-right">
+      <a href="./pages/terms.html" class="footer-link">Terms and Conditions</a>
     </div>
     
       <div class="socialIcons">
@@ -249,11 +269,10 @@
 
 
       <div class="copyright">
-        <p class="copyright" style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
-        </p>
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.</p>
       </div>
+
+
     </footer>
 
     <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>

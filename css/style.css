@@ -2,6 +2,36 @@
   font-size: 40px;
 }
 
+/* Style the submit and reset buttons */
+.button div a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.button div a:hover {
+  background-color: #45a049;
+}
+
+/* Style for the randomize button */
+#randomize a {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#randomize a:hover {
+  background-color: #e68900;
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -2518,18 +2548,28 @@ button:active {
   text-align: center;
 }
 
-.footer-links {
-  margin-left: 20px; /* Margin from the left */
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center; /* Ensure items inside are centered vertically */
 }
 
-.footer-links a {
-  text-decoration: none; 
-  color: white;
-  font-weight: normal;
-  font-size:1.2em;
-  cursor: pointer; 
+.footer-left {
+    justify-content: flex-start;
+    padding-left: 20px; 
 }
 
-.footer-links a:hover {
-  color: #007BFF; /* Light blue color on hover to indicate interactivity */
+.footer-right {
+    justify-content: flex-end;
+    padding-right: 20px; 
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 17px; 
+}
+
+.footer-link:hover {
+    color: lightblue;
 }
