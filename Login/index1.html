@@ -12,8 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./styles1.css">
     <title>Login/SignUp Page</title>
+    <style>
+        .backbtn {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            z-index: 1000; /* Ensure it is above other elements */
+        }
+    </style>
 </head>
 <body style="background-color: black;">
+    <a href="../index.html" class="backbtn">
+        <img src="../assets/images/Designer.jpeg" alt="Home" style="width: 70px; height: 70px;">
+    </a>
     <div class="loader">
         <div>
             <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
@@ -24,7 +35,7 @@
     <div class="snowflakes" style="display: block;">
         <div id="particles-js"></div>
     </div>
-
+    
     <div class="container" id="container">
         <div class="form-container sign-up">
             <img src="../assets/images/logo/logo..png" alt="Website Logo" class="logo-right">
