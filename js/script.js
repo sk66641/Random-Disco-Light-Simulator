@@ -57,20 +57,41 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log("clikef")  trial
         toggleEditDropdown(); 
     })
+
+    const crossAddtimeModal= document.getElementById('closeAddtimeModal');
+    const addtimePrompt= document.getElementById('addtimeModel');
+    const addtime_input= document.getElementById('addtimeSeconds');
+    const timesubmitBtn= document.getElementById('timesubmitBtn');
+    let rememberState =true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
     
-    // Event Listener for Add Time Button:- during simulation; if we wish to extend time 
     addTimeButton.addEventListener('click', () => {
-        // used instantly invoked function expression
-        (function get_time() {
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
-            if (isNaN(add_time)) {
-                alert('Please enter a valid number!')
-                get_time();
-            } else {
-                addTime(add_time);
-            }
-        })()
+        // var time=0;
+        rememberState= isPaused//find what state is when we click add time 
+        addtimePrompt.style.display = 'block';
+        pauseSimulation(); //so that timer stops for the time being. even if its already paused, no harm. 
     });
+    crossAddtimeModal.onclick=function(){
+        addtimePrompt.style.display='none';
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+    }
+
+// Add the event listener for timesubmitBtn outside
+timesubmitBtn.addEventListener('click', () => {
+    const time = addtime_input.value; // Ensure you get the input value correctly
+    if (time == 0) {
+        console.log('Please enter a number');
+    } else {
+        addTime(time);
+        console.log(time);
+        console.log('success');
+        addtimePrompt.style.display = 'none';
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+    }
+});
 
     // Function to add 15 seconds to the timer
     function addTime(seconds) {

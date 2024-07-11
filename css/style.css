@@ -6,7 +6,7 @@
 .button div a {
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #4CAF50;
+  /* background-color: #4CAF50; */
   color: white;
   text-align: center;
   text-decoration: none;
@@ -14,23 +14,22 @@
   transition: background-color 0.3s;
 }
 
-.button div a:hover {
+/* .button div a:hover {
   background-color: #45a049;
-}
+} */
 
 /* Style for the randomize button */
 #randomize a {
-  background-color: #ff9800;
+  /* background-color: #ff9800; */
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
-#randomize a:hover {
+/* #randomize a:hover {
   background-color: #e68900;
-}
-
+} */
 
 body {
   margin: 0;
@@ -1231,6 +1230,9 @@ input:checked+.slider:before {
   backdrop-filter: blur(5px);
 }
 
+#addtimeModel{
+  backdrop-filter:blur(1px);
+}
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
