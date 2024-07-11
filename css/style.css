@@ -6,7 +6,7 @@
 .button div a {
   padding: 10px 20px;
   border-radius: 5px;
-  /* background-color: #4CAF50; */
+  background-color: #4CAF50;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -20,16 +20,16 @@
 
 /* Style for the randomize button */
 #randomize a {
-  /* background-color: #ff9800; */
+  background-color: #ff9800;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
-/* #randomize a:hover {
+#randomize a:hover {
   background-color: #e68900;
-} */
+}
 
 body {
   margin: 0;
