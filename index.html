@@ -398,6 +398,7 @@
       <p>Reload: Refreshes the page.</p>
       <p>Pause: Pauses the simulation.</p>
       <p>Fullscreen: Toggles fullscreen mode.</p>
+      <p>Add Time: Allows to you add or subtract from the disco timer</p>
       <p>Change Music: Allows you to change the background music.</p>
       <p><strong><i>Double click on the screen to hide/show the icons</i></strong></p>
 
@@ -415,6 +416,17 @@
       
     </div>
   </div>
+  <button class="notification" id="failnotification" style="display:none;">
+    <span class="message">Please enter a valid number</span>
+    <span class="closenotif" id="closeFailNotification">✖</span>
+    <div class="timerline" id="timerline"></div>
+  </button>
+  
+  <button class="notification" id="successnotification" style="display:none;">
+    <span class="message">Added Successfully!</span>
+    <span class="closenotif" id="closeSuccessNotification">✖</span>
+    <div class="timerline" id="timerline"></div>
+  </button>
 
   <div id="replayModel" class="modal">
     <div class="modal-content">

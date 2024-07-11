@@ -77,19 +77,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+//the success and failure wale pop ups 
+const failNotif= document.getElementById('failnotification');
+const successNotif=document.getElementById('successnotification');
+const closeSuccess= document.getElementById('closeSuccessNotification');
+const closeFail = document.getElementById('closeFailNotification');
+
+closeFail.addEventListener('click', ()=>{
+    failNotif.style.display='none';
+})
+closeSuccess.addEventListener('click', ()=>{
+    successNotif.style.display='none';
+})
+
+//in order to add these popups somewhere else please just use these call these two functions
+function showSuccess(){
+    successNotif.style.display='flex';
+    setTimeout(()=>{
+        successNotif.style.display='none';
+    }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
+}
+
+function showFailed(){
+    failNotif.style.display='flex';
+    setTimeout(()=>{
+        failNotif.style.display='none';
+        }, 2000); 
+}
+
+
 // Add the event listener for timesubmitBtn outside
 timesubmitBtn.addEventListener('click', () => {
     const time = addtime_input.value; // Ensure you get the input value correctly
     if (time == 0) {
-        console.log('Please enter a number');
-    } else {
+        showFailed(); //modal remains open for another entry 
+    } 
+    else {
         addTime(time);
-        console.log(time);
-        console.log('success');
         addtimePrompt.style.display = 'none';
+        showSuccess();
         if (rememberState==false){//if it was paused before we let it be 
             resumeSimulation();
         }
+        
     }
 });
 
