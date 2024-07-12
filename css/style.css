@@ -1,7 +1,6 @@
 * {
   font-size: 40px;
 }
-
 /* Style the submit and reset buttons */
 .button div a {
   padding: 10px 20px;
@@ -1112,9 +1111,8 @@ input:checked+.slider:before {
 }
 
 .icons:nth-child(4) a::after {
-  background: rgb(19, 12, 12);
+  background: rgb(173, 199, 90)
 }
-
 .icons:nth-child(5) a::after {
   background:
     rgb(88, 101, 242)
