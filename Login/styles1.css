@@ -619,11 +619,18 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  
+    flex-wrap: wrap;
     gap: 30px;
     backdrop-filter: blur(8px);
+    position: relative;
+    top: 23px;
   
-  }
+}
+@media screen and (max-width:547px){
+    .socialIcons{
+        width: 210px;
+    }
+}
 .icons {
     position: relative;
     background: rgba(106, 106, 106, 0.189);
