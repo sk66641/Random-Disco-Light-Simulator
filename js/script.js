@@ -57,20 +57,71 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log("clikef")  trial
         toggleEditDropdown(); 
     })
+
+    const crossAddtimeModal= document.getElementById('closeAddtimeModal');
+    const addtimePrompt= document.getElementById('addtimeModel');
+    const addtime_input= document.getElementById('addtimeSeconds');
+    const timesubmitBtn= document.getElementById('timesubmitBtn');
+    let rememberState =true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
     
-    // Event Listener for Add Time Button:- during simulation; if we wish to extend time 
     addTimeButton.addEventListener('click', () => {
-        // used instantly invoked function expression
-        (function get_time() {
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
-            if (isNaN(add_time)) {
-                alert('Please enter a valid number!')
-                get_time();
-            } else {
-                addTime(add_time);
-            }
-        })()
+        // var time=0;
+        rememberState= isPaused//find what state is when we click add time 
+        addtimePrompt.style.display = 'block';
+        pauseSimulation(); //so that timer stops for the time being. even if its already paused, no harm. 
     });
+    crossAddtimeModal.onclick=function(){
+        addtimePrompt.style.display='none';
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+    }
+
+//the success and failure wale pop ups 
+const failNotif= document.getElementById('failnotification');
+const successNotif=document.getElementById('successnotification');
+const closeSuccess= document.getElementById('closeSuccessNotification');
+const closeFail = document.getElementById('closeFailNotification');
+
+closeFail.addEventListener('click', ()=>{
+    failNotif.style.display='none';
+})
+closeSuccess.addEventListener('click', ()=>{
+    successNotif.style.display='none';
+})
+
+//in order to add these popups somewhere else please just use these call these two functions
+function showSuccess(){
+    successNotif.style.display='flex';
+    setTimeout(()=>{
+        successNotif.style.display='none';
+    }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
+}
+
+function showFailed(){
+    failNotif.style.display='flex';
+    setTimeout(()=>{
+        failNotif.style.display='none';
+        }, 2000); 
+}
+
+
+// Add the event listener for timesubmitBtn outside
+timesubmitBtn.addEventListener('click', () => {
+    const time = addtime_input.value; // Ensure you get the input value correctly
+    if (time == 0) {
+        showFailed(); //modal remains open for another entry 
+    } 
+    else {
+        addTime(time);
+        addtimePrompt.style.display = 'none';
+        showSuccess();
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+        
+    }
+});
 
     // Function to add 15 seconds to the timer
     function addTime(seconds) {
