@@ -1234,7 +1234,7 @@ input:checked+.slider:before {
   backdrop-filter:blur(1px);
 }
 .modal-content {
-  background-color: #fff;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);  margin: 10% auto;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1246,7 +1246,7 @@ input:checked+.slider:before {
 }
 
 .modal-content p strong {
-  color: black;
+  color: #4B0082; 
 }
 
 @keyframes slide-down {
