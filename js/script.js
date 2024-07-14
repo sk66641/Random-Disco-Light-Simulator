@@ -157,6 +157,10 @@ timesubmitBtn.addEventListener('click', () => {
         if (musicAudio) {
             musicAudio.muted = true;
         }
+        else if (player) {
+                player.mute();
+                
+            }
         isMuted = true;
         muteIcon.classList.remove('fa-volume-up');
         muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
@@ -251,9 +255,13 @@ timesubmitBtn.addEventListener('click', () => {
         // Get selected audio file or URL
         let selectedFile = document.getElementById("music-file").files[0];
         let selectedUrl = document.getElementById("music-url").value;
+        let youtubeUrl=document.getElementById("youtubeUrlInput").value.trim();        
+        
 
-
-        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) && document.getElementById('PreviewButton').textContent !== "Stop") {
+        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
+        !(selectedFile && youtubeUrl) &&
+        !(selectedUrl && youtubeUrl) &&
+        !(soundEffect !== 'none' && youtubeUrl)){
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
@@ -291,26 +299,72 @@ timesubmitBtn.addEventListener('click', () => {
                 audio.loop = true;
                 audio.play();
                 musicAudio = audio;
-            }
-            else {
-                let selectedAudio;
-                if (selectedFile) {
-                    // User selected a file
-                    selectedAudio = new Audio(URL.createObjectURL(selectedFile));
-                } else if (selectedUrl) {
-                    // User pasted a URL
-                    selectedAudio = new Audio(selectedUrl);
-
-                    // To handle CORS issues, check if the URL is valid and playable
-                    selectedAudio.addEventListener("error", (e) => {
-                        console.error("Error loading audio from URL:", e);
-                    });
+            } else if (selectedFile) {
+                // User selected a file
+                let selectedAudio = new Audio(URL.createObjectURL(selectedFile));
+                selectedAudio.loop = true;
+                selectedAudio.play();
+                musicAudio = selectedAudio;
+            } else if (selectedUrl) {
+                // User pasted a URL
+                let selectedAudio = new Audio(selectedUrl);
+                selectedAudio.addEventListener("error", (e) => {
+                    console.error("Error loading audio from URL:", e);
+                });
+                selectedAudio.loop = true;
+                selectedAudio.play();
+                musicAudio = selectedAudio;
+            } else if (youtubeUrl) {
+                const you=document.createElement("div");
+                you.id="youtube-audio-player";
+                document.body.appendChild(you);
+                if (typeof youtubeUrl !== 'string' || youtubeUrl.trim() === '') {
+                    console.error("Invalid YouTube URL provided");
+                    alert('Please enter a valid YouTube URL');
+                    return;
                 }
+                console.log("YouTube URL:", youtubeUrl);
+                let videoId = extractVideoId(youtubeUrl);
+                console.log("Extracted Video ID:", videoId);
+                if (videoId) {
+                    console.log("Loading YouTube audio");
+                    loadYouTubeAudio(videoId);
+                    setTimeout(() => {
+                        if (player) {
+                            console.log("YouTube player created successfully");
+                        } else {
+                            console.error("Failed to create YouTube player");
+                        }
+                    }, 1000);
+                } else {
+                    console.error("Could not extract video ID from URL");
+                    alert('Invalid YouTube URL. Please check the URL and try again.');
+                }
+            } else {
+                console.log("No music selected");
+            }
+                if(selectedUrl || selectedFile){
                 // Initialize selectedAudio variable
                 selectedAudio.loop = true;
                 selectedAudio.play();
                 musicAudio = selectedAudio;
-            }
+                }
+            
+           
+            document.body.style.cursor = 'pointer';
+            document.body.addEventListener('dblclick', () => {
+                if (document.querySelector(".navMain").style.display === "none") {
+                    document.querySelector(".navMain").style.display = "block"
+                    document.querySelector("#muteBtn").style.display = "block"
+                    document.querySelector("#timerDisplay").style.display = "block"
+                    document.querySelector(".sidebarOne").style.display = "none"
+                } else {
+                    document.querySelector(".navMain").style.display = "none"
+                    document.querySelector("#muteBtn").style.display = "none"
+                    document.querySelector("#timerDisplay").style.display = "none"
+                }
+            });
+
             document.body.style.cursor = 'pointer';
             document.body.addEventListener('dblclick', () => {
                 if (document.querySelector(".navMain").style.display === "none") {
@@ -709,12 +763,14 @@ function lightMode() {
 }
 
 // Define global variable to store reference to the currently playing audio
-// let currentAudio;
+let currentAudio;
+
 
 // Function to toggle mute/unmute for the currently playing audio
 function toggleMute() {
-    if (musicAudio) {
-        musicAudio.muted = !musicAudio.muted;
+
+    if (currentAudio) {
+        currentAudio.muted = !currentAudio.muted;
         // Update mute button icon based on mute state if necessary
     }
 }
@@ -727,12 +783,12 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
-            const musicAud = document.getElementById(selectedMusic);
-            // musicAudio.loop = true;
-            musicAud.play();
-            musicAudio = musicAud; // Update currently playing audio reference
-            
+            const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.loop = true;
+            musicAudio.play();
+            currentAudio = musicAudio; // Update currently playing audio reference
         }
+        
     });
 });
 
