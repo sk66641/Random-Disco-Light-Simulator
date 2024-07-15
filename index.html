@@ -124,7 +124,7 @@
 
         <div>
           <!-- <form action="#"> -->
-          <label id="n" for="color">1. Number of Colors:</label>
+          <label id="n" for="color">1. Number of Colors: <span style="color:red" >*</span></label>
           <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
             aria-label="Number of Colors" required> <!--prevents user from entering value less than 1-->
         </div>
@@ -140,7 +140,7 @@
 
         <div>
           <label for="time">3. Time interval
-            <i>(with which the color changes randomly)</i>:</label><br />
+            <i>(with which the color changes randomly)</i>: <span style="color:red" >*</span></label><br />
           <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
           <!-- <input type="number" min="0" oninput="this.value = Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
             id="time" placeholder="Enter" aria-label="Time Interval" required /> -->
@@ -167,13 +167,13 @@
         </div>
 
         <div>
-          <label for="countdown">5. Countdown Timer (in seconds):</label>
+          <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red" >*</span></label>
           <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
             placeholder="Enter time in seconds" required />
         </div>
 
         <div>
-          <label for="sound">6. Select Music:</label>
+          <label for="sound">6. Select Music: <span style="color:red" >*</span></label>
           <select id="sound" value="select" aria-label="Sound Effect">
             <option value="none">None</option>
             <option value="disco">Disco</option>
