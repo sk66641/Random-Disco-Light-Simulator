@@ -13,10 +13,6 @@
   transition: background-color 0.3s;
 }
 
-/* .button div a:hover {
-  background-color: #45a049;
-} */
-
 /* Style for the randomize button */
 #randomize a {
   background-color: #ff9800;
@@ -287,14 +283,11 @@ h1 {
 }
 
 label {
-  /* font-size: 22px; */
   font-size: 20px;
-  /* font-weight: 300; */
   font-family: system-ui;
 }
 
 input {
-  /* background-color: rgba(255, 255, 255, 0.07); */
   background: #290a1d;
   outline: none;
   border: none;
@@ -312,7 +305,6 @@ input {
 
 input:focus {
   outline: none;
-  /* width: 4rem; */
   border: none;
 }
 
@@ -772,7 +764,6 @@ nav ul li a:hover {
   font-size: 16px;
   height: 30px;
   padding-top: 0.3rem;
-  /* transition: 0.1s all; */
 }
 .editdropdown{
   margin-top: -0.4rem;
@@ -1021,7 +1012,6 @@ nav ul li a:hover {
   width: 14px;
   left: 3px;
   bottom: 3px;
-  /* background-image: linear-gradient(to bottom right, yellow, orange, red); */
   background-image: linear-gradient(black, rgb(18, 18, 18));
   box-shadow: inset -3px -1.4px #ffffff, inset -3.2px -1.4px 0.2px 0.1px rgb(58, 52, 58);
   border-radius: 50%;
@@ -1154,8 +1144,6 @@ input:checked+.slider:before {
     bottom: 0%;
     width: 100%;
     justify-content: center;
-
-
   }
 }
 
@@ -1285,7 +1273,6 @@ p {
   color: #555;
 }
 
-/* josfoknfsonfonfsofnosfnsofnsofnsofj */
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -1622,8 +1609,6 @@ button:hover {
   }
 }
 
-
-
 /* #musicDropdown {
   text-align: center;
   border-radius: 10px;
@@ -1660,7 +1645,6 @@ button:hover {
   transform: scale(1.17);
 }
 
-
 .dark-mode {
   background-color: black;
   color: white;
@@ -1680,7 +1664,6 @@ button:hover {
 }
 
 .light-mode .box {
-  /* min-height: 100vh; */
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
@@ -1884,8 +1867,6 @@ button:hover {
 }
 
 .box span {
-  /* font-family: Arial, sans-serif;
-  font-size: 39px; */
   font-family: sans-serif;
   font-size: 30px;
   font-weight: bold;
@@ -2120,7 +2101,6 @@ button:hover {
 }
 
 #music-file {
-  /* width: 260px; */
   font-size: 20px;
   font-family: 'Playfair Display', serif;
   cursor: pointer;
@@ -2587,7 +2567,6 @@ button:active {
   width: 300px;
   position: fixed;
   top: 65px;
-  /* margin-left: 90vw; */
   right: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-out;

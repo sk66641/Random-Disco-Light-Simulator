@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }}
 
     editBtn.addEventListener('click', function(event) {      
-        // console.log("clikef")  trial
         toggleEditDropdown(); 
     })
 
@@ -65,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let rememberState =true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
     
     addTimeButton.addEventListener('click', () => {
-        // var time=0;
         rememberState= isPaused//find what state is when we click add time 
         addtimePrompt.style.display = 'block';
         pauseSimulation(); //so that timer stops for the time being. even if its already paused, no harm. 
@@ -195,7 +193,6 @@ timesubmitBtn.addEventListener('click', () => {
 
     function startCountdown(duration) {
         countdownValue = duration;
-        // document.getElementById('musicDropdown').style.display = 'block';
         pauseStartButton.style.display = 'inline-block'; // Show the pause button
         document.querySelector("#reload").style.display = 'inline-block'; // Show the reload button 
         timerDisplay.style.display = 'block';
@@ -452,16 +449,6 @@ timesubmitBtn.addEventListener('click', () => {
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
 
-        // comment !important
-        // Stopped the random selection for 2nd input for better view:
-        // const colorInput1 = document.getElementById('color1');
-        // const randomColor1 =  "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        // colorInput1.value = randomColor1;
-
-        // const colorInput2 = document.getElementById('color2');
-        // const randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-        // colorInput2.value = randomColor2;
-
         const timeInput = document.getElementById('time');
 
         const unitSelect = document.getElementById('unit');
@@ -508,12 +495,10 @@ timesubmitBtn.addEventListener('click', () => {
         document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
-        // console.log(musicAudio); testing
     }
 
     function resumeSimulation() {
         startCountdown(countdownValue);
-        // if (!musicAudio) {
         musicAudio.play();
         
         document.getElementById('musicDropdown').style.display="block";
@@ -527,7 +512,6 @@ timesubmitBtn.addEventListener('click', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        // console.log(musicAudio); testing
 
         pauseStartButton.textContent = 'Pause';
         isPaused = false;
@@ -728,7 +712,6 @@ document.getElementById('submit').addEventListener('click', function () {
 
         if (selectedMusic !== 'none') {
             const musicAud = document.getElementById(selectedMusic);
-            // musicAudio.loop = true;
             musicAud.play();
             musicAudio = musicAud; // Update currently playing audio reference
             
