@@ -44,19 +44,19 @@ body {
     border-radius: 50%;
     pointer-events: none;
     box-shadow: 3px 3px 6px #a970e2;
-}
-
-@keyframes snowfall {
+  }
+  
+  @keyframes snowfall {
     0% {
-        transform: translateY(-10px) rotate(0deg);
-        opacity: 1;
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 1;
     }
-
+  
     100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
     }
-}
+  }
 
 .light-mode .snowflakes {
     position: fixed;
