@@ -170,6 +170,9 @@ timesubmitBtn.addEventListener('click', () => {
         if (musicAudio) {
             musicAudio.muted = false;
         }
+        else if(player){
+            player.unMute();
+        }
         isMuted = false;
         muteIcon.classList.remove('fa-volume-mute');
         muteIcon.classList.add('fa-volume-up'); // FontAwesome icon classes for unmuted state
@@ -240,6 +243,10 @@ timesubmitBtn.addEventListener('click', () => {
         window.location.reload();
         run();
     });
+    let player;
+    function onYouTubeIframeAPIReady() {
+        console.log("YouTube API is ready");
+    }
 
     function run() {
         // after successful submission
@@ -271,6 +278,60 @@ timesubmitBtn.addEventListener('click', () => {
             backToTopBtn.style.display = "none";
             startCountdown(countdownValue);
 
+            //Function to load Youtube Audio Player
+            function loadYouTubeAudio(videoId) {
+                console.log("Entering loadYouTubeAudio function with videoId:", videoId);
+                if (player) {
+                    console.log("Existing player found, loading new video");
+                    player.loadVideoById(videoId);
+                    player.playVideo();
+                } else {
+                    console.log("Creating new YouTube player");
+                    player = new YT.Player('youtube-audio-player', {
+                        height: '1',
+                        width: '1',
+                        videoId: videoId,
+                        playerVars: {
+                            'autoplay': 1,
+                            'controls': 0,
+                            'disablekb': 1,
+                            'fs': 0,
+                            'showinfo': 0,
+                            'iv_load_policy': 3,
+                            'loop':1
+                        },
+                        events: {
+                            'onReady': onPlayerReady,
+                            'onStateChange': onPlayerStateChange,
+                            'onError': onPlayerError
+                        }
+                    });
+                }
+                console.log("Exiting loadYouTubeAudio function");
+            }
+
+            //Start play
+            function onPlayerReady(event) {
+                console.log("YouTube player is ready");
+                event.target.playVideo();
+            }
+            
+            //Check state of play and loop if needed
+            function onPlayerStateChange(event) {
+                console.log("Player state changed to:", event.data);
+                if (event.data == YT.PlayerState.PLAYING) {
+                    console.log("YouTube audio is playing");
+                }
+                if(event.data== YT.PlayerState.ENDED){
+                    player.playVideo();
+                }
+            }
+
+            //Error catch
+            function onPlayerError(event) {
+                console.error("YouTube player error:", event.data);
+            }
+
             const modal1 = document.getElementById("infomodal");
             const closeModal1 = document.getElementById("closeModal1");
             const proceedButton1 = document.getElementById("proceed1");
@@ -289,6 +350,16 @@ timesubmitBtn.addEventListener('click', () => {
                 if (event.target == modal1) {
                     modal1.style.display = "none";
                 }
+            }
+             /*Music url youtube*/
+             function extractVideoId(url) {
+                if (typeof url !== 'string' || url.trim() === '') {
+                    console.error('Invalid URL provided to extractVideoId');
+                    return null;
+                }
+                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+                var match = url.match(regExp);
+                return (match && match[7].length == 11) ? match[7] : null;
             }
 
             muteButton.style.display = 'block'; // Show the mute button after successful submission 
