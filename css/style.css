@@ -1,6 +1,12 @@
-* {
-  font-size: 40px;
+h1{
+  font-size: 30px !important;
 }
+* {
+  font-size: 20px ;
+  
+  
+}
+
 /* Style the submit and reset buttons */
 .button div a {
   padding: 10px 20px;
@@ -185,7 +191,7 @@ input[type="color"]:hover {
 
 
 h1 {
-  font-size: 25px;
+  font-size: 25px !important;
   text-align: center;
 }
 
@@ -201,7 +207,7 @@ h1 {
   color: white;
   padding: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 12px !important;
   opacity: 0;
   /* Initially hidden */
   transition: opacity 0.3s ease;
@@ -288,7 +294,7 @@ h1 {
 
 label {
   /* font-size: 22px; */
-  font-size: 20px;
+  font-size: 20px !important;
   /* font-weight: 300; */
   font-family: system-ui;
 }
@@ -299,7 +305,7 @@ input {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 20px !important;
   padding: 5px 10px;
   border-radius: 10px;
 }
@@ -307,7 +313,7 @@ input {
 ::placeholder {
   font-family: system-ui;
   color: #8d8080;
-  font-size: 15px;
+  font-size: 15px !important;
 }
 
 input:focus {
@@ -317,7 +323,7 @@ input:focus {
 }
 
 i {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 strong {
@@ -336,7 +342,7 @@ strong {
   border: none;
   padding: 5px 10px;
   color: #e5e5e5;
-  font-size: 20px;
+  font-size: 20px !important;
   width: auto;
 }
 
@@ -346,7 +352,7 @@ select {
 
 select option {
   color: #e5e5e5;
-  font-size: 18px;
+  font-size: 18px !important;
   font-family: 'Playfair Display', serif;
   background-color: #333;
   border: none;
@@ -364,7 +370,7 @@ select option {
   padding: 10px 20px;
   margin: 0 0;
   color: #ff4d00;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -472,7 +478,7 @@ select option {
   padding: 10px 20px;
   margin: 0 0;
   color: #e35ee5;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -592,7 +598,7 @@ select option {
   padding: 10px 20px;
   margin: 20px 0;
   color: #03e9f4;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -783,14 +789,16 @@ nav ul li a:hover {
 
 
 @media only screen and (max-width: 850px) {
-  * {
-    font-size: 18px !important;
-  }
-
   h1 {
     margin-bottom: 5px;
     font-size: 24px !important;
   }
+
+  * {
+    font-size: 18px !important;
+  }
+
+  
 
   input,
   #unit {
