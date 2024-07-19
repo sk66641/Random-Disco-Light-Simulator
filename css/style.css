@@ -1884,6 +1884,11 @@ button:hover {
   padding-left: 0;
 } */
 
+@media screen and (max-width : 414px) {
+  .box {
+    width: 100%;
+  }
+}
 
 .box h1 {
   font-family: Arial, sans-serif;
