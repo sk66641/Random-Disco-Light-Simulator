@@ -135,7 +135,7 @@
         </h1> -->
         <div class="form">
           <div class="form-group">
-            <label for="color">1. Number of Colors:</label>
+            <label for="color">1. Number of Colors: <span style="color:red" >*</span></label>
             <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
               aria-label="Number of Colors" required>
           </div>
@@ -150,7 +150,7 @@
           <strong>[For Random color spectrum, don't select different colors]</strong>
         
           <div class="form-group">
-            <label for="time">3. Time interval <i>(with which the color changes randomly)</i>:</label><br />
+            <label for="time">3. Time interval <i>(with which the color changes randomly)</i>: <span style="color:red" >*</span></label><br />
             <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
             <select id="unit" aria-label="Time Interval Unit">
               <option value="unit" disabled selected>Select Unit</option>
@@ -162,7 +162,7 @@
           <strong>[Negative interval or No input will be treated as 0 interval]</strong>
         
           <div class="form-group">
-            <label for="view">4. View:</label>
+            <label for="view">4. View: <span style="color:red" >*</span></label>
             <select id="view" aria-label="Select View">
               <option style="background-color: lightslategray; color: white" value="select" disabled selected>Select</option>
               <option value="conic">Conic</option>
@@ -173,7 +173,7 @@
           </div>
         
           <div class="form-group">
-            <label for="countdown">5. Countdown Timer (in seconds):</label>
+            <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red" >*</span></label>
             <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
               placeholder="Enter time in seconds" required />
           </div>
