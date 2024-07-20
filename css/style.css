@@ -180,7 +180,7 @@ input[type="color"]:hover {
   opacity: 0.8;
 }
 
-#music-url:hover+#n {
+#youtubeUrlInput:hover+#n {
   text-shadow: 2px 2px white;
 }
 

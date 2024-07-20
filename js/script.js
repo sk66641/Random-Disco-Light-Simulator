@@ -462,7 +462,7 @@ timesubmitBtn.addEventListener('click', () => {
                 document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
             } else if (countdownValue <= 0) {
                 document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
-            } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
+            } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && youtubeUrl || youtubeUrl && selectedFile) {
                 document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
             } else if (document.getElementById('PreviewButton').textContent === "Stop") {
                 document.getElementById("error").innerHTML = "<strong>6. First stop previewing music!</strong>";
@@ -977,7 +977,7 @@ function savePreset() {
         view: document.getElementById('view').value,
         countdown: document.getElementById('countdown').value,
         sound: document.getElementById('sound').value,
-        musicUrl: document.getElementById('music-url').value,
+        youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
 
     };
 
