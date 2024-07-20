@@ -13,8 +13,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <style>
-    /* style.css */
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <style>/* style.css */
 
     .form-group {
       margin-bottom: 20px;
@@ -306,10 +306,14 @@
               <option value="snare">Snare</option>
             </select>
             <button id="PreviewButton">Preview</button>
-            <span style="font-size: 24px; color: #f09819;">or</span>
-            <input type="url" id="music-url" placeholder="Paste link here" /><br>
+            <span style="display: none; font-size: 24px; color: #f09819;">or</span>
+            <input type="url" style="display: none;" id="music-url" placeholder="Paste link here" /><br>
             <span style="font-size: 24px; color: #f09819;">or</span>
             <input type="file" id="music-file" accept="audio/*" class="file-input" />
+
+            <span style="font-size: 24px; color: #f09819; ">or</span>
+            <input type="url" id="youtubeUrlInput" placeholder="Paste YouTube URL">
+           
           </div>
 
 

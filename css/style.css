@@ -73,12 +73,7 @@ body {
 {
 	background-color: #FFF;
   border-radius: 10px;
-	background-image: -webkit-linear-gradient(90deg,
-	                                          rgba(0, 0, 0, 1) 0%,
-											  rgba(0, 0, 0, 1) 25%,
-											  transparent 100%,
-											  rgba(0, 0, 0, 1) 75%,
-											  transparent)
+	background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent)
 }
 
 .unload {
@@ -184,7 +179,7 @@ input[type="color"]:hover {
   opacity: 0.8;
 }
 
-#music-url:hover+#n {
+#youtubeUrlInput:hover+#n {
   text-shadow: 2px 2px white;
 }
 
