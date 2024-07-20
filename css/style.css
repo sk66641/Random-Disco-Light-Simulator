@@ -2,9 +2,8 @@ h1{
   font-size: 30px !important;
 }
 * {
-  font-size: 20px ;
-  
-  
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Style the submit and reset buttons */
@@ -46,7 +45,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: black;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -296,7 +295,7 @@ label {
   /* font-size: 22px; */
   font-size: 20px !important;
   /* font-weight: 300; */
-  font-family: system-ui;
+  font-family: "Poppins", sans-serif;
 }
 
 input {
@@ -311,7 +310,7 @@ input {
 }
 
 ::placeholder {
-  font-family: system-ui;
+  font-family: "Poppins", sans-serif;
   color: #8d8080;
   font-size: 15px !important;
 }
@@ -327,7 +326,7 @@ i {
 }
 
 strong {
-  font-family: arial;
+  font-family: "Poppins", sans-serif;
   font-size: 17px;
   color: #f09819;
 }
@@ -347,13 +346,13 @@ strong {
 }
 
 select {
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
 }
 
 select option {
   color: #e5e5e5;
-  font-size: 18px !important;
-  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
   background-color: #333;
   border: none;
   outline: none;
@@ -759,7 +758,7 @@ button {
 nav ul li a {
   display: inline-block;
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 45px;
   transition: 0.2s all;
 }
@@ -1692,7 +1691,7 @@ button:hover {
   background-color: #b0b7b800;
   border: none;
   outline: none;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 100;
   transition: 0.2s all;
 }
@@ -1924,7 +1923,7 @@ button:hover {
 }
 
 .box h1 {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 39px;
   color: #ffffff;
 }
@@ -1932,7 +1931,7 @@ button:hover {
 .box span {
   /* font-family: Arial, sans-serif;
   font-size: 39px; */
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #ff7f50;
@@ -2168,12 +2167,12 @@ button:hover {
 #music-file {
   /* width: 260px; */
   font-size: 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
 }
 
 .file-input {
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -2456,16 +2455,7 @@ button:active {
 
 }
 
-@keyframes colors {
-  0% {
-    filter: hue-rotate(0deg);
-  }
 
-  100% {
-    filter: hue-rotate(360deg);
-  }
-
-}
 
 .cursor:before {
   content: '';
@@ -2654,7 +2644,7 @@ button:active {
 .notification .message {
   flex-grow: 1;
   color: #000;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   font-weight: lighter;
   font-size: 18px;
 }

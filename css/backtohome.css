@@ -1,0 +1,35 @@
+.back-button {
+    display: inline-block;
+
+    width: 53px;
+    height: 53px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    border-color: transparent;
+    animation: borderLights 2s infinite;
+}
+
+.back{
+    position: relative;
+    right: 7px;
+    bottom: 7.5px;
+}
+
+@keyframes borderLights {
+    0% {
+        box-shadow: 0 0 10px red;
+    }
+    25% {
+        box-shadow: 0 0 10px yellow;
+    }
+    50% {
+        box-shadow: 0 0 10px green;
+    }
+    75% {
+        box-shadow: 0 0 10px blue;
+    }
+    100% {
+        box-shadow: 0 0 10px red;
+    }
+}

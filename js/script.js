@@ -888,26 +888,26 @@ function loadPreset() {
 document.getElementById('savePresetButton').addEventListener('click', savePreset);
 document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
 
-const cursor = document.querySelector(".cursor");
-var timeout;
-document.addEventListener("mousemove", (e) => {
-    let x = e.pageX;
-    let y = e.pageY;
+// const cursor = document.querySelector(".cursor");
+// var timeout;
+// document.addEventListener("mousemove", (e) => {
+//     let x = e.pageX;
+//     let y = e.pageY;
 
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.display = "block";
+//     cursor.style.top = `${e.clientY}px`;
+//     cursor.style.left = `${e.clientX}px`;
+//     cursor.style.display = "block";
 
-    function mousestopped() {
-        cursor.style.display = "none";
-    }
-    clearTimeout(timeout);
-    timeout = setTimeout(mousestopped, 1000);
+//     function mousestopped() {
+//         cursor.style.display = "none";
+//     }
+//     clearTimeout(timeout);
+//     timeout = setTimeout(mousestopped, 1000);
 
-});
-document.addEventListener("mouseout", () => {
-    cursor.style.display = "none";
-});
+// });
+// document.addEventListener("mouseout", () => {
+//     cursor.style.display = "none";
+// });
 
 // document.querySelector('#ll').addEventListener("submit", (event) => {
 //     if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
