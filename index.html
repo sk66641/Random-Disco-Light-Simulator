@@ -13,6 +13,17 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
+  <style>/* style.css */
+
+    .form-group {
+      margin-bottom: 20px; /* Adjust the spacing as per your design */
+    }
+    .form-group label {
+
+  margin-bottom: 5px; /* Adjust the spacing between label and input */
+}
+    </style>
+  
 </head>
 
 <body>
@@ -124,85 +135,72 @@
           </span>
         </h1> -->
         <div class="form">
-
-        <div>
-          <!-- <form action="#"> -->
-          <label id="n" for="color">1. Number of Colors: <span style="color:red" >*</span></label>
-          <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
-            aria-label="Number of Colors" required> <!--prevents user from entering value less than 1-->
-        </div>
-
-        <div>
-          <label for="color1">2. Select your desired start & end colors for the gradient:</label>
-          <input type="color" id="color1" aria-label="Start Color" />
-          <label for="color2"></label>
-          <input type="color" id="color2" aria-label="End Color" />
-        </div>
-
-        <strong>[For Random color spectrum, don't select different colors]</strong>
-
-        <div>
-          <label for="time">3. Time interval
-            <i>(with which the color changes randomly)</i>: <span style="color:red" >*</span></label><br />
-          <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
-          <!-- <input type="number" min="0" oninput="this.value = Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
-            id="time" placeholder="Enter" aria-label="Time Interval" required /> -->
-          <select id="unit" aria-label="Time Interval Unit">
-            <option value="unit" disabled selected>Select Unit</option>
-            <option value="milliseconds">Milliseconds</option>
-            <option value="seconds">Seconds</option>
-          </select>
-        </div>
-
-        <strong>[Negative interval or No input will be treated as 0 interval]</strong>
-
-        <div>
-          <label for="view">4. View: <span style="color:red" >*</span></label>
-          <select id="view" aria-label="Select View">
-            <option style="background-color: lightslategray; color: white" value="select" disabled selected>
-              Select
-            </option>
-            <option value="conic">Conic</option>
-            <option value="linear">Linear</option>
-            <option value="radial">Radial</option>
-            <option value="custom">Custom Pattern</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red" >*</span></label>
-          <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
-            placeholder="Enter time in seconds" required />
-        </div>
-
-        <div>
-          <label for="sound">6. Select Music:</label>
-          <select id="sound" value="select" aria-label="Sound Effect">
-            <option value="none">None</option>
-            <option value="disco">Disco</option>
-            <option value="fairies">Fairies</option>
-            <option value="funky">Funky</option>
-            <option value="upbeatdisco">Upbeatdisco</option>
-            <option value="vintage">Vintage</option>
-            <option value="whistle">Whistle</option>
-            <option value="snare">Snare</option>
-          </select>
-          <button id="PreviewButton">Preview</button>
-          <span style="font-size: 24px; color: #f09819;">or</span>
-          <input type="url" id="music-url" placeholder="Paste link here" /><br>
-          <span style="font-size: 24px; color: #f09819;">or</span>
-
-          <input type="file" id="music-file" accept="audio/*" class="file-input" />
-          
-          <span style="font-size: 24px; color: #f09819;">or</span>
-          <input type="text" id="youtubeUrlInput" placeholder="Paste YouTube URL">
-         
-
-
-          <!-- <button id="stop_resume">Stop</button> -->
+          <div class="form-group">
+            <label for="color">1. Number of Colors: <span style="color:red" >*</span></label>
+            <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
+              aria-label="Number of Colors" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="color1">2. Select your desired start & end colors for the gradient:</label>
+            <input type="color" id="color1" aria-label="Start Color" />
+            <label for="color2"></label>
+            <input type="color" id="color2" aria-label="End Color" />
+          </div>
+        
+          <strong>[For Random color spectrum, don't select different colors]</strong>
+        
+          <div class="form-group">
+            <label for="time">3. Time interval <i>(with which the color changes randomly)</i>: <span style="color:red" >*</span></label><br />
+            <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
+            <select id="unit" aria-label="Time Interval Unit">
+              <option value="unit" disabled selected>Select Unit</option>
+              <option value="milliseconds">Milliseconds</option>
+              <option value="seconds">Seconds</option>
+            </select>
+          </div>
+        
+          <strong>[Negative interval or No input will be treated as 0 interval]</strong>
+        
+          <div class="form-group">
+            <label for="view">4. View: <span style="color:red" >*</span></label>
+            <select id="view" aria-label="Select View">
+              <option style="background-color: lightslategray; color: white" value="select" disabled selected>Select</option>
+              <option value="conic">Conic</option>
+              <option value="linear">Linear</option>
+              <option value="radial">Radial</option>
+              <option value="custom">Custom Pattern</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red" >*</span></label>
+            <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown" aria-label="Countdown Timer"
+              placeholder="Enter time in seconds" required />
+          </div>
+        
+          <div class="form-group">
+            <label for="sound">6. Select Music:</label>
+            <select id="sound" value="select" aria-label="Sound Effect">
+              <option value="none">None</option>
+              <option value="disco">Disco</option>
+              <option value="fairies">Fairies</option>
+              <option value="funky">Funky</option>
+              <option value="upbeatdisco">Upbeatdisco</option>
+              <option value="vintage">Vintage</option>
+              <option value="whistle">Whistle</option>
+              <option value="snare">Snare</option>
+            </select>
+            <button id="PreviewButton">Preview</button>
+            <span style="font-size: 24px; color: #f09819;">or</span>
+            <input type="url" id="music-url" placeholder="Paste link here" /><br>
+            <span style="font-size: 24px; color: #f09819;">or</span>
+            <input type="file" id="music-file" accept="audio/*" class="file-input" />
+          </div>
+        
 
         </div>
-      </div>
+        
         <div id="error" aria-live="polite"></div>
         <div style="display: flex; justify-content: center; align-items: center;">
           <div id="randomize" aria-label="Randomize">
@@ -436,6 +434,7 @@
       <button id="exitBtn">No</button>
     </div>
   </div>
+  
   <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
   <!--  <div id="aboutPopup" class="popup">
     <div class="popup-content">
