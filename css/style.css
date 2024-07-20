@@ -890,35 +890,68 @@ nav ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
   * {
-    font-size: 12px !important;
+    font-size: 11px !important;
   }
 
   h1 {
     overflow-wrap: break-word;
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 
   .copyright {
-    font-size: 14px !important;
+    font-size: 11px !important;
   }
 
   .socialIcons a i {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
 
   .input {
-    width: 15px;
+    width: 7px;
   }
-
+  .form-group select{
+    width: 140px !important;
+    height: 28px !important;
+  }
+  #unit{
+    font-size: 17px !important;
+  }
+  #view{
+    font-size: 17px !important;
+  }
+  #sound{
+    font-size: 17px !important;
+  }
+  .file-input{
+    width: 240px !important;
+    height: 28px !important;
+    font-size: 16px !important;
+  }
 
   .box {
-    padding: 10px 15px;
-    width: 350px;
-    height: auto;
+    padding: 8px 30px !important;
+    width: 260px !important;
+    height: auto !important;
   }
-
+  #randomize {
+    width: 200px !important;
+    height: 78px !important;
+  }
+  #submit a {
+    width: 90px !important;
+    height: 15px !important;
+    font-size: 17px !important;
+  }
+  #reset a {
+    width: 80px !important;
+    height: 16px !important;
+    font-size: 17px !important;
+  }
+  .copyright{
+    margin-left: 10px !important;
+  }
 }
 
 #timerDisplay {
