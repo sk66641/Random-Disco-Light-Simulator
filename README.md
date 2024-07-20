@@ -49,15 +49,53 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 - **Conic Mode**
    - Imagine a spotlight sweeping across the room, creating vibrant cones of light.
    - The colors change dynamically as the spotlight moves, adding an electrifying effect.
-
+        <img id="image1" src="assets/images/features/Conic_1.jpg" alt="Conic Example 1" height="400px"
+                    width="400px" onmouseover="changeToGif1()" onmouseout="changeToStatic1()">
+        <img id="image2" src="assets/images/features/Conic_2.jpg" alt="Conic Example 2" height="400px"
+                    width="400px" onmouseover="changeToGif2()" onmouseout="changeToStatic2()">
 - **Radial Mode**
    - Picture a pulsating ring of light expanding and contracting.
    - The radial pattern syncs perfectly with the beat, making you feel the rhythm.
+  
+      <img id="image3" src="assets/images/features/Radial_01.jpg" alt="Radial Example 1" height="400px"
+                    width="400px" onmouseover="changeToGif3()" onmouseout="changeToStatic3()">
+     <img id="image4" src="assets/images/features/Radial_02.jpg" alt="Radial Example 2" height="400px"
+                    width="400px" onmouseover="changeToGif4()" onmouseout="changeToStatic4()">
 
 - **Linear Mode**
    - Visualize colorful streaks of light moving in straight lines.
    - These streaks crisscross, intersect, and dance across the floor, transforming your space into a dynamic disco.
 
+     <img id="image5" src="assets/images/features/Linear_01.jpg" alt="Linear Example 1" height="400px"
+                    width="400px" onmouseover="changeToGif5()" onmouseout="changeToStatic5()">
+     <img id="image6" src="assets/images/features/Linear_02.jpg" alt="Linear Example 2" height="400px"
+                    width="400px" onmouseover="changeToGif6()" onmouseout="changeToStatic6()">
+
+- **Interactive Controls**
+   - Customize your experience with interactive controls. Set the number of colors, adjust the time interval
+                for color changes, choose your preferred view type, and set a countdown timer for the duration of the
+                simulation.
+
+     <img id="image7" src="assets/images/features/Interactive_Controls.png" alt="Controls Example"
+                height="400px" width="700px">
+
+- **Sound Effects**
+   - Enhance your disco light show with synchronized sound effects. Choose from a variety of soundtracks to
+                match the vibe of your light display.
+
+     <img id="image8" src="assets/images/features/Sounds_Control.png">
+
+- **Chatbot**
+   - Get instant assistance and friendly guidance with our new chatbot, available to help you every step of the way.
+ 
+     <img id="image1" src="assets/images/features/Chatbot.png" alt="Chatbot" height="300px" width="100px">
+
+- **Customizable Settings**
+   - Experiment with different settings to create your own unique disco light show. Change the music, adjust
+                the visuals, and tweak the settings to find the perfect combination for your party or relaxation time.
+
+     
+     
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## Input🎛
