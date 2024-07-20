@@ -19,6 +19,35 @@ body {
     padding-top: 150px;
 }
 
+.feedback-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    text-shadow: 1px 1px 1px rgb(0, 78, 130), 0 0 0.2em rgb(240, 122, 195), 0 0 0.2em blue;
+    
+}
+
+#changingHeading {
+    font-size: 42px !important;
+    font-weight: bolder !important;
+    color: #f0bef0 !important;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
 #particles-js {
     position: absolute;
     width: 100%;
@@ -100,12 +129,23 @@ body {
     text-align: justify;
 }
 
-.box{
-    padding: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-bottom: 50px;
-    background-image: none;
+.box {
+    padding: 20px;
+    margin: 50px auto; 
+    background-color: #290a1d; 
+    border-radius: 10px; 
+    max-width: 600px; 
+}
+
+.inputFeedback {
+    display: flex;
+    flex-direction: column;
+}
+
+.pointsFeedback {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .aboutBox{
@@ -113,12 +153,16 @@ body {
 }
 strong{
     font-size: 20px;
+    color: rgb(255, 255, 255) !important;
 }
-.points{
-    margin-bottom: 8px;
-    margin-right: 35px;
-    display: flex;
+
+.points {
+    margin-right: 20px;
+    text-align: left; 
+    flex: 0 0 150px; 
 }
+
+
 .empty{
     width: 100vw;
     height: 50px;
@@ -131,7 +175,6 @@ strong{
 }
 .star-rating {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: center;
 }
 
@@ -140,17 +183,146 @@ strong{
 }
 
 .star-rating label {
-    color: #ddd;
+    color: #795656;
     font-size: 2em;
     padding: 0 0.1em;
     cursor: pointer;
     transition: color 0.2s;
 }
 
-.star-rating input[type="radio"]:checked ~ label,
+
+.feedback-item label {
+    margin-right: 10px;
+    text-shadow: 1px 1px 1px rgb(0, 78, 130), 0 0 0.2em rgb(240, 122, 195), 0 0 0.2em blue;
+    
+}
+
+input[type="text"],
+textarea{
+    width: 70%;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #000;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+input[type="email"] {
+    width: 70%;
+    margin-left: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #000;
+}
+input[type="text"]:focus,
+input[type="email"]:focus{
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    background-color: #e0fffc;
+    color: #000;
+}
+
+select {
+    margin-left: 30px;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: hsl(0, 0%, 94%);
+    color: #000;
+}
+
+
+button {
+    background-color: #ad27b2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #8b1f8f;
+    text-shadow: 1px 1px 2px rgb(0, 78, 130), 0 0 0.5em rgb(240, 122, 195), 0 0 0.2em blue;
+    
+}
+
+.feedback-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #000;
+}
+textarea:focus {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.yourfeed {
+    text-align: left !important;
+    text-shadow: 1px 1px 1px rgb(0, 78, 130), 0 0 0.2em rgb(240, 122, 195), 0 0 0.2em blue;
+    margin-right: 430px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    direction: rtl;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    font-size: 50px !important;
+    padding: 0 0.1em;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    direction: ltr; 
+}
+
 .star-rating label:hover,
 .star-rating label:hover ~ label {
     color: #f5b301;
+    transform: scale(1.2);
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: #f5b301;
+    transform: scale(1.2);
+}
+
+.star-rating input[type="radio"]:checked + label,
+.star-rating input[type="radio"]:checked + label ~ label {
+    color: #f5b301;
+    transform: scale(1.2);
 }
 
 /* Popup Styles */
@@ -212,4 +384,72 @@ strong{
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 8px;
+}
+
+
+@media (max-width: 768px) {
+    .box {
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .heading {
+        font-size: 20px;
+    }
+
+    .desc,
+    .desc div {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="email"] {
+        width: 100%;
+    }
+
+    .pointsFeedback {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .points {
+        margin-bottom: 10px;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .star-rating label {
+        font-size: 2em;
+    }
+
+    .feedback-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .yourfeed {
+        margin-right: 0;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    .heading {
+        font-size: 18px;
+    }
+
+    .desc,
+    .desc div {
+        font-size: 16px;
+    }
+
+    .star-rating label {
+        font-size: 1.5em;
+    }
 }
