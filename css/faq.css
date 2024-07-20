@@ -22,6 +22,7 @@ body {
     height: 100%;
     z-index: -1;
 }
+
 .navHeader {
     position: sticky;
     top: 0;
@@ -78,6 +79,7 @@ body {
 .navHeader .sidebarOne a:hover {
     background-color: #5e0b0b;
 }
+
 .faqBox {
     background: #1c1c1c;
     border-radius: 10px;
@@ -106,10 +108,10 @@ body {
 .footer {
     text-align: center;
     padding: 20px;
-    
     position: relative;
     bottom: 0;
     width: 100%;
+    margin-top: 30px;
 }
 
 .footer .socialIcons {
@@ -175,4 +177,7 @@ body {
     color: #f09819;
     text-decoration: none;
     cursor: pointer;
+}
+.box{
+    padding: 50px;
 }

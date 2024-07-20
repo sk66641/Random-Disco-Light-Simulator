@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,27 +21,33 @@
             border-radius: 5px;
             box-shadow: 7px 7px 20px 0 #f09819;
         }
+
         .question {
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .question:hover {
             color: #f09819;
         }
+
         .answer {
             display: none;
             padding: 10px 0;
         }
+
         .arrow {
             transition: transform 0.2s;
         }
+
         .rotate {
             transform: rotate(180deg);
         }
     </style>
 </head>
+
 <body>
     <div>
         <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
@@ -55,47 +62,65 @@
                     <i id="muteIcon" class="fas fa-volume-up"></i>
                 </button>
                 <ul class="navMain">
-                    <li><a href="../index.html" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+                    <li><a href="../index.html" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Back</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     <div class="box" id="box">
-        <a href="../index.html" class="back-button"><img src="../assets/images/Designer.jpeg" style="width: 70px; height: 70px; margin-top: 10px;"></a>
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 40px; color: #f09819; display: block;">
+        <a href="../index.html" class="back-button"><img src="../assets/images/Designer.jpeg"
+                style="width: 70px; height: 70px; margin-top: 10px;"></a>
+        <h1 id="changingHeading"
+            style="font-family: Arial, sans-serif; font-size: 40px; color: #f09819; display: block;">
             FAQ
         </h1>
         <div class="faqBox">
-            <div class="question">What is the Random Disco Light Simulator? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">The Random Disco Light Simulator is a fun and interactive project that brings the excitement of a disco dance floor to your screen. Whether you're a developer, a party enthusiast, or just curious, this simulator is designed to brighten up your day!</div>
+            <div class="question">What is the Random Disco Light Simulator? <i class="fas fa-chevron-down arrow"></i>
+            </div>
+            <div class="answer">The Random Disco Light Simulator is a fun and interactive project that brings the
+                excitement of a disco dance floor to your screen. Whether you're a developer, a party enthusiast, or
+                just curious, this simulator is designed to brighten up your day!</div>
         </div>
         <div class="faqBox">
             <div class="question">How do I change the colors? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">You can specify the number of random colors you want to be shown, set the interval (in milliseconds) at which the colors should change, and choose from conic, linear, or radial views to customize the visual effect.</div>
+            <div class="answer">You can specify the number of random colors you want to be shown, set the interval (in
+                milliseconds) at which the colors should change, and choose from conic, linear, or radial views to
+                customize the visual effect.</div>
         </div>
         <div class="faqBox">
             <div class="question">Can I add a countdown timer? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can set a timer (in seconds) for how long the simulation should run. Additionally, you can optionally add a sound effect to enhance the disco experience.</div>
+            <div class="answer">Yes, you can set a timer (in seconds) for how long the simulation should run.
+                Additionally, you can optionally add a sound effect to enhance the disco experience.</div>
         </div>
         <div class="faqBox">
             <div class="question">What are some example settings? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Try these input combinations and see the magic unfold: 1000 colors, 1 millisecond interval, conic view, 60 seconds timer. Experiment with different settings and have fun creating your own disco light show!</div>
+            <div class="answer">Try these input combinations and see the magic unfold: 1000 colors, 1 millisecond
+                interval, conic view, 60 seconds timer. Experiment with different settings and have fun creating your
+                own disco light show!</div>
         </div>
         <div class="faqBox">
             <div class="question">Can I customize the light patterns? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can customize the light patterns by selecting different modes and intervals. This allows you to create unique and mesmerizing disco light shows.</div>
+            <div class="answer">Yes, you can customize the light patterns by selecting different modes and intervals.
+                This allows you to create unique and mesmerizing disco light shows.</div>
         </div>
         <div class="faqBox">
             <div class="question">Is there a way to save my settings? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Currently, there is no built-in feature to save settings, but you can manually note down your preferred settings to reuse them later.</div>
+            <div class="answer">Currently, there is no built-in feature to save settings, but you can manually note down
+                your preferred settings to reuse them later.</div>
         </div>
         <div class="faqBox">
-            <div class="question">Does the simulator work on mobile devices? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, the Random Disco Light Simulator is designed to work on various devices, including desktops, tablets, and mobile phones. However, performance may vary based on the device's capabilities.</div>
+            <div class="question">Does the simulator work on mobile devices? <i class="fas fa-chevron-down arrow"></i>
+            </div>
+            <div class="answer">Yes, the Random Disco Light Simulator is designed to work on various devices, including
+                desktops, tablets, and mobile phones. However, performance may vary based on the device's capabilities.
+            </div>
         </div>
         <div class="faqBox">
-            <div class="question">Can I share my disco light show with friends? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can share your disco light show by sharing the URL with your friends. They can visit the same link to experience the light show you have created.</div>
+            <div class="question">Can I share my disco light show with friends? <i
+                    class="fas fa-chevron-down arrow"></i></div>
+            <div class="answer">Yes, you can share your disco light show by sharing the URL with your friends. They can
+                visit the same link to experience the light show you have created.</div>
         </div>
     </div>
     <footer class="footer">
@@ -121,31 +146,36 @@
         <div class="copyright">
             <p class="copyright" style="text-align: center">
                 &copy;
-                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
+                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights
+                reserved.
             </p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
-    <script src="../js/backToTopBtn.js"></script> 
-    <script src="../js/social.js"></script> 
+    <script src="../js/backToTopBtn.js"></script>
+    <script src="../js/social.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.question').click(function() {
+        $(document).ready(function () {
+            $('.question').click(function () {
                 $(this).next('.answer').slideToggle();
                 $(this).find('.arrow').toggleClass('rotate');
             });
         });
     </script>
+
     <div id="accountNotAvailableModal" class="account-not-available-modal">
         <div class="account-not-available-modal-content">
             <span class="close" id="closeAccountNotAvailableModal">&times;</span>
             <h2>Account Not Available</h2>
-            <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working diligently to bring them online as soon as possible.</p>
-            <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our website's feedback form. We appreciate your understanding and patience during this time.</p>
+            <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are
+                working diligently to bring them online as soon as possible.</p>
+            <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us
+                through our website's feedback form. We appreciate your understanding and patience during this time.</p>
             <p>Thank you for your continued support!</p>
         </div>
     </div>
 </body>
+
 </html>
