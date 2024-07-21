@@ -1,4 +1,6 @@
 let musicAudio;
+let isPaused = false;
+let isMuted = false;
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit');
     const resetButton = document.getElementById('reset');
@@ -18,10 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseStartButton = document.getElementById('pauseStartBtn');
 
     let timerInterval;
-    let isPaused = false;
     let countdownValue;
     let lightInterval;
-    let isMuted = false;
     let isEditdropOpen=false;
 
     // toggle function: during runtime when edit is clicked, navbar should expand to show "add time" and "change music"
@@ -146,10 +146,10 @@ timesubmitBtn.addEventListener('click', () => {
     muteButton.addEventListener('click', () => {
         if (isMuted) {
             unmuteAudio();
-            document.getElementById('changeMusic').style.display = 'block';
+            // document.getElementById('changeMusic').style.display = 'block';
         } else {
             muteAudio();
-            document.getElementById('changeMusic').style.display = 'none';
+            // document.getElementById('changeMusic').style.display = 'none';
         }
     });
 
@@ -618,10 +618,11 @@ timesubmitBtn.addEventListener('click', () => {
     });
     // let musicMuted = false; // Variable to track whether music is muted
 
+    // let currentMusic;
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        document.getElementById('musicDropdown').style.display="none";
+        // document.getElementById('musicDropdown').style.display="none";
         if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
@@ -630,7 +631,7 @@ timesubmitBtn.addEventListener('click', () => {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
         } 
-        document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
+        // document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
         // console.log(musicAudio); testing
@@ -854,6 +855,19 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
+
+            const musicAud = document.getElementById(selectedMusic);
+            // musicAudio.loop = true;
+            musicAud.play();
+            musicAudio = musicAud; // Update currently playing audio reference
+        }
+
+        if(isPaused){
+            musicAudio.pause()
+        }
+        if(isMuted){
+           muteAudio();
+
             const musicAudio = document.getElementById(selectedMusic);
             musicAudio.loop = true;
             musicAudio.play();
