@@ -57,20 +57,71 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log("clikef")  trial
         toggleEditDropdown(); 
     })
+
+    const crossAddtimeModal= document.getElementById('closeAddtimeModal');
+    const addtimePrompt= document.getElementById('addtimeModel');
+    const addtime_input= document.getElementById('addtimeSeconds');
+    const timesubmitBtn= document.getElementById('timesubmitBtn');
+    let rememberState =true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
     
-    // Event Listener for Add Time Button:- during simulation; if we wish to extend time 
     addTimeButton.addEventListener('click', () => {
-        // used instantly invoked function expression
-        (function get_time() {
-            const add_time = Number(prompt('Enter a positive number to increase the time & negative to decrease it (in "Seconds")'));
-            if (isNaN(add_time)) {
-                alert('Please enter a valid number!')
-                get_time();
-            } else {
-                addTime(add_time);
-            }
-        })()
+        // var time=0;
+        rememberState= isPaused//find what state is when we click add time 
+        addtimePrompt.style.display = 'block';
+        pauseSimulation(); //so that timer stops for the time being. even if its already paused, no harm. 
     });
+    crossAddtimeModal.onclick=function(){
+        addtimePrompt.style.display='none';
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+    }
+
+//the success and failure wale pop ups 
+const failNotif= document.getElementById('failnotification');
+const successNotif=document.getElementById('successnotification');
+const closeSuccess= document.getElementById('closeSuccessNotification');
+const closeFail = document.getElementById('closeFailNotification');
+
+closeFail.addEventListener('click', ()=>{
+    failNotif.style.display='none';
+})
+closeSuccess.addEventListener('click', ()=>{
+    successNotif.style.display='none';
+})
+
+//in order to add these popups somewhere else please just use these call these two functions
+function showSuccess(){
+    successNotif.style.display='flex';
+    setTimeout(()=>{
+        successNotif.style.display='none';
+    }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
+}
+
+function showFailed(){
+    failNotif.style.display='flex';
+    setTimeout(()=>{
+        failNotif.style.display='none';
+        }, 2000); 
+}
+
+
+// Add the event listener for timesubmitBtn outside
+timesubmitBtn.addEventListener('click', () => {
+    const time = addtime_input.value; // Ensure you get the input value correctly
+    if (time == 0) {
+        showFailed(); //modal remains open for another entry 
+    } 
+    else {
+        addTime(time);
+        addtimePrompt.style.display = 'none';
+        showSuccess();
+        if (rememberState==false){//if it was paused before we let it be 
+            resumeSimulation();
+        }
+        
+    }
+});
 
     // Function to add 15 seconds to the timer
     function addTime(seconds) {
@@ -106,6 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (musicAudio) {
             musicAudio.muted = true;
         }
+        else if (player) {
+                player.mute();
+                
+            }
         isMuted = true;
         muteIcon.classList.remove('fa-volume-up');
         muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
@@ -114,6 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function unmuteAudio() {
         if (musicAudio) {
             musicAudio.muted = false;
+        }
+        else if(player){
+            player.unMute();
         }
         isMuted = false;
         muteIcon.classList.remove('fa-volume-mute');
@@ -185,6 +243,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.reload();
         run();
     });
+    let player;
+    function onYouTubeIframeAPIReady() {
+        console.log("YouTube API is ready");
+    }
 
     function run() {
         // after successful submission
@@ -200,9 +262,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get selected audio file or URL
         let selectedFile = document.getElementById("music-file").files[0];
         let selectedUrl = document.getElementById("music-url").value;
+        let youtubeUrl=document.getElementById("youtubeUrlInput").value.trim();        
+        
 
-
-        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) && document.getElementById('PreviewButton').textContent !== "Stop") {
+        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
+        !(selectedFile && youtubeUrl) &&
+        !(selectedUrl && youtubeUrl) &&
+        !(soundEffect !== 'none' && youtubeUrl)){
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
@@ -211,6 +277,60 @@ document.addEventListener('DOMContentLoaded', () => {
             var backToTopBtn = document.getElementById("backToTopBtn");
             backToTopBtn.style.display = "none";
             startCountdown(countdownValue);
+
+            //Function to load Youtube Audio Player
+            function loadYouTubeAudio(videoId) {
+                console.log("Entering loadYouTubeAudio function with videoId:", videoId);
+                if (player) {
+                    console.log("Existing player found, loading new video");
+                    player.loadVideoById(videoId);
+                    player.playVideo();
+                } else {
+                    console.log("Creating new YouTube player");
+                    player = new YT.Player('youtube-audio-player', {
+                        height: '1',
+                        width: '1',
+                        videoId: videoId,
+                        playerVars: {
+                            'autoplay': 1,
+                            'controls': 0,
+                            'disablekb': 1,
+                            'fs': 0,
+                            'showinfo': 0,
+                            'iv_load_policy': 3,
+                            'loop':1
+                        },
+                        events: {
+                            'onReady': onPlayerReady,
+                            'onStateChange': onPlayerStateChange,
+                            'onError': onPlayerError
+                        }
+                    });
+                }
+                console.log("Exiting loadYouTubeAudio function");
+            }
+
+            //Start play
+            function onPlayerReady(event) {
+                console.log("YouTube player is ready");
+                event.target.playVideo();
+            }
+            
+            //Check state of play and loop if needed
+            function onPlayerStateChange(event) {
+                console.log("Player state changed to:", event.data);
+                if (event.data == YT.PlayerState.PLAYING) {
+                    console.log("YouTube audio is playing");
+                }
+                if(event.data== YT.PlayerState.ENDED){
+                    player.playVideo();
+                }
+            }
+
+            //Error catch
+            function onPlayerError(event) {
+                console.error("YouTube player error:", event.data);
+            }
 
             const modal1 = document.getElementById("infomodal");
             const closeModal1 = document.getElementById("closeModal1");
@@ -231,6 +351,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     modal1.style.display = "none";
                 }
             }
+             /*Music url youtube*/
+             function extractVideoId(url) {
+                if (typeof url !== 'string' || url.trim() === '') {
+                    console.error('Invalid URL provided to extractVideoId');
+                    return null;
+                }
+                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+                var match = url.match(regExp);
+                return (match && match[7].length == 11) ? match[7] : null;
+            }
 
             muteButton.style.display = 'block'; // Show the mute button after successful submission 
 
@@ -240,26 +370,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 audio.loop = true;
                 audio.play();
                 musicAudio = audio;
-            }
-            else {
-                let selectedAudio;
-                if (selectedFile) {
-                    // User selected a file
-                    selectedAudio = new Audio(URL.createObjectURL(selectedFile));
-                } else if (selectedUrl) {
-                    // User pasted a URL
-                    selectedAudio = new Audio(selectedUrl);
-
-                    // To handle CORS issues, check if the URL is valid and playable
-                    selectedAudio.addEventListener("error", (e) => {
-                        console.error("Error loading audio from URL:", e);
-                    });
+            } else if (selectedFile) {
+                // User selected a file
+                let selectedAudio = new Audio(URL.createObjectURL(selectedFile));
+                selectedAudio.loop = true;
+                selectedAudio.play();
+                musicAudio = selectedAudio;
+            } else if (selectedUrl) {
+                // User pasted a URL
+                let selectedAudio = new Audio(selectedUrl);
+                selectedAudio.addEventListener("error", (e) => {
+                    console.error("Error loading audio from URL:", e);
+                });
+                selectedAudio.loop = true;
+                selectedAudio.play();
+                musicAudio = selectedAudio;
+            } else if (youtubeUrl) {
+                const you=document.createElement("div");
+                you.id="youtube-audio-player";
+                document.body.appendChild(you);
+                if (typeof youtubeUrl !== 'string' || youtubeUrl.trim() === '') {
+                    console.error("Invalid YouTube URL provided");
+                    alert('Please enter a valid YouTube URL');
+                    return;
                 }
+                console.log("YouTube URL:", youtubeUrl);
+                let videoId = extractVideoId(youtubeUrl);
+                console.log("Extracted Video ID:", videoId);
+                if (videoId) {
+                    console.log("Loading YouTube audio");
+                    loadYouTubeAudio(videoId);
+                    setTimeout(() => {
+                        if (player) {
+                            console.log("YouTube player created successfully");
+                        } else {
+                            console.error("Failed to create YouTube player");
+                        }
+                    }, 1000);
+                } else {
+                    console.error("Could not extract video ID from URL");
+                    alert('Invalid YouTube URL. Please check the URL and try again.');
+                }
+            } else {
+                console.log("No music selected");
+            }
+                if(selectedUrl || selectedFile){
                 // Initialize selectedAudio variable
                 selectedAudio.loop = true;
                 selectedAudio.play();
                 musicAudio = selectedAudio;
-            }
+                }
+            
+           
+            document.body.style.cursor = 'pointer';
+            document.body.addEventListener('dblclick', () => {
+                if (document.querySelector(".navMain").style.display === "none") {
+                    document.querySelector(".navMain").style.display = "block"
+                    document.querySelector("#muteBtn").style.display = "block"
+                    document.querySelector("#timerDisplay").style.display = "block"
+                    document.querySelector(".sidebarOne").style.display = "none"
+                } else {
+                    document.querySelector(".navMain").style.display = "none"
+                    document.querySelector("#muteBtn").style.display = "none"
+                    document.querySelector("#timerDisplay").style.display = "none"
+                }
+            });
+
             document.body.style.cursor = 'pointer';
             document.body.addEventListener('dblclick', () => {
                 if (document.querySelector(".navMain").style.display === "none") {
@@ -286,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
             } else if (countdownValue <= 0) {
                 document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
-            } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && selectedUrl || selectedUrl && selectedFile) {
+            } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && youtubeUrl || youtubeUrl && selectedFile) {
                 document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
             } else if (document.getElementById('PreviewButton').textContent === "Stop") {
                 document.getElementById("error").innerHTML = "<strong>6. First stop previewing music!</strong>";
@@ -659,12 +835,14 @@ function lightMode() {
 }
 
 // Define global variable to store reference to the currently playing audio
-// let currentAudio;
+let currentAudio;
+
 
 // Function to toggle mute/unmute for the currently playing audio
 function toggleMute() {
-    if (musicAudio) {
-        musicAudio.muted = !musicAudio.muted;
+
+    if (currentAudio) {
+        currentAudio.muted = !currentAudio.muted;
         // Update mute button icon based on mute state if necessary
     }
 }
@@ -677,6 +855,7 @@ document.getElementById('submit').addEventListener('click', function () {
         audioElements.forEach(audio => audio.pause());
 
         if (selectedMusic !== 'none') {
+
             const musicAud = document.getElementById(selectedMusic);
             // musicAudio.loop = true;
             musicAud.play();
@@ -688,7 +867,13 @@ document.getElementById('submit').addEventListener('click', function () {
         }
         if(isMuted){
            muteAudio();
+
+            const musicAudio = document.getElementById(selectedMusic);
+            musicAudio.loop = true;
+            musicAudio.play();
+            currentAudio = musicAudio; // Update currently playing audio reference
         }
+        
     });
 });
 
@@ -806,7 +991,7 @@ function savePreset() {
         view: document.getElementById('view').value,
         countdown: document.getElementById('countdown').value,
         sound: document.getElementById('sound').value,
-        musicUrl: document.getElementById('music-url').value,
+        youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
 
     };
 
@@ -844,26 +1029,26 @@ function loadPreset() {
 document.getElementById('savePresetButton').addEventListener('click', savePreset);
 document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
 
-const cursor = document.querySelector(".cursor");
-var timeout;
-document.addEventListener("mousemove", (e) => {
-    let x = e.pageX;
-    let y = e.pageY;
+// const cursor = document.querySelector(".cursor");
+// var timeout;
+// document.addEventListener("mousemove", (e) => {
+//     let x = e.pageX;
+//     let y = e.pageY;
 
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.display = "block";
+//     cursor.style.top = `${e.clientY}px`;
+//     cursor.style.left = `${e.clientX}px`;
+//     cursor.style.display = "block";
 
-    function mousestopped() {
-        cursor.style.display = "none";
-    }
-    clearTimeout(timeout);
-    timeout = setTimeout(mousestopped, 1000);
+//     function mousestopped() {
+//         cursor.style.display = "none";
+//     }
+//     clearTimeout(timeout);
+//     timeout = setTimeout(mousestopped, 1000);
 
-});
-document.addEventListener("mouseout", () => {
-    cursor.style.display = "none";
-});
+// });
+// document.addEventListener("mouseout", () => {
+//     cursor.style.display = "none";
+// });
 
 // document.querySelector('#ll').addEventListener("submit", (event) => {
 //     if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {

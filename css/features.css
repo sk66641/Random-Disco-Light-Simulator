@@ -1,6 +1,7 @@
 * {
     color: white;
     font-size: 16px;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
     width: 100%;
     margin: auto;
     background-color: black;
-    font-family: 'Playfair Display', serif;
+    font-family: "Poppins", sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -81,24 +82,25 @@ body {
     box-shadow: 2px 2px 6px #6d63f6;
 }
 
-.heading{
+.heading {
     font-weight: bold;
     font-size: 25px;
     display: block;
-    font-family: arial;
+    font-family: "Poppins", sans-serif;
     color: #f09819;
     margin-bottom: 20px;
     text-decoration: underline;
 }
 
-.desc, .desc div{
+.desc,
+.desc div {
     font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: justify;
     margin-bottom: 30px;
 }
 
-.box{
+.box {
     padding: 30px;
     padding-left: 50px;
     padding-right: 50px;
@@ -106,47 +108,48 @@ body {
     background-image: none;
 }
 
-.aboutBox{
+.aboutBox {
     margin-bottom: 30px;
 }
-strong{
+
+strong {
     font-size: 20px;
 }
-.points{
+
+.points {
     margin-bottom: 8px;
 }
-.empty{
+
+.empty {
     width: 100vw;
     height: 50px;
     color: inherit;
 }
-.imageFeatures{
+
+.imageFeatures {
     display: flex;
     justify-content: space-around;
     gap: 10px;
 }
- #image1, #image2,#image3, #image4, #image5, #image6{
-    width: 30vw;
-    height: width;
-    max-width: 400px;
- }
- @media only screen and (max-width:1000px){
-    body{
-        padding-top: 800px;
-    }
- }
- @media only screen and (max-width:485px){
-    body{
-        padding-top: 950px;
-    }
- }
- @media only screen and (max-width:400px){
-    body{
-        padding-top: 750px;
-    }
- }
 
- #image7 {
+#image1,
+#image2,
+#image3,
+#image4,
+#image5,
+#image6 {
+    width: 30vw;
+    height: 30vw;
+    max-width: 400px;
+}
+
+#image7,
+#image8 {
+    width: 100%;
+    height: auto;
+}
+
+#image7 {
     justify-content: center;
     align-items: center;
- }
+}

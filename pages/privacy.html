@@ -7,9 +7,11 @@
     <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/backtohome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -58,7 +60,9 @@
         </div>
     </div>
     <div class="box" id="box">
-        <a href="/index.html" class="backbtn"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <a href="../index.html" class="back-button">
+            <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back">
+        </a>
         <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff; display: block;">
             Privacy Policy
         </h1>
@@ -152,6 +156,20 @@
             </p>
         </div>
     </footer>
+
+    <!-- Mode toggler -->
+    <label id="themeChangeToggle" class="theme-toggle" for="themeToggle" style="position: fixed; 
+        top: 30px; 
+        right: 30px; 
+        z-index: 100; 
+        display: flex; 
+        align-items: center; 
+        border: none; 
+        background-color: transparent;">
+        <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+        <span class="slider" style="width: 40px; height: 20px;"></span>
+    </label>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>

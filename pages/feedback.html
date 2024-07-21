@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback - Random Disco Light Simulator</title>
@@ -9,13 +10,85 @@
     <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="../css/backtohome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+            transition: transform 0.1s, left 0.1s, top 0.1s;
+            box-shadow: 0 0 20px #23bdf5,
+              0 0 60px #f523f5,
+              0 0 100px #23bdf5;
+              animation: colors 1s infinite;
+        transform: translate(-50%, -50%);
+          }
+
+          .circle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+          }
+          @keyframes colors {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+
+        100% {
+          filter: hue-rotate(360deg);
+        }
+
+      }
+      
+    </style>
 </head>
 
 <body>
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+  
     <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
     <div class="snowflakes" style="display: block;">
         <div id="particles-js"></div>
@@ -61,50 +134,77 @@
         </div>
     </div>
     <div class="box" id="box">
-        <a href="../index.html" class="backbtn"><img src="../assets/images/Designer.jpeg" style="width: 70px; height: 70px;"></a>
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff;">
-            HELP US IMPROVE!
+        <a href="../index.html" class="back-button">
+            <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back">
+        </a>
+        <h1 id="changingHeading" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 60px; color: #ffffff;">
+            We'd Love Your Feedback!
         </h1>
         <form class="inputFeedback" id="feedbackForm">
-            <div class="pointsFeedback">
-                <label class="points" for="name"><strong>1. Name</strong></label>
-                <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
+            <div class="feedback-section">
+                <div class="feedback-item">
+                    <img src="../assets/images/user.png" alt="Name Icon" class="icon">
+                    <label for="name"><strong>Name:</strong></label>
+                    <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
+                </div>
+                <div class="feedback-item">
+                    <img src="../assets/images/email.png" alt="Email Icon" class="icon">
+                    <label for="email"><strong>Email:</strong></label>
+                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                </div>
             </div>
-            <div class="pointsFeedback">
-                <label class="points" for="email"><strong>2. Email</strong></label>
-                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
-            </div>
-            <div class="pointsFeedback" style="display: flex;">
-                <label class="points" for="type"><strong>3. Feedback Type</strong></label>
-                <select id="type" name="type" style="width: 150px; background-color: #290a1d;padding: 3px;border-radius: 10px;">
-                    <option value="question">Question</option>
+    
+            <div class="feedback-section">
+                <div class="feedback-item">
+                <img src="../assets/images/comments.png" alt="feed Icon" class="icon">
+                <label for="type"><strong>Feedback Type:</strong></label>
+                
+                <select id="type" name="type">
+                    <option value="question" selected>Question</option>
                     <option value="suggestion">Suggestion</option>
                     <option value="issue">Issue</option>
                     <option value="others">Others</option>
                 </select>
             </div>
-            <div class="pointsFeedback">
-                <label class="points" for="stars"><strong>4. How Much You Will Rate Us!</strong></label>
+            </div>
+    
+            <div class="feedback-section">
+                <strong class="yourfeed">Rate Us Below:</strong>
                 <div class="star-rating">
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">&#9733;</label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">&#9733;</label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1" class="star-ratings">
+                    <label for="star1" title="1 star">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2" class="star-ratings">
+                    <label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3" class="star-ratings">
+                    <label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4" class="star-ratings">
+                    <label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star5" name="rating" value="5" class="star-ratings">
+                    <label for="star5" title="5 stars">&#9733;</label>
                 </div>
             </div>
-            <div class="pointsFeedback">
-                <label class="points" for="feedback"><strong>5. Your Feedback</strong></label>
-                <textarea name="feedback" id="feedback" style="background-color: #290a1d; height: 200px;" placeholder="Enter Your Feedback"></textarea>
+    
+            <div class="feedback-section">
+                <label for="feedback" class="yourfeed"><strong>Your Feedback:</strong></label>
+                <textarea name="feedback" id="feedback" placeholder="Enter Your Feedback" rows="5"></textarea>
             </div>
-            <div style="display: flex; justify-content: center;">
-                <button type="submit" style="width: 150px;">Submit</button>
-            </div>
-            <div id="thankYouMessage" style="display: none; font-size:25px; text-align: center; color: green; margin-top: 20px;">
-                Thank you for your feedback!
+    
+            <div style="text-align: center;">
+                <button type="submit">SUBMIT FEEDBACK</button>
             </div>
         </form>
     </div>
+    
+    <div id="feedbackPopup" class="popup">
+        <div class="popup-content">
+            <h2>Thank You for your Feedback!</h2>
+            <img src="/assets/images/Feed-purple-tick-unscreen.gif" alt="✅" width="160" height="140">
+            <p>Your feedback has been submitted successfully.</p>
+            <button id="backToHomeBtn">Back to Home</button>
+        </div>
+    </div>
+
+    
     <footer class="footer" style="width: 100%;height: 2px;">
         <div class="socialIcons">
             <span class="icons">
@@ -138,19 +238,29 @@
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
     <script>
+        
         document.getElementById("feedbackForm").addEventListener("submit", function (event) {
             event.preventDefault(); 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 document.getElementById("feedbackForm").reset();
-                document.getElementById("thankYouMessage").style.display = "block";
-                setTimeout(function () {
-                    document.getElementById("thankYouMessage").style.display = "none";
-                }, 3000);
+                document.getElementById("feedbackPopup").style.display = "block";
             }, 100); 
-
         });
-    </script>
+
+        document.getElementById("backToHomeBtn").addEventListener("click", function () {
+            document.getElementById("feedbackPopup").style.display = "none";
+            window.location.href = "../index.html"; // Redirect to home page
+        });
+        
+
+        window.onclick = function(event) {
+            var popup = document.getElementById("feedbackPopup");
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+</script>
+
     <script src="../js/backToTopBtn.js"></script>
     <script src="../js/social.js"></script>
     <div id="accountNotAvailableModal" class="account-not-available-modal">
@@ -162,6 +272,45 @@
           <p>Thank you for your continued support! </p>      
         </div>
       </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const coords = { x: 0, y: 0 };
+          const circles = document.querySelectorAll(".circle");
+
+          circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+          });
+
+          window.addEventListener("mousemove", function (e) {
+            coords.x = e.pageX;
+            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+          });
+
+          function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+              circle.style.left = `${x - 12}px`;
+              circle.style.top = `${y - 12}px`;
+              circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+              const nextCircle = circles[index + 1] || circles[0];
+              circle.x = x;
+              circle.y = y;
+
+              x += (nextCircle.x - x) * 0.25;
+              y += (nextCircle.y - y) * 0.25;
+            });
+
+            requestAnimationFrame(animateCircles);
+          }
+
+          animateCircles();
+        });
+      </script>
 </body>
 
 </html>

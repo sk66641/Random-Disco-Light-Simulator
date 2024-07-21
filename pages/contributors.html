@@ -3,18 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms - Random Disco Light Simulator</title>
+    <title>Contributors - Random Disco Light Simulator</title>
     <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/backtohome.css">
     <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/contributors.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <style>
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+            transition: transform 0.1s, left 0.1s, top 0.1s;
+            box-shadow: 0 0 20px #23bdf5,
+              0 0 60px #f523f5,
+              0 0 100px #23bdf5;
+              animation: colors 1s infinite;
+        transform: translate(-50%, -50%);
+          }
+
+          .circle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+          }
+          @keyframes colors {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+
+        100% {
+          filter: hue-rotate(360deg);
+        }
+
+      }
+        </style>
+
+
+      </head>
+
+      <body>
+        <div class="circle-container">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+
+            circles.forEach(function (circle) {
+              circle.x = 0;
+              circle.y = 0;
+            });
+
+            window.addEventListener("mousemove", function (e) {
+              coords.x = e.pageX;
+              coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+            });
+
+            function animateCircles() {
+              let x = coords.x;
+              let y = coords.y;
+
+              circles.forEach(function (circle, index) {
+                circle.style.left = `${x - 12}px`;
+                circle.style.top = `${y - 12}px`;
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                circle.x = x;
+                circle.y = y;
+
+                x += (nextCircle.x - x) * 0.25;
+                y += (nextCircle.y - y) * 0.25;
+              });
+
+              requestAnimationFrame(animateCircles);
+            }
+
+            animateCircles();
+          });
+        </script>
     <div>
         <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
     </div>
@@ -63,77 +175,10 @@
         <a href="../index.html" class="back-button">
             <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back">
         </a>
-        <h1 id="changingHeading" style="font-family: Arial, sans-serif; font-size: 30px; color: #ffffff; display: block;">
-            Terms and Conditions
-        </h1>
-        <div class="termsBox">
-            <div class="heading">Terms and Conditions</div>
-            <div class="desc">
-                These terms and conditions outline the rules and regulations for the use of our website.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Intellectual Property Rights</div>
-            <div class="desc">
-                Unless otherwise stated, we own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access this from our website for your own personal use subjected to restrictions set in these terms and conditions.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Restrictions</div>
-            <div class="desc">
-                You are specifically restricted from all of the following:
-                <ul>
-                    <li>Publishing any website material in any other media</li>
-                    <li>Selling, sublicensing, and/or otherwise commercializing any website material</li>
-                    <li>Publicly performing and/or showing any website material</li>
-                    <li>Using this website in any way that is or may be damaging to this website</li>
-                    <li>Using this website in any way that impacts user access to this website</li>
-                    <li>Using this website contrary to applicable laws and regulations, or in any way may cause harm to the website, or to any person or business entity</li>
-                    <li>Engaging in any data mining, data harvesting, data extracting, or any other similar activity in relation to this website</li>
-                    <li>Using this website to engage in any advertising or marketing</li>
-                </ul>
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Your Privacy</div>
-            <div class="desc">
-                Please read our <a href="privacy.html">Privacy Policy</a>.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Limitation of Liability</div>
-            <div class="desc">
-                In no event shall we, nor any of our officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website whether such liability is under contract. We, including our officers, directors, and employees shall not be held liable for any indirect, consequential, or special liability arising out of or in any way related to your use of this website.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Indemnification</div>
-            <div class="desc">
-                You hereby indemnify to the fullest extent us from and against any and/or all liabilities, costs, demands, causes of action, damages, and expenses arising in any way related to your breach of any of the provisions of these terms.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Severability</div>
-            <div class="desc">
-                If any provision of these terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Variation of Terms</div>
-            <div class="desc">
-                We are permitted to revise these terms at any time as we see fit, and by using this website you are expected to review these terms on a regular basis.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Assignment</div>
-            <div class="desc">
-                We are allowed to assign, transfer, and subcontract our rights and/or obligations under these terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of your rights and/or obligations under these terms.
-            </div>
-        </div>
-        <div class="termsBox">
-            <div class="heading">Entire Agreement</div>
-            <div class="desc">
-                These terms constitute the entire agreement between us and you in relation to your use of this website, and supersede all prior agreements and understandings.
+        <div class="content min-h-screen text-black dark:text-gray-200">
+            <div class="container mx-auto py-8">
+                <h1 class="text-center text-3xl font-semibold mb-8">🤝Our Contributors</h1>
+                <div id="contributors" class="contributors flex flex-wrap justify-center gap-8"></div>
             </div>
         </div>
     </div>
@@ -158,28 +203,43 @@
             </span>
         </div> 
         <div class="copyright">
-            <p class="copyright" style="text-align: center">
+            <p class="copyright" style="text-align: center;">
                 &copy;
                 <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights
                 reserved.
             </p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contributorsContainer = document.getElementById('contributors');
 
-    <!-- Mode toggler -->
-    <label id="themeChangeToggle" class="theme-toggle" for="themeToggle" style="position: fixed; 
-        top: 30px; 
-        right: 30px; 
-        z-index: 100; 
-        display: flex; 
-        align-items: center; 
-        border: none; 
-        background-color: transparent;">
-        <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-        <span class="slider" style="width: 40px; height: 20px;"></span>
-    </label>
+            async function fetchContributors() {
+                try {
+                    const response = await fetch('https://api.github.com/repos/sk66641/Random-Disco-Light-Simulator/contributors');
+                    const contributors = await response.json();
 
+                    contributors.forEach(contributor => {
+                        const contributorCard = document.createElement('a');
+                        contributorCard.href = contributor.html_url;
+                        contributorCard.target = '_blank';
+                        contributorCard.className = 'contributor-card';
+                        contributorCard.innerHTML = `
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}">
+                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">${contributor.login}</h2>
+                            <p class="text-gray-700 dark:text-gray-400">Contributions: ${contributor.contributions}</p>
+                            <p class="text-gray-700 dark:text-gray-400 flex-center"></i></i> GitHub Profile</p>
+                        `;
+                        contributorsContainer.appendChild(contributorCard);
+                    });
+                } catch (error) {
+                    console.error('Error fetching contributors:', error);
+                }
+            }
 
+            fetchContributors();
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>

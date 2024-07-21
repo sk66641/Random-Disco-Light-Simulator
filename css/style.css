@@ -1,5 +1,9 @@
+h1{
+  font-size: 30px !important;
+}
 * {
   font-size: 40px;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Style the submit and reset buttons */
@@ -14,9 +18,9 @@
   transition: background-color 0.3s;
 }
 
-.button div a:hover {
+/* .button div a:hover {
   background-color: #45a049;
-}
+} */
 
 /* Style for the randomize button */
 #randomize a {
@@ -31,7 +35,6 @@
   background-color: #e68900;
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -42,7 +45,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: black;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -70,12 +73,7 @@ body {
 {
 	background-color: #FFF;
   border-radius: 10px;
-	background-image: -webkit-linear-gradient(90deg,
-	                                          rgba(0, 0, 0, 1) 0%,
-											  rgba(0, 0, 0, 1) 25%,
-											  transparent 100%,
-											  rgba(0, 0, 0, 1) 75%,
-											  transparent)
+	background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent)
 }
 
 .unload {
@@ -181,13 +179,13 @@ input[type="color"]:hover {
   opacity: 0.8;
 }
 
-#music-url:hover+#n {
+#youtubeUrlInput:hover+#n {
   text-shadow: 2px 2px white;
 }
 
 
 h1 {
-  font-size: 25px;
+  font-size: 25px !important;
   text-align: center;
 }
 
@@ -203,7 +201,7 @@ h1 {
   color: white;
   padding: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 12px !important;
   opacity: 0;
   /* Initially hidden */
   transition: opacity 0.3s ease;
@@ -290,9 +288,9 @@ h1 {
 
 label {
   /* font-size: 22px; */
-  font-size: 20px;
+  font-size: 20px !important;
   /* font-weight: 300; */
-  font-family: system-ui;
+  font-family: "Poppins", sans-serif;
 }
 
 input {
@@ -301,15 +299,15 @@ input {
   outline: none;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 20px !important;
   padding: 5px 10px;
   border-radius: 10px;
 }
 
 ::placeholder {
-  font-family: system-ui;
+  font-family: "Poppins", sans-serif;
   color: #8d8080;
-  font-size: 15px;
+  font-size: 15px !important;
 }
 
 input:focus {
@@ -319,11 +317,11 @@ input:focus {
 }
 
 i {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 strong {
-  font-family: arial;
+  font-family: "Poppins", sans-serif;
   font-size: 17px;
   color: #f09819;
 }
@@ -338,18 +336,18 @@ strong {
   border: none;
   padding: 5px 10px;
   color: #e5e5e5;
-  font-size: 20px;
+  font-size: 20px !important;
   width: auto;
 }
 
 select {
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
 }
 
 select option {
   color: #e5e5e5;
   font-size: 18px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   background-color: #333;
   border: none;
   outline: none;
@@ -366,7 +364,7 @@ select option {
   padding: 10px 20px;
   margin: 0 0;
   color: #ff4d00;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -474,7 +472,7 @@ select option {
   padding: 10px 20px;
   margin: 0 0;
   color: #e35ee5;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -594,7 +592,7 @@ select option {
   padding: 10px 20px;
   margin: 20px 0;
   color: #03e9f4;
-  font-size: 20px;
+  font-size: 20px !important;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -755,7 +753,7 @@ button {
 nav ul li a {
   display: inline-block;
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 45px;
   transition: 0.2s all;
 }
@@ -785,14 +783,16 @@ nav ul li a:hover {
 
 
 @media only screen and (max-width: 850px) {
-  * {
-    font-size: 18px !important;
-  }
-
   h1 {
     margin-bottom: 5px;
     font-size: 24px !important;
   }
+
+  * {
+    font-size: 18px !important;
+  }
+
+  
 
   input,
   #unit {
@@ -1112,9 +1112,8 @@ input:checked+.slider:before {
 }
 
 .icons:nth-child(4) a::after {
-  background: rgb(19, 12, 12);
+  background: rgb(173, 199, 90)
 }
-
 .icons:nth-child(5) a::after {
   background:
     rgb(88, 101, 242)
@@ -1231,8 +1230,11 @@ input:checked+.slider:before {
   backdrop-filter: blur(5px);
 }
 
+#addtimeModel{
+  backdrop-filter:blur(1px);
+}
 .modal-content {
-  background-color: #fff;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);  margin: 10% auto;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1244,7 +1246,7 @@ input:checked+.slider:before {
 }
 
 .modal-content p strong {
-  color: black;
+  color: #4B0082; 
 }
 
 @keyframes slide-down {
@@ -1651,7 +1653,7 @@ button:hover {
   background-color: #b0b7b800;
   border: none;
   outline: none;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 100;
   transition: 0.2s all;
 }
@@ -1876,9 +1878,14 @@ button:hover {
   padding-left: 0;
 } */
 
+@media screen and (max-width : 414px) {
+  .box {
+    width: 100%;
+  }
+}
 
 .box h1 {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 39px;
   color: #ffffff;
 }
@@ -1886,7 +1893,7 @@ button:hover {
 .box span {
   /* font-family: Arial, sans-serif;
   font-size: 39px; */
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #ff7f50;
@@ -2122,12 +2129,12 @@ button:hover {
 #music-file {
   /* width: 260px; */
   font-size: 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
 }
 
 .file-input {
-  font-family: 'Playfair Display', serif;
+  font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -2410,16 +2417,7 @@ button:active {
 
 }
 
-@keyframes colors {
-  0% {
-    filter: hue-rotate(0deg);
-  }
 
-  100% {
-    filter: hue-rotate(360deg);
-  }
-
-}
 
 .cursor:before {
   content: '';
@@ -2572,4 +2570,81 @@ button:active {
 
 .footer-link:hover {
     color: lightblue;
+}
+
+/* The success and failure popups that show up along with add time alert */
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px;
+  padding-left: 4px;
+  border-radius: 5px;
+  z-index: 1200;/*we need it to show above the mute btn*/
+  width: 300px;
+  position: fixed;
+  top: 65px;
+  /* margin-left: 90vw; */
+  right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  
+}
+#successnotification:hover,
+#failnotification:hover {
+    background-color: white; 
+    filter: initial;
+}
+#failnotification{
+  border: 0.2px solid #f44336;
+}
+#successnotification{
+  border: 0.2px solid #36f43f;
+}
+
+.notification .message {
+  flex-grow: 1;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.notification .closenotif {
+  cursor: pointer;
+  font-size: 16px;
+  color: #aaa;
+  right: 2px;
+}
+
+.notification .closenotif:hover {
+  color: #000;
+}
+
+.notification .timerline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  animation: timerline 2s linear forwards;
+}
+#failnotification .timerline {
+  background-color: #f44336;
+  }
+#successnotification .timerline {
+  background-color: #4cf436;
+}
+.closenotif:hover{
+  cursor:pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes timerline {
+  from { width: 100%; }
+  to { width: 0; }
 }
