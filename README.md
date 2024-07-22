@@ -10,7 +10,7 @@
 - [Introduction📌](#introduction)
 - [Technology Used🚀](#technology-used)
 - [Overview⭐](#overview)
-- [Checkout Features✨](#features)
+- [Checkout Features✨](#checkout-features)
 - [Input🎛](#input)
 - [Output🎉](#output)
 - [Getting Started💥](#getting-started)
