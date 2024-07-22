@@ -879,41 +879,122 @@ nav ul li a:hover {
 }
 
 @media only screen and (max-width: 450px) {
-  .light-mode * {
-    font-size: 12px !important;
+  .light-mode *, .dark-mode * {
+    font-size: 13px !important;
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
   * {
-    font-size: 12px !important;
+    font-size: 11px !important;
   }
 
   h1 {
     overflow-wrap: break-word;
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 
   .copyright {
-    font-size: 14px !important;
+    font-size: 11px !important;
   }
 
   .socialIcons a i {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
 
   .input {
-    width: 15px;
+    width: 7px;
+  }
+  
+  .form-group select{
+    width: 140px !important;
+    height: 28px !important;
+  }
+  #unit{
+    font-size: 17px !important;
+  }
+  #view{
+    font-size: 17px !important;
+  }
+  #sound{
+    font-size: 17px !important;
+  }
+  .file-input{
+    width: 240px !important;
+    height: 28px !important;
+    font-size: 16px !important;
   }
 
-
   .box {
-    padding: 10px 15px;
-    width: 350px;
+    padding: 8px 30px !important;
+    width: 260px !important;
+    height: auto !important;
+  }
+  #randomize {
+    width: 200px !important;
+    height: 78px !important;
+  }
+  #submit a {
+    width: 90px !important;
+    height: 15px !important;
+    font-size: 17px !important;
+  }
+  #reset a {
+    width: 80px !important;
+    height: 16px !important;
+    font-size: 17px !important;
+  }
+  .copyright{
+    margin-left: 10px !important;
+  }
+}
+
+
+/* @media only screen and (max-width: 400px) {
+    .box {
+    padding: 30px 10px;
+    width: fit-content;
     height: auto;
   }
 
-}
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+
+  select {
+    width: 100%;
+  }
+
+  .button {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button a {
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .socialIcons {
+    margin-bottom: 20px;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+} */
+
+
 
 #timerDisplay {
   position: fixed;
@@ -1702,6 +1783,26 @@ button:hover {
   gap: 10px;
   width: auto;
   margin: 20px;
+  margin-top: 50px;
+}
+
+.dark-mode .box {
+  min-height: 100vh;
+  max-width: calc(100% - 10px);
+  overflow: visible;
+  position: relative;
+  background: rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  padding: 10px 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(28, 22, 22, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: auto;
+  /* margin: 20px; */
   margin-top: 50px;
 }
 
