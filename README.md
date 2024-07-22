@@ -98,6 +98,107 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
      
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
+# Contributing to Random Disco Light Simulator 🎉
+
+Thank you for your interest in contributing to Random Disco Light Simulator! We welcome contributions and are excited to work with the community. This guide will help you get started. 😊
+
+## Getting Started 🚀
+
+### Fork the Repository 🍴
+
+1. Navigate to the [Random Disco Light Simulator repository](https://github.com/sk66641/Random-Disco-Light-Simulator).
+2. Click the "Fork" button at the top right of the page.
+
+### Clone Your Fork 💻
+
+1. Open GitHub Desktop.
+2. Click on "File" > "Clone Repository".
+3. Select the forked repository and choose the local path where you want to save it.
+4. Click "Clone".
+
+### Create a Branch 🌿
+
+1. In GitHub Desktop, click on "Current Branch" and select "New Branch".
+2. Name your branch descriptively, e.g., `feature-add-animation`.
+3. Click "Create Branch".
+
+## Making Changes ✍️
+
+### Open the Repository in Your Editor 🖥️
+
+1. In GitHub Desktop, click on "Repository" > "Open in Visual Studio Code" (or your preferred editor).
+
+### Implement Your Changes 🔧
+
+1. Make your changes in the code editor.
+2. Save your changes.
+
+### Commit Your Changes 💾
+
+1. In GitHub Desktop, you should see your changes listed.
+2. Enter a summary for your commit and a detailed description if necessary.
+3. Click "Commit to `your-branch-name`".
+
+### Push Your Changes 📤
+
+1. Click "Push origin" in GitHub Desktop to push your changes to your forked repository on GitHub.
+
+## Submit a Pull Request 🔄
+
+1. Navigate to your forked repository on GitHub.
+2. Click on the "Compare & pull request" button.
+3. Ensure the base repository is `sk66641/Random-Disco-Light-Simulator` and the base branch is `main`.
+4. Add a title and description for your pull request.
+5. Click "Create pull request".
+
+## Code Review and Feedback 📝
+
+1. The repository maintainers will review your pull request.
+2. You may be asked to make additional changes.
+3. Once approved, your pull request will be merged into the main branch.
+
+## Syncing Your Fork 🔄
+
+To keep your fork up-to-date with the original repository:
+
+1. Add the original repository as a remote:
+    ```sh
+    git remote add upstream https://github.com/sk66641/Random-Disco-Light-Simulator.git
+    ```
+2. Fetch the latest changes:
+    ```sh
+    git fetch upstream
+    ```
+3. Merge the changes into your local branch:
+    ```sh
+    git checkout main
+    git merge upstream/main
+    ```
+4. Push the updates to your fork:
+    ```sh
+    git push origin main
+    ```
+
+## Additional Notes 📝
+
+- **Be Descriptive:** When naming branches, committing changes, and submitting pull requests, be as descriptive as possible. Clear names and messages help maintainers understand the purpose of your changes. 🗂️
+- **Follow the Code Style:** Ensure your code follows the project's coding standards. Consistency in code style helps maintain readability and maintainability. ✨
+- **Testing:** Thoroughly test your changes to make sure they do not break existing functionality. Writing tests for new features is highly encouraged. 🧪
+
+## How to Report Bugs 🐛
+
+1. **Check Existing Issues:** Before opening a new issue, check if the bug has already been reported.
+2. **Open a New Issue:** If the bug is new, open an issue on the [Issues page](https://github.com/sk66641/Random-Disco-Light-Simulator/issues).
+3. **Provide Details:** Include as much information as possible, such as steps to reproduce the bug, expected behavior, and screenshots if applicable.
+
+## How to Request Enhancements 🌟
+
+1. **Check Existing Issues:** Before suggesting a new feature, check if it has already been proposed.
+2. **Open a New Issue:** If the feature is new, open an issue on the [Issues page](https://github.com/sk66641/Random-Disco-Light-Simulator/issues).
+3. **Provide Details:** Clearly describe the enhancement and why it would be beneficial.
+
+Thank you for contributing to the Random Disco Light Simulator! Your efforts help make this project better for everyone. 🎉🚀
+
 ## Input🎛
 
 Customize your disco experience with these inputs:
