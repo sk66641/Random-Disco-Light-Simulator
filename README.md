@@ -85,10 +85,10 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
      <img id="image8" src="assets/images/features/Sounds_Control.png">
 
-- **Chatbot**
+<!-- - **Chatbot**
    - Get instant assistance and friendly guidance with our new chatbot, available to help you every step of the way.
  
-     <img id="image1" src="assets/images/features/Chatbot.png" alt="Chatbot" height="300px" width="100px">
+     <img id="image1" src="assets/images/features/Chatbot.png" alt="Chatbot" height="300px" width="100px"> -->
 
 - **Customizable Settings**
    - Experiment with different settings to create your own unique disco light show. Change the music, adjust
@@ -98,11 +98,83 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
      
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-# Contributing to Random Disco Light Simulator 🎉
+
+## Input🎛
+
+Customize your disco experience with these inputs:
+
+- **Number of Random Colors**: Select how many random colors you want to dazzle your senses.
+- **Gradient Colors**: Choose your desired start and end colors for the gradient, setting the stage for an unforgettable light show.
+- **Time Interval**: Control how frequently colors change with precision, down to the millisecond.
+- **View Type**: Indulge in your preferred view mode—conic, linear, or radial—each offering a unique visual feast.
+- **Countdown Timer**: Set the duration of your disco journey with a countdown timer, ensuring the party lasts as long as you desire.
+- **Sound Effect**: Elevate your experience further with optional sound effects that sync harmoniously with the dazzling display.
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+## Output🎉
+
+Based on these inputs, the simulator will generate the selected view, creating a dynamic and colorful display.
+
+## Try these inputs and have fun! 😄
+
+<table>
+        <tr>
+        <td>
+            <ul>
+                <li>1000</li>
+                <li>1 millisecond</li>
+                <li>conic</li>
+                <li>60</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>1000</li>
+                <li>1 millisecond</li>
+                <li>radial</li>
+                <li>60</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>2</li>
+                <li>500 milliseconds</li>
+                <li>linear</li>
+                <li>60</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>1000</li>
+                <li>1 millisecond</li>
+                <li>linear</li>
+                <li>60</li>
+            </ul>
+        </td>
+        </tr>
+
+</table>
+
+Now, sit back, relax, and enjoy the dazzling display of lights as you experience your very own disco show! Let the party begin! 😄🌟
+
+  <p align="right">(<a href="#top">back to top</a>)</p>
+  
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+## Getting Started💥
+### Contributing to Random Disco Light Simulator 🎉
 
 Thank you for your interest in contributing to Random Disco Light Simulator! We welcome contributions and are excited to work with the community. This guide will help you get started. 😊
 
-## Getting Started 🚀
+### Guidelines
+
+- Before creating an issue, use the search feature to check if a similar issue already exists.
+- Issues are assigned on the basis of “first come, first served.” Others may get a chance if the issue gets stale and the assignee is inactive for over a week.
+- Do not create a Pull Request until the issue has been assigned to you.
+- Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
+`closes #123` `fixes #123` `resolves #123` `implements #123`
+- Remember to follow this practice to streamline collaboration and keep the project organized! 😊
 
 ### Fork the Repository 🍴
 
@@ -198,80 +270,6 @@ To keep your fork up-to-date with the original repository:
 3. **Provide Details:** Clearly describe the enhancement and why it would be beneficial.
 
 Thank you for contributing to the Random Disco Light Simulator! Your efforts help make this project better for everyone. 🎉🚀
-
-## Input🎛
-
-Customize your disco experience with these inputs:
-
-- **Number of Random Colors**: Select how many random colors you want to dazzle your senses.
-- **Gradient Colors**: Choose your desired start and end colors for the gradient, setting the stage for an unforgettable light show.
-- **Time Interval**: Control how frequently colors change with precision, down to the millisecond.
-- **View Type**: Indulge in your preferred view mode—conic, linear, or radial—each offering a unique visual feast.
-- **Countdown Timer**: Set the duration of your disco journey with a countdown timer, ensuring the party lasts as long as you desire.
-- **Sound Effect**: Elevate your experience further with optional sound effects that sync harmoniously with the dazzling display.
-
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-## Output🎉
-
-Based on these inputs, the simulator will generate the selected view, creating a dynamic and colorful display.
-
-## Try these inputs and have fun! 😄
-
-<table>
-        <tr>
-        <td>
-            <ul>
-                <li>1000</li>
-                <li>1 millisecond</li>
-                <li>conic</li>
-                <li>60</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>1000</li>
-                <li>1 millisecond</li>
-                <li>radial</li>
-                <li>60</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>2</li>
-                <li>500 milliseconds</li>
-                <li>linear</li>
-                <li>60</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>1000</li>
-                <li>1 millisecond</li>
-                <li>linear</li>
-                <li>60</li>
-            </ul>
-        </td>
-        </tr>
-
-</table>
-
-Now, sit back, relax, and enjoy the dazzling display of lights as you experience your very own disco show! Let the party begin! 😄🌟
-
-  <p align="right">(<a href="#top">back to top</a>)</p>
-  
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-## Getting Started💥
-
-### Guidelines
-
-- Before creating an issue, use the search feature to check if a similar issue already exists.
-- Issues are assigned on the basis of “first come, first served.” Others may get a chance if the issue gets stale and the assignee is inactive for over a week.
-- Do not create a Pull Request until the issue has been assigned to you.
-- Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
-`closes #123` `fixes #123` `resolves #123` `implements #123`
-- Remember to follow this practice to streamline collaboration and keep the project organized! 😊
 
 For detailed instructions on how to contribute to this project, please refer to this [document](https://github.com/sk66641/Random-Disco-Light-Simulator/blob/main/Learn.md) file.
 
