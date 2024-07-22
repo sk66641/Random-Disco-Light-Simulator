@@ -10,7 +10,7 @@
 - [Introduction📌](#introduction)
 - [Technology Used🚀](#technology-used)
 - [Overview⭐](#overview)
-- [Features✨](#features)
+- [Checkout Features✨](#features)
 - [Input🎛](#input)
 - [Output🎉](#output)
 - [Getting Started💥](#getting-started)
@@ -44,9 +44,11 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Features✨
+## Checkout Features✨
 
-- **Conic Mode**
+https://sk66641.github.io/Random-Disco-Light-Simulator/pages/features.html
+
+<!-- - **Conic Mode**
    - Imagine a spotlight sweeping across the room, creating vibrant cones of light.
    - The colors change dynamically as the spotlight moves, adding an electrifying effect.
         <img id="image1" src="assets/images/features/Conic_1.jpg" alt="Conic Example 1" height="400px"
@@ -83,16 +85,16 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
    - Enhance your disco light show with synchronized sound effects. Choose from a variety of soundtracks to
                 match the vibe of your light display.
 
-     <img id="image8" src="assets/images/features/Sounds_Control.png">
+     <img id="image8" src="assets/images/features/Sounds_Control.png"> -->
 
 <!-- - **Chatbot**
    - Get instant assistance and friendly guidance with our new chatbot, available to help you every step of the way.
  
      <img id="image1" src="assets/images/features/Chatbot.png" alt="Chatbot" height="300px" width="100px"> -->
 
-- **Customizable Settings**
+<!-- - **Customizable Settings**
    - Experiment with different settings to create your own unique disco light show. Change the music, adjust
-                the visuals, and tweak the settings to find the perfect combination for your party or relaxation time.
+                the visuals, and tweak the settings to find the perfect combination for your party or relaxation time. -->
 
      
      
