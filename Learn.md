@@ -30,14 +30,102 @@ Based on these inputs, the simulator displays the selected view with the specifi
 ### Example Inputs:
 ![alt text](assets/images/learn/image.png)
 
-## Installation 🛠️
 
-### Step 1: Fork the Repository
+# Installation and Setup Guide for Random Disco Light Simulator
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- You have installed [Python 3.6+](https://www.python.org/downloads/).
+- You have a basic understanding of Python and how to use the command line.
+
+## Installation
+1. **Fork the Repository**
 Fork the `Random-Disco-Light-Simulator` repository to your own GitHub account. This will create a copy of the repository under your GitHub account, which you can modify without affecting the original project.
 
 Follow these instructions to fork a repository: [GitHub Forking Guide](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
 
 ![Top-right in the github Repository](assets/images/learn/image-1.png)
+2. **Clone the Repository**
+
+   Open your terminal and run the following command to clone the repository:
+
+   ```sh
+   git clone https://github.com/sk66641/Random-Disco-Light-Simulator.git
+   ```
+
+3. **Navigate to the Project Directory**
+
+   Change your current working directory to the project directory:
+
+   ```sh
+   cd Random-Disco-Light-Simulator
+   ```
+
+4. **Create a Virtual Environment**
+
+   It's recommended to create a virtual environment to manage dependencies. Run the following commands:
+
+   - On macOS/Linux:
+
+     ```sh
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+
+   - On Windows:
+
+     ```sh
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+
+5. **Install Dependencies**
+
+   Install the required dependencies using pip:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+1. **Run the Application**
+
+   Once all dependencies are installed, you can run the application using the following command:
+
+   ```sh
+   python main.py
+   ```
+
+2. **Adjust Settings (Optional)**
+
+   You can modify the settings in the `config.py` file to change the behavior of the disco light simulator.
+
+## Contributing
+
+To contribute to Random Disco Light Simulator, follow these steps:
+
+1. Fork this repository.
+2. Create a branch: `git checkout -b <branch_name>`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`.
+4. Push to the original branch: `git push origin <project_name>/<location>`.
+5. Create the pull request.
+
+Alternatively, see the GitHub documentation on [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+## Contact
+
+If you want to contact me, you can reach out on [LinkedIn](https://www.linkedin.com/in/sanu-kumar-2a9492283).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<!-- ## Installation 🛠️
+
+### Step 1:
 
 ### Step 2: Clone the Repository
 After forking the repository, clone it to your local machine. You can do this using SSH or HTTPS.
@@ -56,7 +144,7 @@ git clone https://github.com/sk66641/Random-Disco-Light-Simulator.git
 Change into the project directory using the cd command:
 ```bash
 cd Random-Disco-Light-Simulator
-```
+``` -->
 
 ## How to Contribute 🎉
 ## Getting Started with Git and GitHub
