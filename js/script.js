@@ -243,6 +243,10 @@ timesubmitBtn.addEventListener('click', () => {
         window.location.reload();
         run();
     });
+    document.getElementById('backBtn').addEventListener('click', function () {
+        window.location.reload();
+    });
+    
     let player;
     function onYouTubeIframeAPIReady() {
         console.log("YouTube API is ready");
