@@ -184,9 +184,6 @@ Now, sit back, relax, and enjoy the dazzling display of lights as you experience
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## Getting Started💥
-### Contributing to Random Disco Light Simulator 🎉
-
-Thank you for your interest in contributing to Random Disco Light Simulator! We welcome contributions and are excited to work with the community. This guide will help you get started. 😊
 
 ### Guidelines
 
@@ -196,6 +193,10 @@ Thank you for your interest in contributing to Random Disco Light Simulator! We 
 - Always mention the issue number for which the Pull Request is being created. You can use one of the following keywords in your PR description or comment to reference the issue:
 `closes #123` `fixes #123` `resolves #123` `implements #123`
 - Remember to follow this practice to streamline collaboration and keep the project organized! 😊
+
+### Contributing to Random Disco Light Simulator 🎉
+
+Thank you for your interest in contributing to Random Disco Light Simulator! We welcome contributions and are excited to work with the community. This guide will help you get started. 😊
 
 ### Fork the Repository 🍴
 
