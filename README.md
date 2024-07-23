@@ -37,7 +37,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Featured in🏆:
+## Featured in🏆
 
 <table>
     <tr>
