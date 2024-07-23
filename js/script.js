@@ -251,6 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function run() {
         // after successful submission
+
+        let toggler = document.getElementById("sun-moon-mode-toggler")
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
@@ -274,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
             document.querySelector(".container").style.display = "none";
+            toggler.style.display = "none"
             startSimulation(n, set_time, unit, view, color1, color2);
             var backToTopBtn = document.getElementById("backToTopBtn");
             backToTopBtn.style.display = "none";
