@@ -250,6 +250,10 @@ timesubmitBtn.addEventListener('click', () => {
 
     function run() {
         // after successful submission
+
+        let toggler = document.getElementById("sun-moon-mode-toggler")
+        toggler.style.display = "none"
+
         let countdownValue = document.getElementById('countdown').value;
         let n = document.getElementById("color").value;
         let set_time = document.getElementById("time").value;
