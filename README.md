@@ -9,7 +9,7 @@
 
 - [Introduction📌](#introduction)
 - [Technology Used🚀](#technology-used)
-- [Featured in 🏆](#featured-in)
+- [Featured in🏆](#featured-in)
 - [Overview⭐](#overview)
 - [Checkout Features✨](#checkout-features)
 - [Input🎛](#input)
@@ -37,7 +37,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Featured in 🏆:
+## Featured in🏆:
 
 <table>
     <tr>
