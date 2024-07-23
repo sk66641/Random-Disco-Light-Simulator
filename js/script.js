@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
-    const musicDropdown= document.getElementById('musicDropdown');
+    const musicDropdown = document.getElementById('musicDropdown');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
     const editBtn = document.getElementById('editBtn');
-    const editDrop =document.getElementById('editdropdown');//contains both add time and change music btn
+    const editDrop = document.getElementById('editdropdown');//contains both add time and change music btn
 
     // const addTimeOption = document.getElementById('addTimeOption');
     // const changeSongOption = document.getElementById('changeSongOption');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let countdownValue;
     let lightInterval;
-    let isEditdropOpen=false;
+    let isEditdropOpen = false;
 
     // toggle function: during runtime when edit is clicked, navbar should expand to show "add time" and "change music"
     //used same logic as sidebar toggle in this.
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
             editDrop.style.display = 'none';
             editDrop.classList.remove('slide-in');
             editDrop.classList.add('slide-out');
-            isEditdropOpen=false;
-    
+            isEditdropOpen = false;
+
             const dropdownItems = document.querySelectorAll('.editdropdown li');
             dropdownItems.forEach((item, index) => {
                 item.style.animationDelay = `${(sidebarItems.length - index - 1) * 0.1}s`;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             editDrop.style.display = 'block';
             editDrop.classList.remove('slide-out');
             editDrop.classList.add('slide-in');
-            isEditdropOpen=true;
+            isEditdropOpen = true;
 
             const dropdownItems = document.querySelectorAll('.editdropdown li');
             dropdownItems.forEach((item, index) => {
@@ -51,77 +51,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.remove('fade-out');
                 item.classList.add('fade-in');
             });
-        }}
+        }
+    }
 
-    editBtn.addEventListener('click', function(event) {      
+    editBtn.addEventListener('click', function (event) {
         // console.log("clikef")  trial
-        toggleEditDropdown(); 
+        toggleEditDropdown();
     })
 
-    const crossAddtimeModal= document.getElementById('closeAddtimeModal');
-    const addtimePrompt= document.getElementById('addtimeModel');
-    const addtime_input= document.getElementById('addtimeSeconds');
-    const timesubmitBtn= document.getElementById('timesubmitBtn');
-    let rememberState =true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
-    
+    const crossAddtimeModal = document.getElementById('closeAddtimeModal');
+    const addtimePrompt = document.getElementById('addtimeModel');
+    const addtime_input = document.getElementById('addtimeSeconds');
+    const timesubmitBtn = document.getElementById('timesubmitBtn');
+    let rememberState = true;//Ensuring that if simulation was paused when addtime was clicked, the state is remembered after confirm is clicked 
+
     addTimeButton.addEventListener('click', () => {
         // var time=0;
-        rememberState= isPaused//find what state is when we click add time 
+        rememberState = isPaused//find what state is when we click add time 
         addtimePrompt.style.display = 'block';
         pauseSimulation(); //so that timer stops for the time being. even if its already paused, no harm. 
     });
-    crossAddtimeModal.onclick=function(){
-        addtimePrompt.style.display='none';
-        if (rememberState==false){//if it was paused before we let it be 
-            resumeSimulation();
-        }
-    }
-
-//the success and failure wale pop ups 
-const failNotif= document.getElementById('failnotification');
-const successNotif=document.getElementById('successnotification');
-const closeSuccess= document.getElementById('closeSuccessNotification');
-const closeFail = document.getElementById('closeFailNotification');
-
-closeFail.addEventListener('click', ()=>{
-    failNotif.style.display='none';
-})
-closeSuccess.addEventListener('click', ()=>{
-    successNotif.style.display='none';
-})
-
-//in order to add these popups somewhere else please just use these call these two functions
-function showSuccess(){
-    successNotif.style.display='flex';
-    setTimeout(()=>{
-        successNotif.style.display='none';
-    }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
-}
-
-function showFailed(){
-    failNotif.style.display='flex';
-    setTimeout(()=>{
-        failNotif.style.display='none';
-        }, 2000); 
-}
-
-
-// Add the event listener for timesubmitBtn outside
-timesubmitBtn.addEventListener('click', () => {
-    const time = addtime_input.value; // Ensure you get the input value correctly
-    if (time == 0) {
-        showFailed(); //modal remains open for another entry 
-    } 
-    else {
-        addTime(time);
+    crossAddtimeModal.onclick = function () {
         addtimePrompt.style.display = 'none';
-        showSuccess();
-        if (rememberState==false){//if it was paused before we let it be 
+        if (rememberState == false) {//if it was paused before we let it be 
             resumeSimulation();
         }
-        
     }
-});
+
+    //the success and failure wale pop ups 
+    const failNotif = document.getElementById('failnotification');
+    const successNotif = document.getElementById('successnotification');
+    const closeSuccess = document.getElementById('closeSuccessNotification');
+    const closeFail = document.getElementById('closeFailNotification');
+
+    closeFail.addEventListener('click', () => {
+        failNotif.style.display = 'none';
+    })
+    closeSuccess.addEventListener('click', () => {
+        successNotif.style.display = 'none';
+    })
+
+    //in order to add these popups somewhere else please just use these call these two functions
+    function showSuccess() {
+        successNotif.style.display = 'flex';
+        setTimeout(() => {
+            successNotif.style.display = 'none';
+        }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
+    }
+
+    function showFailed() {
+        failNotif.style.display = 'flex';
+        setTimeout(() => {
+            failNotif.style.display = 'none';
+        }, 2000);
+    }
+
+
+    // Add the event listener for timesubmitBtn outside
+    timesubmitBtn.addEventListener('click', () => {
+        const time = addtime_input.value; // Ensure you get the input value correctly
+        if (time == 0) {
+            showFailed(); //modal remains open for another entry 
+        }
+        else {
+            addTime(time);
+            addtimePrompt.style.display = 'none';
+            showSuccess();
+            if (rememberState == false) {//if it was paused before we let it be 
+                resumeSimulation();
+            }
+
+        }
+    });
 
     // Function to add 15 seconds to the timer
     function addTime(seconds) {
@@ -158,9 +159,9 @@ timesubmitBtn.addEventListener('click', () => {
             musicAudio.muted = true;
         }
         else if (player) {
-                player.mute();
-                
-            }
+            player.mute();
+
+        }
         isMuted = true;
         muteIcon.classList.remove('fa-volume-up');
         muteIcon.classList.add('fa-volume-mute'); // FontAwesome icon classes for muted state
@@ -170,7 +171,7 @@ timesubmitBtn.addEventListener('click', () => {
         if (musicAudio) {
             musicAudio.muted = false;
         }
-        else if(player){
+        else if (player) {
             player.unMute();
         }
         isMuted = false;
@@ -262,13 +263,13 @@ timesubmitBtn.addEventListener('click', () => {
         // Get selected audio file or URL
         let selectedFile = document.getElementById("music-file").files[0];
         let selectedUrl = document.getElementById("music-url").value;
-        let youtubeUrl=document.getElementById("youtubeUrlInput").value.trim();        
-        
+        let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
+
 
         if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
-        !(selectedFile && youtubeUrl) &&
-        !(selectedUrl && youtubeUrl) &&
-        !(soundEffect !== 'none' && youtubeUrl)){
+            !(selectedFile && youtubeUrl) &&
+            !(selectedUrl && youtubeUrl) &&
+            !(soundEffect !== 'none' && youtubeUrl)) {
             document.getElementById("error").innerHTML = "";
             document.querySelector(".footer").style.display = "none";
             // document.querySelector(".navHeader").style.display = "none";
@@ -298,7 +299,7 @@ timesubmitBtn.addEventListener('click', () => {
                             'fs': 0,
                             'showinfo': 0,
                             'iv_load_policy': 3,
-                            'loop':1
+                            'loop': 1
                         },
                         events: {
                             'onReady': onPlayerReady,
@@ -315,14 +316,14 @@ timesubmitBtn.addEventListener('click', () => {
                 console.log("YouTube player is ready");
                 event.target.playVideo();
             }
-            
+
             //Check state of play and loop if needed
             function onPlayerStateChange(event) {
                 console.log("Player state changed to:", event.data);
                 if (event.data == YT.PlayerState.PLAYING) {
                     console.log("YouTube audio is playing");
                 }
-                if(event.data== YT.PlayerState.ENDED){
+                if (event.data == YT.PlayerState.ENDED) {
                     player.playVideo();
                 }
             }
@@ -351,8 +352,8 @@ timesubmitBtn.addEventListener('click', () => {
                     modal1.style.display = "none";
                 }
             }
-             /*Music url youtube*/
-             function extractVideoId(url) {
+            /*Music url youtube*/
+            function extractVideoId(url) {
                 if (typeof url !== 'string' || url.trim() === '') {
                     console.error('Invalid URL provided to extractVideoId');
                     return null;
@@ -386,8 +387,8 @@ timesubmitBtn.addEventListener('click', () => {
                 selectedAudio.play();
                 musicAudio = selectedAudio;
             } else if (youtubeUrl) {
-                const you=document.createElement("div");
-                you.id="youtube-audio-player";
+                const you = document.createElement("div");
+                you.id = "youtube-audio-player";
                 document.body.appendChild(you);
                 if (typeof youtubeUrl !== 'string' || youtubeUrl.trim() === '') {
                     console.error("Invalid YouTube URL provided");
@@ -414,27 +415,13 @@ timesubmitBtn.addEventListener('click', () => {
             } else {
                 console.log("No music selected");
             }
-                if(selectedUrl || selectedFile){
+            if (selectedUrl || selectedFile) {
                 // Initialize selectedAudio variable
                 selectedAudio.loop = true;
                 selectedAudio.play();
                 musicAudio = selectedAudio;
-                }
-            
-           
-            document.body.style.cursor = 'pointer';
-            document.body.addEventListener('dblclick', () => {
-                if (document.querySelector(".navMain").style.display === "none") {
-                    document.querySelector(".navMain").style.display = "block"
-                    document.querySelector("#muteBtn").style.display = "block"
-                    document.querySelector("#timerDisplay").style.display = "block"
-                    document.querySelector(".sidebarOne").style.display = "none"
-                } else {
-                    document.querySelector(".navMain").style.display = "none"
-                    document.querySelector("#muteBtn").style.display = "none"
-                    document.querySelector("#timerDisplay").style.display = "none"
-                }
-            });
+            }
+
 
             document.body.style.cursor = 'pointer';
             document.body.addEventListener('dblclick', () => {
@@ -449,7 +436,6 @@ timesubmitBtn.addEventListener('click', () => {
                     document.querySelector("#timerDisplay").style.display = "none"
                 }
             });
-
 
         } else {
             // after unsuccessful submission
@@ -630,7 +616,7 @@ timesubmitBtn.addEventListener('click', () => {
         else {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
-        } 
+        }
         // document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
         isPaused = true;
@@ -641,10 +627,10 @@ timesubmitBtn.addEventListener('click', () => {
         startCountdown(countdownValue);
         // if (!musicAudio) {
         musicAudio.play();
-        
-        document.getElementById('musicDropdown').style.display="block";
+
+        document.getElementById('musicDropdown').style.display = "block";
         document.getElementById("changeMusic").style.display = 'block';
-        
+
         startSimulation(
             document.getElementById("color").value,
             document.getElementById("time").value,
@@ -758,8 +744,8 @@ window.onload = function () {
     }
     animateText();
     // Snowflakes animation logic
-        const snowflakesContainer = document.querySelector(".snowflakes");
-        const numberOfSnowflakes = 300;
+    const snowflakesContainer = document.querySelector(".snowflakes");
+    const numberOfSnowflakes = 300;
 
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement("div");
@@ -862,18 +848,18 @@ document.getElementById('submit').addEventListener('click', function () {
             musicAudio = musicAud; // Update currently playing audio reference
         }
 
-        if(isPaused){
+        if (isPaused) {
             musicAudio.pause()
         }
-        if(isMuted){
-           muteAudio();
+        if (isMuted) {
+            muteAudio();
 
             const musicAudio = document.getElementById(selectedMusic);
             musicAudio.loop = true;
             musicAudio.play();
             currentAudio = musicAudio; // Update currently playing audio reference
         }
-        
+
     });
 });
 
@@ -896,7 +882,7 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-    setTimeout(effect, 4000);
+    setTimeout(effect, 0);
 })
 
 function changeColor() {
@@ -935,7 +921,7 @@ function toggleSidebar() {
     var sidebar = document.querySelector('.sidebarOne');
     document.querySelector(".navMain").style.display = "none";
     if (sidebar.style.display === 'block') {
-        sidebar.style.display ='none';
+        sidebar.style.display = 'none';
         sidebar.classList.remove('slide-in');
         sidebar.classList.add('slide-out');
 
@@ -954,11 +940,12 @@ function toggleSidebar() {
         // Add staggered animation for sidebar elements
         const sidebarItems = document.querySelectorAll('.sidebarOne li');
         sidebarItems.forEach((item, index) => {
-            if (!item.classList.contains('exclude')){
-//elements under edit dropdown are a part of sidebar, so we put them under exclude to not have to account for their animation delay
-            item.style.animationDelay = `${index * 0.1}s`;
-            item.classList.remove('fade-out');
-            item.classList.add('fade-in');}
+            if (!item.classList.contains('exclude')) {
+                //elements under edit dropdown are a part of sidebar, so we put them under exclude to not have to account for their animation delay
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.remove('fade-out');
+                item.classList.add('fade-in');
+            }
         });
     }
 }
@@ -1185,7 +1172,7 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
         previewButton.textContent = 'Stop';
 
         // Reset button text when audio ends
-        CurrentAudio.addEventListener('ended', function() {
+        CurrentAudio.addEventListener('ended', function () {
             isPlaying = false;
             previewButton.textContent = 'Preview';
         });
