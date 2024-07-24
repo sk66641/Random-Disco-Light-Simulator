@@ -2443,6 +2443,41 @@ button:active {
   display: none;
 }
 
+goog-logo-link,
+.goog-te-banner-frame
+{
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  background-color:transparent !important;
+  color: black !important;
+  font-size: 16px;
+  height: 40px;
+  border: 2px solid #050f7f;
+  border-radius: 10px;
+  padding: 4px;
+}
+ 
+.dark-mode .goog-te-gadget .goog-te-combo
+{
+  color: white !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
 /* Account Not Available Modal Styles */
 .account-not-available-modal {
   display: none; 
