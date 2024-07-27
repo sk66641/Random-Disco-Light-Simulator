@@ -1962,8 +1962,8 @@ button:hover {
 
 #backToTopBtn {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 130px;
+  right: 31px;
   height: 50px;
   width: 50px;
   padding: 10px 15px;
@@ -1975,7 +1975,7 @@ button:hover {
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: 500ms;
-  display: flex;
+  display: none; /* Initially hide the button */
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -1987,6 +1987,7 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 .header {
   margin-top: 100px;
