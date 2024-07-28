@@ -703,7 +703,7 @@ window.onload = function () {
     const closeModal = document.getElementById("closeModal");
     const proceedButton = document.getElementById("proceed");
 
-    modal.style.display = "none";
+    modal.style.display = "block";
 
     closeModal.onclick = function () {
         modal.style.display = "none";
@@ -888,7 +888,7 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-    setTimeout(effect, 100);
+    setTimeout(effect, 4000);
 })
 
 function changeColor() {
@@ -970,15 +970,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //  new functionality for saving and loading presets
 function savePreset() {
     //get all field values in input during preset saving
-    let toggler = document.getElementById("sun-moon-mode-toggler")
+
     let countdownValue = document.getElementById('countdown').value;
     let n = document.getElementById("color").value;
-    let set_time = document.getElementById("time").value;
     let unit = document.getElementById("unit").value;
     let view = document.getElementById("view").value;
     let soundEffect = document.getElementById("sound").value;
-    let color1 = document.getElementById('color1').value;
-    let color2 = document.getElementById('color2').value;
 
     // Get selected audio file or URL
     let selectedFile = document.getElementById("music-file").files[0];
