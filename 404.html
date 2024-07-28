@@ -8,25 +8,30 @@
     <meta name="description" content="Page not found on the Random Disco Light Simulator site. Please check the URL or return to the homepage.">
     <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/404.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Error - 404</title>
     <script src="./js/404.js" defer></script>
 </head>
 
 <body>
+    <div class="errorpage"></div>
     <div class="stars"></div>
     <div class="container">
         <div class="text1">Oops!</div>
         <div class="text2">404 - Page not Found</div>
         <div class="text3">The page you are looking for might have been removed, had its name changed, or is temporarily
             unavailable.</div>
-        <div class="text4 text3">Redirecting in <strong></strong> seconds</div>
-        <div class="text5"><a href="index.html">Go to HomePage</a></div>
-        <div class="dark-mode-toggle">
-            <input type="checkbox" id="dark-mode-toggle">
-            <label for="dark-mode-toggle">Dark Mode</label>
+            <div class="text4 text3">Redirecting in <strong></strong> seconds</div>
+            <div class="text5"><a href="index.html">Go to HomePage</a></div>
         </div>
-    </div>
+        <div id="sun-moon-mode-toggler" class="toggle-container" >
+            <input type="checkbox" id="themeToggle" class="switch-checkbox">
+            <label  id="themeChangeToggle" class="theme-switch" for="themeToggle">
+            <div class="toggle-button">
+                <span class="light-mode-icon"><img src="sun.svg" style = "display: block;"></span>
+                <span class="dark-mode-icon"><img src="moon.svg"style = "display: block;"></span>
+            </div>
 </body>
 
 </html>
