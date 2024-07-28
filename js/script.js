@@ -699,26 +699,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = function () {
-    const modal = document.getElementById("warningModal");
-    const closeModal = document.getElementById("closeModal");
-    const proceedButton = document.getElementById("proceed");
-
-    modal.style.display = "block";
-
-    closeModal.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    proceedButton.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
     const words = ["Light Simulator", "Beat Spectrum"];
     let index = 0;
     let direction = "left";
@@ -885,10 +865,55 @@ function effect() {
 
 
 var loader = document.querySelector(".loader");
-window.addEventListener('load', () => {
-    var backToTopBtn = document.getElementById("backToTopBtn");
-    backToTopBtn.style.display = "none";
+
+document.addEventListener('DOMContentLoaded', function () {
+var backToTopBtn = document.getElementById("backToTopBtn");
+backToTopBtn.style.display = "none";
+const modal = document.getElementById("warningModal");
+const closeModal = document.getElementById("closeModal");
+const proceedButton = document.getElementById("proceed");
+
+if (!sessionStorage.getItem('loaderCompleted')) {
     setTimeout(effect, 4000);
+    setTimeout(() => {
+        document.querySelector(".navMain").style.visibility = "visible";
+        // backToTopBtn.style.display = "block";
+    }, 4000);
+
+    //execute only once per session, ie when loaderCompleted is not true
+    modal.style.display = "block";
+
+    //event listeners involved with the modal:
+    closeModal.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    proceedButton.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }       
+    }
+}
+
+
+else{
+    effect();
+    //load content without timeout
+
+    modal.style.display = "none";
+    //warning modal is needed only once in a session
+    
+    document.querySelector(".navMain").style.visibility = "visible";
+    //no timeout function needed for nav in absence of loader animation
+
+    // backToTopBtn.style.display = "block";
+}
+
+sessionStorage.setItem('loaderCompleted', 'true');
 })
 
 function changeColor() {
@@ -898,7 +923,7 @@ function changeColor() {
 
 document.addEventListener("DOMContentLoaded", function () {
     var backToTopBtn = document.getElementById("backToTopBtn");
-    backToTopBtn.style.display = "block";
+    // backToTopBtn.style.display = "block";
     backToTopBtn.addEventListener("click", function () {
         scrollToTop();
         scrollToForm();
