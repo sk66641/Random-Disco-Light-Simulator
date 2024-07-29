@@ -147,6 +147,17 @@
           animateCircles();
         });
       </script>
+       <span class="slider" style="width: 40px; height: 20px; display: none;"></span> 
+        
+       <div id="sun-moon-mode-toggler" class="toggle-container" >
+           <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
+           <label  id="themeChangeToggle" class="theme-switch" for="themeToggle">
+               <div class="toggle-button">
+                   <span class="light-mode-icon"><img src="../sun.svg" style = "display: block;"></span>
+                   <span class="dark-mode-icon"><img src="../moon.svg"style = "display: block;"></span>
+               </div>
+           </label>
+       </div>
     <div>
         <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
     </div>
@@ -306,21 +317,6 @@
             </label>
         </div>
     </footer>
-
-    <!-- Mode toggler -->
-    <!-- <label id="themeChangeToggle" class="theme-toggle" for="themeToggle" style="position: fixed; 
-        top: 30px; 
-        right: 30px; 
-        z-index: 100; 
-        display: flex; 
-        align-items: center; 
-        border: none; 
-        background-color: transparent;">
-        <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-        <span class="slider" style="width: 40px; height: 20px;"></span>
-    </label>
- -->
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>

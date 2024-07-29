@@ -969,28 +969,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //  new functionality for saving and loading presets
 function savePreset() {
-    const presetName = prompt("Enter a name for your preset:");
-    if (!presetName) {
-        alert('Please enter a valid name for your preset.');
+    //get all field values in input during preset saving
+
+    let countdownValue = document.getElementById('countdown').value;
+    let n = document.getElementById("color").value;
+    let unit = document.getElementById("unit").value;
+    let view = document.getElementById("view").value;
+    let soundEffect = document.getElementById("sound").value;
+
+    // Get selected audio file or URL
+    let selectedFile = document.getElementById("music-file").files[0];
+    let selectedUrl = document.getElementById("music-url").value;
+    let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
+
+    
+    if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
+            !(selectedFile && youtubeUrl) &&
+            !(selectedUrl && youtubeUrl) && 
+            !(soundEffect !== 'none' && youtubeUrl)){
+                //conditions for valid execution of simulation
+                const presetName = prompt("Enter a name for your preset:");
+                if (!presetName) {
+                    alert('Please enter a valid name for your preset.');
+                    return;
+                }
+                const presetData = {
+                    color: document.getElementById('color').value,
+                    color1: document.getElementById('color1').value,
+                    color2: document.getElementById('color2').value,
+                    time: document.getElementById('time').value,
+                    unit: document.getElementById('unit').value,
+                    view: document.getElementById('view').value,
+                    countdown: document.getElementById('countdown').value,
+                    sound: document.getElementById('sound').value,
+                    youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
+            
+                };
+            
+                // Save to localStorage
+                localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+                alert('Preset saved!');
+            }
+    else {
+        // after unsuccessful saving of preset 
+        alert("Please fill all required fields properly");
         return;
     }
 
-    const presetData = {
-        color: document.getElementById('color').value,
-        color1: document.getElementById('color1').value,
-        color2: document.getElementById('color2').value,
-        time: document.getElementById('time').value,
-        unit: document.getElementById('unit').value,
-        view: document.getElementById('view').value,
-        countdown: document.getElementById('countdown').value,
-        sound: document.getElementById('sound').value,
-        youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
-
-    };
-
-    // Save to localStorage
-    localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
-    alert('Preset saved!');
+    
 }
 
 
