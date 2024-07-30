@@ -888,7 +888,7 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-    setTimeout(effect, 4000);
+    setTimeout(effect, 100);
 })
 
 function changeColor() {
@@ -967,32 +967,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
 })
 
-//  new functionality for saving and loading presets
-function savePreset() {
-    //get all field values in input during preset saving
+// Preset saving and loading : 
 
+document.getElementById('savePresetButton').addEventListener('click', namePreset);
+document.getElementById('loadPresetButton').addEventListener('click', findPreset);
+
+//saving
+const savePresetModal= document.getElementById('addPresetModal'); 
+const closeAddPresetModal= document.getElementById('closeAddPresetModal');
+const presetName_input= document.getElementById('presetNameInput');
+let presetName;
+
+closeAddPresetModal.onclick = function () {
+    savePresetModal.style.display = 'none';
+}
+
+//load modal on click
+function namePreset(){
+    savePresetModal.style.display='block';
+    document.getElementById('namePresetButton').addEventListener('click', ()=>{
+        presetName= presetName_input.value.trim();
+        if (!presetName) {
+            console.log('invalid name entered');
+            }
+        else{
+            //go to save preset when valid name is entered
+            savePreset();
+        }
+        savePresetModal.style.display='none';
+    });
+}
+
+
+function savePreset() {
+
+    //get all field values in input during preset saving
     let countdownValue = document.getElementById('countdown').value;
     let n = document.getElementById("color").value;
     let unit = document.getElementById("unit").value;
     let view = document.getElementById("view").value;
     let soundEffect = document.getElementById("sound").value;
-
+    
     // Get selected audio file or URL
     let selectedFile = document.getElementById("music-file").files[0];
     let selectedUrl = document.getElementById("music-url").value;
     let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
-
+    
     
     if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
             !(selectedFile && youtubeUrl) &&
             !(selectedUrl && youtubeUrl) && 
             !(soundEffect !== 'none' && youtubeUrl)){
                 //conditions for valid execution of simulation
-                const presetName = prompt("Enter a name for your preset:");
-                if (!presetName) {
-                    alert('Please enter a valid name for your preset.');
-                    return;
-                }
+
                 const presetData = {
                     color: document.getElementById('color').value,
                     color1: document.getElementById('color1').value,
@@ -1006,30 +1033,53 @@ function savePreset() {
             
                 };
             
-                // Save to localStorage
+                // Save data to localStorage
                 localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
-                alert('Preset saved!');
+
+                console.log('Saved successfully')
+                //showSucess()
             }
     else {
         // after unsuccessful saving of preset 
-        alert("Please fill all required fields properly");
+
+        console.log("Please fill all required fields properly");
+        //showfailed();
         return;
     }
-
-    
 }
 
+//loading
+const loadPresetModal= document.getElementById('loadPresetModal'); 
+const closeLoadPresetModal= document.getElementById('closeLoadPresetModal');
+const load_input= document.getElementById('presetNameLoadInput');
+let loadName;
+
+closeLoadPresetModal.onclick = function () {
+    loadPresetModal.style.display = 'none';
+}
+//show modal for loading
+function findPreset(){
+    loadPresetModal.style.display='block';
+    document.getElementById('loadButton').addEventListener('click', ()=>{
+        loadName= load_input.value.trim();
+        if (!loadName) {
+            console.log('invalid name entered');
+            //showfailed
+            }
+        else{
+            //go to load preset when entry is valid
+            loadPreset();
+        }
+        loadPresetModal.style.display='none';
+    });
+}
 
 function loadPreset() {
-    const presetName = prompt("Enter the name of the preset you'd like to load:");
-    if (!presetName) {
-        alert('Please enter the name of the preset.');
-        return;
-    }
-
-    const presetData = JSON.parse(localStorage.getItem(`preset-${presetName}`));
+    const presetData = JSON.parse(localStorage.getItem(`preset-${loadName}`));
     if (!presetData) {
-        alert('Preset not found!');
+        //not in memory or not created 
+        console.log('Preset not found!');
+        //showfailed
         return;
     }
     document.getElementById('color').value = presetData.color;
@@ -1043,10 +1093,9 @@ function loadPreset() {
     document.getElementById('music-url').value = presetData.musicUrl || '';
     // document.getElementById('music-file') cannot be set due to security reasons
 
-    alert('Preset loaded!');
+    console.log('Preset loaded!');
+    //showsuccess()
 }
-document.getElementById('savePresetButton').addEventListener('click', savePreset);
-document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
 
 // const cursor = document.querySelector(".cursor");
 // var timeout;

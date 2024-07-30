@@ -548,6 +548,35 @@
 
     </div>
   </div>
+
+  <div id="addPresetModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeAddPresetModal">&times;</span>
+      <h2>Save Preset</h2>
+      <p>
+        Add a suitable name for your preset
+      </p>
+      <input id="presetNameInput" placeholder="Enter preset name"
+        style="background-color: rgb(237, 234, 228); color: black;" required>
+
+      <button id="namePresetButton" aria-label="Save preset">Save</button>
+    </div>
+  </div>
+
+  <div id="loadPresetModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeLoadPresetModal">&times;</span>
+      <h2>Load Preset</h2>
+      <p>
+        Enter the name of the preset you wish to play
+      </p>
+      <input id="presetNameLoadInput" placeholder="Enter preset name"
+        style="background-color: rgb(237, 234, 228); color: black;" required>
+
+      <button id="loadButton" aria-label="Load preset">Load</button>
+    </div>
+  </div>
+
   <button class="notification" id="failnotification" style="display:none;">
     <span class="message">Please enter a valid number</span>
     <span class="closenotif" id="closeFailNotification">✖</span>
