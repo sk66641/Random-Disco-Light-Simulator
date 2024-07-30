@@ -1964,8 +1964,6 @@ button:hover {
   font-size: 20px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(#1845ad, #23a2f6);
-  color: white;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: 500ms;
@@ -1975,11 +1973,26 @@ button:hover {
   z-index: 9999;
 }
 
+
+#backToTopBtn {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode #backToTopBtn {
+  background-color: black;
+  color: white;
+}
+
 #backToTopBtn:hover {
-  background: linear-gradient(to right, #ff512f, #f09819);
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
   opacity: 1;
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode #backToTopBtn:hover {
+  background: linear-gradient(135deg, #0c0a0f 0%, #8ec5fc 100%);
 }
 
 
