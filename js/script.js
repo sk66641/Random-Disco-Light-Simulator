@@ -749,6 +749,7 @@ window.onload = function () {
         }, interval);
     }
     animateText();
+    
     // Snowflakes animation logic
     const snowflakesContainer = document.querySelector(".snowflakes");
     const numberOfSnowflakes = 300;
