@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         starsContainer.appendChild(star);
     }
 
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeToggle = document.getElementById('themeToggle');
     darkModeToggle.addEventListener('change', function () {
         document.body.classList.toggle('dark-mode');
     });

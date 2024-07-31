@@ -101,6 +101,7 @@ a {
     border-radius: 50px;
     transition: background-color 0.3s ease;
     animation: slideUp 2s ease-in-out;
+    font-size: 16px;
 }
 
 a:hover {
@@ -190,37 +191,6 @@ a:hover {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-/* Dark Mode Toggle */
-
-.dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: white;
-}
-
-.dark-mode-toggle label {
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.dark-mode-toggle input[type="checkbox"] {
-    display: none;
-}
-
-.dark-mode-toggle input[type="checkbox"] + label:before {
-    content: '\1F31E'; /* Sun emoji for light mode */
-    font-size: 20px;
-}
-
-.dark-mode-toggle input[type="checkbox"]:checked + label:before {
-    content: '\1F30C'; /* Moon emoji for dark mode */
 }
 
 body.dark-mode {

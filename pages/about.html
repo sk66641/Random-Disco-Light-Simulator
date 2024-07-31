@@ -15,6 +15,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/mode_toggler.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     .circle {
@@ -57,33 +58,6 @@
     }
   
   }
-  #backToTopBtn {
-  position: fixed;
-  bottom: 50px;
-  right: 31px;
-  height: 50px;
-  width: 50px;
-  padding: 10px 15px;
-  font-size: 20px;
-  cursor: pointer;
-  border: none;
-  background: linear-gradient(#1845ad, #23a2f6);
-  color: white;
-  border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: 500ms;
-  display: none; /* Initially hide the button */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-#backToTopBtn:hover {
-  background: linear-gradient(to right, #ff512f, #f09819);
-  opacity: 1;
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
 
     </style>
   
@@ -129,7 +103,7 @@
         const circles = document.querySelectorAll(".circle");
   
         circles.forEach(function (circle) {
-          circle.x = 0;
+          circle.x = 0; 
           circle.y = 0;
         });
   
@@ -161,9 +135,20 @@
         animateCircles();
       });
     </script>
-    <div>
-        <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    <span class="slider" style="width: 40px; height: 20px; display: none;"></span> 
+        
+    <div id="sun-moon-mode-toggler" class="toggle-container" >
+        <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
+        <label  id="themeChangeToggle" class="theme-switch" for="themeToggle">
+            <div class="toggle-button">
+                <span class="light-mode-icon"><img src="../sun.svg" style = "display: block;"></span>
+                <span class="dark-mode-icon"><img src="../moon.svg"style = "display: block;"></span>
+            </div>
+        </label>
     </div>
+    <div>
+        <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" onclick="backToTop()"><i class="fas fa-arrow-up"></i></button>
+  </div>
     <div class="snowflakes" style="display: block;">
         <div id="particles-js"></div>
     </div>
@@ -214,45 +199,32 @@
         </h1>
         <div class="aboutBox">
             <div class="heading">The Random Disco-Light Simulator</div>
-            <div class="desc">It is a fun and interactive project that brings the excitement of a disco dance floor to
-                your screen. Whether you're a developer, a party enthusiast, or just someone who loves vibrant colors,
-                this simulator is designed to brighten up your day!</div>
+            <div class="desc">Welcome to the Random Disco-Light Simulator, a captivating and interactive project designed to bring the dynamic energy of a disco dance floor right to your screen. Whether you're a developer looking to explore creative coding, a party enthusiast eager to recreate the vibe of a disco, or simply someone who loves the burst of vibrant colors, this simulator is sure to add some excitement to your day.</div>
         </div>
         <div class="aboutBox">
             <div class="heading">Inputs</div>
             <div class="desc">
-                <div class="points"><strong>1. Number of Colors :</strong> Specify how many random colors you want to be
-                    shown.</div>
-                <div class="points"><strong>2. Time Interval :</strong> Set the interval (in milliseconds) at which the
-                    colors should change.</div>
-                <div class="points"><strong>3. View Type :</strong> Choose from conic, linear, or radial views to
-                    customize the visual effect.</div>
-                <div class="points"><strong>4. Countdown Timer :</strong> Set a timer (in seconds) for how long the
-                    simulation should run.</div>
-                <div class="points"><strong>5. Sound Effect :</strong> Optionally, add a sound effect to enhance the
-                    disco experience.</div>
+                <div class="points" style="margin-bottom: 10px;"><strong>1. Number of Colors :</strong> Choose the total number of random colors that will be displayed in the simulation. You can opt for a few colors for a subtle effect or go all out with hundreds of colors for a truly dazzling display.</div>
+                <div class="points" style="margin-bottom: 10px;"><strong>2. Time Interval :</strong> Set the interval in milliseconds at which the colors will change. A smaller interval will create a rapid, strobe-like effect, while a larger interval will provide a more relaxed, flowing transition of colors.</div>
+                <div class="points" style="margin-bottom: 10px;"><strong>3. View Type :</strong> Customize the visual effect by selecting from three distinct view types: conic, linear, or radial. Each view type offers a unique pattern and movement for the colors, allowing you to tailor the simulation to your preferences.</div>
+                <div class="points" style="margin-bottom: 10px;"><strong>4. Countdown Timer :</strong> Decide the duration of the simulation by setting a countdown timer in seconds. The simulation will run for the specified time before automatically stopping, letting you enjoy the show without needing to manually end it.</div>
+                <div class="points" style="margin-bottom: 10px;"><strong>5. Sound Effect :</strong> Enhance the visual experience with an optional sound effect. Choose a funky beat, a classic disco tune, or any sound that complements the vibrant visuals, adding an auditory dimension to your light show.</div>
             </div>
         </div>
         <div class="aboutBox">
             <div class="heading">Output</div>
-            <div class="desc">
-                Based on the inputs you provide, the simulator will display a dynamic and colorful light show in the
-                selected view, changing colors at the specified intervals. The simulation will continue until the
-                countdown timer expires.
-            </div>
+            <div class="desc">Based on the inputs you provide, the simulator generates a dynamic and colorful light show that transforms your screen into a lively disco dance floor. The colors will change according to your specified interval and view type, creating a mesmerizing visual experience. The simulation continues until the countdown timer expires, offering a seamless and immersive disco ambiance.</div>
         </div>
         <div class="aboutBox">
             <div class="heading">Examples</div>
             <div class="desc">
-                Try these input combinations and see the magic unfold!
-                <div class="points" style="margin-top: 20px;">1. 1000 colors, 1 millisecond interval, conic view, 60
-                    seconds timer.</div>
-                <div class="points">2. 1000 colors, 1 millisecond interval, radial view, 60 seconds timer.</div>
-                <div class="points">3. 1000 colors, 1 millisecond interval, linear view, 60 seconds timer.</div>
+                Here are some fun combinations to try out:
+                <div class="points" style="margin-top: 20px; margin-bottom: 10px;">1. <strong>1000 Colors, 1 Millisecond Interval, Conic View, 60 Seconds Timer:</strong> Experience an intense and fast-paced color explosion with this high-energy setup.</div>
+                <div class="points" style="margin-bottom: 10px;">2. <strong>500 Colors, 500 Milliseconds Interval, Radial View, 120 Seconds Timer:</strong> Enjoy a more laid-back, hypnotic light show with slower transitions and a radial pattern.</div>
+                <div class="points" style="margin-bottom: 10px;">3. <strong>300 Colors, 100 Milliseconds Interval, Linear View, 90 Seconds Timer:</strong> Create a balanced and rhythmic visual effect with this intermediate setting, perfect for a relaxed yet dynamic display.</div>
             </div>
         </div>
-        <div class="desc" style="text-align: center; color: chocolate; font-weight: bold;">Experiment with different
-            settings and have fun creating your own disco light show! 😄</div>
+        <div class="desc" style="text-align: center; color: chocolate; font-weight: bold;">Experiment with different settings to craft your own unique disco light show and enjoy the colorful spectacle! 😄</div>
     </div>
     <footer class="footer" style="width: 100%;height: 2px;">
         <div class="socialIcons">
@@ -277,9 +249,17 @@
         <div class="copyright">
             <p class="copyright" style="text-align: center">
                 &copy;
-                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights
-                reserved.
+                <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
             </p>
+        </div>
+        <div id="sun-moon-mode-toggler" class="toggle-container">
+            <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
+            <label id="themeChangeToggle" class="theme-switch" for="themeToggle">
+                <div class="toggle-button">
+                    <span class="light-mode-icon"><img src="../sun.svg" style="display: block;"></span>
+                    <span class="dark-mode-icon"><img src="../moon.svg" style="display: block;"></span>
+                </div>
+            </label>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -293,8 +273,8 @@
             <h2>Account Not Available</h2>
             <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working diligently to bring them online as soon as possible.</p>
             <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our website's feedback form. We appreciate your understanding and patience during this time.</p>
-            <p>Thank you for your continued support! </p>
+            <p>Thank you for your continued support!</p>
         </div>
-    </div>
+    </div>    
 </body>
 </html>
