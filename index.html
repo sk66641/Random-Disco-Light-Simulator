@@ -10,6 +10,7 @@
   <title>Random Disco Light Simulator</title>
   <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/backToTopButton.css">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -17,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="/js/backToTopBtn.js"></script>
   <style>/* style.css */
 
     .form-group {
@@ -156,9 +156,7 @@
       </lottie-player>
     </div>
   </div>
-  <div class="indexpage">
-    <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" onclick="backToTop()"><i class="fas fa-arrow-up"></i></button>
-  </div>
+  <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" ><i class="fas fa-arrow-up"></i></button>
   <!-- Generate snowflakes dynamically with JavaScript -->
   <div class="snowflakes">
     <div id="particles-js"></div>
@@ -681,6 +679,7 @@
   <script src="js/background.js"></script>
   <script src="js/social.js"></script>
   <script src="js/script.js"></script>
+  <script src="/js/backToTopBtn.js"></script>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');

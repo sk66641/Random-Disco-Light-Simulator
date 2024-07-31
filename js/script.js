@@ -885,16 +885,16 @@ function effect() {
     loader.style.display = "none";
     document.querySelector(".unload").style.display = "block";
     document.querySelector(".snowflakes").style.display = "block";
-    // var backToTopBtn = document.getElementById("backToTopBtn");
-    // backToTopBtn.style.display = "block";
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "block";
 }
 
 
 
 var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
-    // var backToTopBtn = document.getElementById("backToTopBtn");
-    // backToTopBtn.style.display = "none";
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "none";
     setTimeout(effect, 4000);
 })
 
@@ -904,26 +904,26 @@ function changeColor() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // var backToTopBtn = document.getElementById("backToTopBtn");
-    // backToTopBtn.style.display = "block";
-    // backToTopBtn.addEventListener("click", function () {
-    //     scrollToTop();
-    //     scrollToForm();
-    // });
+    var backToTopBtn = document.getElementById("backToTopBtn");
+    backToTopBtn.style.display = "block";
+    backToTopBtn.addEventListener("click", function () {
+        scrollToTop();
+        scrollToForm();
+    });
 
-    // function scrollToTop() {
-    //     window.scrollTo({
-    //         top: 0,
-    //         behavior: "smooth"
-    //     });
-    // }
-    // function scrollToForm() {
-    //     const formElement = document.getElementById("box");
-    //     formElement.scrollTo({
-    //         top: 0,
-    //         behavior: "smooth"
-    //     });
-    // }
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+    function scrollToForm() {
+        const formElement = document.getElementById("box");
+        formElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
 
     document.querySelector("#reload").addEventListener("click", () => {
         window.location.reload();
