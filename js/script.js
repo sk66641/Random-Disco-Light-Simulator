@@ -77,46 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
             resumeSimulation();
         }
     }
-
-    //the success and failure wale pop ups 
-    const failNotif = document.getElementById('failnotification');
-    const successNotif = document.getElementById('successnotification');
-    const closeSuccess = document.getElementById('closeSuccessNotification');
-    const closeFail = document.getElementById('closeFailNotification');
-
-    closeFail.addEventListener('click', () => {
-        failNotif.style.display = 'none';
-    })
-    closeSuccess.addEventListener('click', () => {
-        successNotif.style.display = 'none';
-    })
-
-    //in order to add these popups somewhere else please just use these call these two functions
-    function showSuccess() {
-        successNotif.style.display = 'flex';
-        setTimeout(() => {
-            successNotif.style.display = 'none';
-        }, 2000);//current timer is 2 secs. If you want to change please also change the css animation 'timerline' duration accordingly
-    }
-
-    function showFailed() {
-        failNotif.style.display = 'flex';
-        setTimeout(() => {
-            failNotif.style.display = 'none';
-        }, 2000);
-    }
-
-
+    
     // Add the event listener for timesubmitBtn outside
     timesubmitBtn.addEventListener('click', () => {
         const time = addtime_input.value; // Ensure you get the input value correctly
         if (time == 0) {
-            showFailed(); //modal remains open for another entry 
+            showFailed("Please enter a valid number"); //modal remains open for another entry 
         }
         else {
             addTime(time);
             addtimePrompt.style.display = 'none';
-            showSuccess();
+            showSuccess("Added Successfully!");
             if (rememberState == false) {//if it was paused before we let it be 
                 resumeSimulation();
             }
@@ -749,6 +720,7 @@ window.onload = function () {
         }, interval);
     }
     animateText();
+    
     // Snowflakes animation logic
     const snowflakesContainer = document.querySelector(".snowflakes");
     const numberOfSnowflakes = 300;
@@ -763,6 +735,41 @@ window.onload = function () {
         snowflakesContainer.appendChild(snowflake);
     }
 };
+
+
+    //the success and failure wale pop ups 
+    const failNotif = document.getElementById('failnotification');
+    const successNotif = document.getElementById('successnotification');
+    const closeSuccess = document.getElementById('closeSuccessNotification');
+    const closeFail = document.getElementById('closeFailNotification');
+
+    const successMessage = document.getElementById('successmsg');
+    const failMessage = document.getElementById('failmsg');   
+
+    closeFail.addEventListener('click', () => {
+        failNotif.style.display = 'none';
+    })
+    closeSuccess.addEventListener('click', () => {
+        successNotif.style.display = 'none';
+    })
+    
+    //in order to add these popups somewhere else please just use these call these two functions
+    function showSuccess(message = 'Added Successfully!') {
+        console.log('here')
+        successNotif.style.display = 'flex';
+        successMessage.textContent = message;
+        setTimeout(() => {
+            successNotif.style.display = 'none';
+        }, 2000); // current timer is 2 secs. If you want to change, please also change the CSS animation 'timerline' duration accordingly
+    }
+  
+    function showFailed(message = 'Failed!') {
+        failNotif.style.display = 'flex';
+        failMessage.textContent = message;
+        setTimeout(() => {
+            failNotif.style.display = 'none';
+        }, 2000);
+    }
 
 /* function showAboutPopup() {
     document.getElementById("aboutPopup").style.display = "block";
@@ -878,16 +885,16 @@ function effect() {
     loader.style.display = "none";
     document.querySelector(".unload").style.display = "block";
     document.querySelector(".snowflakes").style.display = "block";
-    var backToTopBtn = document.getElementById("backToTopBtn");
-    backToTopBtn.style.display = "block";
+    // var backToTopBtn = document.getElementById("backToTopBtn");
+    // backToTopBtn.style.display = "block";
 }
 
 
 
 var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
-    var backToTopBtn = document.getElementById("backToTopBtn");
-    backToTopBtn.style.display = "none";
+    // var backToTopBtn = document.getElementById("backToTopBtn");
+    // backToTopBtn.style.display = "none";
     setTimeout(effect, 4000);
 })
 
@@ -897,26 +904,26 @@ function changeColor() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var backToTopBtn = document.getElementById("backToTopBtn");
-    backToTopBtn.style.display = "block";
-    backToTopBtn.addEventListener("click", function () {
-        scrollToTop();
-        scrollToForm();
-    });
+    // var backToTopBtn = document.getElementById("backToTopBtn");
+    // backToTopBtn.style.display = "block";
+    // backToTopBtn.addEventListener("click", function () {
+    //     scrollToTop();
+    //     scrollToForm();
+    // });
 
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-    function scrollToForm() {
-        const formElement = document.getElementById("box");
-        formElement.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
+    // function scrollToTop() {
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: "smooth"
+    //     });
+    // }
+    // function scrollToForm() {
+    //     const formElement = document.getElementById("box");
+    //     formElement.scrollTo({
+    //         top: 0,
+    //         behavior: "smooth"
+    //     });
+    // }
 
     document.querySelector("#reload").addEventListener("click", () => {
         window.location.reload();
@@ -967,43 +974,114 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
 })
 
-//  new functionality for saving and loading presets
-function savePreset() {
-    const presetName = prompt("Enter a name for your preset:");
-    if (!presetName) {
-        alert('Please enter a valid name for your preset.');
-        return;
-    }
+// Preset saving and loading : 
 
-    const presetData = {
-        color: document.getElementById('color').value,
-        color1: document.getElementById('color1').value,
-        color2: document.getElementById('color2').value,
-        time: document.getElementById('time').value,
-        unit: document.getElementById('unit').value,
-        view: document.getElementById('view').value,
-        countdown: document.getElementById('countdown').value,
-        sound: document.getElementById('sound').value,
-        youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
+document.getElementById('savePresetButton').addEventListener('click', namePreset);
+document.getElementById('loadPresetButton').addEventListener('click', findPreset);
 
-    };
+//saving
+const savePresetModal= document.getElementById('addPresetModal'); 
+const closeAddPresetModal= document.getElementById('closeAddPresetModal');
+const presetName_input= document.getElementById('presetNameInput');
+let presetName;
 
-    // Save to localStorage
-    localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
-    alert('Preset saved!');
+closeAddPresetModal.onclick = function () {
+    savePresetModal.style.display = 'none';
+}
+
+//load modal on click
+function namePreset(){
+    savePresetModal.style.display='block';
+    document.getElementById('namePresetButton').addEventListener('click', ()=>{
+        presetName= presetName_input.value.trim();
+        if (!presetName) {
+            showFailed('Invalid name entered');
+            }
+        else{
+            //go to save preset when valid name is entered
+            savePreset();
+        }
+        savePresetModal.style.display='none';
+    });
 }
 
 
-function loadPreset() {
-    const presetName = prompt("Enter the name of the preset you'd like to load:");
-    if (!presetName) {
-        alert('Please enter the name of the preset.');
+function savePreset() {
+
+    //get all field values in input during preset saving
+    let countdownValue = document.getElementById('countdown').value;
+    let n = document.getElementById("color").value;
+    let unit = document.getElementById("unit").value;
+    let view = document.getElementById("view").value;
+    let soundEffect = document.getElementById("sound").value;
+    
+    // Get selected audio file or URL
+    let selectedFile = document.getElementById("music-file").files[0];
+    let selectedUrl = document.getElementById("music-url").value;
+    let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
+    
+    
+    if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
+            !(selectedFile && youtubeUrl) &&
+            !(selectedUrl && youtubeUrl) && 
+            !(soundEffect !== 'none' && youtubeUrl)){
+                //conditions for valid execution of simulation
+
+                const presetData = {
+                    color: document.getElementById('color').value,
+                    color1: document.getElementById('color1').value,
+                    color2: document.getElementById('color2').value,
+                    time: document.getElementById('time').value,
+                    unit: document.getElementById('unit').value,
+                    view: document.getElementById('view').value,
+                    countdown: document.getElementById('countdown').value,
+                    sound: document.getElementById('sound').value,
+                    youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
+            
+                };
+            
+                // Save data to localStorage
+                localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+
+                showSuccess('Saved successfully')
+            }
+    else {
+        // after unsuccessful saving of preset 
+        showFailed("Please fill all required fields");
         return;
     }
+}
 
-    const presetData = JSON.parse(localStorage.getItem(`preset-${presetName}`));
+//loading
+const loadPresetModal= document.getElementById('loadPresetModal'); 
+const closeLoadPresetModal= document.getElementById('closeLoadPresetModal');
+const load_input= document.getElementById('presetNameLoadInput');
+let loadName;
+
+closeLoadPresetModal.onclick = function () {
+    loadPresetModal.style.display = 'none';
+}
+//show modal for loading
+function findPreset(){
+    loadPresetModal.style.display='block';
+    document.getElementById('loadButton').addEventListener('click', ()=>{
+        loadName= load_input.value.trim();
+        if (!loadName) {
+            showFailed('Invalid name entered');
+            }
+        else{
+            //go to load preset when entry is valid
+            loadPreset();
+        }
+        loadPresetModal.style.display='none';
+    });
+}
+
+function loadPreset() {
+    const presetData = JSON.parse(localStorage.getItem(`preset-${loadName}`));
     if (!presetData) {
-        alert('Preset not found!');
+        //not in memory or not created 
+        showFailed('Preset not found');
         return;
     }
     document.getElementById('color').value = presetData.color;
@@ -1017,10 +1095,8 @@ function loadPreset() {
     document.getElementById('music-url').value = presetData.musicUrl || '';
     // document.getElementById('music-file') cannot be set due to security reasons
 
-    alert('Preset loaded!');
+    showSuccess('Preset loaded!');
 }
-document.getElementById('savePresetButton').addEventListener('click', savePreset);
-document.getElementById('loadPresetButton').addEventListener('click', loadPreset);
 
 // const cursor = document.querySelector(".cursor");
 // var timeout;
