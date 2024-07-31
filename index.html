@@ -394,7 +394,84 @@
       </label>
     </div>
 
+
     <!-- Modal section -->
+
+
+    <!-- Modal background -->
+    <!-- <div id="modalBackground" style="color: #fff;">
+  <div class="login-box">
+    <form style="color: #fff;">
+      <div class="user-box" style="color: #fff;">
+        <input type="text" name="name" required="" onfocus="changeColor()" id="name" style="color: #fff;">
+        <label>Name</label>
+      </div>
+      <div class="user-box">
+        <input type="email" required onfocus="changeColor()" id="email">
+        <label>Mail</label>
+      </div>
+      <div class="user-box" style="text-align: right;">
+        <label for="feedbackType" style="display: block; text-align: left;">Feedback Type</label>
+        <select id="feedbackType" name="feedbackType" required onchange="toggleOtherInput()" style="font-size: 12px; padding: 5px; width: 150px;">
+          <option value="question">Question</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="issue">Issue</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="user-box" id="otherFeedbackBox" style="display: none;">
+        <input type="text" id="otherFeedback" name="otherFeedback" placeholder="Specify the subject">
+      </div>
+      <center>
+        <div class="rating">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5">5 stars</label>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4">4 stars</label>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3">3 stars</label>
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2">2 stars</label>
+          <input type="radio" id="star1" name="rating" value="1" />
+          <label for="star1">1 star</label>
+        </div>
+        <div class="form-group">
+          <p>Feedback</p>
+          <textarea cols="30" rows="5" placeholder="Your Feedback" required id="feed"></textarea>
+        </div>
+        <button id="ll" class="btnna">Submit</button>
+        <span></span>
+      </center>
+    </form>
+    <center>
+      <div class="load" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
+        <div data-glitch="Loading..." class="glitch">Submitting...</div>
+      </div>
+    </center>
+  </div>
+</div> -->
+<script src="../js/theme.js"></script>
+    <script>
+      function toggleOtherInput() {
+        var feedbackType = document.getElementById("feedbackType").value;
+        var otherFeedbackBox = document.getElementById("otherFeedbackBox");
+        if (feedbackType === "other") {
+          otherFeedbackBox.style.display = "block";
+        } else {
+          otherFeedbackBox.style.display = "none";
+        }
+      }
+    </script>
+
+    <style>
+      #feedbackType {
+        font-size: 12px;
+        padding: 5px;
+        width: 150px;
+      }
+    </style>
+
+
     <div id="warningModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
