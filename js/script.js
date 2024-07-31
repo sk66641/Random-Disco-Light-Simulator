@@ -895,7 +895,7 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     // var backToTopBtn = document.getElementById("backToTopBtn");
     // backToTopBtn.style.display = "none";
-    setTimeout(effect, 1000);
+    setTimeout(effect, 4000);
 })
 
 function changeColor() {
