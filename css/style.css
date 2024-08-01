@@ -57,7 +57,7 @@ body {
 ::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
-	background-color: #CCCCCC;
+	background-color: rgb(185, 234, 234);
 }
 
 ::-webkit-scrollbar
@@ -70,7 +70,8 @@ body {
 {
 	background-color: #FFF;
   border-radius: 10px;
-	background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent)
+	/* background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent) */
+  background-image: linear-gradient(90deg,rgb(147, 55, 246),rgb(211, 121, 246));
 }
 
 .unload {

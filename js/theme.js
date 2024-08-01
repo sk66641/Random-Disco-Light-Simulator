@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var savedTheme = localStorage.getItem('theme');
     const slider = document.getElementById('themeToggle');
 
-    if (savedTheme === 'dark-mode') {
-        slider.checked = true;
-    } else {
+    if (savedTheme === 'light-mode') {
         slider.checked = false;
+    } else {
+        slider.checked = true;
     }
 
     //load saved theme
