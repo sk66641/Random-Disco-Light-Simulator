@@ -1,24 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const backToTopButton = document.getElementById('backToTopBtn');
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+let backToTopBtn = document.getElementById("backToTopBtn");
 
-    function handleScroll() {
-        if (window.scrollY === 0) {
-            backToTopButton.classList.add('disabled');
-            backToTopButton.style.display = 'none'; // Hide button at top
-        } else {
-            backToTopButton.classList.remove('disabled');
-            backToTopButton.style.display = 'block'; // Show button when scrolling
-        }
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
     }
+}
 
-    window.startSimulation = function() {
-        backToTopButton.style.display = 'none';
-    }
 
-    window.backToTop = function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+backToTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
