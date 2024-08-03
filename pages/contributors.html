@@ -60,9 +60,49 @@
         }
 
       }
+      body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contributor-card {
+    background: linear-gradient(135deg, #6a93ff, #a9c7ff);
+    color: #ffffff;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 200px;
+}
+
+.contributor-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.contributor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.contributor-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.contributor-card p {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
         </style>
-
-
       </head>
 
       <body>
