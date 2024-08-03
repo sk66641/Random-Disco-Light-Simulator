@@ -2136,10 +2136,35 @@ button:active {
   transform: scale(.95);
 }
 
+
+@keyframes disco-border {
+  0% {
+    border-color: red;
+  }
+  20% {
+    border-color: yellow;
+  }
+  40% {
+    border-color: green;
+  }
+  60% {
+    border-color: cyan;
+  }
+  80% {
+    border-color: rgb(71, 71, 255);
+  }
+  100% {
+    border-color: magenta;
+  }
+}
+
 .navHeader .header-content nav .logo img {
   margin-right: auto;
-  width: 120px;
-  height: 100px;
+  width: 108px;
+  height: 102px;
+  border: 2px solid;
+  border-color: purple; /* Fallback color */
+  animation: disco-border 6s linear infinite;
 }
 
 .icon {
