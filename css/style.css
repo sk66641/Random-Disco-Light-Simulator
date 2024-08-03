@@ -1133,7 +1133,7 @@ nav ul li a:hover {
 }
 
 @media (max-width: 750px),
-(max-height: 500px) {
+(max-height: 700px) {
 
   .socialIcons {
     position: relative;
