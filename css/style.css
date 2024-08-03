@@ -2167,6 +2167,20 @@ button:active {
   animation: disco-border 6s linear infinite;
 }
 
+@media (max-width: 780px) {
+
+  .navHeader .header-content nav .logo img {
+    margin-right: auto;
+    width: 108px;
+    height: 102px;
+    border: 2px solid;
+    border-color: purple;
+    animation: disco-border 6s linear infinite;
+    margin-bottom: 17px;
+}
+  
+}
+
 .icon {
   text-transform: none;
 }
