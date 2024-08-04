@@ -243,54 +243,54 @@ const interval = setInterval(() => {
             style="font-family: Arial, sans-serif; font-size: 40px; color: #f09819; display: block;">
             FAQ
         </h1>
-        <div class="faqBox">
-            <div class="question">What is the Random Disco Light Simulator? <i class="fas fa-chevron-down arrow"></i>
+            <div class="faqBox">
+                <div class="question">What is the Random Disco Light Simulator? <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="answer">The Random Disco Light Simulator is a fun and interactive project that brings the
+                    excitement of a disco dance floor to your screen. Whether you're a developer, a party enthusiast, or
+                    just curious, this simulator is designed to brighten up your day!</div>
             </div>
-            <div class="answer">The Random Disco Light Simulator is a fun and interactive project that brings the
-                excitement of a disco dance floor to your screen. Whether you're a developer, a party enthusiast, or
-                just curious, this simulator is designed to brighten up your day!</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">How do I change the colors? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">You can specify the number of random colors you want to be shown, set the interval (in
-                milliseconds) at which the colors should change, and choose from conic, linear, or radial views to
-                customize the visual effect.</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">Can I add a countdown timer? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can set a timer (in seconds) for how long the simulation should run.
-                Additionally, you can optionally add a sound effect to enhance the disco experience.</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">What are some example settings? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Try these input combinations and see the magic unfold: 1000 colors, 1 millisecond
-                interval, conic view, 60 seconds timer. Experiment with different settings and have fun creating your
-                own disco light show!</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">Can I customize the light patterns? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can customize the light patterns by selecting different modes and intervals.
-                This allows you to create unique and mesmerizing disco light shows.</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">Is there a way to save my settings? <i class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Currently, there is no built-in feature to save settings, but you can manually note down
-                your preferred settings to reuse them later.</div>
-        </div>
-        <div class="faqBox">
-            <div class="question">Does the simulator work on mobile devices? <i class="fas fa-chevron-down arrow"></i>
+            <div class="faqBox">
+                <div class="question">How do I change the colors? <i class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">You can specify the number of random colors you want to be shown, set the interval (in
+                    milliseconds) at which the colors should change, and choose from conic, linear, or radial views to
+                    customize the visual effect.</div>
             </div>
-            <div class="answer">Yes, the Random Disco Light Simulator is designed to work on various devices, including
-                desktops, tablets, and mobile phones. However, performance may vary based on the device's capabilities.
+            <div class="faqBox">
+                <div class="question">Can I add a countdown timer? <i class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">Yes, you can set a timer (in seconds) for how long the simulation should run.
+                    Additionally, you can optionally add a sound effect to enhance the disco experience.</div>
+            </div>
+            <div class="faqBox">
+                <div class="question">What are some example settings? <i class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">Try these input combinations and see the magic unfold: 1000 colors, 1 millisecond
+                    interval, conic view, 60 seconds timer. Experiment with different settings and have fun creating your
+                    own disco light show!</div>
+            </div>
+            <div class="faqBox">
+                <div class="question">Can I customize the light patterns? <i class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">Yes, you can customize the light patterns by selecting different modes and intervals.
+                    This allows you to create unique and mesmerizing disco light shows.</div>
+            </div>
+            <div class="faqBox">
+                <div class="question">Is there a way to save my settings? <i class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">Currently, there is no built-in feature to save settings, but you can manually note down
+                    your preferred settings to reuse them later.</div>
+            </div>
+            <div class="faqBox">
+                <div class="question">Does the simulator work on mobile devices? <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="answer">Yes, the Random Disco Light Simulator is designed to work on various devices, including
+                    desktops, tablets, and mobile phones. However, performance may vary based on the device's capabilities.
+                </div>
+            </div>
+            <div class="faqBox">
+                <div class="question">Can I share my disco light show with friends? <i
+                        class="fas fa-chevron-down arrow"></i></div>
+                <div class="answer">Yes, you can share your disco light show by sharing the URL with your friends. They can
+                    visit the same link to experience the light show you have created.</div>
             </div>
         </div>
-        <div class="faqBox">
-            <div class="question">Can I share my disco light show with friends? <i
-                    class="fas fa-chevron-down arrow"></i></div>
-            <div class="answer">Yes, you can share your disco light show by sharing the URL with your friends. They can
-                visit the same link to experience the light show you have created.</div>
-        </div>
-    </div>
     <footer class="footer">
         <div class="socialIcons">
             <span class="icons">
@@ -324,16 +324,8 @@ const interval = setInterval(() => {
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/backToTopBtn.js"></script>
-    <script src="../js/social.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.question').click(function () {
-                $(this).next('.answer').slideToggle();
-                $(this).find('.arrow').toggleClass('rotate');
-            });
-        });
-    </script>
-
+    <script src="../js/social.js"></script> 
+    <script src="../js/faq.js"></script>
     <div id="accountNotAvailableModal" class="account-not-available-modal">
         <div class="account-not-available-modal-content">
             <span class="close" id="closeAccountNotAvailableModal">&times;</span>
@@ -346,6 +338,7 @@ const interval = setInterval(() => {
         </div>
     </div>
 </div>
+
 </body>
 
 </html>

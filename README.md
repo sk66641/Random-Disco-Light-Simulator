@@ -1,5 +1,34 @@
 # <p align="center">✨Random Disco Light Simulator✨</p>
 
+<p align="center">
+  <img src="https://phoneky.co.uk/thumbs/screensavers/down/abstract/disco_9fw9rkon.gif" alt="Disco Light Simulator" />
+</p>
+
+<div align="center">
+  <p>
+    <a href="https://github.com/sk66641/Random-Disco-Light-Simulator">
+      <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1" />
+    </a>
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs Welcome" />
+    <img src="https://api.visitorbadge.io/api/visitors?path=sk66641%2FRandom-Disco-Light-Simulator&countColor=%23263759&style=flat" alt="Visitors" />
+    <img src="https://img.shields.io/github/forks/sk66641/Random-Disco-Light-Simulator" alt="GitHub forks" />
+    <img src="https://img.shields.io/github/stars/sk66641/Random-Disco-Light-Simulator" alt="GitHub Repo stars" />
+    <img src="https://img.shields.io/github/contributors/sk66641/Random-Disco-Light-Simulator" alt="GitHub contributors" />
+    <img src="https://img.shields.io/github/last-commit/sk66641/Random-Disco-Light-Simulator" alt="GitHub last commit" />
+    <img src="https://img.shields.io/github/repo-size/sk66641/Random-Disco-Light-Simulator" alt="GitHub repo size" />
+    <img src="https://img.shields.io/github/license/sk66641/Random-Disco-Light-Simulator" alt="GitHub license" />
+    <img src="https://img.shields.io/github/issues/sk66641/Random-Disco-Light-Simulator" alt="GitHub issues" />
+    <img src="https://img.shields.io/github/issues-closed-raw/sk66641/Random-Disco-Light-Simulator" alt="GitHub closed issues" />
+    <img src="https://img.shields.io/github/issues-pr/sk66641/Random-Disco-Light-Simulator" alt="GitHub pull requests" />
+    <img src="https://img.shields.io/github/issues-pr-closed/sk66641/Random-Disco-Light-Simulator" alt="GitHub closed pull requests" />
+  </p>
+</div>
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=12f39c&size=40&width=900&height=80&lines=✨Random+Disco+Light+Simulator✨" alt="Random Disco Light Simulator"/>
+</p>
+
+
+
 
 <!-------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -46,7 +75,7 @@ The **Random Disco Light Simulator** is a fun and interactive project that bring
       <th>Event Description</th>
     </tr>
     <tr>
-        <td><img src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+        <td><img src="https://user-images.githubusercontent.com/63473496/153487849-4f094c16-d21c-463e-9971-98a8af7ba372.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
         <td>GirlScript Summer of Code 2024</td>
         <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development. 
     </tr>
