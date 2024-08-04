@@ -8,6 +8,15 @@
     transition: all 0.3s ease-in-out;
     border-color: transparent;
     animation: borderLights 2s infinite;
+    
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+}
+
+.back-button:active {
+    transform: scale(1);
 }
 
 .back{
