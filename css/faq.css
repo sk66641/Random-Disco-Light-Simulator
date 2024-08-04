@@ -16,6 +16,9 @@ body {
     user-select: none;
 }
 
+#box{
+    max-width:700px;
+}
 #particles-js {
     position: absolute;
     width: 100%;
