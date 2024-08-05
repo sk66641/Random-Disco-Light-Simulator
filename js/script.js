@@ -850,7 +850,16 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-    setTimeout(effect, 4000);
+    if(!sessionStorage.getItem('load')){
+        setTimeout(effect, 4000);
+    }
+    else{
+        effect();
+        const modal = document.getElementById("warningModal");
+        modal.style.display='none';
+        document.querySelector(".navMain").style.visibility = "visible";
+    }
+    sessionStorage.setItem('load', true);
 })
 
 function changeColor() {
