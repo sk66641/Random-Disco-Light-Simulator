@@ -12,9 +12,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Error - 404</title>
     <script src="./js/404.js" defer></script>
+    <link rel="stylesheet" href="/css/preloader.css">
 </head>
 
 <body>
+
+    <!-- Preloader starts -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="spinner-inner"></div>
+            <div id="loading-percentage">0%</div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const content = document.getElementById('content');
+    const loadingPercentage = document.getElementById('loading-percentage');
+
+    let percentage = 0;
+
+    const interval = setInterval(() => {
+        percentage += 10; 
+        loadingPercentage.textContent = `${percentage}%`;
+        if (percentage >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                content.style.display = 'block';
+                document.body.style.overflow = 'auto'; 
+            }, 300); 
+        }
+    }, 100); 
+});
+
+    </script>
+<!-- Preloader Ends -->
+<div id="content"> 
     <div class="errorpage"></div>
     <div class="stars"></div>
     <div class="container">
@@ -32,6 +66,7 @@
                 <span class="light-mode-icon"><img src="sun.svg" style = "display: block;"></span>
                 <span class="dark-mode-icon"><img src="moon.svg"style = "display: block;"></span>
             </div>
+</div>
 </body>
 
 </html>
