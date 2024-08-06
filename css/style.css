@@ -790,8 +790,6 @@ nav ul li a:hover {
     font-size: 18px !important;
   }
 
-  
-
   input,
   #unit {
     margin-top: 10px;
@@ -826,7 +824,7 @@ nav ul li a:hover {
   .box {
     max-width: calc(100% - 40px);
     position: relative;
-    background: rgba(255, 255, 255, 0.063);
+    background: #180410;
     backdrop-filter: blur(10px);
     padding: 10px 25px;
     overflow: visible;
@@ -1888,7 +1886,7 @@ button:hover {
   /* font-family: Arial, sans-serif;
   font-size: 39px; */
   font-family: "Poppins", sans-serif;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
   color: #ff7f50;
 }
