@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let n = 10; // seconds
     setTimeout(function () {
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
     }, n * 1000);
 
     const countdownElement = document.querySelector('.text4').getElementsByTagName('strong')[0];

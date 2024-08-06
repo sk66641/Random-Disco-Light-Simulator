@@ -6,9 +6,10 @@
     <meta name="author" content="Sanu Kumar">
     <meta name="description" content="Read our privacy policy to understand how we handle your data on the Random Disco Light Simulator site.">
     <title>Privacy - Random Disco Light Simulator</title>
-    <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/preloader.css">
     <link rel="stylesheet" href="../css/backtohome.css">
     <link rel="stylesheet" href="../css/backToTopButton.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -47,9 +48,81 @@
         display: none;
       }
     }
+
+    
+    .Lastupdate {
+          margin-bottom: 18px;
+          font-size: 20px !important;
+          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif !important;
+          font-weight: 700;
+          margin-top: 0px;
+          color: rgb(255, 171, 4) !important;
+        }
+
+        #last-updated-date {
+          font-size: 18px;
+          color: rgb(255, 255, 255) !important;
+          font-weight: 400 !important;
+        }
+
+        /* Change the color of all links */
+a {
+    color: #ff6347; /* This sets the link color to tomato red */
+    text-decoration: none; /* This removes the underline from the link */
+}
+
+/* Change the color of visited links */
+a:visited {
+    color: #ff4500; /* This sets the visited link color to orange red */
+}
+
+/* Change the color of links when hovered */
+a:hover {
+    color: #ff4500; /* This sets the link color to orange red when hovered */
+    text-decoration: underline; /* This adds an underline to the link when hovered */
+}
+
+/* Change the color of links when active (clicked) */
+a:active {
+    color: #dc143c; /* This sets the link color to crimson when active */
+}
+
     </style>
 </head>
 <body>
+
+    <!-- Preloader starts -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="spinner-inner"></div>
+            <div id="loading-percentage">0%</div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const content = document.getElementById('content');
+    const loadingPercentage = document.getElementById('loading-percentage');
+
+    let percentage = 0;
+
+    const interval = setInterval(() => {
+        percentage += 10; 
+        loadingPercentage.textContent = `${percentage}%`;
+        if (percentage >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                content.style.display = 'block';
+                document.body.style.overflow = 'auto'; 
+            }, 300); 
+        }
+    }, 100); 
+});
+
+    </script>
+    <!-- Preloader Ends -->
+
     <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -122,6 +195,7 @@
       </script>
       <script src="../js/theme.js"></script>
 
+<div id="content"> 
         <span class="slider" style="width: 40px; height: 20px; display: none;"></span> 
         
         <div id="sun-moon-mode-toggler" class="toggle-container" >
@@ -185,6 +259,7 @@
             Privacy Policy
         </h1>
         <div class="privacyBox">
+            <div class="Lastupdate">Last updated: <span id="last-updated-date"></span></div>
             <div class="heading">Privacy Policy</div>
             <div class="desc">
                 This Privacy Policy describes how your personal information is collected, used, and shared when you visit or
@@ -274,6 +349,46 @@
             </p>
         </div>
     </footer>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(() => {
+            const loader = document.getElementById("loader");
+            if (loader) {
+              loader.style.display = "none";
+            } else {
+              console.error("Element with ID 'loader' not found.");
+            }
+          }, 500);
+  
+          // Update the date dynamically
+          function updateLastUpdatedDate() {
+            const dateElement = document.getElementById("last-updated-date");
+            const now = new Date();
+            const day = now.getDate();
+            const monthNames = [
+              "January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            const month = monthNames[now.getMonth()]; 
+            const year = now.getFullYear();
+            dateElement.textContent = `${month} ${day}, ${year}`;
+          }
+  
+          function updateWeekly() {
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+            const timeUntilNextUpdate = (7 - dayOfWeek) * 24 * 60 * 60 * 1000; // Time until next Sunday
+            updateLastUpdatedDate();
+            setTimeout(updateWeekly, timeUntilNextUpdate);
+          }
+  
+          updateWeekly();
+        });
+      </script>
+
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../js/background.js"></script>
     <script src="../js/script.js"></script>
@@ -288,5 +403,6 @@
             <p>Thank you for your continued support! </p>
         </div>
     </div>
+</div>
 </body>
 </html>
