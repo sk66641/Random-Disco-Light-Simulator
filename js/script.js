@@ -418,17 +418,71 @@ document.addEventListener('DOMContentLoaded', () => {
             // after unsuccessful submission
             document.getElementById("error").style.color = "red";
             if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
-                document.getElementById("error").innerHTML = "<strong>1. The Number of Colours must be a positive integer!</strong>";
+                const modal = document.getElementById("colorWarningModal");
+                
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             } else if (unit === "unit") {
-                document.getElementById("error").innerHTML = "<strong>3. The Unit field must be selected!</strong>";
+                const modal = document.getElementById("timeIntervalWarningModal");
+                
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             } else if (view === "select") {
-                document.getElementById("error").innerHTML = "<strong>4. The View field must be selected!</strong>";
+                const modal = document.getElementById("viewWarningModal");
+            
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             } else if (countdownValue <= 0) {
-                document.getElementById("error").innerHTML = "<strong>5. The CountDown Timer must be a positive value greater than zero!</strong>";
+                const modal = document.getElementById("countdownWarningModal");
+                
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && youtubeUrl || youtubeUrl && selectedFile) {
-                document.getElementById("error").innerHTML = "<strong>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></strong>";
+                const modal = document.getElementById("noMusicFileWarningModal");
+            
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             } else if (document.getElementById('PreviewButton').textContent === "Stop") {
-                document.getElementById("error").innerHTML = "<strong>6. First stop previewing music!</strong>";
+                const modal = document.getElementById("stopPreviewWarningModal");
+            
+                modal.style.display = "block";
+
+                window.onclick = function (event) 
+                {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                 }
+                }
             }
 
             return;
