@@ -774,11 +774,14 @@ window.onload = function () {
         }, interval);
     }
     animateText();
-    
+    snowflakeEffect();
+};
+function snowflakeEffect(){
+
     // Snowflakes animation logic
     const snowflakesContainer = document.querySelector(".snowflakes");
     const numberOfSnowflakes = 300;
-
+    
     for (let i = 0; i < numberOfSnowflakes; i++) {
         const snowflake = document.createElement("div");
         snowflake.classList.add("snowflake");
@@ -788,7 +791,8 @@ window.onload = function () {
         snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
         snowflakesContainer.appendChild(snowflake);
     }
-};
+    
+}
 
 
     //the success and failure wale pop ups 
