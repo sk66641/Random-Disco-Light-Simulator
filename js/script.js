@@ -648,10 +648,14 @@ document.addEventListener('DOMContentLoaded', () => {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
         }
-        // document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
+        /*  document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
         pauseStartButton.textContent = 'Resume';
-        isPaused = true;
+        isPaused = true;*/
         // console.log(musicAudio); testing
+        pauseStartButton.querySelector('i').className = 'fa-solid fa-play';
+        pauseStartButton.querySelector('span').textContent = 'Resume';
+        isPaused = true;
+
     }
 
     function resumeSimulation() {
@@ -671,8 +675,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color2').value
         );
         // console.log(musicAudio); testing
-
+        /*let text = document.getElementById("pauseStartBtn").innerHTML;
         pauseStartButton.textContent = 'Pause';
+        //pauseStartButton.textContent = document.getElementById("pauseStartBtn").innerHTML;
+        isPaused = false;*/
+        pauseStartButton.querySelector('i').className = 'fa-solid fa-pause';
+        pauseStartButton.querySelector('span').textContent = 'Pause';
         isPaused = false;
     }
 
