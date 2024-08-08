@@ -7,7 +7,7 @@
 .button div a {
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #d9df1b;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -15,14 +15,10 @@
   transition: background-color 0.3s;
 }
 
-/* .button div a:hover {
-  background-color: #45a049;
-} */
-
 /* Style for the randomize button */
 #randomize a {
-  background-color: #0901ff;
-  color: rgb(7, 181, 245);
+  background-color: #f505bd;
+  color: rgb(245, 7, 7);
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
@@ -114,20 +110,6 @@ body {
   border-radius: 50%;
 }
 
-/* .shape:first-child {
-  background: linear-gradient(to right, #ff512f, #f09819);
-  align-self: flex-end;
-  left: -8vw;
-  top: -18vh;
-}
-
-.shape:last-child {
-  background: linear-gradient(#1845ad, #23a2f6);
-  align-self: flex-start;
-  right: -8vw;
-  bottom: -18vh;
-} */
-
 #submit:hover {
   transform: scale(1.1, 1.1);
 }
@@ -143,19 +125,7 @@ body {
 #color:hover+#n {
   text-shadow: 2px 2px white;
 }
-
-/* #youtubeUrlInput:hover,
-#unit:hover,
-#time:hover,
-#color:hover,
-#view:hover,
-#countdown:hover,
-#sound:hover,
-#music-url:hover,
-#music-file:hover {
  
-  /* color: black; 
-  
 } */
 .form input:hover{
   background-color: #4a1234;
@@ -361,7 +331,7 @@ select option {
   display: inline-block;
   padding: 10px 20px;
   margin: 0 0;
-  color: #5900ff;
+  color: #303534;
   font-size: 20px;
   text-decoration: none;
   text-transform: uppercase;
@@ -397,7 +367,7 @@ select option {
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #ff4d00);
+  background: linear-gradient(90deg, transparent, #00ffea);
   animation: animate1 1s linear infinite;
 }
 
@@ -417,7 +387,7 @@ select option {
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #ff4d00);
+  background: linear-gradient(180deg, transparent, #00ff62);
   animation: animate2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -1282,7 +1252,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #17dd6a;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1345,34 +1315,9 @@ nav ul li a {
   font-size: 20px;
 }
 
-nav ul li a:hover, nav ul li #pauseStartBtn:hover {
+nav ul li a:hover {
   color: #ff7f50;
 }
-
-/* .popup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-}
-
-.popup-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  animation: slide-down 0.3s ease-out;
-} */
 
 @keyframes slide-down {
   from {
@@ -1614,28 +1559,6 @@ button:hover {
   }
 }
 
-
-
-/* #musicDropdown {
-  text-align: center;
-  border-radius: 10px;
-  background: linear-gradient(#1845ad, #23a2f6);
-  outline: none;
-  border: none;
-  padding: 5px 10px?;
-  color: #e5e5e5;
-  font-size: 24px;
-  position: fixed;
-  top: 150px;
-  left: 20px;
-  opacity: .4;
-  transition: 500ms;
-} */
-
-/* #musicDropdown:hover {
-  opacity: 1;
-} */
-
 #changeMusic select {
   color: #e5e5e5;
   font-size: 16px;
@@ -1775,37 +1698,6 @@ button:hover {
   text-decoration: none;
 }
 
-/* .light-mode .popup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(239, 234, 234, 0.8);
-  backdrop-filter: blur(5px);
-}
-
-.dark-mode .popup-content {
-  background-color: #120e0e;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  animation: slide-down 0.3s ease-out;
-}
-
-.dark-mode .popup-content p,
-.dark-mode .popup-content h2,
-.dark-mode .popup-content h1 {
-  color: #9ba2a8;
-} */
-
 .light-mode .close {
   color: black;
   float: right;
@@ -1823,50 +1715,6 @@ button:hover {
 .nameAbout {
   font-size: 30px;
 }
-
-/* #aboutPopup, #featuresPopup{
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.popup-content {
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  animation: slide-down 0.3s ease-out;
-}
-
-.popup-content h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-  .popup-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
- .popup-content p strong {
-  font-weight: bold;
-  font-size: 25px;
-  display: block;
-}
- .popup-content ul {
-  list-style-type: disc;
-  margin-left: 40px;
-  padding-left: 0;
-} */
 
 @media screen and (max-width : 414px) {
   .box {
@@ -2120,7 +1968,7 @@ button {
   cursor: pointer;
 
   box-shadow: rgba(0, 0, 0, 0.1) -3px -3px 9px inset, rgba(0, 0, 0, 0.15) 0 3px 9px inset, rgba(0, 0, 0, 0.6) 0 1px 1px inset, rgba(0, 0, 0, 0.3) 0 -8px 36px inset, rgba(0, 0, 0, 0.6) 0 1px 5px inset, rgba(0, 0, 0, 0.2) 2px 19px 31px;
-  background-color: #7F00FF;
+  background-color: #06c5ff;
   background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
   transition: all 150ms ease-in-out;
 
@@ -2718,24 +2566,3 @@ goog-logo-link,
     font-size: 10px !important;
   }
 }
- 
-
-#pauseStartBtn {
-  display: flex;
-  align-items: center;
-  font-size: 20px; 
-  text-decoration: none;
-  color: white; 
-}
-
-#pauseStartBtn i {
-  margin-right: 0.5em; 
-  font-size: 20px; 
-}
-
-#pauseStartBtn .button-text {
-  font-size: 20px; 
-  font-family: inherit; 
-}
-
-
