@@ -67,41 +67,125 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.main-head-contri {
+  text-shadow: 1px 1px 2px rgb(0, 108, 108), 0 0 0.2em #6c0058, 0 0 0.8em #6c0058;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contributor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 10px;
+}
+
 .contributor-card {
     background: linear-gradient(135deg, #6a93ff, #a9c7ff);
     color: #ffffff;
     border: 1px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    margin: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
     width: 200px;
-}
-
-.contributor-card img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 calc(25% - 16px); /* Adjust this for different screen sizes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .contributor-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
+  box-shadow: 1px 1px 23px rgba(0, 157, 255, 0.915);
+  border: none;
+  cursor: pointer;
+}
+
+.contributor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(132deg, #0045ac 50%, #d8eeff 51%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translate(-100%, -100%);
+  opacity: 0;
+  z-index: -1;
+}
+
+.contributor-card:hover::before {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.contributor-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease-in-out, border 0.1s ease-in-out;
+}
+
+.contributor-card:hover img {
+  border: 2px solid rgb(255, 234, 0);
+  box-shadow: -1px 2px 27px rgb(251, 0, 255);
 }
 
 .contributor-card h2 {
-    font-size: 1.2em;
-    margin-bottom: 5px;
+  font-size: 1.2em;
+  color: #040404;
+  position: relative;
+  z-index: 1;
+  transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .contributor-card p {
-    font-size: 0.9em;
-    margin-bottom: 5px;
+  font-size: 1.2em;
+  color: #040404;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin: 0 0 10px;
 }
+
+.contributor-card:hover h2 {
+  text-shadow: 1px 1px 2px rgb(0, 108, 108), 0 0 0.2em #6c0058, 0 0 0.8em #6c0058;
+  color: rgb(255, 255, 255);
+}
+
+.contributor-card:hover p {
+  text-shadow: 1px 1px 2px rgba(0, 217, 255, 0.825), 0 0 0.6em rgb(5, 18, 168), 0 0 0.3em rgb(134, 136, 250);
+  color: rgb(2, 2, 2);
+}
+
+@media (max-width: 1200px) {
+  .contributor-card {
+    flex: 1 1 calc(33.33% - 16px);
+  }
+}
+
+@media (max-width: 900px) {
+  .contributor-card {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 600px) {
+  .contributor-card {
+    flex: 1 1 calc(100% - 16px);
+  }
+}
+
 
         </style>
       </head>
@@ -274,7 +358,7 @@ const interval = setInterval(() => {
         </a>
         <div class="content min-h-screen text-black dark:text-gray-200">
             <div class="container mx-auto py-8">
-                <h1 class="text-center text-3xl font-semibold mb-8">🤝Our Contributors</h1>
+                <h1 class="text-center text-3xl font-semibold mb-8 main-head-contri">🤝Our Contributors</h1>
                 <div id="contributors" class="contributors flex flex-wrap justify-center gap-8"></div>
             </div>
         </div>
