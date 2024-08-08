@@ -2460,19 +2460,36 @@ goog-logo-link,
   color: transparent !important;
 }
 
-.goog-te-gadget .goog-te-combo {
-  background-color:transparent !important;
-  color: black !important;
-  font-size: 16px;
-  height: 40px;
-  border: 2px solid #050f7f;
-  border-radius: 10px;
-  padding: 4px;
+:root {
+  --background-color: transparent;
+  --text-color-light: rgb(44, 50, 44);
+  --text-color-dark: rgb(114, 158, 182);
+  --border-color: #050f7f;
+  --border-radius: 10px;
+  --padding: 4px;
+  --font-size: 16px;
+  --height: 40px;
 }
- 
-.dark-mode .goog-te-gadget .goog-te-combo
-{
-  color: white !important;
+
+.dark-mode body {
+  background-color: #181818; /* Dark mode background */
+  color: var(--text-color-dark);
+}
+
+.goog-te-gadget .goog-te-combo {
+  background-color: var(--background-color) !important;
+  color: var(--text-color-light) !important;
+  font-size: var(--font-size);
+  height: var(--height);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.dark-mode .goog-te-gadget .goog-te-combo {
+  color: var(--text-color-dark) !important;
+  border-color: var(--border-color);
 }
 
 #goog-gt-tt,
