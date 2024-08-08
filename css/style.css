@@ -1690,7 +1690,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: auto;
   margin: 20px;
   margin-top: 50px;
 }
