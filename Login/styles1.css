@@ -718,3 +718,45 @@ body {
     color: white;
     transition: all ease-in 0.1s;
   }
+
+
+  .captcha-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.captcha-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f09819;
+    padding: 0.5rem;
+    background-color: #333;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.refresh-captcha {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #f09819;
+}
+
+.refresh-captcha:hover {
+    color: #ffba08;
+}
+
+#captcha-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
