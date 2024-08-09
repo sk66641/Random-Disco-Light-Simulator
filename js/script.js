@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggler.style.display = "none"
 
             // remove chatbot after successful submission
-            document.getElementById("tidio-chat").style.display = "none";
+            // document.getElementById("tidio-chat").style.display = "none";
             
             startSimulation(n, set_time, unit, view, color1, color2);
             var backToTopBtn = document.getElementById("backToTopBtn");
