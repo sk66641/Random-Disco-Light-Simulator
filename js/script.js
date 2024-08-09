@@ -782,21 +782,23 @@ window.onload = function () {
         }, interval);
     }
     animateText();
-    
+    snowflakes();
+};
+function snowflakes(){
     // Snowflakes animation logic
     const snowflakesContainer = document.querySelector(".snowflakes");
-    const numberOfSnowflakes = 300;
+const numberOfSnowflakes = 300;
 
-    for (let i = 0; i < numberOfSnowflakes; i++) {
-        const snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.style.left = `${Math.random() * 100}%`;
-        snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
-        snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-        snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-        snowflakesContainer.appendChild(snowflake);
-    }
-};
+for (let i = 0; i < numberOfSnowflakes; i++) {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.style.left = `${Math.random() * 100}%`;
+    snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
+    snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+    snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+    snowflakesContainer.appendChild(snowflake);
+}
+}
 
 
     //the success and failure wale pop ups 
