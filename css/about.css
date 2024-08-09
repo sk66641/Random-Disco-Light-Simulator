@@ -98,9 +98,6 @@ body {
 }
 
 .box{
-    padding: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
     margin-bottom: 50px;
     background-image: none;
 }
@@ -119,30 +116,8 @@ strong{
     height: 50px;
     color: inherit;
 }
-@media only screen and (max-width:950px){
-    body{
-        padding-top: 200px;
-    }
-}
-@media only screen and (max-width:875px){
-    body{
-        padding-top: 225px;
-    }
-}
-@media only screen and (max-width:675px){
-    body{
-        padding-top: 300px;
-    }
-}
-@media only screen and (max-width:525px){
-    body{
-        padding-top: 400px;
-    }
-}
+
 @media only screen and (max-width:445px){
-    body{
-        padding-top: 430px;
-    }
     #box{
         padding: 30px 25px;
     }
@@ -152,11 +127,7 @@ strong{
         width: 75vw;
     }
 }
-@media only screen and (max-width:390px){
-    body{
-        padding-top: 500px;
-    }
-}
+
 @media only screen and (max-width:350px){
     body{
         padding-top: 0px;
