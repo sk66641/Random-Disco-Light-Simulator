@@ -92,3 +92,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const captchaText = document.getElementById('captcha-text');
+    const captchaInput = document.getElementById('captcha-input');
+    const refreshCaptchaBtn = document.getElementById('refresh-captcha');
+    const signInForm = document.querySelector('.form-container.sign-in form');
+
+    function generateCaptcha() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let captcha = '';
+        for (let i = 0; i < 6; i++) {
+            captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        captchaText.textContent = captcha;
+    }
+
+    refreshCaptchaBtn.addEventListener('click', generateCaptcha);
+
+    signInForm.addEventListener('submit', function(event) {
+        const enteredCaptcha = captchaInput.value;
+        if (enteredCaptcha !== captchaText.textContent) {
+            event.preventDefault();
+            alert('CAPTCHA does not match. Please try again.');
+            generateCaptcha(); // Generate new CAPTCHA on failed attempt
+        }
+    });
+
+    // Generate initial CAPTCHA on page load
+    generateCaptcha();
+});
