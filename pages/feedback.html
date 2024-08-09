@@ -169,77 +169,76 @@
             </nav>
         </div>
     </div>
-    <div class="box" id="box">
-        <a href="../index.html" class="back-button">
-            <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back">
+    <div class="box" id="box" aria-label="Feedback Box">
+        <a href="../index.html" class="back-button" aria-label="Back to Home">
+            <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back" alt="Back to Home Button">
         </a>
         <h1 id="changingHeading" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 60px; color: #ffffff;">
             We'd Love Your Feedback!
         </h1>
-        <form class="inputFeedback" id="feedbackForm">
-            <div class="feedback-section">
-                <div class="feedback-item">
+        <form class="inputFeedback" id="feedbackForm" aria-label="Feedback Form">
+            <div class="feedback-section" aria-label="Feedback Input Section">
+                <div class="feedback-item" aria-label="Name Input">
                     <img src="../assets/images/user.png" alt="Name Icon" class="icon">
                     <label for="name"><strong>Name:</strong></label>
-                    <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
+                    <input type="text" placeholder="Enter Your Name" id="name" name="name" required aria-required="true" aria-label="Name">
                 </div>
-                <div class="feedback-item">
+                <div class="feedback-item" aria-label="Email Input">
                     <img src="../assets/images/email.png" alt="Email Icon" class="icon">
                     <label for="email"><strong>Email:</strong></label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required aria-required="true" aria-label="Email">
                 </div>
             </div>
     
-            <div class="feedback-section">
-                <div class="feedback-item">
-                <img src="../assets/images/comments.png" alt="feed Icon" class="icon">
-                <label for="type"><strong>Feedback Type:</strong></label>
-                
-                <select id="type" name="type">
-                    <option value="question" selected>Question</option>
-                    <option value="suggestion">Suggestion</option>
-                    <option value="issue">Issue</option>
-                    <option value="others">Others</option>
-                </select>
-            </div>
+            <div class="feedback-section" aria-label="Feedback Type Section">
+                <div class="feedback-item" aria-label="Feedback Type Selection">
+                    <img src="../assets/images/comments.png" alt="Feedback Icon" class="icon">
+                    <label for="type"><strong>Feedback Type:</strong></label>
+                    <select id="type" name="type" aria-label="Select Feedback Type">
+                        <option value="question" selected>Question</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="issue">Issue</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
             </div>
     
-            <div class="feedback-section">
+            <div class="feedback-section" aria-label="Rating Section">
                 <strong class="yourfeed">Rate Us Below:</strong>
-                <div class="star-rating">
-                    <input type="radio" id="star1" name="rating" value="1" class="star-ratings">
-                    <label for="star1" title="5 stars">&#9733;</label>
-                    <input type="radio" id="star2" name="rating" value="2" class="star-ratings">
-                    <label for="star2" title="4 stars">&#9733;</label>
-                    <input type="radio" id="star3" name="rating" value="3" class="star-ratings">
+                <div class="star-rating" aria-label="Star Rating">
+                    <input type="radio" id="star1" name="rating" value="1" class="star-ratings" aria-label="1 star">
+                    <label for="star1" title="1 star">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2" class="star-ratings" aria-label="2 stars">
+                    <label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3" class="star-ratings" aria-label="3 stars">
                     <label for="star3" title="3 stars">&#9733;</label>
-                    <input type="radio" id="star4" name="rating" value="4" class="star-ratings">
-                    <label for="star4" title="2 stars">&#9733;</label>
-                    <input type="radio" id="star5" name="rating" value="5" class="star-ratings">
-                    <label for="star5" title="1 star">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4" class="star-ratings" aria-label="4 stars">
+                    <label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star5" name="rating" value="5" class="star-ratings" aria-label="5 stars">
+                    <label for="star5" title="5 stars">&#9733;</label>
                 </div>
             </div>
     
-            <div class="feedback-section">
+            <div class="feedback-section" aria-label="Feedback Text Section">
                 <label for="feedback" class="yourfeed"><strong>Your Feedback:</strong></label>
-                <textarea name="feedback" id="feedback" placeholder="Enter Your Feedback" rows="5"></textarea>
+                <textarea name="feedback" id="feedback" placeholder="Enter Your Feedback" rows="5" aria-label="Feedback Text"></textarea>
             </div>
     
-            <div style="text-align: center;">
-                <button type="submit">SUBMIT FEEDBACK</button>
+            <div style="text-align: center;" aria-label="Submit Button">
+                <button type="submit" aria-label="Submit Feedback">SUBMIT FEEDBACK</button>
             </div>
         </form>
     </div>
     
-    <div id="feedbackPopup" class="popup">
-        <div class="popup-content">
+    <div id="feedbackPopup" class="popup" aria-label="Feedback Submission Popup">
+        <div class="popup-content" aria-label="Popup Content">
             <h2>Thank You for your Feedback!</h2>
-            <img src="../assets/images/Feed-purple-tick-unscreen.gif" alt="✅" width="160" height="140">
+            <img src="../assets/images/Feed-purple-tick-unscreen.gif" alt="Success Tick" width="160" height="140" aria-hidden="true">
             <p>Your feedback has been submitted successfully.</p>
-            <button id="backToHomeBtn">Back to Home</button>
+            <button id="backToHomeBtn" aria-label="Back to Home">Back to Home</button>
         </div>
     </div>
-
+    
     
     <footer class="footer" style="width: 100%;height: 2px;">
         <div class="socialIcons">
