@@ -1288,3 +1288,57 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
         });
     }
 });
+
+document.getElementById("submit").addEventListener("click", function() {
+    const pattern = document.getElementById("pattern").value;
+    
+    switch(pattern) {
+        case "flashing":
+            // Implement flashing logic
+            flashingEffect();
+            break;
+        case "fading":
+            // Implement fading logic
+            fadingEffect();
+            break;
+        case "cycling":
+            // Implement cycling logic
+            cyclingEffect();
+            break;
+    }
+});
+
+function flashingEffect() {
+    const interval = 500; // Time in milliseconds
+    setInterval(() => {
+        document.body.classList.toggle('light-on'); // Toggle the class to flash the lights
+    }, interval);
+}
+
+function fadingEffect() {
+    let opacity = 0;
+    let fadingIn = true;
+    setInterval(() => {
+        if (fadingIn) {
+            opacity += 0.05;
+            if (opacity >= 1) {
+                fadingIn = false;
+            }
+        } else {
+            opacity -= 0.05;
+            if (opacity <= 0) {
+                fadingIn = true;
+            }
+        }
+        document.body.style.opacity = opacity;
+    }, 50); // Adjust the interval for smoother or faster fading
+}
+
+function cyclingEffect() {
+    const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"]; // Add more colors if needed
+    let index = 0;
+    setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length; // Cycle through the colors
+    }, 1000); // Adjust the interval for faster or slower cycling
+}
