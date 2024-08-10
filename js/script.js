@@ -652,8 +652,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseStartButton.textContent = 'Resume';
         isPaused = true;*/
         // console.log(musicAudio); testing
-        pauseStartButton.querySelector('i').className = 'fa-solid fa-play';
-        pauseStartButton.querySelector('span').textContent = 'Resume';
+
+        pauseStartButton.innerHTML='<i class="fa-solid fa-play"></i>Resume';
         isPaused = true;
 
     }
@@ -679,8 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseStartButton.textContent = 'Pause';
         //pauseStartButton.textContent = document.getElementById("pauseStartBtn").innerHTML;
         isPaused = false;*/
-        pauseStartButton.querySelector('i').className = 'fa-solid fa-pause';
-        pauseStartButton.querySelector('span').textContent = 'Pause';
+        pauseStartButton.innerHTML = '<i class="fa-solid fa-pause"></i>Pause';
         isPaused = false;
     }
 
