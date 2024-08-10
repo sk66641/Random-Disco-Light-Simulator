@@ -79,6 +79,7 @@ body {
   width: 100vw;
   justify-content: center;
   height: 100vh;
+  z-index: 2000;
   display: flex;
 }
 
