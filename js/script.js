@@ -1291,22 +1291,38 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
 
 document.getElementById("submit").addEventListener("click", function() {
     const pattern = document.getElementById("pattern").value;
-    
+
+    // Clear any existing intervals to avoid overlapping patterns
+    const highestIntervalId = setInterval(() => {}, 1000);
+    for (let i = 0; i < highestIntervalId; i++) {
+        clearInterval(i);
+    }
+
+    // Reset the effects when "None" is selected
+    resetEffects();
+
     switch(pattern) {
         case "flashing":
-            // Implement flashing logic
             flashingEffect();
             break;
         case "fading":
-            // Implement fading logic
             fadingEffect();
             break;
         case "cycling":
-            // Implement cycling logic
             cyclingEffect();
+            break;
+        case "none":
+        default:
+            // Do nothing, as the resetEffects() will clear everything
             break;
     }
 });
+
+function resetEffects() {
+    document.body.style.opacity = 1; // Reset opacity
+    document.body.style.backgroundColor = ""; // Clear background color
+    document.body.classList.remove('light-on'); // Remove any toggled class
+}
 
 function flashingEffect() {
     const interval = 500; // Time in milliseconds
