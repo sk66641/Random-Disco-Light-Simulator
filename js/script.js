@@ -1288,3 +1288,73 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
         });
     }
 });
+
+document.getElementById("submit").addEventListener("click", function() {
+    const pattern = document.getElementById("pattern").value;
+
+    // Clear any existing intervals to avoid overlapping patterns
+    const highestIntervalId = setInterval(() => {}, 1000);
+    for (let i = 0; i < highestIntervalId; i++) {
+        clearInterval(i);
+    }
+
+    // Reset the effects when "None" is selected
+    resetEffects();
+
+    switch(pattern) {
+        case "flashing":
+            flashingEffect();
+            break;
+        case "fading":
+            fadingEffect();
+            break;
+        case "cycling":
+            cyclingEffect();
+            break;
+        case "none":
+        default:
+            // Do nothing, as the resetEffects() will clear everything
+            break;
+    }
+});
+
+function resetEffects() {
+    document.body.style.opacity = 1; // Reset opacity
+    document.body.style.backgroundColor = ""; // Clear background color
+    document.body.classList.remove('light-on'); // Remove any toggled class
+}
+
+function flashingEffect() {
+    const interval = 500; // Time in milliseconds
+    setInterval(() => {
+        document.body.classList.toggle('light-on'); // Toggle the class to flash the lights
+    }, interval);
+}
+
+function fadingEffect() {
+    let opacity = 0;
+    let fadingIn = true;
+    setInterval(() => {
+        if (fadingIn) {
+            opacity += 0.05;
+            if (opacity >= 1) {
+                fadingIn = false;
+            }
+        } else {
+            opacity -= 0.05;
+            if (opacity <= 0) {
+                fadingIn = true;
+            }
+        }
+        document.body.style.opacity = opacity;
+    }, 50); // Adjust the interval for smoother or faster fading
+}
+
+function cyclingEffect() {
+    const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"]; // Add more colors if needed
+    let index = 0;
+    setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length; // Cycle through the colors
+    }, 1000); // Adjust the interval for faster or slower cycling
+}
