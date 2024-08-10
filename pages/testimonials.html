@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sanu Kumar">
+    <meta name="description" content="Find testimonials from our users about the Random Disco Light Simulator.">
+    <title>Testimonials - Random Disco Light Simulator</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/testimonials.css"> <!-- Updated to include testimonials styles -->
+    <link rel="stylesheet" href="../css/preloader.css">
+    <link rel="stylesheet" href="../css/backtohome.css">
+    <link rel="stylesheet" href="../css/backToTopButton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .testimonial-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 20px;
+            padding: 10px;
+        }
+
+        .testimonials-heading {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #f09819;
+        }
+
+        .testimonials {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            gap: 15px;
+        }
+
+        .testimonial {
+            flex: 0 0 33.333%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px;
+            box-shadow: 7px 7px 20px 0 #f09819;
+        }
+
+        .testimonial img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            font-size: 0.5rem;
+            margin: 0 10px;
+        }
+
+        .testimonial-position {
+            font-size: 0.3rem;
+            margin: 0 10px;
+        }
+
+        .stars {
+            margin: 10px;
+            font-size: 0.25rem;
+        }
+
+
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #f09819;
+            font-size: 2rem;
+        }
+
+        .button-left {
+            left: 10px;
+        }
+
+        .button-right {
+            right: 10px;
+        }
+
+        .arrow {
+            transition: transform 0.2s;
+        }
+
+        .rotate {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial {
+                flex: 0 0 100%;
+            }
+        }
+        .testimonials {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            gap: 15px;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        .testimonial {
+            flex: 0 0 33.333%; /* 3 cards on large screens */
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px;
+            box-shadow: 7px 7px 20px 0 #f09819;
+            transition: transform 0.3s ease; /* Smooth transformation */
+        }
+
+        @media (max-width: 768px) {
+            .testimonial {
+                flex: 0 0 100%; /* 1 card on small screens */
+            }
+        }
+
+        .testimonial-container {
+    position: relative; /* Ensure the container is the positioning context for absolute children */
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    padding: 10px;
+}
+
+.testimonials {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    position: relative;
+    gap: 15px;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f09819;
+    font-size: 2rem;
+    z-index: 10; /* Ensure buttons are above testimonials */
+}
+
+.button-left {
+    left: 10px;
+}
+
+.button-right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .testimonial {
+        flex: 0 0 100%; /* 1 card on small screens */
+    }
+}
+
+/* Styling for WebKit browsers */
+.testimonials::-webkit-scrollbar {
+    width: 10px;
+}
+
+.testimonials::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.testimonials::-webkit-scrollbar-thumb {
+    background: #f09819;
+    border-radius: 10px;
+}
+
+.testimonials::-webkit-scrollbar-thumb:hover {
+    background: #d08700;
+}
+
+/* Styling for Firefox */
+.testimonials {
+    scrollbar-width: thin;
+    scrollbar-color: #f09819 #f1f1f1;
+}
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure it's behind other content */
+}
+
+    </style>
+        <style>
+            .circle {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                pointer-events: none;
+                background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+                transition: transform 0.1s, left 0.1s, top 0.1s;
+                box-shadow: 0 0 20px #23bdf5,
+                  0 0 60px #f523f5,
+                  0 0 100px #23bdf5;
+                  animation: colors 1s infinite;
+            transform: translate(-50%, -50%);
+              }
+          
+              .circle-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 9999;
+              }
+    
+              @media (max-width: 724px) {
+          .circle-container{
+            display: none;
+          }
+        }
+              @keyframes colors {
+            0% {
+              filter: hue-rotate(0deg);
+            }
+          
+            100% {
+              filter: hue-rotate(360deg);
+            }
+          
+          }
+            </style>
+</head>
+
+<body>
+
+    <!-- Preloader starts -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="spinner-inner"></div>
+            <div id="loading-percentage">0%</div>
+        </div>
+    </div>
+    <script src="../js/preloader.js"></script>
+    <!-- Preloader Ends -->
+
+    <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const coords = { x: 0, y: 0 };
+          const circles = document.querySelectorAll(".circle");
+    
+          circles.forEach(function (circle) {
+            circle.x = 0;
+            circle.y = 0;
+          });
+    
+          window.addEventListener("mousemove", function (e) {
+            coords.x = e.pageX;
+            coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+          });
+    
+          function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+    
+            circles.forEach(function (circle, index) {
+              circle.style.left = `${x - 12}px`;
+              circle.style.top = `${y - 12}px`;
+              circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+    
+              const nextCircle = circles[index + 1] || circles[0];
+              circle.x = x;
+              circle.y = y;
+    
+              x += (nextCircle.x - x) * 0.25;
+              y += (nextCircle.y - y) * 0.25;
+            });
+    
+            requestAnimationFrame(animateCircles);
+          }
+    
+          animateCircles();
+        });
+      </script>
+      <script src="../js/theme.js"></script>
+
+    <div id="content">
+        <span class="slider" style="width: 40px; height: 20px; display: none;"></span>
+
+        <div id="sun-moon-mode-toggler" class="toggle-container">
+            <input type="checkbox" id="themeToggle" class="switch-checkbox">
+            <label id="themeChangeToggle" class="theme-switch" for="themeToggle">
+                <div class="toggle-button">
+                    <span class="light-mode-icon"><img src="../sun.svg" style="display: block;"></span>
+                    <span class="dark-mode-icon"><img src="../moon.svg" style="display: block;"></span>
+                </div>
+            </label>
+        </div>
+        <div>
+            <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" onclick="backToTop()"><i class="fas fa-arrow-up"></i></button>
+        </div>
+        <div class="snowflakes" style="display: block;">
+            <div id="particles-js"></div>
+        </div>
+    </div>
+
+    <div class="testimonial-container" aria-label="Testimonials Section">
+        <a href="../index.html" class="back-button" aria-label="Back to Home">
+            <img src="../assets/images/BackToHome Btn.png" style="width: 70px; height: 70px;" class="back" alt="Back to Home Button">
+        </a>
+        <h1 class="testimonials-heading">
+            What Our Users Say
+        </h1>
+
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-top">
+                    <img src="https://dpemoji.com/wp-content/uploads/2023/01/Whatsapp-dp-for-boys-57.png" alt="User 1">
+                    <div>
+                        <p class="testimonial-name">John Doe</p>
+                        <p class="testimonial-position">Developer, XYZ Corp</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonial-content">
+                    The Random Disco Light Simulator is amazing! It added so much fun to our party.
+                </p>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-top">
+                    <img src="https://dpemoji.com/wp-content/uploads/2023/01/Whatsapp-dp-for-boys-57.png" alt="User 1">
+                    <div>
+                        <p class="testimonial-name">John Doe</p>
+                        <p class="testimonial-position">Developer, XYZ Corp</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonial-content">
+                    The Random Disco Light Simulator is amazing! It added so much fun to our party.
+                </p>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-top">
+                    <img src="https://dpemoji.com/wp-content/uploads/2023/01/Whatsapp-dp-for-boys-57.png" alt="User 1">
+                    <div>
+                        <p class="testimonial-name">John Doe</p>
+                        <p class="testimonial-position">Developer, XYZ Corp</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonial-content">
+                    The Random Disco Light Simulator is amazing! It added so much fun to our party.
+                </p>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-top">
+                    <img src="https://dpemoji.com/wp-content/uploads/2023/01/Whatsapp-dp-for-boys-57.png" alt="User 1">
+                    <div>
+                        <p class="testimonial-name">John Doe</p>
+                        <p class="testimonial-position">Developer, XYZ Corp</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonial-content">
+                    The Random Disco Light Simulator is amazing! It added so much fun to our party.
+                </p>
+            </div>
+            <!-- More testimonials -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="socialIcons">
+            <span class="icons">
+                <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
+            </span>
+            <span class="icons">
+                <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
+                    <i class="fab fa-github ico"></i>
+                </a>
+            </span>
+            <span class="icons">
+                <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
+            </span>
+        </div>
+        <p>© 2024 Random Disco Light Simulator. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/backToTopButton.js"></script>
+    <script src="../js/accordion.js"></script>
+    <script src="../js/snow.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/carousel.js"></script>
+</body>
+
+</html>
