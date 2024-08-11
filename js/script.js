@@ -1,3 +1,4 @@
+alert(" ⚠️ Performance Warning \nOur website is currently experiencing high memory usage, which may impact your browsing experience. We are working on optimizing the site to improve its speed. We appreciate your patience and understanding as we make these improvements.")
 let musicAudio;
 let isPaused = false;
 let isMuted = false;
