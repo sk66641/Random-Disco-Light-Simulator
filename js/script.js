@@ -1288,34 +1288,34 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
     }
 });
 
-document.getElementById("submit").addEventListener("click", function() {
-    const pattern = document.getElementById("pattern").value;
+// document.getElementById("submit").addEventListener("click", function() {
+//     const pattern = document.getElementById("pattern").value;
 
-    // Clear any existing intervals to avoid overlapping patterns
-    const highestIntervalId = setInterval(() => {}, 1000);
-    for (let i = 0; i < highestIntervalId; i++) {
-        clearInterval(i);
-    }
+//     // Clear any existing intervals to avoid overlapping patterns
+//     const highestIntervalId = setInterval(() => {}, 1000);
+//     for (let i = 0; i < highestIntervalId; i++) {
+//         clearInterval(i);
+//     }
 
-    // Reset the effects when "None" is selected
-    resetEffects();
+//     // Reset the effects when "None" is selected
+//     resetEffects();
 
-    switch(pattern) {
-        case "flashing":
-            flashingEffect();
-            break;
-        case "fading":
-            fadingEffect();
-            break;
-        case "cycling":
-            cyclingEffect();
-            break;
-        case "none":
-        default:
-            // Do nothing, as the resetEffects() will clear everything
-            break;
-    }
-});
+//     switch(pattern) {
+//         case "flashing":
+//             flashingEffect();
+//             break;
+//         case "fading":
+//             fadingEffect();
+//             break;
+//         case "cycling":
+//             cyclingEffect();
+//             break;
+//         case "none":
+//         default:
+//             // Do nothing, as the resetEffects() will clear everything
+//             break;
+//     }
+// });
 
 function resetEffects() {
     document.body.style.opacity = 1; // Reset opacity
