@@ -1,768 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Sanu Kumar">
-  <meta name="description"
-    content="Experience the vibrant Random Disco Light Simulator! Enjoy dynamic, colorful light patterns and immerse yourself in a fun, party-like atmosphere.">
-  <meta name="keywords"
-    content="disco lights, light simulator, random disco lights, colorful lights, dynamic light patterns, party lights, interactive light effects, fun lighting, vibrant light show, random light patterns">
-  <title>Random Disco Light Simulator</title>
-
-  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/backToTopButton.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-
-  <script src="./js/backToTopBtn.js"></script>
-  <style>
-    /* style.css */
-
-    .form-group {
-      margin-bottom: 20px;
-      /* Adjust the spacing as per your design */
-    }
-
-    .form-group label {
-
-      margin-bottom: 5px;
-      /* Adjust the spacing between label and input */
-    }
-
-    .circle {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-      transition: transform 0.1s, left 0.1s, top 0.1s;
-      box-shadow: 0 0 20px #23bdf5,
-        0 0 60px #f523f5,
-        0 0 100px #23bdf5;
-      animation: colors 1s infinite;
-      transform: translate(-50%, -50%);
-    }
-
-    .circle-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    @media (max-width: 724px) {
-      .circle-container {
-        display: none;
-      }
-    }
-
-    @keyframes colors {
-      0% {
-        filter: hue-rotate(0deg);
-      }
-
-      100% {
-        filter: hue-rotate(360deg);
-      }
-
-    }
-  </style>
-
-
-</head>
-
-<body>
-  <div class="circle-container">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-
-      circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
-      });
-
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.pageX;
-        coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-      });
-
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-
-        circles.forEach(function (circle, index) {
-          circle.style.left = `${x - 12}px`;
-          circle.style.top = `${y - 12}px`;
-          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-          const nextCircle = circles[index + 1] || circles[0];
-          circle.x = x;
-          circle.y = y;
-
-          x += (nextCircle.x - x) * 0.25;
-          y += (nextCircle.y - y) * 0.25;
-        });
-
-        requestAnimationFrame(animateCircles);
-      }
-
-      animateCircles();
-    });
-  </script>
-  <div class="loader">
-    <div>
-      <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
-        background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay mode="normal">
-      </lottie-player>
-    </div>
-  </div>
-  <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
-  <!--
-  <div class="indexpage">
-    <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" onclick="backToTop()"><i class="fas fa-arrow-up"></i></button>
-  </div>
--->
-
-  <!-- Generate snowflakes dynamically with JavaScript -->
-  <div class="snowflakes">
-    <div id="particles-js"></div>
-  </div>
-
-  <div class="navHeader">
-    <div class="header-content">
-      <nav>
-
-        <button id="muteBtn" class="mute-btn" style="display: none;">
-          <i id="muteIcon" class="fas fa-volume-up"></i>
-        </button>
-        <ul class="sidebarOne">
-          <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
-          <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png" alt="Website Logo"></a></li>
-          <li><a href="#" id="reload" style="display: none;" aria-label="reload"><i
-                class="fa-solid fa-rotate-right"></i> Reload</a></li>
-          <!-- <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li> -->
-          <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start"><i
-                class="fa-solid fa-pause"></i>Pause</a></li>
-          <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen"><i class="fa fa-chalkboard-teacher"
-                aria-hidden="true"></i> Fullscreen</a></li>
-          <li><a href="#" id="editBtn" aria-label="Edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></li>
-          <!-- edit drop down content -->
-          <div class="editdropdown" id="editdropdown" style="display: none;">
-            <li class="exclude"><a href="#" id="addTime" aria-label="Add Time">Add Time</a></li>
-            <!--exclude is used in script.js in sidenbar animation to remove the animation time function-->
-            <li class="exclude" id="changeMusic">
-              <select id="musicDropdown" aria-label="Change Music">
-                <option value="select" disabled selected style="font-family: 'Playfair Display', serif;">Change Music
-                </option>
-                <option value="none">None</option>
-                <option value="disco">Disco</option>
-                <option value="fairies">Fairies</option>
-                <option value="funky">Funky</option>
-                <option value="upbeatdisco">Upbeatdisco</option>
-                <option value="vintage">Vintage</option>
-                <option value="whistle">Whistle</option>
-                <option value="snare">Snare</option>
-              </select>
-            </li>
-          </div>
-          <!-- Add this inside your existing HTML structure, preferably at the end of <body> -->
-          <!-- <div id="editPopup" class="edit-popup">
-          <div class="edit-popup-content">
-              <h2>Edit Options</h2>
-              <ul>
-                  <li><a href="#" id="addTimeOption">Add Time</a></li>
-                  <li><a href="#"</a>
-                    <select id="musicDropdown" style="display: none;">
-                      <option value="select" disabled selected>Change Music</option>
-                      <option value="none">None</option>
-                      <option value="disco">Disco</option>
-                      <option value="fairies">Fairies</option>
-                      <option value="funky">Funky</option>
-                      <option value="upbeatdisco">Upbeatdisco</option>
-                      <option value="vintage">Vintage</option>
-                      <option value="whistle">Whistle</option>
-                      <option value="snare">Snare</option>
-                    </select>
-                  </a>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Sanu Kumar">
+      <meta name="description"
+         content="Experience the vibrant Random Disco Light Simulator! Enjoy dynamic, colorful light patterns and immerse yourself in a fun, party-like atmosphere.">
+      <meta name="keywords"
+         content="disco lights, light simulator, random disco lights, colorful lights, dynamic light patterns, party lights, interactive light effects, fun lighting, vibrant light show, random light patterns">
+      <title>Random Disco Light Simulator</title>
+      <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/backToTopButton.css">
+      <link rel="stylesheet" href="./css/style.css">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+         rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://www.youtube.com/iframe_api"></script>
+      <script src="./js/backToTopBtn.js"></script>
+      <style>
+         /* style.css */
+         .form-group {
+         margin-bottom: 20px;
+         /* Adjust the spacing as per your design */
+         }
+         .form-group label {
+         margin-bottom: 5px;
+         /* Adjust the spacing between label and input */
+         }
+         .circle {
+         position: absolute;
+         width: 20px;
+         height: 20px;
+         border-radius: 50%;
+         pointer-events: none;
+         background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+         transition: transform 0.1s, left 0.1s, top 0.1s;
+         box-shadow: 0 0 20px #23bdf5,
+         0 0 60px #f523f5,
+         0 0 100px #23bdf5;
+         animation: colors 1s infinite;
+         transform: translate(-50%, -50%);
+         }
+         .circle-container {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         pointer-events: none;
+         z-index: 9999;
+         }
+         @media (max-width: 724px) {
+         .circle-container {
+         display: none;
+         }
+         }
+         @keyframes colors {
+         0% {
+         filter: hue-rotate(0deg);
+         }
+         100% {
+         filter: hue-rotate(360deg);
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="circle-container">
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+         <div class="circle"></div>
+      </div>
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+           const coords = { x: 0, y: 0 };
+           const circles = document.querySelectorAll(".circle");
+         
+           circles.forEach(function (circle) {
+             circle.x = 0;
+             circle.y = 0;
+           });
+         
+           window.addEventListener("mousemove", function (e) {
+             coords.x = e.pageX;
+             coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+           });
+         
+           function animateCircles() {
+             let x = coords.x;
+             let y = coords.y;
+         
+             circles.forEach(function (circle, index) {
+               circle.style.left = `${x - 12}px`;
+               circle.style.top = `${y - 12}px`;
+               circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+         
+               const nextCircle = circles[index + 1] || circles[0];
+               circle.x = x;
+               circle.y = y;
+         
+               x += (nextCircle.x - x) * 0.25;
+               y += (nextCircle.y - y) * 0.25;
+             });
+         
+             requestAnimationFrame(animateCircles);
+           }
+         
+           animateCircles();
+         });
+      </script>
+      <div class="loader">
+         <div>
+            <lottie-player src="https://lottie.host/451aadfb-9af8-4298-98be-e9c583f8a72c/jPRsrfR2jf.json"
+               background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay mode="normal">
+            </lottie-player>
+         </div>
+      </div>
+      <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+      <!-- Generate snowflakes dynamically with JavaScript -->
+      <div class="snowflakes">
+         <div id="particles-js"></div>
+      </div>
+      <div class="navHeader">
+         <div class="header-content">
+            <nav>
+               <button id="muteBtn" class="mute-btn" style="display: none;">
+               <i id="muteIcon" class="fas fa-volume-up"></i>
+               </button>
+               <ul class="sidebarOne">
+                  <li class="cross"><i style="cursor: pointer;" class="fa-solid fa-x"></i></li>
+                  <li class="logo"><a href="./index.html"><img src="assets/images/logo/logo..png" alt="Website Logo"></a></li>
+                  <li><a href="#" id="reload" style="display: none;" aria-label="reload"><i
+                     class="fa-solid fa-rotate-right"></i> Reload</a></li>
+                  <!-- <li><a href="#" id="addTime" aria-label="Add Time" style="display: none;">Add Time</a></li> -->
+                  <li><a href="#" id="pauseStartBtn" style="display: none;" aria-label="Pause/Start"><i
+                     class="fa-solid fa-pause"></i>Pause</a></li>
+                  <li><a href="#" id="fullscreenBtn" aria-label="Toggle Fullscreen"><i class="fa fa-chalkboard-teacher"
+                     aria-hidden="true"></i> Fullscreen</a></li>
+                  <li><a href="#" id="editBtn" aria-label="Edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></li>
+                  <!-- edit drop down content -->
+                  <div class="editdropdown" id="editdropdown" style="display: none;">
+                     <li class="exclude"><a href="#" id="addTime" aria-label="Add Time">Add Time</a></li>
+                     <!--exclude is used in script.js in sidenbar animation to remove the animation time function-->
+                     <li class="exclude" id="changeMusic">
+                        <select id="musicDropdown" aria-label="Change Music">
+                           <option value="select" disabled selected style="font-family: 'Playfair Display', serif;">Change Music
+                           </option>
+                           <option value="none">None</option>
+                           <option value="disco">Disco</option>
+                           <option value="fairies">Fairies</option>
+                           <option value="funky">Funky</option>
+                           <option value="upbeatdisco">Upbeatdisco</option>
+                           <option value="vintage">Vintage</option>
+                           <option value="whistle">Whistle</option>
+                           <option value="snare">Snare</option>
+                        </select>
+                     </li>
+                  </div>
+                  <li><a href="pages/about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a></li>
+                  <li><a href="pages/features.html"><i class="fa fa-lightbulb" aria-hidden="true"></i> Features</a></li>
+                  <li><a href="./Login/index1.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Step In</a></li>
+                  <li><a href="./pages/faq.html"><i class="fa-solid fa-comments" aria-hidden="true"></i> FAQ</a></li>
+                  <li><a href="./pages/testimonials.html"><i class="fa-solid fa-star" aria-hidden="true"></i> Testimonials</a>
                   </li>
-                  Add more options as needed
-              </ul>
-              <button id="closeEditPopup">Close</button>
-          </div>
-      </div> -->
-
-          <li><a href="pages/about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a></li>
-          <li><a href="pages/features.html"><i class="fa fa-lightbulb" aria-hidden="true"></i> Features</a></li>
-          <li><a href="./Login/index1.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Step In</a></li>
-          <li><a href="./pages/faq.html"><i class="fa-solid fa-comments" aria-hidden="true"></i> FAQ</a></li>
-          <li><a href="./pages/testimonials.html"><i class="fa-solid fa-star" aria-hidden="true"></i> Testimonials</a>
-          </li>
-          <li><a href="pages/feedback.html"><i class="fa fa-hands-helping" aria-hidden="true"></i> Feedback</a></li>
-          <li><a href="pages/contributors.html"><i class="fa fa-code-branch" aria-hidden="true"></i> Contributors</a>
-          </li>
-          <li><a href="./pages/privacy.html"><i class="fa fa-user-secret" aria-hidden="true"></i> Privacy Policy</a>
-          </li>
-          <li><a href="./pages/licensing.html"><i class="fa fa-balance-scale" aria-hidden="true"></i> MIT License</a>
-          </li>
-          <li><a href="./pages/terms.html"><i class="fa fa-file-alt" aria-hidden="true"></i> Terms and Conditions</a>
-          </li>
-          <li><a href="#" id="google_translate_element"></a></li>
-        </ul>
-        <ul class="navMain">
-          <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <div class="unload">
-    <div class="container">
-
-      <!-- <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div> -->
-
-
-      <div class="box" id="box">
-
-
-        <h1 id="changingHeading">Random Disco <span id="changing">Light Simulator</span></h1>
-
-        <!-- Random Disco
-          <span id="changing"
-            style="font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; color: #ff7f50;">
-            Light Simulator
-          </span>
-        </h1> -->
-        <div class="form">
-          <div class="form-group">
-            <label for="color">1. Number of Colors: <span style="color:red">*</span></label>
-            <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
-              aria-label="Number of Colors" required>
-          </div>
-
-          <div class="form-group">
-            <label for="color1">2. Select your desired start & end colors for the gradient:</label>
-            <input type="color" id="color1" aria-label="Start Color" />
-            <label for="color2"></label>
-            <input type="color" id="color2" aria-label="End Color" />
-          </div>
-
-          <strong>[For Random color spectrum, don't select different colors]</strong>
-
-          <div class="form-group">
-            <label for="time">3. Time interval <i>(with which the color changes randomly)</i>: <span
-                style="color:red">*</span></label><br />
-            <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
-            <select id="unit" aria-label="Time Interval Unit">
-              <option value="unit" disabled selected>Select Unit</option>
-              <option value="milliseconds">Milliseconds</option>
-              <option value="seconds">Seconds</option>
-            </select>
-          </div>
-
-          <strong>[Negative interval or No input will be treated as 0 interval]</strong>
-
-          <div class="form-group">
-            <label for="view">4. View: <span style="color:red">*</span></label>
-            <select id="view" aria-label="Select View">
-              <option style="background-color: lightslategray; color: white" value="select" disabled selected>Select
-              </option>
-              <option value="conic">Conic</option>
-              <option value="linear">Linear</option>
-              <option value="radial">Radial</option>
-              <option value="custom">Custom Pattern</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red">*</span></label>
-            <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown"
-              aria-label="Countdown Timer" placeholder="Enter time in seconds" required />
-          </div>
-
-          <div class="form-group">
-            <label for="sound">6. Select Music:</label>
-            <select id="sound" value="select" aria-label="Sound Effect">
-              <option value="none">None</option>
-              <option value="disco">Disco</option>
-              <option value="fairies">Fairies</option>
-              <option value="funky">Funky</option>
-              <option value="upbeatdisco">Upbeatdisco</option>
-              <option value="vintage">Vintage</option>
-              <option value="whistle">Whistle</option>
-              <option value="snare">Snare</option>
-            </select>
-            <button id="PreviewButton">Preview</button>
-            <span style="display: none; font-size: 24px; color: #f09819;">or</span>
-            <input type="url" style="display: none;" id="music-url" placeholder="Paste link here" /><br>
-            <span style="font-size: 24px; color: #f09819;">or</span>
-            <input type="file" id="music-file" accept="audio/*" class="file-input" />
-
-            <span style="font-size: 24px; color: #f09819; ">or</span>
-            <input type="url" id="youtubeUrlInput" placeholder="Paste YouTube URL">
-
-          </div>
-<!-- 
-          <div class="form-group">
-            <label for="pattern">7. Light Pattern:</label>
-            <select id="pattern" aria-label="Select Light Pattern">
-              <option value="flashing">Flashing</option>
-              <option value="fading">Fading</option>
-              <option value="cycling">Cycling</option>
-              <option value="none">None</option>
-
-            </select>
-          </div> -->
-
-
-        </div>
-
-        <div id="error" aria-live="polite"></div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <div id="randomize" aria-label="Randomize">
-            <a href="#">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Randomize
-            </a>
-          </div>
-        </div>
-
-        <div class="button">
-          <div id="submit" aria-label="Submit"><a href="#">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Submit
-            </a></div>
-
-          <div id="reset" aria-label="Reset"><a href="#">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Reset
-            </a></div>
-        </div>
-
-        <div id="preset">
-          <button id="savePresetButton">Save Preset</button> <!-- new function for loading preset -->
-          <button id="loadPresetButton">Load Preset</button>
-        </div>
-
+                  <li><a href="pages/feedback.html"><i class="fa fa-hands-helping" aria-hidden="true"></i> Feedback</a></li>
+                  <li><a href="pages/contributors.html"><i class="fa fa-code-branch" aria-hidden="true"></i> Contributors</a>
+                  </li>
+                  <li><a href="./pages/privacy.html"><i class="fa fa-user-secret" aria-hidden="true"></i> Privacy Policy</a>
+                  </li>
+                  <li><a href="./pages/licensing.html"><i class="fa fa-balance-scale" aria-hidden="true"></i> MIT License</a>
+                  </li>
+                  <li><a href="./pages/terms.html"><i class="fa fa-file-alt" aria-hidden="true"></i> Terms and Conditions</a>
+                  </li>
+                  <li><a href="#" id="google_translate_element"></a></li>
+               </ul>
+               <ul class="navMain">
+                  <li id="sidebarLines" onclick="toggleSidebar()"><i title="Menu" class="fa-solid fa-bars"></i></li>
+               </ul>
+            </nav>
+         </div>
       </div>
-    </div>
-    <footer class="footer" style="width: 100%;height: 2px; ">
-      <div class="socialIcons" style="z-index: 9999;">
-        <span class="icons">
-          <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
-        </span>
-        <span class="icons">
-          <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
-        </span>
-
-        <span class="icons">
-          <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
-            <i class="fab fa-github ico"></i>
-          </a>
-        </span>
-
-        <span class="icons">
-          <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
-        </span>
-
-        <span class="icons">
-          <a href="" aria-label="Discord" title="discord"><i class="fa-brands fa-discord ico"></i></a>
-        </span>
+      <div class="unload">
+         <div class="container">
+            <div class="box" id="box">
+               <h1 id="changingHeading">Random Disco <span style="font-size: 35px;" id="changing">Light Simulator</span></h1>
+               <div class="form">
+                  <div class="form-group">
+                     <label for="color">1. Number of Colors: <span style="color:red">*</span></label>
+                     <input type="number" min="0" oninput="validity.valid||(value='');" id="color" placeholder="Enter"
+                        aria-label="Number of Colors" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="color1">2. Select your desired start & end colors for the gradient:</label>
+                     <input type="color" id="color1" aria-label="Start Color" />
+                     <label for="color2"></label>
+                     <input type="color" id="color2" aria-label="End Color" />
+                  </div>
+                  <strong>[For Random color spectrum, don't select different colors]</strong>
+                  <div class="form-group">
+                     <label for="time">3. Time interval <i>(with which the color changes randomly)</i>: <span
+                        style="color:red">*</span></label><br />
+                     <input type="number" min="0" id="time" placeholder="Enter" aria-label="Time Interval" required />
+                     <select id="unit" aria-label="Time Interval Unit">
+                        <option value="unit" disabled selected>Select Unit</option>
+                        <option value="milliseconds">Milliseconds</option>
+                        <option value="seconds">Seconds</option>
+                     </select>
+                  </div>
+                  <strong>[Negative interval or No input will be treated as 0 interval]</strong>
+                  <div class="form-group">
+                     <label for="view">4. View: <span style="color:red">*</span></label>
+                     <select id="view" aria-label="Select View">
+                        <option style="background-color: lightslategray; color: white" value="select" disabled selected>Select
+                        </option>
+                        <option value="conic">Conic</option>
+                        <option value="linear">Linear</option>
+                        <option value="radial">Radial</option>
+                        <option value="custom">Custom Pattern</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label for="countdown">5. Countdown Timer (in seconds): <span style="color:red">*</span></label>
+                     <input type="number" min="0" oninput="validity.valid||(value='');" id="countdown"
+                        aria-label="Countdown Timer" placeholder="Enter time in seconds" required />
+                  </div>
+                  <div class="form-group">
+                     <label for="sound">6. Select Music:</label>
+                     <select id="sound" value="select" aria-label="Sound Effect">
+                        <option value="none">None</option>
+                        <option value="disco">Disco</option>
+                        <option value="fairies">Fairies</option>
+                        <option value="funky">Funky</option>
+                        <option value="upbeatdisco">Upbeatdisco</option>
+                        <option value="vintage">Vintage</option>
+                        <option value="whistle">Whistle</option>
+                        <option value="snare">Snare</option>
+                     </select>
+                     <button id="PreviewButton">Preview</button>
+                     <span style="display: none; font-size: 24px; color: #f09819;">or</span>
+                     <input type="url" style="display: none;" id="music-url" placeholder="Paste link here" /><br>
+                     <span style="font-size: 24px; color: #f09819;">or</span>
+                     <input type="file" id="music-file" accept="audio/*" class="file-input" />
+                     <span style="font-size: 24px; color: #f09819; ">or</span>
+                     <input type="url" id="youtubeUrlInput" placeholder="Paste YouTube URL">
+                  </div>
+               </div>
+               <div id="error" aria-live="polite"></div>
+               <div style="display: flex; justify-content: center; align-items: center;">
+                  <div id="randomize" aria-label="Randomize">
+                     <a href="#">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     Randomize
+                     </a>
+                  </div>
+               </div>
+               <div class="button">
+                  <div id="submit" aria-label="Submit"><a href="#">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     Submit
+                     </a>
+                  </div>
+                  <div id="reset" aria-label="Reset"><a href="#">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     Reset
+                     </a>
+                  </div>
+               </div>
+               <div id="preset">
+                  <button id="savePresetButton">Save Preset</button> <!-- new function for loading preset -->
+                  <button id="loadPresetButton">Load Preset</button>
+               </div>
+            </div>
+         </div>
+         <footer class="footer" style="width: 100%;height: 2px; ">
+            <div class="socialIcons" style="z-index: 9999;">
+               <span class="icons">
+               <a href="" aria-label="Linkedin" title="linkedin"><i class="fab fa-linkedin ico"></i></a>
+               </span>
+               <span class="icons">
+               <a href="" aria-label="Instagram" title="instagram"><i class="fa-brands fa-instagram ico"></i></a>
+               </span>
+               <span class="icons">
+               <a href="https://github.com/sk66641/Random-Disco-Light-Simulator" title="github">
+               <i class="fab fa-github ico"></i>
+               </a>
+               </span>
+               <span class="icons">
+               <a href="" aria-label="X" title="Twitter"><i class="fa-brands fa-x-twitter ico"></i></a>
+               </span>
+               <span class="icons">
+               <a href="" aria-label="Discord" title="discord"><i class="fa-brands fa-discord ico"></i></a>
+               </span>
+            </div>
+            <div class="copyright">
+               <p class="copyright">
+                  &copy;
+                  <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
+               </p>
+            </div>
+         </footer>
+         <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
+         <audio id="disco" src="assets/audios/disco.mp3"></audio>
+         <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
+         <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
+         <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
+         <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
+         <audio id="snare" src="assets/audios/Snare.mp3"></audio>
+         <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
+         <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
+         <span class="slider" style="width: 40px; height: 20px; display: none;"></span>
+         <div id="sun-moon-mode-toggler" class="toggle-container">
+            <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
+            <label id="themeChangeToggle" class="theme-switch" for="themeToggle">
+               <div class="toggle-button">
+                  <span class="light-mode-icon"><img src="./sun.svg" style="display: block;"></span>
+                  <span class="dark-mode-icon"><img src="./moon.svg" style="display: block;"></span>
+               </div>
+            </label>
+         </div>
+         <script src="./js/theme.js"></script>
+         <script>
+            function toggleOtherInput() {
+              var feedbackType = document.getElementById("feedbackType").value;
+              var otherFeedbackBox = document.getElementById("otherFeedbackBox");
+              if (feedbackType === "other") {
+                otherFeedbackBox.style.display = "block";
+              } else {
+                otherFeedbackBox.style.display = "none";
+              }
+            }
+         </script>
+         <style>
+            #feedbackType {
+            font-size: 12px;
+            padding: 5px;
+            width: 150px;
+            }
+         </style>
+         <div id="warningModal" class="modal">
+            <div class="modal-content">
+               <span class="close" id="closeModal">&times;</span>
+               <h2>Warning: Sensitivity to Flashing Lights</h2>
+               <p>
+                  This site contains flashing lights that may cause discomfort or
+                  trigger seizures for people with photosensitive epilepsy. Viewer
+                  discretion is advised.
+               </p>
+               <button id="proceed" aria-label="Proceed">Proceed</button>
+            </div>
+         </div>
+         <div id="colorWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>1. The Number of Colours must be a positive integer! </h2>
+            </div>
+         </div>
+         <div id="timeIntervalWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>3. The Unit field must be selected!</h2>
+            </div>
+         </div>
+         <div id="viewWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>4. The View field must be selected!</h2>
+            </div>
+         </div>
+         <div id="countdownWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>5. The CountDown Timer must be a positive value greater than zero!</h2>
+            </div>
+         </div>
+         <div id="noMusicFileWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></h2>
+            </div>
+         </div>
+         <div id="stopPreviewWarningModal" class="modal">
+            <div class="modal-content">
+               <h2>6. First stop previewing music!</h2>
+            </div>
+         </div>
       </div>
-
-
-      <div class="copyright">
-        <p class="copyright">&copy;
-          <script>document.write(new Date().getFullYear())</script> Random-Disco-Light-Simulator. All rights reserved.
-        </p>
+      <div id="infomodal" class="modal">
+         <div class="modal-content">
+            <span class="close" id="closeModal1">&times;</span>
+            <h2>Important!!</h2>
+            <p>
+               <strong>Click the menu icon to use various functions:</strong>
+            </p>
+            <p>Reload: Refreshes the page.</p>
+            <p>Pause: Pauses the simulation.</p>
+            <p>Fullscreen: Toggles fullscreen mode.</p>
+            <p>Add Time: Allows to you add or subtract from the disco timer</p>
+            <p>Change Music: Allows you to change the background music.</p>
+            <p><strong><i>Double click on the screen to hide/show the icons</i></strong></p>
+            <button id="proceed1" aria-label="Proceed">Proceed</button>
+         </div>
       </div>
-
-
-    </footer>
-
-    <div id="timerDisplay" aria-label="Timer Display" style="display: none"></div>
-    <audio id="disco" src="assets/audios/disco.mp3"></audio>
-    <audio id="fairies" src="assets/audios/fairies.mp3"></audio>
-    <audio id="funky" src="assets/audios/funkydisco.mp3"></audio>
-    <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
-    <audio id="upbeatdisco" src="assets/audios/upbeatdisco.mp3"></audio>
-    <audio id="snare" src="assets/audios/Snare.mp3"></audio>
-    <audio id="vintage" src="assets/audios/vintage.mp3"></audio>
-    <audio id="whistle" src="assets/audios/whistle.mp3"></audio>
-
-
-    <!-- <div id="message" aria-live="polite">The timer has ended. The page will reload.</div> -->
-
-
-    <span class="slider" style="width: 40px; height: 20px; display: none;"></span>
-
-    <div id="sun-moon-mode-toggler" class="toggle-container">
-      <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
-      <label id="themeChangeToggle" class="theme-switch" for="themeToggle">
-        <div class="toggle-button">
-          <span class="light-mode-icon"><img src="./sun.svg" style="display: block;"></span>
-          <span class="dark-mode-icon"><img src="./moon.svg" style="display: block;"></span>
-        </div>
-      </label>
-    </div>
-
-
-    <!-- Modal background -->
-    <!-- <div id="modalBackground" style="color: #fff;">
-  <div class="login-box">
-    <form style="color: #fff;">
-      <div class="user-box" style="color: #fff;">
-        <input type="text" name="name" required="" onfocus="changeColor()" id="name" style="color: #fff;">
-        <label>Name</label>
+      <div id="addtimeModel" class="modal">
+         <div class="modal-content">
+            <span class="close" id="closeAddtimeModal">&times;</span>
+            <h2>Add time (in seconds)</h2>
+            <p>Enter a positive number to increase the time & negative to decrease the simulation time</p>
+            <input type="number" id="addtimeSeconds" placeholder="Enter time (in sec)"
+               style="background-color: rgb(237, 234, 228); color: black;">
+            <button id="timesubmitBtn" style="border: none;">Confirm</button>
+         </div>
       </div>
-      <div class="user-box">
-        <input type="email" required onfocus="changeColor()" id="email">
-        <label>Mail</label>
+      <div id="addPresetModal" class="modal">
+         <div class="modal-content">
+            <span class="close" id="closeAddPresetModal">&times;</span>
+            <h2>Save Preset</h2>
+            <p>
+               Add a suitable name for your preset
+            </p>
+            <input id="presetNameInput" placeholder="Enter preset name"
+               style="background-color: rgb(237, 234, 228); color: black;" required>
+            <button id="namePresetButton" aria-label="Save preset">Save</button>
+         </div>
       </div>
-      <div class="user-box" style="text-align: right;">
-        <label for="feedbackType" style="display: block; text-align: left;">Feedback Type</label>
-        <select id="feedbackType" name="feedbackType" required onchange="toggleOtherInput()" style="font-size: 12px; padding: 5px; width: 150px;">
-          <option value="question">Question</option>
-          <option value="suggestion">Suggestion</option>
-          <option value="issue">Issue</option>
-          <option value="other">Other</option>
-        </select>
+      <div id="loadPresetModal" class="modal">
+         <div class="modal-content">
+            <span class="close" id="closeLoadPresetModal">&times;</span>
+            <h2>Load Preset</h2>
+            <p>
+               Enter the name of the preset you wish to play
+            </p>
+            <input id="presetNameLoadInput" placeholder="Enter preset name"
+               style="background-color: rgb(237, 234, 228); color: black;" required>
+            <button id="loadButton" aria-label="Load preset">Load</button>
+         </div>
       </div>
-      <div class="user-box" id="otherFeedbackBox" style="display: none;">
-        <input type="text" id="otherFeedback" name="otherFeedback" placeholder="Specify the subject">
+      <button class="notification" id="failnotification" style="display:none;">
+         <span class="message" id="failmsg">Failed</span>
+         <span class="closenotif" id="closeFailNotification">✖</span>
+         <div class="timerline" id="timerline"></div>
+      </button>
+      <button class="notification" id="successnotification" style="display:none;">
+         <span class="message" id="successmsg">Success</span>
+         <span class="closenotif" id="closeSuccessNotification">✖</span>
+         <div class="timerline" id="timerline"></div>
+      </button>
+      <div id="replayModel" class="modal">
+         <div class="modal-content">
+            <h2>Wanna replay the disco..?</h2>
+            <p>
+               Press Yes to replay... Press No to Exit
+            </p>
+            <button id="replayModelBtn">Yes</button>
+            <button id="exitBtn">No</button>
+         </div>
       </div>
-      <center>
-        <div class="rating">
-          <input type="radio" id="star5" name="rating" value="5" />
-          <label for="star5">5 stars</label>
-          <input type="radio" id="star4" name="rating" value="4" />
-          <label for="star4">4 stars</label>
-          <input type="radio" id="star3" name="rating" value="3" />
-          <label for="star3">3 stars</label>
-          <input type="radio" id="star2" name="rating" value="2" />
-          <label for="star2">2 stars</label>
-          <input type="radio" id="star1" name="rating" value="1" />
-          <label for="star1">1 star</label>
-        </div>
-        <div class="form-group">
-          <p>Feedback</p>
-          <textarea cols="30" rows="5" placeholder="Your Feedback" required id="feed"></textarea>
-        </div>
-        <button id="ll" class="btnna">Submit</button>
-        <span></span>
-      </center>
-    </form>
-    <center>
-      <div class="load" id="successMessage" class="success-message" style="height: 40px; width: 40px; display: none;">
-        <div data-glitch="Loading..." class="glitch">Submitting...</div>
+      
+      <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" id="scr"></script>
+      
+      <!-- Account Not Available Modal -->
+      <div id="accountNotAvailableModal" class="account-not-available-modal">
+         <div class="account-not-available-modal-content">
+            <span class="close" id="closeAccountNotAvailableModal">&times;</span>
+            <h2>Account Not Available</h2>
+            <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working
+               diligently to bring them online as soon as possible.
+            </p>
+            <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our
+               website's feedback form. We appreciate your understanding and patience during this time.
+            </p>
+            <p>Thank you for your continued support! </p>
+         </div>
       </div>
-    </center>
-  </div>
-</div> -->
-    <script src="./js/theme.js"></script>
-    <script>
-      function toggleOtherInput() {
-        var feedbackType = document.getElementById("feedbackType").value;
-        var otherFeedbackBox = document.getElementById("otherFeedbackBox");
-        if (feedbackType === "other") {
-          otherFeedbackBox.style.display = "block";
-        } else {
-          otherFeedbackBox.style.display = "none";
-        }
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script src="js/background.js"></script>
+      <script src="js/social.js"></script>
+      <script src="js/script.js"></script>
+      <script src="/js/backToTopBtn.js"></script>
+      <script type="text/javascript">
+         function googleTranslateElementInit() {
+           new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+         }
+      </script>
+      <script type="text/javascript"
+         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <script>
+      if (navigator.hardwareConcurrency < 16) {
+         
+         alert(" ⚠️ Performance Warning \nOur site is currently experiencing high memory usage, a larger RAM might be needed to run smoothly. We are working on optimizing the site. We appreciate your patience and understanding as we make these improvements.")
       }
-    </script>
-
-    <style>
-      #feedbackType {
-        font-size: 12px;
-        padding: 5px;
-        width: 150px;
-      }
-    </style>
-
-
-
-    <div id="warningModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Warning: Sensitivity to Flashing Lights</h2>
-        <p>
-          This site contains flashing lights that may cause discomfort or
-          trigger seizures for people with photosensitive epilepsy. Viewer
-          discretion is advised.
-        </p>
-        <button id="proceed" aria-label="Proceed">Proceed</button>
-      </div>
-    </div>
-
-    <div id="colorWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>1. The Number of Colours must be a positive integer! </h2>
-      </div>
-    </div>
-
-    <div id="timeIntervalWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>3. The Unit field must be selected!</h2>
-      </div>
-    </div>
-
-    <div id="viewWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>4. The View field must be selected!</h2>
-      </div>
-    </div>
-
-    <div id="countdownWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>5. The CountDown Timer must be a positive value greater than zero!</h2>
-      </div>
-    </div>
-
-    <div id="noMusicFileWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>6. Either <i>Select Music</i> or <i>Paste link</i> or <i>Choose File!</i></h2>
-      </div>
-    </div>
-
-    <div id="stopPreviewWarningModal" class="modal">
-      <div class="modal-content">
-        <h2>6. First stop previewing music!</h2>
-      </div>
-    </div>
-
-  </div>
-  <div id="infomodal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal1">&times;</span>
-      <h2>Important!!</h2>
-      <p>
-        <strong>Click the menu icon to use various functions:</strong>
-      </p>
-
-      <p>Reload: Refreshes the page.</p>
-      <p>Pause: Pauses the simulation.</p>
-      <p>Fullscreen: Toggles fullscreen mode.</p>
-      <p>Add Time: Allows to you add or subtract from the disco timer</p>
-      <p>Change Music: Allows you to change the background music.</p>
-      <p><strong><i>Double click on the screen to hide/show the icons</i></strong></p>
-
-
-      <button id="proceed1" aria-label="Proceed">Proceed</button>
-    </div>
-  </div>
-  <div id="addtimeModel" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeAddtimeModal">&times;</span>
-      <h2>Add time (in seconds)</h2>
-      <p>Enter a positive number to increase the time & negative to decrease the simulation time</p>
-      <input type="number" id="addtimeSeconds" placeholder="Enter time (in sec)"
-        style="background-color: rgb(237, 234, 228); color: black;">
-      <button id="timesubmitBtn" style="border: none;">Confirm</button>
-
-    </div>
-  </div>
-
-  <div id="addPresetModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeAddPresetModal">&times;</span>
-      <h2>Save Preset</h2>
-      <p>
-        Add a suitable name for your preset
-      </p>
-      <input id="presetNameInput" placeholder="Enter preset name"
-        style="background-color: rgb(237, 234, 228); color: black;" required>
-
-      <button id="namePresetButton" aria-label="Save preset">Save</button>
-    </div>
-  </div>
-
-  <div id="loadPresetModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeLoadPresetModal">&times;</span>
-      <h2>Load Preset</h2>
-      <p>
-        Enter the name of the preset you wish to play
-      </p>
-      <input id="presetNameLoadInput" placeholder="Enter preset name"
-        style="background-color: rgb(237, 234, 228); color: black;" required>
-
-      <button id="loadButton" aria-label="Load preset">Load</button>
-    </div>
-  </div>
-
-  <button class="notification" id="failnotification" style="display:none;">
-    <span class="message" id="failmsg">Failed</span>
-    <span class="closenotif" id="closeFailNotification">✖</span>
-    <div class="timerline" id="timerline"></div>
-  </button>
-
-  <button class="notification" id="successnotification" style="display:none;">
-    <span class="message" id="successmsg">Success</span>
-    <span class="closenotif" id="closeSuccessNotification">✖</span>
-    <div class="timerline" id="timerline"></div>
-  </button>
-
-  <div id="replayModel" class="modal">
-    <div class="modal-content">
-      <h2>Wanna replay the disco..?</h2>
-      <p>
-        Press Yes to replay... Press No to Exit
-      </p>
-      <button id="replayModelBtn">Yes</button>
-      <button id="exitBtn">No</button>
-    </div>
-  </div>
-
-  <script src="//code.tidio.co/fdylvmddtyb7vzsk5frdt3ncrk6cwobs.js" async></script>
-  <!--  <div id="aboutPopup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeAboutPopup()" aria-label="Close">&times;</span>
-      <h2><strong class="nameAbout">About</strong></h2>
-      <p>
-        <strong>The Random Disco Light Simulator</strong> is a fun and interactive project that
-        brings the excitement of a disco dance floor to your screen whether
-        you're a developer, a party enthusiast, or just curious.
-      </p>
-      <p>
-        <strong>Inputs:</strong>
-        - How many random colors you want to be shown?
-        <br />
-        - With how much time interval (in milliseconds) you want to change the
-        colors randomly?
-        <br />
-        - What type of view you want to choose (conic, linear, or radial)?
-        <br />
-        - Countdown timer (in seconds)
-        <br />
-        - Sound Effect
-      </p>
-      <p>
-        <strong> Output:</strong>
-        On the basis of these inputs, it simulates the selected view.
-      </p>
-      <p>Try these inputs and have fun! 😄</p>
-      <p>1000 1 milliseconds conic 60</p>
-      <p>1000 1 milliseconds radial 60</p>
-      <p>1000 1 milliseconds linear 60</p>
-    </div>
-  </div>
-  <div id="featuresPopup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeFeaturesPopup()" aria-label="Close">&times;</span>
-      <h2><strong class="nameAbout">Features</strong></h2>
-
-      <p><strong>Conic Mode</strong>
-        Imagine a spotlight sweeping across the room, creating vibrant cones
-        of light. The colors change dynamically as the spotlight moves, adding
-        an electrifying effect.
-      </p>
-      <img src="assets/images/learn/Conic_1.jpg" alt="Conic Mode Example 1" style="width: 180px; height: 180px">
-      <img src="assets/images/learn/Conic_2.jpg" alt="Conic Mode Example 2" style="width: 180px; height: 180px;">
-
-      <p><strong>Radial Mode</strong>
-        Picture a pulsating ring of light expanding and contracting. The
-        radial pattern syncs perfectly with the beat, making you feel the
-        rhythm.
-      </p>
-      <img src="assets/images/learn/Radial_01.jpg" alt="Radial Mode Example 1" style="width:180px; height: 180px;">
-      <img src="assets/images/learn/Radial_02.jpg" alt="Radial Mode Example 2" style="width:180px; height: 180px;">
-
-      <p><strong>Linear Mode</strong>
-        Visualize colorful streaks of light moving in straight lines. These
-        streaks crisscross, intersect, and dance across the floor,
-        transforming your space into a dynamic disco.
-      </p>
-      <img src="assets/images/learn/Linear_01.jpg" alt="Linear Mode Example 1" style="width:180px; height: 180px;">
-      <img src="assets/images/learn/Linear_02.jpg" alt="Linear Mode Example 2" style="width:180px; height: 180px;">
-    </div>
-  </div> -->
-  <!-- Account Not Available Modal -->
-  <div id="accountNotAvailableModal" class="account-not-available-modal">
-    <div class="account-not-available-modal-content">
-      <span class="close" id="closeAccountNotAvailableModal">&times;</span>
-      <h2>Account Not Available</h2>
-      <p>We apologize for the inconvenience, but our social media accounts are currently unavailable. We are working
-        diligently to bring them online as soon as possible.</p>
-      <p>In the meantime, if you have any questions or need assistance, please feel free to reach out to us through our
-        website's feedback form. We appreciate your understanding and patience during this time.</p>
-      <p>Thank you for your continued support! </p>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="js/background.js"></script>
-  <script src="js/social.js"></script>
-  <script src="js/script.js"></script>
-  <script src="/js/backToTopBtn.js"></script>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>alert(" ⚠️ Performance Warning \nOur website is currently experiencing high memory usage, which may impact your browsing experience. We are working on optimizing the site to improve its speed. We appreciate your patience and understanding as we make these improvements.")</script>
-</body>
-
+      </script>
+   </body>
 </html>

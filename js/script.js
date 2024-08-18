@@ -7,14 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timerDisplay');
     const randomizeButton = document.getElementById('randomize');
     const musicSelect = document.getElementById('musicSelect');
-    const musicDropdown = document.getElementById('musicDropdown');
     const addTimeButton = document.getElementById('addTime');
     const muteButton = document.getElementById('muteBtn'); // Get reference to mute button
     const editBtn = document.getElementById('editBtn');
     const editDrop = document.getElementById('editdropdown');//contains both add time and change music btn
-
-    // const addTimeOption = document.getElementById('addTimeOption');
-    // const changeSongOption = document.getElementById('changeSongOption');
 
     // Create and append the pause/start button
     const pauseStartButton = document.getElementById('pauseStartBtn');
@@ -77,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resumeSimulation();
         }
     }
-    
+
     // Add the event listener for timesubmitBtn outside
     timesubmitBtn.addEventListener('click', () => {
         const time = addtime_input.value; // Ensure you get the input value correctly
@@ -95,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to add 15 seconds to the timer
+    // Function to add input seconds to the timer
     function addTime(seconds) {
         countdownValue += Math.floor(seconds);
         updateTimerDisplay();
@@ -118,10 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     muteButton.addEventListener('click', () => {
         if (isMuted) {
             unmuteAudio();
-            // document.getElementById('changeMusic').style.display = 'block';
         } else {
             muteAudio();
-            // document.getElementById('changeMusic').style.display = 'none';
         }
     });
 
@@ -220,274 +214,276 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("YouTube API is ready");
     }
 
-    function run() {
-        let toggler = document.getElementById("sun-moon-mode-toggler")
-        let countdownValue = document.getElementById('countdown').value;
-        let n = document.getElementById("color").value;
-        let set_time = document.getElementById("time").value;
-        let unit = document.getElementById("unit").value;
-        let view = document.getElementById("view").value;
-        let soundEffect = document.getElementById("sound").value;
-        let color1 = document.getElementById('color1').value;
-        let color2 = document.getElementById('color2').value;
+    try {
+        function run() {
+            let toggler = document.getElementById("sun-moon-mode-toggler")
+            let countdownValue = document.getElementById('countdown').value;
+            let n = document.getElementById("color").value;
+            let set_time = document.getElementById("time").value;
+            let unit = document.getElementById("unit").value;
+            let view = document.getElementById("view").value;
+            let soundEffect = document.getElementById("sound").value;
+            let color1 = document.getElementById('color1').value;
+            let color2 = document.getElementById('color2').value;
 
-        // Get selected audio file or URL
-        let selectedFile = document.getElementById("music-file").files[0];
-        let selectedUrl = document.getElementById("music-url").value;
-        let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
+            // Get selected audio file or URL
+            let selectedFile = document.getElementById("music-file").files[0];
+            let selectedUrl = document.getElementById("music-url").value;
+            let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
 
 
-        if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
-            !(selectedFile && youtubeUrl) &&
-            !(selectedUrl && youtubeUrl) &&
-            !(soundEffect !== 'none' && youtubeUrl)) {
-            // after successful submission
-            document.getElementById("error").innerHTML = "";
-            document.querySelector(".footer").style.display = "none";
-            // document.querySelector(".navHeader").style.display = "none";
-            document.querySelector(".container").style.display = "none";
-            toggler.style.display = "none"
-
-            // remove chatbot after successful submission
-            // document.getElementById("tidio-chat").style.display = "none";
-            
-            startSimulation(n, set_time, unit, view, color1, color2);
-            var backToTopBtn = document.getElementById("backToTopBtn");
-            backToTopBtn.style.display = "none";
-            startCountdown(countdownValue);
-
-            //Function to load Youtube Audio Player
-            function loadYouTubeAudio(videoId) {
-                console.log("Entering loadYouTubeAudio function with videoId:", videoId);
-                if (player) {
-                    console.log("Existing player found, loading new video");
-                    player.loadVideoById(videoId);
-                    player.playVideo();
-                } else {
-                    console.log("Creating new YouTube player");
-                    player = new YT.Player('youtube-audio-player', {
-                        height: '1',
-                        width: '1',
-                        videoId: videoId,
-                        playerVars: {
-                            'autoplay': 1,
-                            'controls': 0,
-                            'disablekb': 1,
-                            'fs': 0,
-                            'showinfo': 0,
-                            'iv_load_policy': 3,
-                            'loop': 1
-                        },
-                        events: {
-                            'onReady': onPlayerReady,
-                            'onStateChange': onPlayerStateChange,
-                            'onError': onPlayerError
-                        }
-                    });
-                }
-                console.log("Exiting loadYouTubeAudio function");
-            }
-
-            //Start play
-            function onPlayerReady(event) {
-                console.log("YouTube player is ready");
-                event.target.playVideo();
-            }
-
-            //Check state of play and loop if needed
-            function onPlayerStateChange(event) {
-                console.log("Player state changed to:", event.data);
-                if (event.data == YT.PlayerState.PLAYING) {
-                    console.log("YouTube audio is playing");
-                }
-                if (event.data == YT.PlayerState.ENDED) {
-                    player.playVideo();
-                }
-            }
-
-            //Error catch
-            function onPlayerError(event) {
-                console.error("YouTube player error:", event.data);
-            }
-
-            const modal1 = document.getElementById("infomodal");
-            const closeModal1 = document.getElementById("closeModal1");
-            const proceedButton1 = document.getElementById("proceed1");
-
-            modal1.style.display = "block";
-
-            closeModal1.onclick = function () {
-                modal1.style.display = "none";
-            }
-
-            proceedButton1.onclick = function () {
-                modal1.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal1) {
-                    modal1.style.display = "none";
-                }
-            }
-            /*Music url youtube*/
-            function extractVideoId(url) {
-                if (typeof url !== 'string' || url.trim() === '') {
-                    console.error('Invalid URL provided to extractVideoId');
-                    return null;
-                }
-                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-                var match = url.match(regExp);
-                return (match && match[7].length == 11) ? match[7] : null;
-            }
-
-            muteButton.style.display = 'block'; // Show the mute button after successful submission 
-
-            if (soundEffect !== 'none') {
-
-                const audio = document.getElementById(soundEffect);
-                audio.loop = true;
-                audio.play();
-                musicAudio = audio;
-            } else if (selectedFile) {
-                // User selected a file
-                let selectedAudio = new Audio(URL.createObjectURL(selectedFile));
-                selectedAudio.loop = true;
-                selectedAudio.play();
-                musicAudio = selectedAudio;
-            } else if (selectedUrl) {
-                // User pasted a URL
-                let selectedAudio = new Audio(selectedUrl);
-                selectedAudio.addEventListener("error", (e) => {
-                    console.error("Error loading audio from URL:", e);
-                });
-                selectedAudio.loop = true;
-                selectedAudio.play();
-                musicAudio = selectedAudio;
-            } else if (youtubeUrl) {
-                const you = document.createElement("div");
-                you.id = "youtube-audio-player";
-                document.body.appendChild(you);
-                if (typeof youtubeUrl !== 'string' || youtubeUrl.trim() === '') {
-                    console.error("Invalid YouTube URL provided");
-                    alert('Please enter a valid YouTube URL');
+            if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
+                !(selectedFile && youtubeUrl) &&
+                !(selectedUrl && youtubeUrl) &&
+                !(soundEffect !== 'none' && youtubeUrl)) {
+                try { document.getElementById("tidio-chat").style.display = "none" } catch (error) {
+                    alert('chatBot still loading...')
                     return;
                 }
-                console.log("YouTube URL:", youtubeUrl);
-                let videoId = extractVideoId(youtubeUrl);
-                console.log("Extracted Video ID:", videoId);
-                if (videoId) {
-                    console.log("Loading YouTube audio");
-                    loadYouTubeAudio(videoId);
-                    setTimeout(() => {
-                        if (player) {
-                            console.log("YouTube player created successfully");
-                        } else {
-                            console.error("Failed to create YouTube player");
-                        }
-                    }, 1000);
-                } else {
-                    console.error("Could not extract video ID from URL");
-                    alert('Invalid YouTube URL. Please check the URL and try again.');
+                // after successful submission
+                document.getElementById("error").innerHTML = "";
+                document.querySelector(".footer").style.display = "none";
+                // document.querySelector(".navHeader").style.display = "none";
+                document.querySelector(".container").style.display = "none";
+                toggler.style.display = "none"
+
+                // remove chatbot after successful submission
+
+
+
+                startSimulation(n, set_time, unit, view, color1, color2);
+                var backToTopBtn = document.getElementById("backToTopBtn");
+                backToTopBtn.style.display = "none";
+                startCountdown(countdownValue);
+
+                //Function to load Youtube Audio Player
+                function loadYouTubeAudio(videoId) {
+                    console.log("Entering loadYouTubeAudio function with videoId:", videoId);
+                    if (player) {
+                        console.log("Existing player found, loading new video");
+                        player.loadVideoById(videoId);
+                        player.playVideo();
+                    } else {
+                        console.log("Creating new YouTube player");
+                        player = new YT.Player('youtube-audio-player', {
+                            height: '1',
+                            width: '1',
+                            videoId: videoId,
+                            playerVars: {
+                                'autoplay': 1,
+                                'controls': 0,
+                                'disablekb': 1,
+                                'fs': 0,
+                                'showinfo': 0,
+                                'iv_load_policy': 3,
+                                'loop': 1
+                            },
+                            events: {
+                                'onReady': onPlayerReady,
+                                'onStateChange': onPlayerStateChange,
+                                'onError': onPlayerError
+                            }
+                        });
+                    }
+                    console.log("Exiting loadYouTubeAudio function");
                 }
+
+                //Start play
+                function onPlayerReady(event) {
+                    console.log("YouTube player is ready");
+                    event.target.playVideo();
+                }
+
+                //Check state of play and loop if needed
+                function onPlayerStateChange(event) {
+                    console.log("Player state changed to:", event.data);
+                    if (event.data == YT.PlayerState.PLAYING) {
+                        console.log("YouTube audio is playing");
+                    }
+                    if (event.data == YT.PlayerState.ENDED) {
+                        player.playVideo();
+                    }
+                }
+
+                //Error catch
+                function onPlayerError(event) {
+                    console.error("YouTube player error:", event.data);
+                }
+
+                const modal1 = document.getElementById("infomodal");
+                const closeModal1 = document.getElementById("closeModal1");
+                const proceedButton1 = document.getElementById("proceed1");
+
+                modal1.style.display = "block";
+
+                closeModal1.onclick = function () {
+                    modal1.style.display = "none";
+                }
+
+                proceedButton1.onclick = function () {
+                    modal1.style.display = "none";
+                }
+
+                window.onclick = function (event) {
+                    if (event.target == modal1) {
+                        modal1.style.display = "none";
+                    }
+                }
+                /*Music url youtube*/
+                function extractVideoId(url) {
+                    if (typeof url !== 'string' || url.trim() === '') {
+                        console.error('Invalid URL provided to extractVideoId');
+                        return null;
+                    }
+                    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+                    var match = url.match(regExp);
+                    return (match && match[7].length == 11) ? match[7] : null;
+                }
+
+                muteButton.style.display = 'block'; // Show the mute button after successful submission 
+
+                if (soundEffect !== 'none') {
+
+                    const audio = document.getElementById(soundEffect);
+                    audio.loop = true;
+                    audio.play();
+                    musicAudio = audio;
+                } else if (selectedFile) {
+                    // User selected a file
+                    let selectedAudio = new Audio(URL.createObjectURL(selectedFile));
+                    selectedAudio.loop = true;
+                    selectedAudio.play();
+                    musicAudio = selectedAudio;
+                } else if (selectedUrl) {
+                    // User pasted a URL
+                    let selectedAudio = new Audio(selectedUrl);
+                    selectedAudio.addEventListener("error", (e) => {
+                        console.error("Error loading audio from URL:", e);
+                    });
+                    selectedAudio.loop = true;
+                    selectedAudio.play();
+                    musicAudio = selectedAudio;
+                } else if (youtubeUrl) {
+                    const you = document.createElement("div");
+                    you.id = "youtube-audio-player";
+                    document.body.appendChild(you);
+                    if (typeof youtubeUrl !== 'string' || youtubeUrl.trim() === '') {
+                        console.error("Invalid YouTube URL provided");
+                        alert('Please enter a valid YouTube URL');
+                        return;
+                    }
+                    console.log("YouTube URL:", youtubeUrl);
+                    let videoId = extractVideoId(youtubeUrl);
+                    console.log("Extracted Video ID:", videoId);
+                    if (videoId) {
+                        console.log("Loading YouTube audio");
+                        loadYouTubeAudio(videoId);
+                        setTimeout(() => {
+                            if (player) {
+                                console.log("YouTube player created successfully");
+                            } else {
+                                console.error("Failed to create YouTube player");
+                            }
+                        }, 1000);
+                    } else {
+                        console.error("Could not extract video ID from URL");
+                        alert('Invalid YouTube URL. Please check the URL and try again.');
+                    }
+                } else {
+                    console.log("No music selected");
+                }
+                if (selectedUrl || selectedFile) {
+                    // Initialize selectedAudio variable
+                    selectedAudio.loop = true;
+                    selectedAudio.play();
+                    musicAudio = selectedAudio;
+                }
+
+
+                document.body.style.cursor = 'pointer';
+                document.body.addEventListener('dblclick', () => {
+                    if (document.querySelector(".navMain").style.display === "none") {
+                        document.querySelector(".navMain").style.display = "block"
+                        document.querySelector("#muteBtn").style.display = "block"
+                        document.querySelector("#timerDisplay").style.display = "block"
+                        document.querySelector(".sidebarOne").style.display = "none"
+                    } else {
+                        document.querySelector(".navMain").style.display = "none"
+                        document.querySelector("#muteBtn").style.display = "none"
+                        document.querySelector("#timerDisplay").style.display = "none"
+                    }
+                });
+
             } else {
-                console.log("No music selected");
+                // after unsuccessful submission
+                document.getElementById("error").style.color = "red";
+                if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
+                    const modal = document.getElementById("colorWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else if (unit === "unit") {
+                    const modal = document.getElementById("timeIntervalWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else if (view === "select") {
+                    const modal = document.getElementById("viewWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else if (countdownValue <= 0) {
+                    const modal = document.getElementById("countdownWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && youtubeUrl || youtubeUrl && selectedFile) {
+                    const modal = document.getElementById("noMusicFileWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else if (document.getElementById('PreviewButton').textContent === "Stop") {
+                    const modal = document.getElementById("stopPreviewWarningModal");
+
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                }
+
+                return;
             }
-            if (selectedUrl || selectedFile) {
-                // Initialize selectedAudio variable
-                selectedAudio.loop = true;
-                selectedAudio.play();
-                musicAudio = selectedAudio;
-            }
-
-
-            document.body.style.cursor = 'pointer';
-            document.body.addEventListener('dblclick', () => {
-                if (document.querySelector(".navMain").style.display === "none") {
-                    document.querySelector(".navMain").style.display = "block"
-                    document.querySelector("#muteBtn").style.display = "block"
-                    document.querySelector("#timerDisplay").style.display = "block"
-                    document.querySelector(".sidebarOne").style.display = "none"
-                } else {
-                    document.querySelector(".navMain").style.display = "none"
-                    document.querySelector("#muteBtn").style.display = "none"
-                    document.querySelector("#timerDisplay").style.display = "none"
-                }
-            });
-
-        } else {
-            // after unsuccessful submission
-            document.getElementById("error").style.color = "red";
-            if (Number(n) <= 0 || !Number.isInteger(Number(n)) || n === "") {
-                const modal = document.getElementById("colorWarningModal");
-                
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            } else if (unit === "unit") {
-                const modal = document.getElementById("timeIntervalWarningModal");
-                
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            } else if (view === "select") {
-                const modal = document.getElementById("viewWarningModal");
-            
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            } else if (countdownValue <= 0) {
-                const modal = document.getElementById("countdownWarningModal");
-                
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            } else if (soundEffect !== 'none' && selectedFile || soundEffect !== 'none' && youtubeUrl || youtubeUrl && selectedFile) {
-                const modal = document.getElementById("noMusicFileWarningModal");
-            
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            } else if (document.getElementById('PreviewButton').textContent === "Stop") {
-                const modal = document.getElementById("stopPreviewWarningModal");
-            
-                modal.style.display = "block";
-
-                window.onclick = function (event) 
-                {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                 }
-                }
-            }
-
-            return;
         }
-    }
+    } catch (error) { alert('chatbot is loading...') }
+
 
 
     function startSimulation(n, set_time, unit, view, color1, color2) {
@@ -633,13 +629,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update music dropdown
         musicSelect.value = soundSelect.value;
     });
-    // let musicMuted = false; // Variable to track whether music is muted
 
     // let currentMusic;
     function pauseSimulation() {
         clearInterval(timerInterval);
         clearInterval(lightInterval);
-        // document.getElementById('musicDropdown').style.display="none";
         if (musicAudio) {
             musicMuted = musicAudio.muted; // Remember the mute state
             musicAudio.pause();
@@ -648,12 +642,8 @@ document.addEventListener('DOMContentLoaded', () => {
             musicMuted = selectedAudio.muted; // Remember the mute state
             selectedAudio.pause();
         }
-        /*  document.getElementById('changeMusic').style.display = 'none';//to disable changing of music when simulation is paused. 
-        pauseStartButton.textContent = 'Resume';
-        isPaused = true;*/
-        // console.log(musicAudio); testing
 
-        pauseStartButton.innerHTML='<i class="fa-solid fa-play"></i>Resume';
+        pauseStartButton.innerHTML = '<i class="fa-solid fa-play"></i>Resume';
         isPaused = true;
 
     }
@@ -674,11 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('color1').value,
             document.getElementById('color2').value
         );
-        // console.log(musicAudio); testing
-        /*let text = document.getElementById("pauseStartBtn").innerHTML;
-        pauseStartButton.textContent = 'Pause';
-        //pauseStartButton.textContent = document.getElementById("pauseStartBtn").innerHTML;
-        isPaused = false;*/
+
         pauseStartButton.innerHTML = '<i class="fa-solid fa-pause"></i>Pause';
         isPaused = false;
     }
@@ -783,72 +769,56 @@ window.onload = function () {
     animateText();
     snowflakes();
 };
-function snowflakes(){
+function snowflakes() {
     // Snowflakes animation logic
     const snowflakesContainer = document.querySelector(".snowflakes");
-const numberOfSnowflakes = 300;
+    const numberOfSnowflakes = 300;
 
-for (let i = 0; i < numberOfSnowflakes; i++) {
-    const snowflake = document.createElement("div");
-    snowflake.classList.add("snowflake");
-    snowflake.style.left = `${Math.random() * 100}%`;
-    snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
-    snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-    snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
-    snowflakesContainer.appendChild(snowflake);
+    for (let i = 0; i < numberOfSnowflakes; i++) {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = `${Math.random() * 100}%`;
+        snowflake.style.animationDelay = `${Math.random() * 10}s`; // Randomize animation delay
+        snowflake.style.width = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+        snowflake.style.height = `${Math.random() * 6 + 2}px`; // Randomize snowflake size (2px to 8px)
+        snowflakesContainer.appendChild(snowflake);
+    }
 }
-}
 
 
-    //the success and failure wale pop ups 
-    const failNotif = document.getElementById('failnotification');
-    const successNotif = document.getElementById('successnotification');
-    const closeSuccess = document.getElementById('closeSuccessNotification');
-    const closeFail = document.getElementById('closeFailNotification');
+//the success and failure wale pop ups 
+const failNotif = document.getElementById('failnotification');
+const successNotif = document.getElementById('successnotification');
+const closeSuccess = document.getElementById('closeSuccessNotification');
+const closeFail = document.getElementById('closeFailNotification');
 
-    const successMessage = document.getElementById('successmsg');
-    const failMessage = document.getElementById('failmsg');   
+const successMessage = document.getElementById('successmsg');
+const failMessage = document.getElementById('failmsg');
 
-    closeFail.addEventListener('click', () => {
-        failNotif.style.display = 'none';
-    })
-    closeSuccess.addEventListener('click', () => {
+closeFail.addEventListener('click', () => {
+    failNotif.style.display = 'none';
+})
+closeSuccess.addEventListener('click', () => {
+    successNotif.style.display = 'none';
+})
+
+//in order to add these popups somewhere else please just use these call these two functions
+function showSuccess(message = 'Added Successfully!') {
+    console.log('here')
+    successNotif.style.display = 'flex';
+    successMessage.textContent = message;
+    setTimeout(() => {
         successNotif.style.display = 'none';
-    })
-    
-    //in order to add these popups somewhere else please just use these call these two functions
-    function showSuccess(message = 'Added Successfully!') {
-        console.log('here')
-        successNotif.style.display = 'flex';
-        successMessage.textContent = message;
-        setTimeout(() => {
-            successNotif.style.display = 'none';
-        }, 2000); // current timer is 2 secs. If you want to change, please also change the CSS animation 'timerline' duration accordingly
-    }
-  
-    function showFailed(message = 'Failed!') {
-        failNotif.style.display = 'flex';
-        failMessage.textContent = message;
-        setTimeout(() => {
-            failNotif.style.display = 'none';
-        }, 2000);
-    }
-
-/* function showAboutPopup() {
-    document.getElementById("aboutPopup").style.display = "block";
+    }, 2000); // current timer is 2 secs. If you want to change, please also change the CSS animation 'timerline' duration accordingly
 }
 
-function closeAboutPopup() {
-    document.getElementById("aboutPopup").style.display = "none";
+function showFailed(message = 'Failed!') {
+    failNotif.style.display = 'flex';
+    failMessage.textContent = message;
+    setTimeout(() => {
+        failNotif.style.display = 'none';
+    }, 2000);
 }
-
-function showFeaturesPopup() {
-    document.getElementById('featuresPopup').style.display = 'block';
-}
-
-function closeFeaturesPopup() {
-    document.getElementById('featuresPopup').style.display = 'none';
-} */
 
 
 // Define global variable to store reference to the currently playing audio
@@ -913,13 +883,13 @@ var loader = document.querySelector(".loader");
 window.addEventListener('load', () => {
     var backToTopBtn = document.getElementById("backToTopBtn");
     backToTopBtn.style.display = "none";
-    if(!sessionStorage.getItem('load')){
+    if (!sessionStorage.getItem('load')) {
         setTimeout(effect, 4000);
     }
-    else{
+    else {
         effect();
         const modal = document.getElementById("warningModal");
-        modal.style.display='none';
+        modal.style.display = 'none';
         document.querySelector(".navMain").style.visibility = "visible";
     }
     sessionStorage.setItem('load', true);
@@ -1007,9 +977,9 @@ document.getElementById('savePresetButton').addEventListener('click', namePreset
 document.getElementById('loadPresetButton').addEventListener('click', findPreset);
 
 //saving
-const savePresetModal= document.getElementById('addPresetModal'); 
-const closeAddPresetModal= document.getElementById('closeAddPresetModal');
-const presetName_input= document.getElementById('presetNameInput');
+const savePresetModal = document.getElementById('addPresetModal');
+const closeAddPresetModal = document.getElementById('closeAddPresetModal');
+const presetName_input = document.getElementById('presetNameInput');
 let presetName;
 
 closeAddPresetModal.onclick = function () {
@@ -1017,18 +987,18 @@ closeAddPresetModal.onclick = function () {
 }
 
 //load modal on click
-function namePreset(){
-    savePresetModal.style.display='block';
-    document.getElementById('namePresetButton').addEventListener('click', ()=>{
-        presetName= presetName_input.value.trim();
+function namePreset() {
+    savePresetModal.style.display = 'block';
+    document.getElementById('namePresetButton').addEventListener('click', () => {
+        presetName = presetName_input.value.trim();
         if (!presetName) {
             showFailed('Invalid name entered');
-            }
-        else{
+        }
+        else {
             //go to save preset when valid name is entered
             savePreset();
         }
-        savePresetModal.style.display='none';
+        savePresetModal.style.display = 'none';
     });
 }
 
@@ -1041,37 +1011,37 @@ function savePreset() {
     let unit = document.getElementById("unit").value;
     let view = document.getElementById("view").value;
     let soundEffect = document.getElementById("sound").value;
-    
+
     // Get selected audio file or URL
     let selectedFile = document.getElementById("music-file").files[0];
     let selectedUrl = document.getElementById("music-url").value;
     let youtubeUrl = document.getElementById("youtubeUrlInput").value.trim();
-    
-    
+
+
     if (countdownValue && countdownValue > 0 && Number(n) > 0 && Number.isInteger(Number(n)) && n !== "" && unit !== "unit" && view !== "select" && !(soundEffect !== 'none' && selectedFile) && !(soundEffect !== 'none' && selectedUrl) && !(selectedFile && selectedUrl) &&
-            !(selectedFile && youtubeUrl) &&
-            !(selectedUrl && youtubeUrl) && 
-            !(soundEffect !== 'none' && youtubeUrl)){
-                //conditions for valid execution of simulation
+        !(selectedFile && youtubeUrl) &&
+        !(selectedUrl && youtubeUrl) &&
+        !(soundEffect !== 'none' && youtubeUrl)) {
+        //conditions for valid execution of simulation
 
-                const presetData = {
-                    color: document.getElementById('color').value,
-                    color1: document.getElementById('color1').value,
-                    color2: document.getElementById('color2').value,
-                    time: document.getElementById('time').value,
-                    unit: document.getElementById('unit').value,
-                    view: document.getElementById('view').value,
-                    countdown: document.getElementById('countdown').value,
-                    sound: document.getElementById('sound').value,
-                    youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
-            
-                };
-            
-                // Save data to localStorage
-                localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+        const presetData = {
+            color: document.getElementById('color').value,
+            color1: document.getElementById('color1').value,
+            color2: document.getElementById('color2').value,
+            time: document.getElementById('time').value,
+            unit: document.getElementById('unit').value,
+            view: document.getElementById('view').value,
+            countdown: document.getElementById('countdown').value,
+            sound: document.getElementById('sound').value,
+            youtubeUrlInput: document.getElementById('youtubeUrlInput').value,
 
-                showSuccess('Saved successfully')
-            }
+        };
+
+        // Save data to localStorage
+        localStorage.setItem(`preset-${presetName}`, JSON.stringify(presetData));
+
+        showSuccess('Saved successfully')
+    }
     else {
         // after unsuccessful saving of preset 
         showFailed("Please fill all required fields");
@@ -1080,27 +1050,27 @@ function savePreset() {
 }
 
 //loading
-const loadPresetModal= document.getElementById('loadPresetModal'); 
-const closeLoadPresetModal= document.getElementById('closeLoadPresetModal');
-const load_input= document.getElementById('presetNameLoadInput');
+const loadPresetModal = document.getElementById('loadPresetModal');
+const closeLoadPresetModal = document.getElementById('closeLoadPresetModal');
+const load_input = document.getElementById('presetNameLoadInput');
 let loadName;
 
 closeLoadPresetModal.onclick = function () {
     loadPresetModal.style.display = 'none';
 }
 //show modal for loading
-function findPreset(){
-    loadPresetModal.style.display='block';
-    document.getElementById('loadButton').addEventListener('click', ()=>{
-        loadName= load_input.value.trim();
+function findPreset() {
+    loadPresetModal.style.display = 'block';
+    document.getElementById('loadButton').addEventListener('click', () => {
+        loadName = load_input.value.trim();
         if (!loadName) {
             showFailed('Invalid name entered');
-            }
-        else{
+        }
+        else {
             //go to load preset when entry is valid
             loadPreset();
         }
-        loadPresetModal.style.display='none';
+        loadPresetModal.style.display = 'none';
     });
 }
 
@@ -1125,63 +1095,6 @@ function loadPreset() {
     showSuccess('Preset loaded!');
 }
 
-// const cursor = document.querySelector(".cursor");
-// var timeout;
-// document.addEventListener("mousemove", (e) => {
-//     let x = e.pageX;
-//     let y = e.pageY;
-
-//     cursor.style.top = `${e.clientY}px`;
-//     cursor.style.left = `${e.clientX}px`;
-//     cursor.style.display = "block";
-
-//     function mousestopped() {
-//         cursor.style.display = "none";
-//     }
-//     clearTimeout(timeout);
-//     timeout = setTimeout(mousestopped, 1000);
-
-// });
-// document.addEventListener("mouseout", () => {
-//     cursor.style.display = "none";
-// });
-
-// document.querySelector('#ll').addEventListener("submit", (event) => {
-//     if (document.querySelector("#name").value === " " && document.querySelector("#email").value === " ") {
-//         event.preventDefault();
-//     }
-// });
-
-// feedback 
-// document.getElementById("CommentBtn").addEventListener("click", function () {
-//     document.getElementById("modalBackground").style.display = "flex";
-// });
-
-// document.getElementById("modalBackground").addEventListener("click", function (event) {
-//     if (event.target === this) {
-//         this.style.display = "none";
-//     }
-// });
-
-// document.querySelector("form").addEventListener("submit", function (event) {
-//     event.preventDefault(); // Prevent form submission
-
-//     // Show success message
-//     document.getElementById("successMessage").style.display = "block";
-
-//     // Hide success message after 3 seconds (3000 milliseconds)
-//     setTimeout(function () {
-//         document.getElementById("successMessage").style.display = "none";
-//     }, 3000);
-
-//     setTimeout(() => {
-//         document.querySelector("form").reset();
-//         alert("Form Submitted Successfully");
-//     }, 3000)
-//     setTimeout(() => {
-//         location.reload();
-//     }, 5000)
-// });
 
 document.addEventListener("ContentLoaded", () => {
     const btnn = document.querySelector(".btnna");
@@ -1287,35 +1200,6 @@ document.getElementById('PreviewButton').addEventListener('click', function () {
         });
     }
 });
-
-// document.getElementById("submit").addEventListener("click", function() {
-//     const pattern = document.getElementById("pattern").value;
-
-//     // Clear any existing intervals to avoid overlapping patterns
-//     const highestIntervalId = setInterval(() => {}, 1000);
-//     for (let i = 0; i < highestIntervalId; i++) {
-//         clearInterval(i);
-//     }
-
-//     // Reset the effects when "None" is selected
-//     resetEffects();
-
-//     switch(pattern) {
-//         case "flashing":
-//             flashingEffect();
-//             break;
-//         case "fading":
-//             fadingEffect();
-//             break;
-//         case "cycling":
-//             cyclingEffect();
-//             break;
-//         case "none":
-//         default:
-//             // Do nothing, as the resetEffects() will clear everything
-//             break;
-//     }
-// });
 
 function resetEffects() {
     document.body.style.opacity = 1; // Reset opacity

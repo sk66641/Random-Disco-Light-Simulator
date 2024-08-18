@@ -1,7 +1,7 @@
 # <p align="center">✨Random Disco Light Simulator✨</p>
 
 <p align="center">
-  <img src="https://phoneky.co.uk/thumbs/screensavers/down/abstract/disco_9fw9rkon.gif" alt="Disco Light Simulator" />
+  <img src="https://phoneky.co.uk/thumbs/screensavers/down/abstract/disco_9fw9rkon.gif" alt="Disco Light Simulator" style="border-radius: 25%" />
 </p>
 
 <div align="center">
@@ -158,7 +158,7 @@ Customize your disco experience with these inputs:
 - **Time Interval**: Control how frequently colors change with precision, down to the millisecond.
 - **View Type**: Indulge in your preferred view mode—conic, linear, or radial—each offering a unique visual feast.
 - **Countdown Timer**: Set the duration of your disco journey with a countdown timer, ensuring the party lasts as long as you desire.
-- **Sound Effect**: Elevate your experience further with optional sound effects that sync harmoniously with the dazzling display.
+- **Sound Effect**: Elevate your experience further with optional sound effects. You can also use youtube videos link to transform it into audio.
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -173,33 +173,41 @@ Based on these inputs, the simulator will generate the selected view, creating a
         <td>
             <ul>
                 <li>1000</li>
+                <li>(optional)</li>
                 <li>1 millisecond</li>
                 <li>conic</li>
                 <li>60</li>
+                <li>(optional)</li>
             </ul>
         </td>
         <td>
             <ul>
                 <li>1000</li>
+                <li>(optional)</li>
                 <li>1 millisecond</li>
                 <li>radial</li>
                 <li>60</li>
+                <li>(optional)</li>
             </ul>
         </td>
         <td>
             <ul>
                 <li>2</li>
+                <li>(optional)</li>
                 <li>500 milliseconds</li>
                 <li>linear</li>
                 <li>60</li>
+                <li>(optional)</li>
             </ul>
         </td>
         <td>
             <ul>
                 <li>1000</li>
+                <li>(optional)</li>
                 <li>1 millisecond</li>
                 <li>linear</li>
                 <li>60</li>
+                <li>(optional)</li>
             </ul>
         </td>
         </tr>

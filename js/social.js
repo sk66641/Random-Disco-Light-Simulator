@@ -27,9 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // When the user clicks on a social media link, show the modal
     socialLinks.forEach(function(link) {
-      link.onclick = function(event) {
-        event.preventDefault();
-        accountNotAvailableModal.style.display = "block";
+      if (link.title!="github") {
+        link.onclick = function(event) {
+          event.preventDefault();
+          accountNotAvailableModal.style.display = "block";
+        }
       }
     });
   });
