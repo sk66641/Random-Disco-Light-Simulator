@@ -47,27 +47,23 @@ body {
   overflow-y: auto;
   /* Enable vertical scrolling */
   overflow-x: hidden;
-
 }
 
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
-	background-color: rgb(185, 234, 234);
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  background-color: rgb(185, 234, 234);
 }
 
-::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
 }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: #FFF;
+::-webkit-scrollbar-thumb {
+  background-color: #FFF;
   border-radius: 10px;
-	/* background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent) */
-  background-image: linear-gradient(90deg,rgb(147, 55, 246),rgb(211, 121, 246));
+  /* background-image: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 25%,transparent 100%,rgba(0, 0, 0, 1) 75%,transparent) */
+  background-image: linear-gradient(90deg, rgb(147, 55, 246), rgb(211, 121, 246));
 }
 
 .unload {
@@ -101,7 +97,6 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-
 }
 
 .background .shape {
@@ -127,13 +122,15 @@ body {
   text-shadow: 2px 2px white;
 }
 
-.form input:hover{
+.form input:hover {
   background-color: #4a1234;
 }
-.light-mode .form input:hover{
+
+.light-mode .form input:hover {
   background-color: #d6cccc;
   border: 1.5px solid #f09819;
 }
+
 #unit:hover,
 #view:hover,
 #sound:hover,
@@ -150,7 +147,6 @@ input[type="color"]:hover {
 #youtubeUrlInput:hover+#n {
   text-shadow: 2px 2px white;
 }
-
 
 h1 {
   font-size: 25px;
@@ -197,12 +193,14 @@ h1 {
   /* Show tooltip on hover */
 }
 
-
 .box {
-  /* min-height: 100vh; */
-  /* max-width: calc(100% - 40px); */
+  /* min-height: 100vh;
+  */
+  /* max-width: calc(100% - 40px);
+  */
   position: relative;
-  /* background: rgba(255, 255, 255, 0.063); */
+  /* background: rgba(255, 255, 255, 0.063);
+  */
   backdrop-filter: blur(10px);
   padding: 10px 25px;
   overflow: visible;
@@ -238,11 +236,8 @@ h1 {
   background: conic-gradient(from var(--gradient-angle), #f34b4e, #ff6d8d, #8eebe8fc, #776ede, #8eebe8fc, #ed666c);
   border-radius: inherit;
   animation: moving 3s linear infinite;
-
-  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
-    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%), linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
 }
-
 
 @keyframes moving {
   0% {
@@ -255,14 +250,17 @@ h1 {
 }
 
 label {
-  /* font-size: 22px; */
+  /* font-size: 22px;
+  */
   font-size: 20px;
-  /* font-weight: 300; */
+  /* font-weight: 300;
+  */
   font-family: "Poppins", sans-serif;
 }
 
 input {
-  /* background-color: rgba(255, 255, 255, 0.07); */
+  /* background-color: rgba(255, 255, 255, 0.07);
+  */
   background: #290a1d;
   outline: none;
   border: none;
@@ -280,7 +278,8 @@ input {
 
 input:focus {
   outline: none;
-  /* width: 4rem; */
+  /* width: 4rem;
+  */
   border: none;
 }
 
@@ -343,10 +342,7 @@ select option {
 #submit a:hover {
   background-color: #ff4d00;
   color: #050801;
-  box-shadow: 0 0 5px #ff4d00,
-    0 0 25px #ff4d00,
-    0 0 50px #ff4d00,
-    0 0 200px #ff4d00;
+  box-shadow: 0 0 5px #ff4d00, 0 0 25px #ff4d00, 0 0 50px #ff4d00, 0 0 200px #ff4d00;
 }
 
 #submit a span {
@@ -451,10 +447,7 @@ select option {
 #reset a:hover {
   background-color: #e35ee5;
   color: #050801;
-  box-shadow: 0 0 5px #e35ee5,
-    0 0 25px #e35ee5,
-    0 0 50px #e35ee5,
-    0 0 200px #e35ee5;
+  box-shadow: 0 0 5px #e35ee5, 0 0 25px #e35ee5, 0 0 50px #e35ee5, 0 0 200px #e35ee5;
 }
 
 #reset a span {
@@ -542,7 +535,6 @@ select option {
   animation-delay: 0.75s;
 }
 
-
 @keyframes animate4 {
   0% {
     bottom: -100%;
@@ -571,10 +563,7 @@ select option {
 #randomize a:hover {
   background-color: #03e9f4;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
-    0 0 200px #03e9f4;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
 }
 
 #randomize a span {
@@ -662,7 +651,6 @@ select option {
   animation-delay: 0.75s;
 }
 
-
 @keyframes animate4 {
   0% {
     bottom: -100%;
@@ -678,9 +666,7 @@ select option {
   justify-content: center;
   margin-top: 10px;
   display: flex;
-
   margin-bottom: 10px;
-
   align-items: center;
   gap: 20px;
 }
@@ -730,25 +716,27 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
-.light-mode nav ul li a{
+.light-mode nav ul li a {
   color: rgb(21, 20, 20);
 }
-.light-mode #changeMusic select{
+
+.light-mode #changeMusic select {
   color: rgb(21, 20, 20);
 }
+
 .editdropdown li a {
   font-size: 16px;
   height: 30px;
   padding-top: 0.3rem;
-  /* transition: 0.1s all; */
+  /* transition: 0.1s all;
+  */
 }
-.editdropdown{
+
+.editdropdown {
   margin-top: -0.4rem;
   padding-left: 0.5rem;
   margin-bottom: 0.3rem;
-
 }
-
 
 @media only screen and (max-width: 850px) {
   h1 {
@@ -777,20 +765,15 @@ nav ul li a:hover {
   }
 }
 
-
 @media only screen and (max-width: 950px) {
-
   .box {
     padding: 10px 15px;
     width: auto;
     height: auto;
-
   }
 }
 
-
 @media only screen and (max-width: 1175px) {
-
   .box {
     max-width: calc(100% - 40px);
     position: relative;
@@ -833,14 +816,12 @@ nav ul li a:hover {
     width: 15px;
   }
 
-
   .box {
     padding: 10px 15px;
     margin: auto;
     width: auto;
     height: auto;
     margin-top: 50px;
-
   }
 }
 
@@ -851,13 +832,15 @@ nav ul li a:hover {
 }
 
 @media only screen and (max-width: 320px) {
-  /* * {
-    font-size: 12px !important;
-  } */
 
+  /* * {
+      font-size: 12px !important;
+ }
+  */
   h1 {
     overflow-wrap: break-word;
-    /* font-size: 14px !important; */
+    /* font-size: 14px !important;
+      */
   }
 
   .copyright {
@@ -872,13 +855,11 @@ nav ul li a:hover {
     width: 15px;
   }
 
-
   .box {
     padding: 10px 15px;
     width: 350px;
     height: auto;
   }
-
 }
 
 #timerDisplay {
@@ -982,26 +963,26 @@ nav ul li a:hover {
 }
 
 /* Checkbox Checked State */
-.switch-checkbox:checked + .theme-switch {
+.switch-checkbox:checked+.theme-switch {
   background-color: #34495e;
 }
 
-.switch-checkbox:checked + .theme-switch .light-mode-icon {
+.switch-checkbox:checked+.theme-switch .light-mode-icon {
   opacity: 0;
 }
 
-.switch-checkbox:checked + .theme-switch .dark-mode-icon {
+.switch-checkbox:checked+.theme-switch .dark-mode-icon {
   opacity: 1;
 }
 
-.switch-checkbox:checked + .theme-switch .toggle-button {
+.switch-checkbox:checked+.theme-switch .toggle-button {
   transform: translateX(13px);
-  /* background-color: #34495e; */
+  /* background-color: #34495e;
+  */
 }
 
 /* sidebar social icons panel */
 .socialIcons {
-
   position: fixed;
   top: 50%;
   right: 2%;
@@ -1010,10 +991,8 @@ nav ul li a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 30px;
   backdrop-filter: blur(8px);
-
 }
 
 .icons {
@@ -1037,11 +1016,7 @@ nav ul li a:hover {
   height: 40px;
   top: -40px;
   left: 0;
-  background: linear-gradient(40deg,
-      rgb(246, 126, 28),
-      rgb(221, 54, 54),
-      rgb(250, 41, 118),
-      rgb(214, 18, 214));
+  background: linear-gradient(40deg, rgb(246, 126, 28), rgb(221, 54, 54), rgb(250, 41, 118), rgb(214, 18, 214));
   position: absolute;
   transition: 0.5s;
 }
@@ -1052,19 +1027,11 @@ nav ul li a:hover {
 }
 
 .icons:nth-child(1) a::after {
-  background: linear-gradient(40deg,
-      rgb(13, 108, 139),
-      rgb(48, 106, 126),
-      rgb(38, 126, 156),
-      rgb(15, 112, 145));
+  background: linear-gradient(40deg, rgb(13, 108, 139), rgb(48, 106, 126), rgb(38, 126, 156), rgb(15, 112, 145));
 }
 
 .icons:nth-child(2) a::after {
-  background: linear-gradient(40deg,
-      rgb(246, 126, 28),
-      rgb(221, 54, 54),
-      rgb(250, 41, 118),
-      rgb(214, 18, 214));
+  background: linear-gradient(40deg, rgb(246, 126, 28), rgb(221, 54, 54), rgb(250, 41, 118), rgb(214, 18, 214));
 }
 
 .icons:nth-child(3) a::after {
@@ -1074,9 +1041,9 @@ nav ul li a:hover {
 .icons:nth-child(4) a::after {
   background: rgb(173, 199, 90)
 }
+
 .icons:nth-child(5) a::after {
-  background:
-    rgb(88, 101, 242)
+  background: rgb(88, 101, 242)
 }
 
 .ico {
@@ -1085,9 +1052,7 @@ nav ul li a:hover {
   z-index: 20;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
-
   color: white;
 }
 
@@ -1102,7 +1067,6 @@ nav ul li a:hover {
 
 @media (max-width: 750px),
 (max-height: 700px) {
-
   .socialIcons {
     position: relative;
     display: flex;
@@ -1116,11 +1080,8 @@ nav ul li a:hover {
     bottom: 0%;
     width: 100%;
     justify-content: center;
-
-
   }
 }
-
 
 #facebook:hover {
   background-color: #3B5998;
@@ -1139,7 +1100,6 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 
-
 #youtube:hover {
   background-color: #C31A1E;
   transition: 0.5s;
@@ -1154,7 +1114,6 @@ nav ul li a:hover {
 }
 
 @media screen and (max-width : 414px) {
-
   .box {
     padding: 10px 15px;
     width: min-content;
@@ -1162,7 +1121,6 @@ nav ul li a:hover {
     margin: auto;
     margin-top: 50px;
   }
-
 
   .input {
     width: 15px;
@@ -1190,11 +1148,13 @@ nav ul li a:hover {
   backdrop-filter: blur(5px);
 }
 
-#addtimeModel{
-  backdrop-filter:blur(1px);
+#addtimeModel {
+  backdrop-filter: blur(1px);
 }
+
 .modal-content {
-  background: linear-gradient(135deg, red 0%, orange 100%);  margin: 10% auto;
+  background: linear-gradient(135deg, red 0%, orange 100%);
+  margin: 10% auto;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1206,7 +1166,7 @@ nav ul li a:hover {
 }
 
 .modal-content p strong {
-  color: #4B0082; 
+  color: #4B0082;
 }
 
 @keyframes slide-down {
@@ -1270,7 +1230,8 @@ button:hover {
   width: 100%;
   height: 100%;
   /* pointer-events: none;
-  z-index: -1; */
+  z-index: -1;
+  */
 }
 
 .snowflake {
@@ -1570,16 +1531,15 @@ button:hover {
   font-weight: 100;
   transition: 0.2s all;
 }
+
 #changeMusic select:hover {
   color: #ff7f50;
   transform: scale(1.17);
 }
 
-
 .dark-mode {
   background-color: black;
   color: white;
-
 }
 
 .light-mode {
@@ -1595,13 +1555,13 @@ button:hover {
 }
 
 .light-mode .box {
-  /* min-height: 100vh; */
+  /* min-height: 100vh;
+  */
   /*box was taking whole vh,20 margin from top and bottom, also became responsive through this, preventing them from overflowing */
   max-width: calc(100% - 40px);
   /*box was taking whole vw gave them 20 margin from top and bottom also making its resposive and preventing from overflowing */
   overflow: visible;
   position: relative;
-
   /* Added scroll because content overflows */
   background: rgba(0, 0, 0, 0.13);
   border-radius: 5px;
@@ -1626,9 +1586,7 @@ button:hover {
   background: conic-gradient(from var(--gradient-angle), #f34ba5, #f8597b, #76acdbfc, #776ede, #33fff8fc, #ed7866);
   border-radius: inherit;
   animation: moving 3s linear infinite;
-
-  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%),
-    linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
+  mask: linear-gradient(to right, black 0.5%, transparent 0%, transparent 99.5%, black 90%), linear-gradient(to bottom, black 0.5%, transparent 0%, transparent 99.5%, black 90%);
 }
 
 .light-mode ::placeholder {
@@ -1676,7 +1634,8 @@ button:hover {
   width: 100%;
   height: 100%;
   /* pointer-events: none;
-  z-index: -1; */
+  z-index: -1;
+  */
 }
 
 .light-mode .snowflake {
@@ -1721,8 +1680,6 @@ button:hover {
   }
 }
 
-
-
 .box h1 {
   font-family: "Poppins", sans-serif;
   font-size: 39px;
@@ -1731,7 +1688,8 @@ button:hover {
 
 .box span {
   /* font-family: Arial, sans-serif;
-  font-size: 39px; */
+  font-size: 39px;
+  */
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -1800,7 +1758,6 @@ button:hover {
   /* Yellow color for selected star */
 }
 
-
 .header {
   margin-top: 100px;
   width: 100vw;
@@ -1831,7 +1788,8 @@ button:hover {
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
-.light-mode .sidebarOne{
+
+.light-mode .sidebarOne {
   background-color: rgba(220, 219, 217, 0.281);
 }
 
@@ -1901,7 +1859,6 @@ button:hover {
   }
 }
 
-
 .sidebar ul {
   flex-direction: column;
   justify-content: flex-start;
@@ -1941,7 +1898,8 @@ button:hover {
 }
 
 #music-file {
-  /* width: 260px; */
+  /* width: 260px;
+  */
   font-size: 20px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
@@ -1957,20 +1915,15 @@ button {
   border-radius: 10px;
   font-weight: bold;
   font-size: 16px;
-
   border: 0;
-
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-
   cursor: pointer;
-
   box-shadow: rgba(0, 0, 0, 0.1) -3px -3px 9px inset, rgba(0, 0, 0, 0.15) 0 3px 9px inset, rgba(0, 0, 0, 0.6) 0 1px 1px inset, rgba(0, 0, 0, 0.3) 0 -8px 36px inset, rgba(0, 0, 0, 0.6) 0 1px 5px inset, rgba(0, 0, 0, 0.2) 2px 19px 31px;
   background-color: #06c5ff;
   background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, .23) 0, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 69.79%, rgba(0, 0, 0, 0) 100%);
   transition: all 150ms ease-in-out;
-
 }
 
 button:hover {
@@ -1981,23 +1934,27 @@ button:active {
   transform: scale(.95);
 }
 
-
 @keyframes disco-border {
   0% {
     border-color: red;
   }
+
   20% {
     border-color: yellow;
   }
+
   40% {
     border-color: green;
   }
+
   60% {
     border-color: cyan;
   }
+
   80% {
     border-color: rgb(71, 71, 255);
   }
+
   100% {
     border-color: magenta;
   }
@@ -2008,12 +1965,12 @@ button:active {
   width: 108px;
   height: 102px;
   border: 2px solid;
-  border-color: purple; /* Fallback color */
+  border-color: purple;
+  /* Fallback color */
   animation: disco-border 6s linear infinite;
 }
 
 @media (max-width: 780px) {
-
   .navHeader .header-content nav .logo img {
     margin-right: auto;
     width: 108px;
@@ -2022,8 +1979,7 @@ button:active {
     border-color: purple;
     animation: disco-border 6s linear infinite;
     margin-bottom: 17px;
-}
-  
+  }
 }
 
 .icon {
@@ -2118,10 +2074,7 @@ button:active {
   background: #03f40f;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03f40f,
-    0 0 25px #03f40f,
-    0 0 50px #03f40f,
-    0 0 100px #03f40f;
+  box-shadow: 0 0 5px #03f40f, 0 0 25px #03f40f, 0 0 50px #03f40f, 0 0 100px #03f40f;
 }
 
 .login-box button span {
@@ -2148,7 +2101,6 @@ button:active {
   background: linear-gradient(90deg, transparent, #03f40f);
   animation: btn-anim1 2s linear infinite;
 }
-
 
 .glitch {
   position: relative;
@@ -2261,16 +2213,11 @@ button:active {
   height: 20px;
   border-radius: 50px;
   pointer-events: none;
-  box-shadow: 0 0 20px #2696E8,
-    0 0 60px #2696E8,
-    0 0 60px #2696E8;
+  box-shadow: 0 0 20px #2696E8, 0 0 60px #2696E8, 0 0 60px #2696E8;
   animation: colors 5s infinite;
   transform: translate(-50%, -50%);
   display: none;
-
 }
-
-
 
 .cursor:before {
   content: '';
@@ -2288,18 +2235,19 @@ button:active {
   justify-content: center;
   gap: 20px;
 }
+
 /* used for removing the google translate bar */
-.VIpgJd-ZVi9od-ORHb-OEVmcd{
-  display: none; 
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none;
 }
+
 /* used for removing the google translate reloading */
-.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
   display: none;
 }
 
 goog-logo-link,
-.goog-te-banner-frame
-{
+.goog-te-banner-frame {
   display: none !important;
 }
 
@@ -2319,7 +2267,8 @@ goog-logo-link,
 }
 
 .dark-mode body {
-  background-color: #181818; /* Dark mode background */
+  background-color: #181818;
+  /* Dark mode background */
   color: var(--text-color-dark);
 }
 
@@ -2349,64 +2298,12 @@ goog-logo-link,
   box-shadow: none !important;
 }
 
-/* Account Not Available Modal Styles */
-.account-not-available-modal {
-  display: none; 
-  position: fixed; 
-  z-index: 100; 
-  padding-top: 100px; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
-}
-
-.account-not-available-modal-content {
-  background: linear-gradient(to right, #42f58c, #c8f7dc);
-
-  color: #ffffff;
-  margin: auto;
-  padding: 30px;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  animation: fadeIn 0.5s;
-}
-
-.account-not-available-modal .close {
-  color: #ffffff;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.account-not-available-modal .close:hover,
-.account-not-available-modal .close:focus {
-  color: #bdc3c7;
-  text-decoration: none;
-}
-
-.account-not-available-modal h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.account-not-available-modal p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 20px 0;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -2414,21 +2311,20 @@ goog-logo-link,
 }
 
 .account-not-available-modal {
-  display: none; 
-  position: fixed; 
-  z-index: 100; 
-  padding-top: 100px; 
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.8); 
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .account-not-available-modal-content {
   background: linear-gradient(to right, #42f58c, #c8f7dc);
-
   color: #ffffff;
   margin: auto;
   padding: 30px;
@@ -2470,6 +2366,7 @@ goog-logo-link,
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -2477,7 +2374,7 @@ goog-logo-link,
 }
 
 /* formatting the little back arrow on feature and about page */
-.backbtn{
+.backbtn {
   font-size: 1rem;
   padding-left: -25px;
   padding-top: 1rem;
@@ -2489,7 +2386,8 @@ goog-logo-link,
 
 /* Example CSS for the edit popup */
 .edit-popup {
-  display: none; /* Hide popup by default */
+  display: none;
+  /* Hide popup by default */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -2500,12 +2398,13 @@ goog-logo-link,
   z-index: 1000;
 }
 
-#addTimeOption{
-  color: black ;
+#addTimeOption {
+  color: black;
 }
 
 .edit-popup.show-edit-popup {
-  display: block; /* Show popup when class is applied */
+  display: block;
+  /* Show popup when class is applied */
 }
 
 .edit-popup-content {
@@ -2516,28 +2415,29 @@ goog-logo-link,
 
 .footer-left,
 .footer-right {
-    display: flex;
-    align-items: center; /* Ensure items inside are centered vertically */
+  display: flex;
+  align-items: center;
+  /* Ensure items inside are centered vertically */
 }
 
 .footer-left {
-    justify-content: flex-start;
-    padding-left: 20px; 
+  justify-content: flex-start;
+  padding-left: 20px;
 }
 
 .footer-right {
-    justify-content: flex-end;
-    padding-right: 20px; 
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .footer-link {
-    color: white;
-    text-decoration: none;
-    font-size: 17px; 
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .footer-link:hover {
-    color: lightblue;
+  color: lightblue;
 }
 
 /* The success and failure popups that show up along with add time alert */
@@ -2549,25 +2449,29 @@ goog-logo-link,
   padding: 10px;
   padding-left: 4px;
   border-radius: 5px;
-  z-index: 1200;/*we need it to show above the mute btn*/
+  z-index: 1200;
+  /*we need it to show above the mute btn*/
   width: 300px;
   position: fixed;
   top: 65px;
-  /* margin-left: 90vw; */
+  /* margin-left: 90vw;
+  */
   right: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-out;
-  
 }
+
 #successnotification:hover,
 #failnotification:hover {
-    background-color: white; 
-    filter: initial;
+  background-color: white;
+  filter: initial;
 }
-#failnotification{
+
+#failnotification {
   border: 0.2px solid #f44336;
 }
-#successnotification{
+
+#successnotification {
   border: 0.2px solid #36f43f;
 }
 
@@ -2597,34 +2501,53 @@ goog-logo-link,
   height: 5px;
   animation: timerline 2s linear forwards;
 }
+
 #failnotification .timerline {
   background-color: #f44336;
-  }
+}
+
 #successnotification .timerline {
   background-color: #4cf436;
 }
-.closenotif:hover{
-  cursor:pointer;
+
+.closenotif:hover {
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes timerline {
-  from { width: 100%; }
-  to { width: 0; }
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 415px) {
   * {
     font-size: 10px !important;
   }
-  h1{
+
+  h1 {
     font-size: 12px !important;
   }
-  .light-mode *{
+
+  .light-mode * {
     font-size: 10px !important;
+  }
+
+  .light-mode .box {
+    width: fit-content;
   }
 }

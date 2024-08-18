@@ -893,8 +893,9 @@ window.addEventListener('load', () => {
     }
     else {
         effect();
-        const modal = document.getElementById("warningModal");
-        modal.style.display = 'none';
+        // comment !important
+        // const modal = document.getElementById("warningModal");
+        // modal.style.display = 'none';
         document.querySelector(".navMain").style.visibility = "visible";
     }
     sessionStorage.setItem('load', true);
