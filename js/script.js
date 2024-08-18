@@ -236,11 +236,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 !(selectedFile && youtubeUrl) &&
                 !(selectedUrl && youtubeUrl) &&
                 !(soundEffect !== 'none' && youtubeUrl)) {
+
+                // after successful submission
                 try { document.getElementById("tidio-chat").style.display = "none" } catch (error) {
                     alert('chatBot still loading...')
                     return;
                 }
-                // after successful submission
+                
+                document.documentElement.requestFullscreen()
+                document.getElementById('fullscreenBtn').textContent = 'Exit Fullscreen';
+
                 document.getElementById("error").innerHTML = "";
                 document.querySelector(".footer").style.display = "none";
                 // document.querySelector(".navHeader").style.display = "none";

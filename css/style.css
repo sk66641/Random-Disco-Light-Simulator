@@ -1194,7 +1194,7 @@ nav ul li a:hover {
   backdrop-filter:blur(1px);
 }
 .modal-content {
-  background: linear-gradient(135deg, #923ae4 0%, #3f95eb 100%);  margin: 10% auto;
+  background: linear-gradient(135deg, red 0%, orange 100%);  margin: 10% auto;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -1823,7 +1823,7 @@ button:hover {
   width: 230px;
   background-color: rgba(0, 0, 0, 0.697);
   backdrop-filter: blur(3px);
-  z-index: 999;
+  z-index: 10000;
   display: none;
   flex-direction: column;
   padding-top: 50px;
