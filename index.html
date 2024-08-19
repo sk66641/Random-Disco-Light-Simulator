@@ -547,12 +547,11 @@
    <script>
       let platform = navigator.platform
       let ram = navigator.hardwareConcurrency
-      document.getElementById("deviceInfo").innerHTML = `Device: ${platform} <br> RAM: ${ram} GB`
+      document.getElementById("deviceInfo").innerHTML = `platform: ${platform} <br> hardwareConcurrency: ${ram}`
       if (navigator.hardwareConcurrency < 16) {
          document.getElementById("hardwareConcurrencyWarning").innerHTML = `<span style="color: yellow;">⚠️ Performance Warning</span> Our site is currently experiencing high memory usage, a larger <span style="color: yellow;">RAM</span> might be needed to run smoothly. We are working on optimizing the site. We appreciate your patience and understanding as we make these improvements."`
 
       }
-
    </script>
 </body>
 
