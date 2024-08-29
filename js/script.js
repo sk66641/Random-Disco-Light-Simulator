@@ -745,7 +745,7 @@ window.onload = function () {
     const words = ["Light Simulator", "Beat Spectrum"];
     let index = 0;
     let direction = "left";
-    const interval = 100;
+    const interval = 50;
 
     function animateText() {
         const word = words[index];
