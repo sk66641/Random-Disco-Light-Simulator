@@ -546,8 +546,8 @@
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    <script>
       let platform = navigator.platform
-      let ram = navigator.hardwareConcurrency
-      document.getElementById("deviceInfo").innerHTML = `platform: ${platform} <br> hardwareConcurrency: ${ram}`
+      let cores = navigator.hardwareConcurrency
+      document.getElementById("deviceInfo").innerHTML = `platform: ${platform} <br> hardwareConcurrency: ${cores}`
       if (navigator.hardwareConcurrency < 12) {
          document.getElementById("hardwareConcurrencyWarning").innerHTML = `<span style="color: yellow;">⚠️ Performance Warning</span> Our site is currently experiencing high memory usage, a larger <span style="color: yellow;">RAM</span> might be needed to run smoothly. We are working on optimizing the site. We appreciate your patience and understanding as we make these improvements."`
 
