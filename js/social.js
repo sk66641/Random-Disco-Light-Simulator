@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // When the user clicks on a social media link, show the modal
     socialLinks.forEach(function(link) {
-      if (link.title!="github") {
+      if (link.title!="github" && link.title!="linkedin") {
         link.onclick = function(event) {
           event.preventDefault();
           accountNotAvailableModal.style.display = "block";

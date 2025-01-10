@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("YouTube API is ready");
     }
 
-    try {
+    // try {
         function run() {
             let toggler = document.getElementById("sun-moon-mode-toggler")
             let countdownValue = document.getElementById('countdown').value;
@@ -238,10 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 !(soundEffect !== 'none' && youtubeUrl)) {
 
                 // after successful submission
-                try { document.getElementById("tidio-chat").style.display = "none" } catch (error) {
-                    alert('chatBot still loading...')
-                    return;
-                }
+                // try { document.getElementById("tidio-chat").style.display = "none" } catch (error) {
+                //     alert('chatBot still loading...')
+                //     return;
+                // }
                 
                 document.documentElement.requestFullscreen()
                 document.getElementById('fullscreenBtn').textContent = 'Exit Fullscreen';
@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
-    } catch (error) { alert('chatbot is loading...') }
+    // } catch (error) { alert('chatbot is loading...') }
 
 
 
@@ -590,7 +590,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    randomizeButton.addEventListener('click', () => {
+    randomizeButton.addEventListener('click', (event) => {
+        event.preventDefault();
         const colorInput = document.getElementById('color');
         const randomNumColors = Math.floor(Math.random() * 10) + 1;
         colorInput.value = randomNumColors;
